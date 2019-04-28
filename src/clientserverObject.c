@@ -21,7 +21,9 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <fcntl.h>
+#if BIOS_PLATFORM == BIOS_PLATFORM_IRIX || BIOS_PLATFORM == BIOS_PLATFORM_SOLARIS || BIOS_PLATFORM == BIOS_PLATFORM_LINUX
 #include <sys/times.h>
+#endif
 #include <sys/wait.h>
 #include <netinet/in.h>
 #include <netdb.h>
