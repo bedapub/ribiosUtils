@@ -27,8 +27,17 @@
 #define BIOS_PLATFORM_SOLARIS   2
 #define BIOS_PLATFORM_WINNT     3
 #define BIOS_PLATFORM_LINUX     4
+#define BIOS_PLATFORM_APPLE     5
 
-#define BIOS_PLATFORM BIOS_PLATFORM_LINUX
+#ifdef __linux__
+  #define BIOS_PLATFORM BIOS_PLATFORM_LINUX
+#elif _WIN32
+  #define BIOS_PLATFORM BIOS_PLATFORM_WINNT
+#elif __sun
+  #define BIOS_PLATFORM BIOS_PLATFORM_SOLARIS
+#elif __APLE__
+  #define BIOS_PLATFORM BIOS_PLATFORM_APPLE
+#endif
 
 // number of bits in a long integer variable; currently 32 and 64 are supported
 #define BIOS_BITS_PER_LONG 64
