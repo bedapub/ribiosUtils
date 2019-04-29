@@ -35,7 +35,7 @@
   #define BIOS_PLATFORM BIOS_PLATFORM_WINNT
 #elif __sun
   #define BIOS_PLATFORM BIOS_PLATFORM_SOLARIS
-#elif __APLE__
+#elif __APPLE__
   #define BIOS_PLATFORM BIOS_PLATFORM_APPLE
 #endif
 
