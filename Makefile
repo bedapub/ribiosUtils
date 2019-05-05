@@ -9,10 +9,13 @@
 ################################################################################
 R:=R
 
-roxygenise:
+roxygenise: src/ribios_utils.so
 	@echo '====== roxygenize ======'	
 	@(${R} -q -e "library(devtools);document('.')")
 	@echo ' '
+
+src/ribios_utils.so:
+	@(${R} -q -e "library(devtools); load_all('.', compile=TRUE)")
 
 test:
 	@echo '====== test ======'
