@@ -33,9 +33,6 @@ jaccardDistance <- function(x,y) {
 
 #' Calculate pairwise distances between each pair of items in a list
 #' 
-#' Calculate pairwise distances between each pair of items in a list
-#' 
-#' 
 #' @param list A list
 #' @param fun A function that receives two vectors (such as jaccardIndex) and
 #' returns a number (scale)
