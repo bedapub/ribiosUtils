@@ -62,10 +62,6 @@ pairwiseDist <- function(list, fun=jaccardIndex) {
   return(res)
 }
 
-
-
-
-
 #' Calculate pairwise Jaccard Indices between each pair of items in a list
 #' 
 #' @aliases pairwiseJaccardIndex pairwiseJaccardDistance
