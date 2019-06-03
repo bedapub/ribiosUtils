@@ -27,9 +27,47 @@ jaccardDistance <- function(x,y) {
   return(1 - jaccardIndex(x, y))
 }
 
+#' Overlap coefficient, also known as Szymkiewicz-Simpson coefficient
+#'
+#' @aliases overlapCoefficient overlapDistance
+#' @param x A vector
+#' @param y A vector
+#' @param checkUniqueNonNA Logical, if \code{TRUE}, \code{x} and \code{y} are
+#' made unique and non-NA
+#' @return The overlap coefficient
+#' @seealso \code{\link{jaccardIndex}}
+#'
+#' \code{overlapCofficient} calculates the overlap coefficient, and
+#' \code{overlapDistance} is defined by 1-\code{overlapCoefficient}.
+#' @examples
+#' 
+#' myX <- 1:6
+#' myY <- 4:9
+#' overlapCoefficient(myX, myY)
+#' 
+#' myY2 <- 4:10
+#' overlapCoefficient(myX, myY2)
+#' ## compare the result with Jaccard Index
+#' jaccardIndex(myX, myY2)
+#' 
+#' ## overlapDistance
+#' overlapDistance(myX, myY2)
+#' 
+#' @export overlapCoefficient
+overlapCoefficient <- function(x,y, checkUniqueNonNA=FALSE) {
+  if(checkUniqueNonNA) {
+    x <- uniqueNonNA(x)
+    y <- uniqueNonNA(y)
+  }
+  res <- length(intersect(x,y))/pmin(length(x), length(y))
+  return(res)
+}
 
-
-
+#' @export overlapDistance
+#' @rdname overlapCoefficient
+overlapDistance <- function(x,y, checkUniqueNonNA=FALSE) {
+  return(1 - overlapCoefficient(x, y, checkUniqueNonNA = checkUniqueNonNA))
+}
 
 #' Calculate pairwise distances between each pair of items in a list
 #' 
@@ -38,15 +76,19 @@ jaccardDistance <- function(x,y) {
 #' returns a number (scale)
 #' @return A symmetric matrix of dimension \code{mxm}, where \code{m} is the
 #' length of the list
+#' 
+#' This function is inefficient compared with matrix-based methods. It is exported 
+#' just for education and for verifying results of matrix-based methods.
+#' 
 #' @examples
 #' 
 #' myList <- list(first=LETTERS[3:5], second=LETTERS[1:3], third=LETTERS[1:5], fourth=LETTERS[6:10])
-#' pairwiseDist(myList, fun=jaccardIndex)
+#' naivePairwiseDist(myList, fun=jaccardIndex)
 #' ## despite of the name, any function that returns a number can work
-#' pairwiseDist(myList, fun=jaccardDistance)
+#' naivePairwiseDist(myList, fun=jaccardDistance)
 #' 
-#' @export pairwiseDist
-pairwiseDist <- function(list, fun=jaccardIndex) {
+#' @export naivePairwiseDist
+naivePairwiseDist <- function(list, fun=jaccardIndex) {
   len <- length(list)
   res <- matrix(0, len, len)
   colnames(res) <- rownames(res) <- names(list)
@@ -59,6 +101,125 @@ pairwiseDist <- function(list, fun=jaccardIndex) {
   res[lower.tri(res)] <- vv
   res <- t(res) + res
   diag(res) <- do.call(fun, list(list[[1]], list[[1]]))
+  return(res)
+}
+
+#' Pairwise jaccard/overlap coefficient can be calculated efficiently using matrix
+# test <- matrix(rbinom(120, 1, 0.2), nrow=15)
+# testGs <- apply(test, 2, function(x) which(x==1))
+# testPOE <- pairwiseOverlapCoefficient(testGs)
+# 
+# testProd <- t(test) %*% test
+# testLen <- apply(test, 2, function(x) sum(x!=0))
+# testPairMinLen <- outer(testLen, testLen, pmin)
+# testMatPOE <- testProd/testPairMinLen
+# diag(testMatPOE) <- 1L
+# stopifnot(identical(testMatPOE, testPOE))
+
+#' Pairwise overlap coefficient of binary matrix by column
+#' 
+#' @param x An integer matrix, other objects will be coereced into a matrix
+#' @param y An integer matrix, other objects will be coereced into a matrix. In case of 
+#'   \code{NULL}, pairwise overlap coefficients by column of \code{x} is returned.
+#' @return A matrix of column-wise pairwise overlap coefficients of the binary matrix. \code{NaN} 
+#' is reported when neither of the columns have any non-zero element.
+#' 
+#' @examples
+#' 
+#' set.seed(1887)
+#' testMatrix1 <- matrix(rbinom(120, 1, 0.2), nrow=15)
+#' columnOverlapCoefficient(testMatrix1)
+#' 
+#' testMatrix2 <- matrix(rbinom(150, 1, 0.2), nrow=15)
+#' testMatrix12Poe <- columnOverlapCoefficient(testMatrix1, 
+#'   testMatrix2)
+#' \dontrun{
+#'    testMatrix12NaivePoe <- t(apply(testMatrix1, 2, function(x) {
+#'       apply(testMatrix2, 2, function(y) {
+#'          overlapCoefficient(which(x!=0), which(y!=0))
+#'       })
+#'    }))
+#'    dimnames(testMatrix12NaivePoe) <- list(NULL, NULL)
+#'    stopifnot(identical(testMatrix12Poe, testMatrix12NaivePoe ))
+#' }
+#' 
+#' @export columnOverlapCoefficient
+columnOverlapCoefficient <- function(x, y=NULL) {
+  if(!is.matrix(x)) x <- as.matrix(x)
+  if(is.null(y)) y <- x
+  if(is.matrix(y)) y <- as.matrix(y)
+  
+  stopifnot(nrow(x)==nrow(y))
+  storage.mode(x) <- storage.mode(y) <- "integer"
+  
+  tmatProd <- t(x) %*% y
+  xCount <- apply(x, 2, function(xx) sum(xx!=0))
+  yCount <- apply(y, 2, function(yy) sum(yy!=0))
+  tmatPmin <- outer(xCount, yCount, pmin)
+  res <- tmatProd/tmatPmin
+  if(is.null(y)) {
+    diag(res) <- 1L
+  }
+  dimnames(res) <- list(colnames(x), colnames(y))
+  return(res)
+}  res <- columnOverlapCoefficient(mat)
+
+#' Pairwise overlap coefficient of lists
+#' 
+#' @param x A list of vectors that are interpreted as sets of elements
+#' @param y A list of vectors that are interpreted as sets of elements. In case of \code{NULL},
+#'   pairwise overlap coefficient of lists in \code{x} is returned.
+#' @param checkUniqueNonNA Logical, should vectors in the list be first cleaned up so that NA values
+#'   are removed and the elements are made unique? Default is set as \code{TRUE}; if the user is 
+#'   confident that the vectors are indeed valid sets, this option can be set as \code{FALSE} to speed
+#'   up the code
+#' @return A matrix of column-wise pairwise overlap coefficients.
+#' @examples 
+#' set.seed(1887)
+#' testSets1 <- sapply(rbinom(10, size=26, prob=0.3), 
+#'   function(x) sample(LETTERS, x, replace=FALSE))
+#' names(testSets1) <- sprintf("List%d", seq(along=testSets1))
+#' testSets1Poe <- listOverlapCoefficient(testSets1)
+#' testSets1PoeNoCheck <- listOverlapCoefficient(testSets1, checkUniqueNonNA=FALSE)
+#' stopifnot(identical(testSets1Poe, testSets1PoeNoCheck))
+#' \dontrun{
+#'   testSets1NaivePoe <- naivePairwiseDist(testSets1, overlapCoefficient)
+#'   stopifnot(identical(testSets1NaivePoe, testSets1Poe))
+#' }
+#' 
+#' testSets2 <- sapply(rbinom(15, size=26, prob=0.3),
+#'   function(x) sample(LETTERS, x, replace=FALSE))
+#' names(testSets2) <- sprintf("AnotherList%d", seq(along=testSets2))
+#' testSets12Poe <- listOverlapCoefficient(testSets1, testSets2)
+#' 
+#' \dontrun{
+#'    testSets12NaivePoe <- t(sapply(testSets1, function(x) {
+#'       sapply(testSets2, function(y) {
+#'          overlapCoefficient(x, y)
+#'       })
+#'    }))
+#'    stopifnot(identical(testSets12Poe, testSets12NaivePoe))
+#' }
+#' 
+#' @export listOverlapCoefficient
+listOverlapCoefficient <- function(x, y=NULL, checkUniqueNonNA=TRUE) {
+  if(checkUniqueNonNA) {
+    x <- lapply(x, uniqueNonNA)
+    if(!is.null(y)) {
+      y <- lapply(y, uniqueNonNA)
+    }
+  }
+
+  if(is.null(y)) {
+    elements <- unique(unlist(x))
+    mat <- sapply(x, function(xx) as.integer(elements %in% xx))
+    res <- columnOverlapCoefficient(mat)
+  } else {
+    elements <- unique(c(unlist(x), unlist(y)))
+    mat1 <- sapply(x, function(xx) as.integer(elements %in% xx))
+    mat2 <- sapply(y, function(xx) as.integer(elements %in% xx))
+    res <- columnOverlapCoefficient(mat1, mat2)
+  }
   return(res)
 }
 
@@ -135,55 +296,7 @@ cumJaccardDistance <- function(list) {
   return(res)
 }
 
-#' Overlap coefficient, also known as Szymkiewicz-Simpson coefficient
-#' 
-#' 
-#' @aliases overlapCoefficient overlapDistance
-#' @param x A vector
-#' @param y A vector
-#' @param checkUniqueNonNA Logical, if \code{TRUE}, \code{x} and \code{y} are
-#' made unique and non-NA
-#' @return The overlap coefficient
-#' @seealso \code{\link{jaccardIndex}}
-#' 
-#' \code{overlapCofficient} calculates the overlap coefficient, and
-#' \code{overlapDistance} is defined by 1-\code{overlapCoefficient}.
-#' @examples
-#' 
-#' myX <- 1:6
-#' myY <- 4:9
-#' overlapCoefficient(myX, myY)
-#' 
-#' myY2 <- 4:10
-#' overlapCoefficient(myX, myY2)
-#' ## compare the result with Jaccard Index
-#' jaccardIndex(myX, myY2)
-#' 
-#' ## overlapDistance
-#' overlapDistance(myX, myY2)
-#' 
-#' @export overlapCoefficient
-overlapCoefficient <- function(x,y, checkUniqueNonNA=FALSE) {
-  if(checkUniqueNonNA) {
-    x <- uniqueNonNA(x)
-    y <- uniqueNonNA(y)
-  }
-  res <- length(intersect(x,y))/pmin(length(x), length(y))
-  return(res)
-}
-
-#' @export overlapDistance
-#' @rdname overlapCoefficient
-overlapDistance <- function(x,y, checkUniqueNonNA=FALSE) {
-  return(1 - overlapCoefficient(x, y, checkUniqueNonNA = checkUniqueNonNA))
-}
-
-
-
-
-
 #' Calculate pairwise overlap coefficients between each pair of items in a list
-#' 
 #' 
 #' @aliases pairwiseOverlapDistance pairwiseOverlapCoefficient
 #' @param list A list
