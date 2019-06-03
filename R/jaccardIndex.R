@@ -162,7 +162,7 @@ columnOverlapCoefficient <- function(x, y=NULL) {
   }
   dimnames(res) <- list(colnames(x), colnames(y))
   return(res)
-}  res <- columnOverlapCoefficient(mat)
+} 
 
 #' Pairwise overlap coefficient of lists
 #' 
@@ -243,13 +243,13 @@ listOverlapCoefficient <- function(x, y=NULL, checkUniqueNonNA=TRUE) {
 #' 
 #' @export pairwiseJaccardIndex
 pairwiseJaccardIndex <- function(list) {
-  return(pairwiseDist(list, fun=jaccardIndex))
+  return(naivePairwiseDist(list, fun=jaccardIndex))
 }
 
 #' @rdname pairwiseJaccardIndex
 #' @export pairwiseJaccardDistance
 pairwiseJaccardDistance <- function(list) {
-  return(pairwiseDist(list, fun=jaccardDistance))
+  return(naivePairwiseDist(list, fun=jaccardDistance))
 }
 
 #' Cumulative Jaccard Index
@@ -317,13 +317,13 @@ cumJaccardDistance <- function(list) {
 #' 
 #' @export pairwiseOverlapDistance
 pairwiseOverlapDistance <- function(list) {
-  return(pairwiseDist(list, fun=overlapDistance))
+  return(naivePairwiseDist(list, fun=overlapDistance))
 }
 
 #' @rdname pairwiseOverlapDistance
 #' @export pairwiseOverlapCoefficient
 pairwiseOverlapCoefficient <- function(list) {
-  return(pairwiseDist(list, fun=overlapCoefficient))
+  return(naivePairwiseDist(list, fun=overlapCoefficient))
 }
 
 #' Cumulative overlap coefficient
