@@ -231,8 +231,10 @@ void log_deregisterRomsg (RoMsgFunc f) {
 void print_msg(const char *x, const char* prefix, va_list args) {
   /** print msg in R **/
   fflush(NULL);
+  char msg[1024];
   REprintf(prefix);
-  REprintf(x, args);
+  vsprintf(msg, x, args);
+  REprintf(msg);
   va_end(args);
   REprintf("\n");
 }
