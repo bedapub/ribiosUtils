@@ -517,8 +517,8 @@ static void arg_possible (char *name) {
   */
   if (gArgList == NULL)
     die ("arg_init()/arg_try() has not been called.");
-  if (!arrayFind (gArgList,&name,NULL,(ARRAYORDERF)arrayStrcmp))
-    die ("arg: '%s' is neither a required nor an optional argument",name);
+  if (!arrayFind (gArgList,&name,NULL,(ARRAYORDERF)arrayStrcmp)) 
+    die ("arg: '%s' is neither a required nor an optional argument.", name);
 }
 
 int arg_present (char *name) {
