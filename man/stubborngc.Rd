@@ -28,4 +28,3 @@ stubborngc()
 \author{
 Jitao David Zhang <jitao_david.zhang@roche.com>
 }
-\keyword{~kwd2}

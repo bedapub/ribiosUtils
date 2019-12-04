@@ -48,5 +48,3 @@ testNum <- rnorm(100)
 \author{
 Jitao David Zhang <jitao_david.zhang@roche.com>
 }
-\keyword{~kwd1}
-\keyword{~kwd2}
