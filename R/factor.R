@@ -220,7 +220,6 @@ ofactor <- function(x,...) factor(x, levels=unique(as.character(x)),...)
 #' @return A vector of factors
 #' @author Jitao David Zhang <jitao_david.zhang@@roche.com>
 #' @seealso \code{\link{cut}}
-#' @keywords ~kwd1 ~kwd2
 #' @examples
 #' 
 #' testNum <- rnorm(100)

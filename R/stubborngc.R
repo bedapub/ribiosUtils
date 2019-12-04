@@ -8,7 +8,6 @@
 #' @return Side effect is used.
 #' @author Jitao David Zhang <jitao_david.zhang@@roche.com>
 #' @seealso \code{\link{gc}}
-#' @keywords ~kwd2
 #' @examples
 #' 
 #' stubborngc()
