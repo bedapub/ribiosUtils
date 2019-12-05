@@ -41,6 +41,24 @@ flushLog <- function() {
       flush(loggers[[i]])
 }
 
+#' Close connections to all loggers 
+#' This function closes all open connections set up by loggers
+#' It is automatically run at the end of the R session (setup by \code{\link{registerLog}})
+#'
+#' @seealso \code{\link{registerLog}}
+#' @export
+closeLoggerConnections <- function() {
+  loggers <- getLoggers();
+  if(is.null(loggers)) return;
+  
+  for(i in seq(along=loggers)) {
+    con <- loggers[[i]]
+    if(is(con, "connection") & !is(con, "terminal"))
+      close(con)
+  }
+  return;
+}
+
 #' The functions \code{registerLog} and \code{doLog} provide a simple mechanism
 #' to handle loggings (printing text messages to files or other types of
 #' connections) in R.
@@ -130,6 +148,8 @@ flushLog <- function() {
 #' cat(txt1)
 #' cat(txt2)
 #' 
+#' ## clean up files and objects to close unused connections
+#' closeLoggerConnections()
 #' @importFrom methods is
 #' @export registerLog
 registerLog <- function(..., append=FALSE) {
@@ -156,17 +176,7 @@ registerLog <- function(..., append=FALSE) {
   appendLoggers(cons)
   
   ## When the R session ends, RIBIOS_LOGGERS should be closed whenever possible
-  myLast <- function(x) {
-    loggers <- getLoggers();
-    if(is.null(loggers)) return;
-    
-    for(i in seq(along=loggers)) {
-      con <- loggers[[i]]
-      if(is(con, "connection") & !is(con, "terminal"))
-        close(con)
-    }
-  }
-  assign(".Last", myLast, envir=.GlobalEnv)
+  assign(".Last", closeLoggerConnections, envir=.GlobalEnv)
   return(invisible(NULL))
 }
 

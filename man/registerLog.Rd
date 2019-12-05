@@ -100,6 +100,8 @@ txt2 <- readLines(logfile2)
 cat(txt1)
 cat(txt2)
 
+## clean up files and objects to close unused connections
+closeLoggerConnections()
 }
 \seealso{
 \code{doLog} writes messages iteratively to each connection
