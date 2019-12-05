@@ -1,7 +1,7 @@
 Package: ribiosUtils
 Type: Package
 Title: Utilities for R native data structures and functions
-Version: 1.2-5
+Version: 1.2-6
 Date: 2019-12-05
 Author: Jitao David Zhang <jitao_david.zhang@roche.com>, with inputs from
     Clemens Broger, Martin Ebeling, Laura Badi and Roland Schmucki
@@ -17,4 +17,4 @@ Depends:
 Suggests:
     testthat
 License: GPL-3
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
