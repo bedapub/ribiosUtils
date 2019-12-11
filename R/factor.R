@@ -29,8 +29,13 @@ checkFactorLevels <- function(factor, levels,
   if(unrecognisedLevels!="pass") {
     unrecog <- setdiff(levels, flevels)
     if(length(unrecog)>0) {
-      msg <- paste("Following levels are not recognised in x:",
-                   paste(unrecog, collapse=", "), sep="\n")
+      if(length(unrecog)==1 && unrecog=="") {
+        msg <- paste("Please check whether all levels are named",
+                     "because an empty string was unrecognized as a level")
+      } else {
+        msg <- paste("Following levels are not recognised in x:",
+                     paste("'", unrecog, "'", sep="", collapse=", "), sep="\n")
+      }
       raiseMessage(msg, condition=unrecognisedLevels)
     }
   }
@@ -43,8 +48,10 @@ checkFactorLevels <- function(factor, levels,
 #' Relevel a factor by a named vector.
 #' 
 #' If names contain character strings other than the levels in the old factor
-#' and warning is set to \code{TRUE}, a warning will be raised
-#' 
+#' and warning is set to \code{TRUE}, a warning will be raised.
+#'
+#' The levels of the factor are the names of the \code{ref} vector, and 
+#' the order of the \code{ref} vector matters: it is the levels of the new factor
 #' @param x A factor
 #' @param refs A named vector. The names of the vector are all or a subset of
 #' levels in the old factor. And the values are new levels
@@ -73,10 +80,14 @@ relevelsByNamedVec <- function(x, refs,
                     missingLevels=missingLevels,
                     unrecognisedLevels=unrecognisedLevels)
   
-  commonLevels <- intersect(xlevels, refNames)
+  commonLevels <- intersect(refNames, xlevels) ## the order matters - refNames give the new order
   indOld <- match(commonLevels, xlevels)
   indNew <- match(commonLevels, refNames)
-  levels(x)[indOld] <- refs[indNew]
+  newSubLevels <- refs[indNew]
+  levels(x)[indOld] <- newSubLevels
+  newLevels <- c(newSubLevels,
+                 setdiff(levels(x), newSubLevels))
+  x <- factor(x, levels=newLevels)
   return(x)
 }
 
