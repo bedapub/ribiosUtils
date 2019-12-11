@@ -4,8 +4,12 @@
 \alias{relevels}
 \title{Relevel a factor by a named or unnamed vector.}
 \usage{
-relevels(x, refs, missingLevels = c("pass", "warning", "error"),
-  unrecognisedLevels = c("warning", "pass", "error"))
+relevels(
+  x,
+  refs,
+  missingLevels = c("pass", "warning", "error"),
+  unrecognisedLevels = c("warning", "pass", "error")
+)
 }
 \arguments{
 \item{x}{A factor}

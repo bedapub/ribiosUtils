@@ -5,8 +5,12 @@
 \title{Merge infrequent levels by setting the threshold of the proportion of
 cumulative sum over sum a.k.a. cumsumprop}
 \usage{
-mergeInfreqLevelsByCumsumprop(classes, thr = 0.9,
-  mergedLevel = "others", returnFactor = TRUE)
+mergeInfreqLevelsByCumsumprop(
+  classes,
+  thr = 0.9,
+  mergedLevel = "others",
+  returnFactor = TRUE
+)
 }
 \arguments{
 \item{classes}{Character strings or factor.}

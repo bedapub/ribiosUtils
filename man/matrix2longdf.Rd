@@ -4,8 +4,12 @@
 \alias{matrix2longdf}
 \title{Transform a matrix into a long-format data.frame}
 \usage{
-matrix2longdf(mat, row.names, col.names, longdf.colnames = c("row",
-  "column", "value"))
+matrix2longdf(
+  mat,
+  row.names,
+  col.names,
+  longdf.colnames = c("row", "column", "value")
+)
 }
 \arguments{
 \item{mat}{A matrix}

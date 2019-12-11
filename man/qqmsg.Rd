@@ -28,7 +28,7 @@ is non-interactive, e.g. in the command-line running Rscript mode
 qqmsg()
 qqmsg("die", status=0)
 qqmsg("Avada kedavra", status=-1)
-qqmsg("Crucio!", "\\n", "Avada kedavra", status=-100)
+qqmsg("Crucio!", "\n", "Avada kedavra", status=-100)
 }
 
 }

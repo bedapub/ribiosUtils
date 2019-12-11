@@ -4,9 +4,16 @@
 \alias{cutInterval}
 \title{Cut a vector of numbers into interval factors.}
 \usage{
-cutInterval(x, step = 1, labelOption = c("cut.default", "left",
-  "right"), include.lowest = FALSE, right = TRUE, dig.lab = 3,
-  ordered_result = FALSE, ...)
+cutInterval(
+  x,
+  step = 1,
+  labelOption = c("cut.default", "left", "right"),
+  include.lowest = FALSE,
+  right = TRUE,
+  dig.lab = 3,
+  ordered_result = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{A vector of numbers}

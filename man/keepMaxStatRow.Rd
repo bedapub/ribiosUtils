@@ -6,9 +6,14 @@
 \alias{keepMaxStatRowInd}
 \title{KEEP ROWS WITH THE MAXIMUM STATISTIC}
 \usage{
-keepMaxStatRow(matrix, keys, keepNArows = TRUE, stat = function(x)
-  mean(x, na.rm = TRUE), levels = c("rownames", "attribute", "discard"),
-  ...)
+keepMaxStatRow(
+  matrix,
+  keys,
+  keepNArows = TRUE,
+  stat = function(x) mean(x, na.rm = TRUE),
+  levels = c("rownames", "attribute", "discard"),
+  ...
+)
 }
 \arguments{
 \item{matrix}{A numeric matrix}

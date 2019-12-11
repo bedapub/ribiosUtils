@@ -29,20 +29,20 @@ tokenized items in the selected position(s) are returned. See examples.
 }
 \examples{
 
-myStr <- c("HSV\\t1887", "FCB\\t1900", "FCK\\t1948")
-strsplit(myStr, "\\t")
+myStr <- c("HSV\t1887", "FCB\t1900", "FCK\t1948")
+strsplit(myStr, "\t")
 
-strtoken(myStr, "\\t")
-strtoken(myStr, "\\t", index=1L)
-strtoken(myStr, "\\t", index=2L)
+strtoken(myStr, "\t")
+strtoken(myStr, "\t", index=1L)
+strtoken(myStr, "\t", index=2L)
 
 myFac <- factor(myStr)
 ## do not run
 \dontrun{
-  strsplit(myFac, "\\t")
+  strsplit(myFac, "\t")
 }
-strtoken(myFac, "\\t")
-strtoken(myFac, "\\t", index=1L)
+strtoken(myFac, "\t")
+strtoken(myFac, "\t", index=1L)
 
 }
 \references{

@@ -4,8 +4,13 @@
 \alias{longdf2matrix}
 \title{Convert a long-format data frame into matrix}
 \usage{
-longdf2matrix(df, row.col = 1L, column.col = 2L, value.col = 3L,
-  missingValue = NULL)
+longdf2matrix(
+  df,
+  row.col = 1L,
+  column.col = 2L,
+  value.col = 3L,
+  missingValue = NULL
+)
 }
 \arguments{
 \item{df}{Long-format data frame}

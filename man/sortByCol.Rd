@@ -4,8 +4,13 @@
 \alias{sortByCol}
 \title{Sort data.frame rows by values in specified columns}
 \usage{
-sortByCol(data.frame, columns, na.last = TRUE, decreasing = TRUE,
-  orderAsAttr = FALSE)
+sortByCol(
+  data.frame,
+  columns,
+  na.last = TRUE,
+  decreasing = TRUE,
+  orderAsAttr = FALSE
+)
 }
 \arguments{
 \item{data.frame}{A \code{data.frame} object}

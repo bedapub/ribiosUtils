@@ -26,7 +26,7 @@ will be performed.
 }
 \examples{
 
-myStrings <- c("This is a fine day\\n",
+myStrings <- c("This is a fine day\n",
                " Hallo Professor!",
                "  NUR DER HSV  ")
 trim(myStrings)

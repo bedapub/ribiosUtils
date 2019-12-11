@@ -4,9 +4,15 @@
 \alias{midentical}
 \title{Multiple identical}
 \usage{
-midentical(..., num.eq = TRUE, single.NA = TRUE,
-  attrib.as.set = TRUE, ignore.bytecode = TRUE,
-  ignore.environment = FALSE, ignore.srcref = TRUE)
+midentical(
+  ...,
+  num.eq = TRUE,
+  single.NA = TRUE,
+  attrib.as.set = TRUE,
+  ignore.bytecode = TRUE,
+  ignore.environment = FALSE,
+  ignore.srcref = TRUE
+)
 }
 \arguments{
 \item{\dots}{Objects to be tested, or a list of them}

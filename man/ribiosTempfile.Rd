@@ -5,8 +5,7 @@
 \title{A temporary file which (1) every machine in the cluster has access to and
 (2) there is sufficient space}
 \usage{
-ribiosTempfile(pattern = "file", tmpdir = ribiosTempdir(),
-  fileext = "")
+ribiosTempfile(pattern = "file", tmpdir = ribiosTempdir(), fileext = "")
 }
 \arguments{
 \item{pattern}{Character string, file pattern}

@@ -3,7 +3,6 @@
 \docType{package}
 \name{ribiosUtils}
 \alias{ribiosUtils}
-\alias{ribiosUtils-package}
 \title{ribiosUtils}
 \description{
 ribiosUtils is a swiss-knife package providing misc utilities

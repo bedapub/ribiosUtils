@@ -22,7 +22,7 @@ Count tokens by splitting strings
 }
 \examples{
 
-myStrings <- c("HSV\\t1887\\tFavorite", "FCB\\t1900", "FCK\\t1948")
+myStrings <- c("HSV\t1887\tFavorite", "FCB\t1900", "FCK\t1948")
 countTokens(myStrings)
 
 ## the function deals with factors as well

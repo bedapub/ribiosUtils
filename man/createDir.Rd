@@ -5,8 +5,7 @@
 \title{Create a directory if it does not exist, and then make sure the creation was
 successful.}
 \usage{
-createDir(dir, showWarnings = FALSE, recursive = FALSE,
-  mode = "0777")
+createDir(dir, showWarnings = FALSE, recursive = FALSE, mode = "0777")
 }
 \arguments{
 \item{dir}{Directory name}
