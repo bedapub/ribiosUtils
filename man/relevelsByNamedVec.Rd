@@ -25,7 +25,11 @@ found: 'pass', 'warning', or 'error'.}
 }
 \description{
 If names contain character strings other than the levels in the old factor
-and warning is set to \code{TRUE}, a warning will be raised
+and warning is set to \code{TRUE}, a warning will be raised.
+}
+\details{
+The levels of the factor are the names of the \code{ref} vector, and
+the order of the \code{ref} vector matters: it is the levels of the new factor.
 }
 \examples{
 

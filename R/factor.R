@@ -50,8 +50,9 @@ checkFactorLevels <- function(factor, levels,
 #' If names contain character strings other than the levels in the old factor
 #' and warning is set to \code{TRUE}, a warning will be raised.
 #'
-#' The levels of the factor are the names of the \code{ref} vector, and 
-#' the order of the \code{ref} vector matters: it is the levels of the new factor
+#' The levels of the factor are the names of the \code{ref} vector, and
+#' the order of the \code{ref} vector matters: it is the levels of the new factor.
+#' 
 #' @param x A factor
 #' @param refs A named vector. The names of the vector are all or a subset of
 #' levels in the old factor. And the values are new levels
