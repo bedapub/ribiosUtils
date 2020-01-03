@@ -1,3 +1,4 @@
+PKG_CFLAGS=-I../inst/include
 ## On 2020.01.02: try to become independent of ribiosBase
 ## Following files (together with their headers) were copied from ribiosBase (df5b975a68e34443b2337f3a8c7a845862b85ecf)
 # array.c
