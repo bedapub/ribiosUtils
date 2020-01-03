@@ -7,6 +7,8 @@
 #include "r_mmatch.h"
 #include "r_endec.h"
 
+#include "log.h"
+
 static R_CallMethodDef callMethods[] = {
   {"pwdecode", (DL_FUNC) &pwdecode, 1},
   {"mmatch", (DL_FUNC) &mmatch, 3},
@@ -15,7 +17,11 @@ static R_CallMethodDef callMethods[] = {
 };
 
 void R_init_ribiosUtils(DllInfo *info) {
-  R_registerRoutines(info, NULL /*CMethods*/, callMethods, NULL, NULL);
+  R_registerRoutines(info, 
+		  NULL /*.C*/, 
+		  callMethods /*.Call*/, 
+		  NULL /*.Fortran*/, 
+		  NULL /*.External*/);
   /* the line below says that the DLL is not to be searched
    * for entry points specified by character strings so
    * .C etc calls will only find registered symbols
