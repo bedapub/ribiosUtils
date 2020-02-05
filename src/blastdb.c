@@ -37,23 +37,27 @@ static char ambigbase[] = "xxxmxrsvxwyhkdbn";
 static char aa[] = "@ABCDEFGHIKLMNPQRSTVWXYZU";
 
 static void uint4_read (int fh,unsigned int *valp) {
+  int readRes;
+
 #ifdef IS_BIG_ENDIAN
-  read (fh,4,valp);
+  readRes = read (fh,4,valp);
 #else
   unsigned char b[4];
 
-  read (fh,b,4);
+  readRes = read (fh,b,4);
   *valp = ((int)b[0]<<24) + ((int)b[1]<<16) + ((int)b[2]<<8) + b[3];
 #endif
 }
 
 static void long8_read (int fh,long *val) {
+  int readRes;
+
 #ifdef IS_BIG_ENDIAN
-  read (fh,val,8);
+  readRes = read (fh,val,8);
 #else
   unsigned char b[8];
 
-  read (fh,b,8);
+  readRes = read (fh,b,8);
   *val = ((long)b[3]<<24) + ((long)b[2]<<16) + ((long)b[1]<<8) + ((long)b[0]);
 #endif
 }
@@ -77,6 +81,7 @@ int bdb_read_next (char **name,char **seq) {
   static char *s0 = NULL;
   static char *s = NULL;
   int i;
+  int readRes;
 
   if (seqNum == numSeq) {
     bdb_close ();
@@ -86,7 +91,7 @@ int bdb_read_next (char **name,char **seq) {
   len = hPtr[seqNum+1]-hPtr[seqNum]-1;
   hlr_free (n);
   n = (char *)hlr_calloc (len+1,sizeof (char));
-  read (hfh,n,len);
+  readRes = read (hfh,n,len);
   if (name != NULL)
     *name = n+8;
   if (gDbType == DB_TYPE_NUC) {
@@ -102,7 +107,7 @@ int bdb_read_next (char **name,char **seq) {
     len = aPtr[seqNum]-sPtr[seqNum];
     hlr_free (s0);
     s0 = (char *)hlr_calloc (len,sizeof (char));
-    read (sfh,s0,len);
+    readRes = read (sfh,s0,len);
     pad = (s0[len-1] & 3);
     hlr_free (s);
     s = (char *)hlr_calloc (4*len,sizeof (char));
@@ -119,7 +124,7 @@ int bdb_read_next (char **name,char **seq) {
       uint4_read (sfh,&numAmbig);
       for (i=0;i<numAmbig;i++) {
         lseek (sfh,aPtr[seqNum] + (i+1)*4,SEEK_SET);
-        read (sfh,ambig,4);
+        readRes = read (sfh,ambig,4);
         pos = ((unsigned char)ambig[1]<<16) + ((unsigned char)ambig[2]<<8) + (unsigned char)ambig[3];
         b = ambigbase[((unsigned int)ambig[0] & 240) >> 4];
         repeat = (int)ambig[0] & 15;
@@ -133,7 +138,7 @@ int bdb_read_next (char **name,char **seq) {
     len = sPtr[seqNum+1]-sPtr[seqNum]-1; /* do not read last \0 */
     hlr_free (s);
     s = (char *)hlr_calloc (len+1,sizeof (char));
-    read (sfh,s,len);
+    readRes = read (sfh,s,len);
     for (i=0;i<len;i++)
       s[i] = aa[(int)s[i]];
   }
@@ -159,6 +164,7 @@ void bdb_open (char *dbname,int dbtype) {
   long numRes;
   unsigned int maxLenSeq;
   int i;
+  int readRes;
 
   gDbType = dbtype;
   fn = stringCreate (20);
@@ -173,10 +179,10 @@ void bdb_open (char *dbname,int dbtype) {
   uint4_read (fh,&protein);
   uint4_read (fh,&len);
   title = (char *)calloc (len+1,sizeof (char));
-  read (fh,title,len);
+  readRes = read (fh,title,len);
   uint4_read (fh,&len);
   date = (char *)calloc (len+1,sizeof (char));
-  read (fh,date,len);
+  readRes = read (fh,date,len);
   uint4_read (fh,&numSeq);
   long8_read (fh,&numRes);
   uint4_read (fh,&maxLenSeq);

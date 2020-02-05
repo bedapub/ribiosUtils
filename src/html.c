@@ -456,14 +456,14 @@ static int cgiGetNextPair (int *first,Stringa item,Stringa value) {
   static char *bufferPtr;
   int mode;
   int c;
-  int fread_res;
+  int freadRes;
 
   if (gCgiBuffer == NULL) {
     char *contentLength = getenv ("CONTENT_LENGTH");
     gCgiBufferSize = contentLength ? atoi (contentLength) : 0;
     if (gCgiBufferSize != 0) {
       gCgiBuffer = (char *)hlr_malloc (gCgiBufferSize);
-      fread_res = fread (gCgiBuffer,gCgiBufferSize,1,stdin);
+      freadRes = fread (gCgiBuffer,gCgiBufferSize,1,stdin);
     }
     bufferPtr = gCgiBuffer;
   }

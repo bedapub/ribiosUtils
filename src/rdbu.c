@@ -23,6 +23,8 @@
 #include "arg.h"
 #include "rdbu.h"
 
+#include "R.h"
+
 static Stringa user = NULL;
 static Stringa password = NULL;
 static Stringa database = NULL;
@@ -35,14 +37,20 @@ static void readUserInfoFile (char *filename) {
   char *slashp;
   char *atp;
   char *cp;
+  char *fgetsRes;
+
   FILE *f = fopen (filename,"r");
   if (f == NULL)
     return;
-  fgets (line,sizeof (line),f);
+  fgetsRes = fgets (line,sizeof (line),f);
+  if (fgetsRes == NULL) {
+	  error("fgets error.");
+  }
   fclose (f);
   // user/password@instance
   // - in each field: unknown
-  if ((cp = strchr (line,'\n')) != '\0')
+  cp = strchr(line, '\n');
+  if (*cp != '\0')
     *cp = '\0';
   slashp = strchr (line,'/');
   atp = strchr (line,'@');
