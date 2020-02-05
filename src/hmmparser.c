@@ -23,6 +23,8 @@
 #include "linestream.h"
 #include "hlrmisc.h"
 
+#include "R.h"
+
 /* --------------- begin module hmmparser --------------------
 secret: knows how to dissect the output of the HMMSCAN
         or HMMSEARCH programs
@@ -451,7 +453,7 @@ static int handleDomainStart (char *line,char *name,int *goOn) {
     if (domainSeq_hook != NULL && stringLen (querySeq) > 0) { // for the first domain, there will not yet be a sequence
       if (!(*goOn = (*domainSeq_hook) (string (querySeq),string (hmmSeq),
                                        string (matchSeq))))
-        printf ("Problem with domainSeq!\n");
+        Rprintf ("Problem with domainSeq!\n");
     }
     if (domainAli_hook != NULL)
       *goOn = (*domainAli_hook) (name,score,prob,currDomainNr,
@@ -565,7 +567,7 @@ void hmmp_run (LineStream ls) {
       if (domainSeq_hook != NULL && stringLen (querySeq)) { // print leftover domain seq if necessary
         if (!(goOn = (*domainSeq_hook) (string (querySeq),string (hmmSeq),
                                         string (matchSeq))))
-          printf ("Problem with domainSeq!\n");
+          Rprintf ("Problem with domainSeq!\n");
         stringClear (querySeq);
       }
       if (sscanf (line+2,"%99s ",name) == 1) {
