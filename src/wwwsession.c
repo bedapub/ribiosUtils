@@ -320,7 +320,7 @@ void wwwsess_read (char *value,char **user,char **password,int *age) {
     die ("wwwsess_check() needs user output location");
   if (*user != NULL)
     die ("wwwsess_check(): *user must be NULL on input");
-  if (password != NULL && *password != '\0')
+  if (password != NULL && **password != '\0')
     die ("wwwsess_check(): *password must be NULL on input");
   if (age != 0)
     *age = 0;
@@ -360,7 +360,7 @@ void wwwsess_read (char *value,char **user,char **password,int *age) {
   if (strEqual (r+4,LOGGED_OUT_MARKER))
     return;
   strReplace (user,r+4);
-  if (age > 0) {
+  if (*age > 0) {
     normalizeByteOrder (r);
     memcpy ((char*)age,r,4);
     *age = now () - *age;
