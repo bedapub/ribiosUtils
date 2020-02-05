@@ -32,6 +32,8 @@
 #include "hlrmisc.h"
 #include "linestream.h"
 
+#include "R.h"
+
 static void register_nextLine (LineStream this1,char *(*f)(LineStream this1)) {
   /**
      Internally used to register the actual function which gets the next line
