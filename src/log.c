@@ -123,10 +123,10 @@ static void logExecuteHooks (int count,RoMsgFunc hooks[],int doProblem,
 
   if (gReentryFlag) {
     fflush (NULL); // write out all buffers
-    fprintf (stderr,"PROBLEM: fatal reentry of log module: ");
-    vfprintf (stderr,format,args);
+    REprintf ("PROBLEM: fatal reentry of log module: ");
+    REvprintf (format,args);
     va_end (args);
-    fprintf (stderr,"\n");
+    REprintf ("\n");
     logExit ();
   }
   else {
@@ -137,10 +137,10 @@ static void logExecuteHooks (int count,RoMsgFunc hooks[],int doProblem,
     if (!gSuppressDefaultMessages || doExit) {
       fflush (NULL); // write out all buffers
       if (doProblem)
-        fprintf (stderr,doExit ? "PROBLEM: " : "WARNING: ");
-      vfprintf (stderr,format,args);
+        REprintf (doExit ? "PROBLEM: " : "WARNING: ");
+      REvprintf (format,args);
       va_end (args);
-      fprintf (stderr,"\n");
+      REprintf ("\n");
     }
     if (doExit)
       logExit ();
@@ -314,8 +314,6 @@ void logOpen (char *fname) {
        so log output can go to gLogFile, errors from anywhere go to stderr,
        but reach the same log file
     */
-    if (fflush (stderr))
-      perror ("PROBLEM: log: fflush");
     if (PLABLA_CLOSE (2) == -1)
       perror ("PROBLEM: log: close(2)");
     fd = PLABLA_OPEN (fname,O_WRONLY | O_CREAT | O_APPEND,0664);
