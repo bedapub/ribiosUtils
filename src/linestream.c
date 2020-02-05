@@ -369,20 +369,24 @@ void ls_cat (LineStream this1,char *filename) {
   if (filename != NULL) {
     char *line;
     FILE *f;
-    if (strEqual (filename,"-"))
-      f = stdout;
-    else
+    int use_stdout = strEqual(filename, "-");
+    if (!use_stdout) {
       f = fopen (filename,"w");
-    if (f == NULL) {
-      die ("%s: in ls_cat(%s)",strerror (errno),filename);
-    }
-    while ((line = ls_nextLine (this1)) != NULL) {
-      fputs (line,f);
-      fputc ('\n',f);
-    }
-    if (f != stdout)
+      if (f == NULL) {
+        die ("%s: in ls_cat(%s)",strerror (errno),filename);
+      }
+      while ((line = ls_nextLine (this1)) != NULL) {
+        fputs (line,f);
+        fputc ('\n',f);
+      }
       fclose (f);
-  }
+    } else {
+      while ((line = ls_nextLine (this1)) != NULL) {
+        Rprintf (line);
+        Rprintf ('\n');
+      }
+    }
+  } 
   else
     while (ls_nextLine(this1))
       ;
