@@ -32,4 +32,7 @@ void R_init_ribiosUtils(DllInfo *info) {
    * (and not by character strings)
    */ 
   R_forceSymbols(info, TRUE);
+
+  /* C functions implemented in ribiosUtils to be exported*/
+
 }
