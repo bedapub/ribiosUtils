@@ -1,23 +1,23 @@
 /* -*- mode: C; c-indent-level: 4; c-basic-offset: 4; indent-tabs-mode: nil; -*- */
 /*
- *  ribiosBase -- The base package of the ribios software suite
+ *  ribiosUtils -- The utils package of the ribios software suite
  *
  *  Copyright (C) 2019  Jitao David Zhang
  *
- *  This file is part of ribiosBase.
+ *  This file is part of ribiosUtils.
  *
- *  ribiosBase is free software: you can redistribute it and/or modify
+ *  ribiosUtils is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  ribiosBase is distributed in the hope that it will be useful,
+ *  ribiosUtils is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with ribiosBase.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with ribiosUtils.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 
@@ -25,7 +25,7 @@
 #include "Rinternals.h"
 #include "R_ext/Rdynload.h"
 
-#include "ribios_base.h"
+#include "ribios_utils.h"
 
 /* definitions of functions provided for .Call() */
 static const R_CallMethodDef callMethods[] = {
@@ -33,7 +33,7 @@ static const R_CallMethodDef callMethods[] = {
 };
 
 /* definition of functions to be exported */
-void R_init_ribiosBase(DllInfo *info) {
+void R_init_ribiosUtils(DllInfo *info) {
 
   /* register routines to be called by R code */
   R_registerRoutines(info, NULL, callMethods, NULL, NULL);
