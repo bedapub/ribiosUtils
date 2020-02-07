@@ -45,8 +45,8 @@ jobs:
 
       - name: Query dependencies
         run: >
-          Rscript
-            -e "install.packages('remotes')"
+          Rscript \
+            -e "install.packages('remotes')" \
             -e "saveRDS(remotes::dev_package_deps(dependencies = TRUE), 'depends.Rds', version = 2)"
 
       - name: Cache R packages
@@ -68,15 +68,15 @@ jobs:
 
       - name: Install dependencies
         run: > 
-          Rscript 
-            -e "install.packages('remotes')" 
-            -e "update(readRDS('depends.Rds'))"
+          Rscript \
+            -e "install.packages('remotes')" \
+            -e "update(readRDS('depends.Rds'))" \
             -e "remotes::install_cran('rcmdcheck')"
 
       - name: Check
         run: >
-           Rscript 
-             -e "rcmdcheck::rcmdcheck(args = '${{ matrix.config.args }} --no-manual', error_on = 'warning', check_dir = 'check')"
+           Rscript \
+             -e "rcmdcheck::rcmdcheck(args = '${{ matrix.config.args }}', error_on = 'warning', check_dir = 'check')"
 
       - name: Upload check results
         if: failure()
