@@ -58,7 +58,6 @@
 #include <rdbu.h>
 #include <rds.h>
 #include <recipes.h>
-#include <ribios_base.h>
 #include <sawiconf.h>
 #include <seqautil.h>
 #include <sequenceAlignment.h>
