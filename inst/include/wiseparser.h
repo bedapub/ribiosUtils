@@ -19,7 +19,7 @@
     Module prefix wp_
 */
 #ifndef WISEPARSER_H
-#define WISEARSER_H
+#define WISEPARSER_H
 
 #ifdef __cplusplus
 extern "C" {
