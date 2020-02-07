@@ -1291,7 +1291,7 @@ int getLine (FILE *stream,char **buffer,int *buflen) {
       *buflen = *buflen + GETLINE_INC;
       buffree += GETLINE_INC;
       *buffer = (char *)realloc (*buffer,*buflen);
-      if (*buffer == '\0')
+      if (**buffer == '\0')
         die ("getLine: realloc");
       bufp = *buffer + (bufp - startp); // adjust to new location
       startp = *buffer;
