@@ -136,7 +136,7 @@ extern int strTrim (char *s,char *left,char *right);
 */
 #define strEqual(s1,s2) (strcmp((s1),(s2)) == 0)
 
-#if BIOS_PLATFORM == BIOS_PLATFORM_IRIX || BIOS_PLATFORM == BIOS_PLATFORM_SOLARIS || BIOS_PLATFORM == BIOS_PLATFORM_LINUX
+#if BIOS_PLATFORM == BIOS_PLATFORM_IRIX || BIOS_PLATFORM == BIOS_PLATFORM_SOLARIS || BIOS_PLATFORM == BIOS_PLATFORM_LINUX || BIOS_PLATFORM == BIOS_PLATFORM_APPLE
 /**
    A convenience function to find out whether two strings are case-insensitive
    different
