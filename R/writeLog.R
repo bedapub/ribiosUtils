@@ -115,7 +115,11 @@ closeLoggerConnections <- function() {
 #' logfile1 <- tempfile()
 #' logfile2 <- tempfile()
 #' logcon3 <- stdout()
-#' registerLog("/dev/null")
+#' if(.Platform$OS.type == "unix") {
+#'   registerLog("/dev/null")
+#' } else {
+#'   registerLog(tempfile())
+#' }
 #' registerLog(logfile1)
 #' registerLog(logfile2)
 #' registerLog(logcon3)
