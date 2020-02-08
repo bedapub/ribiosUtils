@@ -426,16 +426,16 @@ static int computeResultLength (const char *format,va_list args) {
             arg = va_arg (args,char *);
           if (asteriskCnt > 0) {
             if (asteriskCnt == 2) {
-              width = (long)arg;
+              width = atol(arg);
               arg = va_arg (args,char *);
-              prec = (long)arg;
+              prec = atol(arg);
               arg = va_arg (args,char *);
             }
             else if (asteriskCnt == 1) {
               if (dot)
-                prec = (long)arg;
+                prec = atol(arg);
               else
-                width = (long)arg;
+                width = atol(arg);
               arg = va_arg (args,char *);
             }
             else

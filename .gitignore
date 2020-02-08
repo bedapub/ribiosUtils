@@ -4,3 +4,4 @@ symbols.rds
 
 *.so
 *.o
+*.dll
