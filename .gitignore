@@ -5,3 +5,5 @@ symbols.rds
 *.so
 *.o
 *.dll
+.Rhistory
+.Rproj.user
