@@ -26,6 +26,7 @@
     dissecting strings of the form dbname:seqname)
 */
 #include <ctype.h>
+#include <stdint.h>
 #include "hlrmisc.h"
 #include "log.h"
 #include "format.h"
@@ -381,8 +382,8 @@ static int computeResultLength (const char *format,va_list args) {
       isPercent = (isPercent) ? 0 : 1;
     else if (isPercent) {
       // handle one conversion specification e.g. %20.10s, %5.2f, etc
-      long width = 0;
-      long prec = 0;
+      intptr_t width = 0;
+      intptr_t prec = 0;
       int dot = 0; // flag for dot found
       int asteriskCnt = 0; // flag/counter for value substitution by '*'
       long int intConv = 0;
@@ -426,16 +427,16 @@ static int computeResultLength (const char *format,va_list args) {
             arg = va_arg (args,char *);
           if (asteriskCnt > 0) {
             if (asteriskCnt == 2) {
-              width = atol(arg);
+              width = (intptr_t)arg;
               arg = va_arg (args,char *);
-              prec = atol(arg);
+              prec = (intptr_t)arg;
               arg = va_arg (args,char *);
             }
             else if (asteriskCnt == 1) {
               if (dot)
-                prec = atol(arg);
+                prec = (intptr_t)arg;
               else
-                width = atol(arg);
+                width = (intptr_t)arg;
               arg = va_arg (args,char *);
             }
             else
