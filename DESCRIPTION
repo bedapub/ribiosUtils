@@ -13,7 +13,7 @@ Authors@R:
            family = "Broger",
            role = c("aut", "ctb")))
 Maintainer: Jitao David Zhang <jitao_david.zhang@roche.com>
-Description: A swiss-knife package providing interface to the Bioinfo-C (internal name: BIOS) library and utilities. The Bioinfo-C library (internal name: BIOS library) was originally written by Clemens Broger and other colleagues at Roche.
+Description: A swiss-knife package providing interface to the Bioinfo-C (internal name: BIOS) library and utilities. The Bioinfo-C (BIOS) library was originally written by Clemens Broger and other colleagues at Roche.
 Depends:
     R (>= 3.4.0),
     methods,
