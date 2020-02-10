@@ -160,7 +160,7 @@ static void scatn (Array s,char *a,int n) {
      @param[out] s - char(s) appended
   */
   int l = arrayMax (s);
-  array (s,l+n-1,char); // allocate
+  array (s,l+n-1,char) = '\0'; // allocate
   /* copy; since it is so cheap to do, check that 'a' does
      not contain any '\0' char in the copied region */
   if (memccpy (arrp (s,l,char),a,'\0',n))
