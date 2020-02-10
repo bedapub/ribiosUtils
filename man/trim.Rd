@@ -32,9 +32,6 @@ myStrings <- c("This is a fine day\n",
 trim(myStrings)
 
 }
-\references{
-\url{http://bioinfo.bas.roche.com:8080/bios/common/libprpi/format.hdoc}
-}
 \author{
 Jitao David Zhang <jitao_david.zhang@roche.com>
 }
