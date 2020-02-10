@@ -14,8 +14,6 @@
 #' @return Decoded character string, or empty string if decoding fails
 #' @author Jitao David Zhang <jitao_david.zhang@@roche.com>. The C library code
 #' was written by Detlef Wolf.
-#' @references BIOS C module list,
-#' \url{http://bioinfo.bas.roche.com:8080/bios/common/modulelist.html}
 #' @examples
 #' 
 #' mycode <- " \\001\\000\\141\\314\\033\\033\\033\\033\\033\\142\\303\\056\\166\\311\\037\\042"
