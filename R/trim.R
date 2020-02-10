@@ -11,8 +11,6 @@
 #' @param right Characters that are trimmed from the right side
 #' @return Trimmed string(s)
 #' @author Jitao David Zhang <jitao_david.zhang@@roche.com>
-#' @references
-#' \url{http://bioinfo.bas.roche.com:8080/bios/common/libprpi/format.hdoc}
 #' @examples
 #' 
 #' myStrings <- c("This is a fine day\n",
