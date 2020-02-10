@@ -1,8 +1,8 @@
 Package: ribiosUtils
 Type: Package
-Title: Utilities for R native data structures and functions
-Version: 1.5-1
-Date: 2020-02-08
+Title: Utilities from and Interface to the Bioinfo-C (BIOS) Library
+Version: 1.5-2
+Date: 2020-02-10
 Authors@R: 
   c(person(given = "Jitao David",
            family = "Zhang",
@@ -13,7 +13,7 @@ Authors@R:
            family = "Broger",
            role = c("aut", "ctb")))
 Maintainer: Jitao David Zhang <jitao_david.zhang@roche.com>
-Description: ribiosUtils is a swiss-knife package providing misc utilities. It is developed to implement and expand in R the functionalities provided by the Bioinfo-C library (internal name: BIOS library), originally written by Clemens Broger and other colleagues at Roche.
+Description: A swiss-knife package providing interface to the Bioinfo-C (internal name: BIOS) library and utilities. The Bioinfo-C library (internal name: BIOS library) was originally written by Clemens Broger and other colleagues at Roche.
 Depends:
     R (>= 3.4.0),
     methods,
