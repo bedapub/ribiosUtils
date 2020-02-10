@@ -514,7 +514,7 @@ int stringPrintf (Stringa str,const char *format,...) {
   va_start (args,format);
   maxlength = computeResultLength (format,args);
   va_end (args);
-  array (str,maxlength + 1,char); // allocate space
+  array (str,maxlength + 1,char) = '\0'; // allocate space
   va_start (args,format);
   resultLen = vsprintf (string (str),format,args);
   va_end (args);
@@ -537,7 +537,7 @@ int stringAppendf (Stringa str,const char *format,...) {
   va_start (args,format);
   maxlength = computeResultLength (format,args);
   va_end (args);
-  array (str,len + maxlength + 1,char); // allocate space
+  array (str,len + maxlength + 1,char) = '\0'; // allocate space
   va_start (args,format);
   resultLen = vsprintf (string (str)+len,format,args);
   va_end (args);
@@ -570,7 +570,7 @@ char *stringPrintBuf (const char *format,...) {
   va_start (args,format);
   maxlength = computeResultLength (format,args);
   va_end (args);
-  array (str,maxlength + 1,char); // allocate space
+  array (str,maxlength + 1,char) = '\0'; // allocate space
   va_start (args,format);
   resultLen = vsprintf (string (str),format,args);
   va_end (args);
