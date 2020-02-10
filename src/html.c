@@ -30,6 +30,8 @@
 
 #include "R.h"
 
+#define UNUSED(x) (void)(x)
+
 static int hexdigit (register int c) {
   /*
     Convert a hex digit (character) to a numeric value.
@@ -63,7 +65,8 @@ static void cgiLogImpl (char *format,va_list args) {
      usage(), or romsg() from module log.<br>
      Usage: like printf()
   */
-  gHeaderDestination = stderr;
+  UNUSED(format);
+  UNUSED(args);
   cgiHeader (NULL);
 }
 
@@ -82,8 +85,6 @@ void cgiInit (void) {
   if (server != NULL && strNCaseEqual (server,"apache",6)) {
     int fd;
 
-    if (fflush (stderr))
-      perror ("PROBLEM: cgiInit: fflush");
     if (PLABLA_CLOSE (2) == -1)
       perror ("PROBLEM: cgiInit: close(2)");
     fd = dup (1);
@@ -94,9 +95,7 @@ void cgiInit (void) {
     if (fd != 2)
       REprintf ("PROBLEM: cgiInit(): could not redirect stderr (fd %d) - possibly cgiInit() several calls to cgiInit().\n",
               fd);
-    setbuf (stderr,NULL);
   }
-  gHeaderDestination = stdout;
   log_registerDie (&cgiLogImpl);
   log_registerWarn (&cgiLogImpl);
   log_registerUsage (&cgiLogImpl);
@@ -220,17 +219,33 @@ void cgiHeader (char *mimeType) {
     stringPrintf (charset,"; charset=%s",string (gHeaderCharSet));
   else
     stringClear (charset);
-  if (!gHeaderDestination)
-    gHeaderDestination = stderr;
-  fprintf (gHeaderDestination,"Content-Type: %s%s%s\r\n",
-           mimeType ? mimeType : "text/html",string (charset),exp);
+  if(gHeaderDestination) {
+    fprintf (gHeaderDestination,"Content-Type: %s%s%s\r\n",
+             mimeType ? mimeType : "text/html",string (charset),exp);
+  } else {
+    REprintf("Content-Type: %s%s%s\r\n",
+               mimeType ? mimeType : "text/html",string (charset),exp);
+  }
   if (gContentDisposition != NULL && stringLen (gContentDisposition) > 0) {
-    fprintf (gHeaderDestination,"%s\r\n",string (gContentDisposition));
+    if(gHeaderDestination) {
+      fprintf (gHeaderDestination,"%s\r\n",string (gContentDisposition));
+    } else {
+      REprintf("%s\r\n",string (gContentDisposition));
+    }
     stringClear (gContentDisposition);
   }
-  if (gHeaderRedirUrl)
-    fprintf (gHeaderDestination,"Location: %s\r\n",string (gHeaderRedirUrl));
-  fputs ("\r\n",gHeaderDestination);
+  if (gHeaderRedirUrl) {
+    if(gHeaderDestination) {
+      fprintf (gHeaderDestination,"Location: %s\r\n",string (gHeaderRedirUrl));
+    } else {
+      REprintf("Location: %s\r\n",string (gHeaderRedirUrl));
+    }
+  }
+  if(gHeaderDestination) {
+    fputs ("\r\n",gHeaderDestination);
+  } else {
+    REprintf("\r\n");
+  }
   fflush (gHeaderDestination); // to be sure this comes before any error msg
 }
 
@@ -1383,7 +1398,7 @@ void html_appletTagClose (void) {
 
 /* ##### Section: creating web start jnlp tags ##### */
 
-static FILE *gFp;
+static FILE *gFp = NULL;
 static Texta gJars = NULL;
 static Texta gArgs = NULL;
 static char *gMainClass = NULL;
@@ -1470,8 +1485,6 @@ void html_webstartClose (void) {
     fprintf (gFp,"    <argument>%s</argument>\n",arru (gArgs,i,char *));
   fprintf (gFp,"  </application-desc>\n");
   fprintf (gFp,"</jnlp>\n");
-  if (gFp != stdout)
-    fclose (gFp);
 }
 
 /* ##### Section: multi part stuff ##### */
