@@ -336,11 +336,11 @@ void chem_sd_stripH (Texta mol) {
         a2n++;
       }
       snprintf (s, 7, "%3hhu%3hhu", a1n, a2n);
-      strncpy (textItem (mol,i),s,6);
+      snprintf (textItem (mol,i), 6, "%s", s);
     }
   }
   snprintf (s, 7, "%3d%3d",na-arrayMax (ats), nb-nbDel);
-  strncpy (textItem (mol,3),s,6);
+  snprintf (textItem (mol,3), 6, "%s", s);
   k = 0;
   for (i=0;i<arrayMax (mol);i++) {
     if (textItem (mol,i) == NULL)
