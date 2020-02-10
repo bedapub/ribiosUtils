@@ -12,7 +12,7 @@ Authors@R:
     person(given = "Clemens",
            family = "Broger",
            role = c("aut", "ctb")))
-Description: A Swiss-knife package providing interface to the Bioinfo-C (internal name: BIOS) library and utilities. The Bioinfo-C (BIOS) library was originally written by Clemens Broger and other colleagues at Roche.
+Description: A Swiss-knife package providing interface to the Bioinfo-C (internal name: BIOS) library and utilities. 
 Depends:
     R (>= 3.4.0),
     methods,
