@@ -301,6 +301,7 @@ void chem_sd_stripH (Texta mol) {
   int i,k;
   int nbDel;
   char s[7];
+  int n;
 
   chem_sd_getNumAtomBond (mol,&na,&nb);
   if (arrayMax (mol) < 4 + na + nb)
@@ -336,11 +337,17 @@ void chem_sd_stripH (Texta mol) {
         a2n++;
       }
       snprintf (s, 7, "%3hhu%3hhu", a1n, a2n);
-      snprintf (textItem (mol,i), 6, "%s", s);
+      n = snprintf (textItem (mol,i), 6, "%s", s);
+      if (n<0) {
+        die("snprintf failed in chem_sd_stripH");
+      }
     }
   }
   snprintf (s, 7, "%3d%3d",na-arrayMax (ats), nb-nbDel);
-  snprintf (textItem (mol,3), 6, "%s", s);
+  n = snprintf (textItem (mol,3),6, "%s", s);
+  if (n<0) {
+    die("snprintf failed in chem_sd_stripH");
+  }
   k = 0;
   for (i=0;i<arrayMax (mol);i++) {
     if (textItem (mol,i) == NULL)
@@ -617,7 +624,8 @@ void chem_inchi_correctBigCounterIons (ChemInchiSplit this1) {
      components
      @param[in] this1 - a split InChI object
   */
-  ChemInchiLayer *layerC,*currLayer;
+  ChemInchiLayer *layerC = malloc(sizeof(ChemInchiLayer));
+  ChemInchiLayer *currLayer = malloc(sizeof(ChemInchiLayer));
   int i;
 
   for (i=0;i<arrayMax (this1->layers);i++) {
