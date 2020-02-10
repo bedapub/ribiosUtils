@@ -73,7 +73,7 @@ jobs:
 
       - name: Check
         run: >
-           Rscript -e "rcmdcheck::rcmdcheck(args = '--no-manual', error_on = 'warning', check_dir = 'check')"
+           Rscript -e "rcmdcheck::rcmdcheck(args = '--no-manual', error_on = 'note', check_dir = 'check')"
 
       - name: Upload check results
         if: failure()
