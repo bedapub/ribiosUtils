@@ -527,7 +527,7 @@ static void expandTree (Node *currNode,char *seps) {
   else if (strEqual (seps,"?")) {
     int i1;
     int k;
-    Tok *currTok1;
+    Tok *currTok1 = malloc(sizeof(Tok));
 
     for (i=currNode->bInd;i<=currNode->eInd;i++) {
       currTok = arrp (gTokens,i,Tok);
@@ -897,7 +897,7 @@ static void termType (void) {
 }
 
 static char *operation1 (char *op,char *vStr) {
-  double v,res;
+  double v,res=0;
   static Stringa resStr = NULL;
 
   v = atof (vStr);
@@ -922,7 +922,7 @@ static char *operation1 (char *op,char *vStr) {
 }
 
 static char *operation2 (char *op,char *lStr,char *rStr) {
-  double l,r,res;
+  double l,r,res=0.0;
   static Stringa resStr = NULL;
 
   l = atof (lStr);
@@ -953,7 +953,7 @@ static char *operation2 (char *op,char *lStr,char *rStr) {
 static char *eval (Node *currNode) {
   if (currNode->t != NULL && currNode->e != NULL) {
     double l,r;
-    int branch;
+    int branch=0;
 
     l = atof (eval (currNode->left));
     r = atof (eval (currNode->right));
@@ -1078,7 +1078,7 @@ void eval_setVariable (char *name,char *val) {
      @param[in] val - value of the variable
   */
   int i;
-  Variable *currVariable;
+  Variable *currVariable = malloc(sizeof(Variable));
   char *r;
 
   if (gVariables == NULL)

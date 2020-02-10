@@ -729,8 +729,8 @@ CifFileObject ifo_create (LineStream ls) {
   */
   CifFileObject ifo;
   char *line;
-  SectionI *currSection;
-  Item *currItem;
+  SectionI *currSection = malloc(sizeof(SectionI));
+  Item *currItem = malloc(sizeof(Item));
   char *pos;
 
   ifo = (CifFileObject)hlr_malloc (sizeof (struct _cifFileObject_));
@@ -796,8 +796,8 @@ char *ifo_valueGet (CifFileObject ifo,char *section,char *name) {
      @param[in] section - name of the section
      @param[in] name - name of the item
   */
-  SectionI *currSection;
-  Item *currItem;
+  SectionI *currSection = malloc(sizeof(SectionI));
+  Item *currItem = malloc(sizeof(Item));
   int i;
 
   if (ifo == NULL)
@@ -826,7 +826,7 @@ int ifo_numItemGet (CifFileObject ifo,char *section) {
      @param[in] ifo - a cif file object
      @param[in] section - name of the section
   */
-  SectionI *currSection;
+  SectionI *currSection = malloc(sizeof(SectionI));
   int i;
 
   if (ifo == NULL)
@@ -854,8 +854,8 @@ int ifo_nameValueGet (CifFileObject ifo,char *section,int index,
      @param[out] name,value - the name and value
      @return 1 if something valid returned, otherwise 0
   */
-  SectionI *currSection;
-  Item *currItem;
+  SectionI *currSection = malloc(sizeof(SectionI));
+  Item *currItem = malloc(sizeof(Item));
   int i;
 
   if (ifo == NULL)
@@ -891,8 +891,8 @@ CdfFileObject dfo_create (LineStream ls) {
   */
   CdfFileObject dfo;
   char *line;
-  SectionD currSection;
-  Item *currItem;
+  SectionD currSection = malloc(sizeof(SectionD));
+  Item *currItem = malloc(sizeof(Item));
   char *pos;
   int inCells = 0;
 
@@ -1167,8 +1167,8 @@ char *efo_valueGet (ExpFileObject efo,char *section,char *name) {
      @param[in] name - name of the item
      @return the value of the item, NULL if item not found
   */
-  SectionE *currSection;
-  Item *currItem;
+  SectionE *currSection = malloc(sizeof(SectionE));
+  Item *currItem = malloc(sizeof(Item));
   int i;
 
   if (efo == NULL)
@@ -1198,7 +1198,7 @@ int efo_numSectionParamGet (ExpFileObject efo,char *section) {
      @param[in] section - name of the section
      @return number of items
   */
-  SectionE *currSection;
+  SectionE *currSection = malloc(sizeof(SectionE));
   int i;
 
   if (efo == NULL)
@@ -1226,8 +1226,8 @@ int efo_sectionParamGet (ExpFileObject efo,char *section,int index,
      @param[out] name,val - name and value
      @return 1 if something valid returned, otherwise 0
   */
-  SectionE *currSection;
-  Item *currItem;
+  SectionE *currSection = malloc(sizeof(SectionE));
+  Item *currItem = malloc(sizeof(Item));
   int i;
 
   if (efo == NULL)

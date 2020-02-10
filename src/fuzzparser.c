@@ -106,9 +106,9 @@ void fup_run (LineStream ls) {
   int numMismatch;
   int start,end;
   int frame;
-  Pat *currPat;
+  Pat *currPat = malloc(sizeof(Pat));
   Texta toks;
-  int i,f;
+  int i,f=0;
   char *p1;
 
   while ((line = ls_nextLine (ls)) != NULL) {

@@ -236,7 +236,7 @@ static void ludcmp (float a[DIM][DIM],int indx[DIM],float *d) {
      Press, W.H., Flannery, B.P., Teukolsky, S.A., and Vetterling, W.T.,
      Cambridge University Press 1986
   */
-  int i,j,k,imax;
+  int i,j,k,imax=0;
   float sum,dum,big,temp;
   float vv[DIM];
 

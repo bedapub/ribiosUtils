@@ -153,7 +153,7 @@ void phrlp_run (LineStream ls) {
   int cBases,cNumReads,cNumSegments;
   char cStrand;
   int i;
-  Read *currRead;
+  Read *currRead = malloc(sizeof(Read));
 
   while ((line = ls_nextLine (ls)) != NULL) {
     if (strStartsWithC (line,"AS")) {

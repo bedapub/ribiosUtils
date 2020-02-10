@@ -99,7 +99,7 @@ void msfp_run (LineStream ls) {
   int index;
   Seq *currSeq,newSeq;
   char progName[100];
-  int algIsNuc;
+  int algIsNuc=0;
   int charRead;
   int order = 0;
 

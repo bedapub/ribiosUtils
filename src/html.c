@@ -464,6 +464,9 @@ static int cgiGetNextPair (int *first,Stringa item,Stringa value) {
     if (gCgiBufferSize != 0) {
       gCgiBuffer = (char *)hlr_malloc (gCgiBufferSize);
       freadRes = fread (gCgiBuffer,gCgiBufferSize,1,stdin);
+      if (freadRes < 0) {
+	die("cgiGetNextPair fread error - please report the bug");
+      }
     }
     bufferPtr = gCgiBuffer;
   }

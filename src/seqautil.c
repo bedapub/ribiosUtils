@@ -766,7 +766,7 @@ int prom_fastaFromFile (char *filename,int maxseqs,Array seqs) {
   int i;
   int count=0;
   int alreadythere;
-  PromSequence *current;
+  PromSequence *current = malloc(sizeof(PromSequence));
 
   alreadythere = arrayMax (seqs);
   ls = ls_createFromFile (filename);

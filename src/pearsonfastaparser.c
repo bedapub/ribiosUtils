@@ -202,7 +202,7 @@ void pfp_run (LineStream ls) {
   char subjType[3];
   int subjBeg,subjEnd;
   int frame;
-  int queryFrame,subjFrame;
+  int queryFrame=0,subjFrame=0;
   int score;
   float bits;
   double prob;

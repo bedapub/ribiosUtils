@@ -47,6 +47,10 @@ static void uint4_read (int fh,unsigned int *valp) {
   readRes = read (fh,b,4);
   *valp = ((int)b[0]<<24) + ((int)b[1]<<16) + ((int)b[2]<<8) + b[3];
 #endif
+
+  if (readRes < 0) {
+    die("unit4_read failed - please report the bug");
+  }
 }
 
 static void long8_read (int fh,long *val) {
@@ -60,6 +64,10 @@ static void long8_read (int fh,long *val) {
   readRes = read (fh,b,8);
   *val = ((long)b[3]<<24) + ((long)b[2]<<16) + ((long)b[1]<<8) + ((long)b[0]);
 #endif
+
+  if (readRes < 0) {
+    die("unit4_read failed - please report the bug");
+  }
 }
 
 static void bdb_close (void) {
@@ -92,6 +100,9 @@ int bdb_read_next (char **name,char **seq) {
   hlr_free (n);
   n = (char *)hlr_calloc (len+1,sizeof (char));
   readRes = read (hfh,n,len);
+  if (readRes < 0) {
+    die("error in bdb_read_next - please report the bug");
+  }
   if (name != NULL)
     *name = n+8;
   if (gDbType == DB_TYPE_NUC) {
@@ -108,6 +119,9 @@ int bdb_read_next (char **name,char **seq) {
     hlr_free (s0);
     s0 = (char *)hlr_calloc (len,sizeof (char));
     readRes = read (sfh,s0,len);
+    if (readRes < 0) {
+      die("error in bdb_read_next - please report the bug");
+    }
     pad = (s0[len-1] & 3);
     hlr_free (s);
     s = (char *)hlr_calloc (4*len,sizeof (char));
@@ -125,6 +139,9 @@ int bdb_read_next (char **name,char **seq) {
       for (i=0;i<numAmbig;i++) {
         lseek (sfh,aPtr[seqNum] + (i+1)*4,SEEK_SET);
         readRes = read (sfh,ambig,4);
+	if (readRes < 0) {
+	  die("error in pdb_read_next (numAmbig) - please report the bug");
+	}
         pos = ((unsigned char)ambig[1]<<16) + ((unsigned char)ambig[2]<<8) + (unsigned char)ambig[3];
         b = ambigbase[((unsigned int)ambig[0] & 240) >> 4];
         repeat = (int)ambig[0] & 15;

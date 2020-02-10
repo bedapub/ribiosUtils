@@ -1564,7 +1564,7 @@ double stat_studentTQuantile (double beta,int k) {
   double low;
   double high;
   double mid;
-  double test;
+  double test=0.0;
   double w;
   double x;
   double y;

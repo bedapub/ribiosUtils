@@ -257,7 +257,7 @@ static void fillOval_bitmap (GraphRect *rect) {
 
 static void fillPoly_bitmap (GraphPoly *poly) {
   int min,max;
-  int imin,imax;
+  int imin=0,imax=0;
   GraphPoint p;
   int hatchx[HATCH_SIZE];
   int i,d,m,dx,dy,h,i1,i2;

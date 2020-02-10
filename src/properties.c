@@ -87,17 +87,18 @@ void pty_load (Properties this1,char* filename) {
   */
   char *line;
   NVpair oneNV;
+  int inserted;
+  char *msg;
 
   LineStream ls = ls_createFromFile (filename);
   while ((line = ls_nextLine (ls)) != NULL) {
-    int inserted;
-
     char *pos = splitNameValue (line);
     oneNV.name = hlr_strdup (line);
     oneNV.value = hlr_strdup (pos);
     inserted = arrayFindInsert (this1->pairs,&oneNV,NULL,
                                 (ARRAYORDERF)orderByName);
-    DD(9,("%s'%s'='%s'\n",inserted?"Inserted ":"Not inserted ",
+    msg = inserted ? "Inserted ": "Not inserted ";
+    DD(9,("%s'%s'='%s'\n", msg,
           currNV->name,currNV->value));
   }
   ls_destroy (ls);

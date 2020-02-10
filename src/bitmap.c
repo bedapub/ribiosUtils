@@ -294,7 +294,7 @@ BitmapCol bm_getMostAbundantColor (BitmapObject this1) {
   */
   int colcnts[BITMAP_MAX_NUM_COLOR];
   int i;
-  int j;
+  int j = 0;
   int max = -1;
   for (i=0;i<BITMAP_MAX_NUM_COLOR;i++)
     colcnts[i] = 0;

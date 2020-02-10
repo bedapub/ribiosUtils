@@ -1605,7 +1605,7 @@ void rcp_gaussJ (float **a,int n,float **b,int m) {
   /**
    */
   int *iPiv,*indxR,*indxC;
-  int i,j,k,l,ll,iRow,iCol;
+  int i,j,k,l,ll,iRow=0,iCol=0;
   float big,dummy,pivInv,swap;
 
   indxC = mv_vectorI (n);

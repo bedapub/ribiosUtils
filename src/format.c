@@ -926,8 +926,8 @@ Texta textFillG (int width,int widthOffset1,char *s,char *splitControl) {
   char *spos; // look back position
   char c;
   int altSplitFound; // 1, if one of the splitControl found
-  char *ws_begin; // whitespace begin
-  char *ws_end;
+  char *ws_begin = NULL; // whitespace begin
+  char *ws_end = NULL;
   Texta res; // result array
   char *line; // start of current line in s
   int ws = 0; // true, if last char was a whitespace, else false
