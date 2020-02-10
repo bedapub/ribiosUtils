@@ -73,6 +73,8 @@ log_deregisterDie(), log_deregisterWarn(), log_deregisterUsage(), or
 log_deregisterRomsg. The order of deregistering calls is of no
 importance and will delete the first occurrence of a function
 registration when a function has been registered twice.
+
+In R, stderr should not be directly written to. Use REprintf instead.
 */
 
 #define MAX_HOOKS 5 //!< maximum of allowed hooks
@@ -309,10 +311,7 @@ void logOpen (char *fname) {
   if (fname[0] == '\0')
     fname = NULL; // ignore empty file name
   if (fname != NULL) {
-    /* redirect stderr into a file while keeping a stream variable
-       as a name for the log stream
-       so log output can go to gLogFile, errors from anywhere go to stderr,
-       but reach the same log file
+    /* redirect stderr (2) to the file
     */
     if (PLABLA_CLOSE (2) == -1)
       perror ("PROBLEM: log: close(2)");
@@ -323,10 +322,6 @@ void logOpen (char *fname) {
     }
     if (fd != 2)
       Rprintf ("PROBLEM: could not redirect stderr (fd %d)\n",fd);
-    setbuf (stderr,0);
-    gLogFile = stderr;
-    if (!gLogFile)
-      die ("logOpen: could not open log file %s\n",fname);
   }
 }
 
@@ -346,7 +341,11 @@ void logWrite (char *format,...) {
   va_list args;
 
   va_start (args,format);
-  vfprintf ((gLogFile) ? gLogFile : stderr,format,args);
+  if (gLogFile) {
+    vfprintf(gLogFile, format, args);
+  } else {
+    REvprintf(format, args);
+  }
   va_end (args);
 }
 
@@ -357,9 +356,13 @@ void logWriteT (char *format,...) {
   */
   va_list args;
 
-  logPrintTime ((gLogFile) ? gLogFile : stderr);
+  logPrintTime (gLogFile);
   va_start (args,format);
-  vfprintf ((gLogFile) ? gLogFile : stderr,format,args);
+  if(gLogFile) {
+    vfprintf(gLogFile, format, args);
+  } else {
+    REvprintf(format, args);
+  }
   va_end (args);
 }
 
@@ -373,7 +376,11 @@ void logPrintTime (FILE *f) {
   char ts[22];
   time_t t = time (NULL);
   strftime (ts,sizeof (ts),"%Y-%m-%d_%T ",localtime (&t));
-  fputs (ts,f);
+  if(f) {
+    fputs (ts,f);
+  } else {
+    REprintf(ts);
+  }
 }
 
 void logClose (void) {
