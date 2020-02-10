@@ -180,7 +180,10 @@ registerLog <- function(..., append=FALSE) {
   appendLoggers(cons)
   
   ## When the R session ends, RIBIOS_LOGGERS should be closed whenever possible
-  assign(".Last", closeLoggerConnections, envir=.GlobalEnv)
+  pos <- 1
+  envir <- as.environment(pos)
+  assign(".Last", closeLoggerConnections, envir=envir)
+
   return(invisible(NULL))
 }
 
