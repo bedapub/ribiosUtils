@@ -1,8 +1,8 @@
 Package: ribiosUtils
 Type: Package
 Title: Utilities from and Interface to the Bioinfo-C (BIOS) Library
-Version: 1.5-3
-Date: 2020-02-10
+Version: 1.5-4
+Date: 2020-02-20
 Authors@R: 
   c(person(given = "Jitao David",
            family = "Zhang",
@@ -11,8 +11,12 @@ Authors@R:
            comment = c(ORCID="0000-0002-3085-0909")),
     person(given = "Clemens",
            family = "Broger",
-           role = c("aut", "ctb")))
-Description: A Swiss-knife package providing interface to the Bioinfo-C (internal name: BIOS) library and utilities. 
+           role = c("aut", "ctb")),
+    person("F.Hoffmann-La Roche AG", role="cph"),
+    person(given="Junio C", family="Hamano", role="cph"),
+    person(given="Jean", family="Thierry-Mieg", role="cph"),
+    person(given="Richard", family="Durbin", role="cph"))
+Description: Provides interface to the Bioinfo-C (internal name: BIOS) library and utilities. A swiss-knife for computational biology in drug discovery, ribiosUtils provides functions and utilities with minimal external dependency and maximal efficiency.
 Depends:
     R (>= 3.4.0),
     methods,
@@ -22,6 +26,6 @@ Depends:
 Suggests:
     testthat
 License: GPL-3
-URL: https://github.com/Accio/ribiosUtils/
+URL: https://github.com/Accio/ribiosUtils
 BugReports: https://github.com/Accio/ribiosUtils/issues
 RoxygenNote: 7.0.2
