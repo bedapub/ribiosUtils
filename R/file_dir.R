@@ -20,11 +20,11 @@
 #' \code{\link{assertFile}}
 #' @examples
 #' 
-#' dir1 <- system.file(package="ribiosIO")
-#' dir2 <- system.file(package="ribiosUtils")
+#' dir1 <- tempdir()
+#' dir2 <- tempdir()
 #' 
 #' isDir(dir1, dir2)
-#' \dontrun{assertDir(dir1, dir2)}
+#' assertDir(dir1, dir2)
 #' 
 #' @export isDir checkDir assertDir
 isDir <- function(...) {

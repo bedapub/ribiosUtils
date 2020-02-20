@@ -58,8 +58,9 @@ unsetDebug <- function() Sys.unsetenv("RIBIOS_SCRIPT_DEBUG")
 #' @seealso \code{\link{options}}
 #' @examples
 #' 
+#' ## do not run unless the script mode is needed
 #' \dontrun{
-#' scriptInit()
+#'   scriptInit()
 #' }
 #' 
 #' @export scriptInit

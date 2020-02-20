@@ -253,7 +253,6 @@ sortByCol <- function (data.frame, columns,
 #' dfFactor(df, 1L)
 #' dfFactor(df, 2L)
 #' dfFactor(df, df$score)
-#' \dontrun{dfFactor(df, "mark")}
 #' 
 #' @export dfFactor
 dfFactor <- function(df, sample.group) {
@@ -325,7 +324,6 @@ matchColumnName <- function(data.frame.cols, reqCols, ignore.case=FALSE) {
 #' assertColumnName(myTestDf, myFavTeams)
 #' myFavTeamsCase <- c("hbv", "bVb")
 #' assertColumnName(myTestDf, myFavTeamsCase, ignore.case=TRUE)
-#' \dontrun{assertColumnName(myTestDf, myFavTeamsCase, ignore.case=TRUE)}
 #' 
 #' @export assertColumnName
 assertColumnName <- function(data.frame.cols, reqCols, ignore.case=FALSE) {
@@ -357,7 +355,6 @@ assertColumnName <- function(data.frame.cols, reqCols, ignore.case=FALSE) {
 #' subsetByColumnName(myTestDf, myFavTeams)
 #' myFavTeamsCase <- c("hbv", "bVb")
 #' subsetByColumnName(myTestDf, myFavTeamsCase, ignore.case=TRUE)
-#' \dontrun{subsetByColumnName(myTestDf, myFavTeamsCase, ignore.case=TRUE)}
 #' 
 #' @export subsetByColumnName
 subsetByColumnName <- function(data.frame, reqCols, ignore.case=FALSE) {

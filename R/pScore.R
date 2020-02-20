@@ -74,12 +74,10 @@ pQnormScore <- function(p, sign=1) {
 #' pScore(testPvals, testLog, method="absLog10")
 #' pScore(testPvals, testLog, method="qnorm")
 #' 
-#' \dontrun{
 #' testPvals <- 10^seq(-5, 0, 0.05)
 #' plot(pScore(testPvals, method="qnorm"),
 #'      pScore(testPvals, method="absLog10"),
 #'      xlab="pQnormScore", ylab="pAbsLog10Score"); abline(0,1, col="red", lty=2)
-#' }
 #' @seealso \code{\link{pAbsLog10Score}}, \code{\link{pQnormScore}}
 #' @export pScore
 pScore <- function(p, sign=1, method=c("qnorm", "absLog10")) {

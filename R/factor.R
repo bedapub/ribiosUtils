@@ -160,10 +160,6 @@ relevelsByNotNamedVec <- function(x, refs,
 #' stopifnot(identical(newFactor, factor(c("A", "B", "A", "C", "B"), levels=c("B", "C", "A"))))
 #' newFactor2 <-  relevels(oldFactor, refDict)
 #' stopifnot(identical(newFactor2, factor(c("a", "b", "a", "c", "b"), levels=c("a", "b", "c"))))
-#' \dontrun{
-#' try(relevels(oldFactor, c("A", "B", "C", "D"),  unrecognisedLevels="error"))
-#' try(relevels(oldFactor, c("A", "B"), missingLevels="error"))
-#' }
 #' 
 #' @export relevels
 relevels <- function(x, refs,

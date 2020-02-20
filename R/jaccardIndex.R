@@ -133,15 +133,6 @@ naivePairwiseDist <- function(list, fun=jaccardIndex) {
 #' testMatrix2 <- matrix(rbinom(150, 1, 0.2), nrow=15)
 #' testMatrix12Poe <- columnOverlapCoefficient(testMatrix1, 
 #'   testMatrix2)
-#' \dontrun{
-#'    testMatrix12NaivePoe <- t(apply(testMatrix1, 2, function(x) {
-#'       apply(testMatrix2, 2, function(y) {
-#'          overlapCoefficient(which(x!=0), which(y!=0))
-#'       })
-#'    }))
-#'    dimnames(testMatrix12NaivePoe) <- list(NULL, NULL)
-#'    stopifnot(identical(testMatrix12Poe, testMatrix12NaivePoe ))
-#' }
 #' 
 #' @export columnOverlapCoefficient
 columnOverlapCoefficient <- function(x, y=NULL) {
@@ -182,24 +173,11 @@ columnOverlapCoefficient <- function(x, y=NULL) {
 #' testSets1Poe <- listOverlapCoefficient(testSets1)
 #' testSets1PoeNoCheck <- listOverlapCoefficient(testSets1, checkUniqueNonNA=FALSE)
 #' stopifnot(identical(testSets1Poe, testSets1PoeNoCheck))
-#' \dontrun{
-#'   testSets1NaivePoe <- naivePairwiseDist(testSets1, overlapCoefficient)
-#'   stopifnot(identical(testSets1NaivePoe, testSets1Poe))
-#' }
 #' 
 #' testSets2 <- sapply(rbinom(15, size=26, prob=0.3),
 #'   function(x) sample(LETTERS, x, replace=FALSE))
 #' names(testSets2) <- sprintf("AnotherList%d", seq(along=testSets2))
 #' testSets12Poe <- listOverlapCoefficient(testSets1, testSets2)
-#' 
-#' \dontrun{
-#'    testSets12NaivePoe <- t(sapply(testSets1, function(x) {
-#'       sapply(testSets2, function(y) {
-#'          overlapCoefficient(x, y)
-#'       })
-#'    }))
-#'    stopifnot(identical(testSets12Poe, testSets12NaivePoe))
-#' }
 #' 
 #' @export listOverlapCoefficient
 listOverlapCoefficient <- function(x, y=NULL, checkUniqueNonNA=TRUE) {

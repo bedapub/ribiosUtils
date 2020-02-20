@@ -60,9 +60,7 @@ headtail <- function(vec, head=2, tail=1, collapse=", ") {
 #' @examples
 #' 
 #' myMat <- matrix(rnorm(10000), nrow=10L)
-#' \dontrun{
-#'   head(myMat)
-#' }
+#' head(myMat)
 #' headhead(myMat)
 #' tailtail(myMat)
 #' 

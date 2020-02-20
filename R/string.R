@@ -64,10 +64,6 @@ nField <- function(str, split="\t",...) {
 #' strtoken(myStr, "\t", index=2L)
 #' 
 #' myFac <- factor(myStr)
-#' ## do not run
-#' \dontrun{
-#'   strsplit(myFac, "\t")
-#' }
 #' strtoken(myFac, "\t")
 #' strtoken(myFac, "\t", index=1L)
 #' 
