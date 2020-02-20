@@ -31,23 +31,10 @@ names(testSets1) <- sprintf("List\%d", seq(along=testSets1))
 testSets1Poe <- listOverlapCoefficient(testSets1)
 testSets1PoeNoCheck <- listOverlapCoefficient(testSets1, checkUniqueNonNA=FALSE)
 stopifnot(identical(testSets1Poe, testSets1PoeNoCheck))
-\dontrun{
-  testSets1NaivePoe <- naivePairwiseDist(testSets1, overlapCoefficient)
-  stopifnot(identical(testSets1NaivePoe, testSets1Poe))
-}
 
 testSets2 <- sapply(rbinom(15, size=26, prob=0.3),
   function(x) sample(LETTERS, x, replace=FALSE))
 names(testSets2) <- sprintf("AnotherList\%d", seq(along=testSets2))
 testSets12Poe <- listOverlapCoefficient(testSets1, testSets2)
-
-\dontrun{
-   testSets12NaivePoe <- t(sapply(testSets1, function(x) {
-      sapply(testSets2, function(y) {
-         overlapCoefficient(x, y)
-      })
-   }))
-   stopifnot(identical(testSets12Poe, testSets12NaivePoe))
-}
 
 }

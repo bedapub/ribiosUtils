@@ -10,5 +10,5 @@ bedaInfo()
 The function is used at the end of the Rmarkdown report to print relevant information to help other colleagues finding relevant resources
 }
 \examples{
-\dontrun{bedaInfo()}
+if(interactive()) {bedaInfo()}
 }

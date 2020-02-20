@@ -31,9 +31,7 @@ the first rows AND the first columns.
 \examples{
 
 myMat <- matrix(rnorm(10000), nrow=10L)
-\dontrun{
-  head(myMat)
-}
+head(myMat)
 headhead(myMat)
 tailtail(myMat)
 

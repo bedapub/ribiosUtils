@@ -16,8 +16,9 @@ Currently it defines behaviour in case of errors: a file named
 }
 \examples{
 
+## do not run unless the script mode is needed
 \dontrun{
-scriptInit()
+  scriptInit()
 }
 
 }

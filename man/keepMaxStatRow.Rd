@@ -96,20 +96,6 @@ keepMaxStatRow(mat2, keys2, keepNArows=TRUE, stat=myFun1)
 keepMaxStatRow(mat2, keys2, keepNArows=TRUE, stat=myFun1, levels="discard")
 keepMaxStatRow(mat2, keys2, keepNArows=TRUE, stat=myFun1, levels="attribute")
 
-\dontrun{
-## don't run
-mat3 <- matrix(c(1,2,3,4), nrow=1L)
-keys3 <- "A"
-keepMaxStatRow(mat3, keys3, keepNArows=FALSE)
-
-## don't run
-mat4 <- matrix(c(1,2,3,4,
-                 NA,NA,NA,NA), nrow=2L, byrow=TRUE)
-keys4 <- c("A", "B")
-keepMaxStatRow(mat4, keys4, keepNArows=FALSE)
-keepMaxStatRow(mat4, keys4, keepNArows=TRUE)
-}
-
 }
 \author{
 Jitao David Zhang <jitao_david.zhang@roche.com>

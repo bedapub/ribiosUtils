@@ -31,10 +31,10 @@ Only one package should be tested once.
 }
 \examples{
 
-\dontrun{
-libordie(stats)
-libordie("methods")
-libordie(base, minVer="2.15-1")
+if(interactive()) {
+  libordie(stats)
+  libordie("methods")
+  libordie(base, minVer="2.15-1")
 }
 
 }

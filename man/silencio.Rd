@@ -19,7 +19,6 @@ messages
 \examples{
 
 wsqrt <- function(x) {warning("Beep");message("Calculating square");return(x^2)}
-\dontrun{wsqrt(3)}
 silencio(wsqrt(3))
 
 }

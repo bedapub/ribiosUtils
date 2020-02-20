@@ -15,5 +15,5 @@
 Print BEDAinfo object
 }
 \examples{
-\dontrun{print(bedaInfo())}
+if(interactive()) {print(bedaInfo())}
 }

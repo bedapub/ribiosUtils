@@ -20,11 +20,10 @@ So far only character is accepted
 }
 \examples{
 
+## the example should not run because it will reload the package
 \dontrun{
-library(ribiosUtils)
-reload(ribiosUtils)
+  reload(ribiosUtils)
 }
-
 }
 \seealso{
 \code{\link{detach}} and \code{\link{library}}

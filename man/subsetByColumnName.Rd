@@ -29,6 +29,5 @@ myFavTeams <- c("HBV", "BVB")
 subsetByColumnName(myTestDf, myFavTeams)
 myFavTeamsCase <- c("hbv", "bVb")
 subsetByColumnName(myTestDf, myFavTeamsCase, ignore.case=TRUE)
-\dontrun{subsetByColumnName(myTestDf, myFavTeamsCase, ignore.case=TRUE)}
 
 }

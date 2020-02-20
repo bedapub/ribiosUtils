@@ -30,14 +30,5 @@ columnOverlapCoefficient(testMatrix1)
 testMatrix2 <- matrix(rbinom(150, 1, 0.2), nrow=15)
 testMatrix12Poe <- columnOverlapCoefficient(testMatrix1, 
   testMatrix2)
-\dontrun{
-   testMatrix12NaivePoe <- t(apply(testMatrix1, 2, function(x) {
-      apply(testMatrix2, 2, function(y) {
-         overlapCoefficient(which(x!=0), which(y!=0))
-      })
-   }))
-   dimnames(testMatrix12NaivePoe) <- list(NULL, NULL)
-   stopifnot(identical(testMatrix12Poe, testMatrix12NaivePoe ))
-}
 
 }

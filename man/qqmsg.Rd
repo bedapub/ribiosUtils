@@ -24,11 +24,12 @@ is non-interactive, e.g. in the command-line running Rscript mode
 }
 \examples{
 
+## the example should not run because it will lead the R session to quit
 \dontrun{
-qqmsg()
-qqmsg("die", status=0)
-qqmsg("Avada kedavra", status=-1)
-qqmsg("Crucio!", "\n", "Avada kedavra", status=-100)
+  qqmsg()
+  qqmsg("die", status=0)
+  qqmsg("Avada kedavra", status=-1)
+  qqmsg("Crucio!", "\n", "Avada kedavra", status=-100)
 }
 
 }

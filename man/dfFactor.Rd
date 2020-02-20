@@ -41,7 +41,6 @@ dfFactor(df, "score")
 dfFactor(df, 1L)
 dfFactor(df, 2L)
 dfFactor(df, df$score)
-\dontrun{dfFactor(df, "mark")}
 
 }
 \author{
