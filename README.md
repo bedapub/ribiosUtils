@@ -1,7 +1,7 @@
 *ribiosUtils*: Swiss-army knife for computational biology tasks in drug discovery
 ===
 
-[![Build Status](https://travis-ci.org/Accio/ribiosUtils.svg?branch=master)](https://travis-ci.org/Accio/ribiosUtils)
+![R-CMD-check badge](https://github.com/bedapub/ribiosUtils/workflows/R-CMD-check/badge.svg)
 
 ## What is *ribiosUtils*?
 
@@ -13,7 +13,7 @@ Run following commands in the R console.
 
 ```{R}
 library(devtools)
-devtools::install_github("Accio/ribiosUtils")
+devtools::install_github("bedapub/ribiosUtils")
 ```
 
 ## History
