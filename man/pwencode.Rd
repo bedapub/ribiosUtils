@@ -11,6 +11,9 @@ pwencode(label = "VAR", key)
 
 \item{key}{password key}
 }
+\value{
+Character string, encoded password
+}
 \description{
 Encode a password
 }

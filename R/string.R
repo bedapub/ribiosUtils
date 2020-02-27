@@ -88,7 +88,8 @@ strtoken <- function(x, split, index, ...) {
 #' 
 #' @param str A vector of strings
 #' @param nchar The maximal number of characters to keep
-#' 
+#' @return A vector of strings of the same length as the input, with each string shortened to the desired length 
+#'
 #' Strings with more characters than \code{nchar} will be shortened.
 #' @note \code{NA} will be kept as they are
 #' @examples
@@ -114,6 +115,9 @@ shortenStr <- function(str, nchar=8) {
 #' @param align Character, how to align
 #' Strings with more or fewer characters than \code{nchar} are either shortened
 #' or filled (with spaces)
+#' 
+#' @return A vector of strings with fixed widths
+#'
 #' @note \code{NA} will be converted to characters and the same fixed width
 #' will be applied. The behavior is different from \code{\link{shortenStr}},
 #' where \code{NA} is kept as it is.

@@ -23,6 +23,9 @@ levels in the old factor. And the values are new levels}
 \item{unrecognisedLevels}{Actions taken in case unrecognised levels are
 found: 'pass', 'warning', or 'error'.}
 }
+\value{
+A vector of factor
+}
 \description{
 If names contain character strings other than the levels in the old factor
 and warning is set to \code{TRUE}, a warning will be raised.

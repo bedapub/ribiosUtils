@@ -13,6 +13,9 @@ rowscale(x, center = TRUE, scale = TRUE)
 
 \item{scale}{Logical, whether scaling should be done}
 }
+\value{
+The input object with rows scaled
+}
 \description{
 S3 method for row-scaling
 }

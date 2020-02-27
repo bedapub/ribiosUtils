@@ -9,6 +9,9 @@
 #' @param status Quit stats
 #' @param save Logical, should current working environment be saved?
 #' @param runLast Logical, should \code{.Last()} be executed?
+#'
+#' @return Invisible \code{NULL}, only side effect is used.
+#'
 #' @author Jitao David Zhang <jitao_david.zhang@@roche.com>
 #' @seealso \code{\link{quit}}
 #' @examples
@@ -28,4 +31,5 @@ qqmsg <- function(..., status=0, save=FALSE, runLast=TRUE) {
   ss <- ifelse(save, "yes", "no")
   if(!interactive())
     quit(save=ss, status=status, runLast=runLast)
+  return(invisible(NULL))
 }

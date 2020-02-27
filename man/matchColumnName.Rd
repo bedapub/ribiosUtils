@@ -15,6 +15,9 @@ is copied}
 
 \item{ignore.case}{logical, whether the case is considered}
 }
+\value{
+A vector of integers as indices
+}
 \description{
 Match a given vector to column names of a data.frame or matrix
 }

@@ -11,6 +11,9 @@
 
 \item{...}{Ignored}
 }
+\value{
+Invisible \code{NULL}, only side effect is used
+}
 \description{
 Print BEDAinfo object
 }

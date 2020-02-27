@@ -15,6 +15,9 @@ qqmsg(..., status = 0, save = FALSE, runLast = TRUE)
 
 \item{runLast}{Logical, should \code{.Last()} be executed?}
 }
+\value{
+Invisible \code{NULL}, only side effect is used.
+}
 \description{
 Quitely quit R with messages in non-interactive sessions
 }

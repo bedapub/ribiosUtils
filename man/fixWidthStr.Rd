@@ -15,6 +15,9 @@ fixWidthStr(str, nchar = 8, align = c("left", "right"))
 Strings with more or fewer characters than \code{nchar} are either shortened
 or filled (with spaces)}
 }
+\value{
+A vector of strings with fixed widths
+}
 \description{
 Shorten strings to strings with a fix width of characters
 }

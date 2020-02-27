@@ -32,6 +32,7 @@ pwdecode <- function(password) {
 #' Encode a password
 #' @param label label used to encode the password
 #' @param key password key
+#' @return Character string, encoded password
 #' @export pwencode
 pwencode <- function(label="VAR", key) {
   if(missing(key))

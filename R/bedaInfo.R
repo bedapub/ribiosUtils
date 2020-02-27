@@ -1,6 +1,6 @@
 #' Translate BiOmics-Pathology pstore path to URL
 #' @param path Unix path
-#' 
+#' @return Character string of biomics pstore path 
 #' The URL is only visible inside Roche
 #' 
 #' @examples 
@@ -14,6 +14,7 @@ biomicsPstorePath2URL <- function(path) {
 
 #' Print BEDA project information
 #' 
+#' @return A list, including pstore path, URL, git address, and user id
 #' The function is used at the end of the Rmarkdown report to print relevant information to help other colleagues finding relevant resources
 #' 
 #' @examples 
@@ -38,6 +39,8 @@ bedaInfo <- function() {
 #' @param x A BEDA info object, returned by \code{\link{bedaInfo}}
 #' @param ... Ignored
 #' 
+#' @return Invisible \code{NULL}, only side effect is used
+#'
 #' @examples 
 #' if(interactive()) {print(bedaInfo())}
 #' @export
@@ -48,4 +51,5 @@ print.BEDAinfo <- function(x, ...) {
   cat("[git]\n  ", x$git, "\n")
   cat("[User]R
       R\n  ", x$user, "\n")
+  return(invisible(NULL))
 }

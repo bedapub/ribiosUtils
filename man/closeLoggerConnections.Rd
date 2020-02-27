@@ -8,6 +8,9 @@ It is automatically run at the end of the R session (setup by \code{\link{regist
 \usage{
 closeLoggerConnections()
 }
+\value{
+Invisible \code{NULL}. Only side effect is used.
+}
 \description{
 Close connections to all loggers 
 This function closes all open connections set up by loggers

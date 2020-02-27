@@ -6,8 +6,12 @@
 \usage{
 bedaInfo()
 }
-\description{
+\value{
+A list, including pstore path, URL, git address, and user id
 The function is used at the end of the Rmarkdown report to print relevant information to help other colleagues finding relevant resources
+}
+\description{
+Print BEDA project information
 }
 \examples{
 if(interactive()) {bedaInfo()}

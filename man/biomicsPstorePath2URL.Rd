@@ -7,9 +7,11 @@
 biomicsPstorePath2URL(path)
 }
 \arguments{
-\item{path}{Unix path
-
-The URL is only visible inside Roche}
+\item{path}{Unix path}
+}
+\value{
+Character string of biomics pstore path 
+The URL is only visible inside Roche
 }
 \description{
 Translate BiOmics-Pathology pstore path to URL

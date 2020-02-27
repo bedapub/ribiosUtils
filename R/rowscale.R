@@ -2,6 +2,7 @@
 #' @param x Any object
 #' @param center Logical, whether centering should be done before scaling
 #' @param scale Logical, whether scaling should be done
+#' @return The input object with rows scaled
 #' @export rowscale
 rowscale <- function(x, center = TRUE, scale=TRUE) UseMethod("rowscale")
 

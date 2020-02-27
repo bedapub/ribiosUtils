@@ -12,6 +12,9 @@ percentage(x, fmt = "1.1")
 \item{fmt}{format string, '1.1' means a digit before and after the decimal
 point will be printed}
 }
+\value{
+Character string
+}
 \description{
 Print a decimal number in procent format
 }

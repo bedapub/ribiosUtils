@@ -45,6 +45,8 @@ flushLog <- function() {
 #' This function closes all open connections set up by loggers
 #' It is automatically run at the end of the R session (setup by \code{\link{registerLog}})
 #'
+#' @return Invisible \code{NULL}. Only side effect is used.
+#'
 #' @seealso \code{\link{registerLog}}
 #' @export
 closeLoggerConnections <- function() {
@@ -56,7 +58,7 @@ closeLoggerConnections <- function() {
     if(is(con, "connection") & !is(con, "terminal"))
       close(con)
   }
-  return;
+  return(invisible(NULL))
 }
 
 #' The functions \code{registerLog} and \code{doLog} provide a simple mechanism

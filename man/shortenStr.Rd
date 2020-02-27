@@ -9,9 +9,12 @@ shortenStr(str, nchar = 8)
 \arguments{
 \item{str}{A vector of strings}
 
-\item{nchar}{The maximal number of characters to keep
+\item{nchar}{The maximal number of characters to keep}
+}
+\value{
+A vector of strings of the same length as the input, with each string shortened to the desired length 
 
-Strings with more characters than \code{nchar} will be shortened.}
+Strings with more characters than \code{nchar} will be shortened.
 }
 \description{
 Shorten strings to a given number of characters

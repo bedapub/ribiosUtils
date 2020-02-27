@@ -14,6 +14,9 @@ list has no names}
 
 \item{col.names}{Column names of the \code{data.frame}}
 }
+\value{
+A \code{data.frame}
+}
 \description{
 Transform a list of character strings into a data.frame
 }

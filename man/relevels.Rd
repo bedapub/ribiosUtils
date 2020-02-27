@@ -22,6 +22,9 @@ relevels(
 \item{unrecognisedLevels}{Actions taken in case unrecognised levels are
 found: 'pass', 'warning', or 'error'.}
 }
+\value{
+A vector of factor
+}
 \description{
 This function wraps \code{\link{relevelsByNamedVec}} for named vector and
 \code{\link{relevelsByNotNamedVec}} for not named vectors

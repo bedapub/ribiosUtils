@@ -281,6 +281,9 @@ dfFactor <- function(df, sample.group) {
 #' is copied
 #' @param reqCols required columns
 #' @param ignore.case logical, whether the case is considered
+#
+#' @return A vector of integers as indices
+#' 
 #' @examples
 #' 
 #' myTestDf <- data.frame(HBV=1:3, VFB=0:2, BVB=4:6, FCB=2:4)
@@ -407,6 +410,8 @@ removeInvarCol <- function(df) df[,isVarCol(df), drop=FALSE]
 #' @param names Values in the 'Name' column of the result, used if the input
 #' list has no names
 #' @param col.names Column names of the \code{data.frame}
+#'
+#' @return A \code{data.frame}
 #' @examples
 #' 
 #' myList <- list(HSV=c("Mueller", "Papadopoulos", "Wood"), FCB=c("Lewandowski", "Robben", "Hummels"),

@@ -60,6 +60,7 @@ checkFactorLevels <- function(factor, levels,
 #' 'pass', 'warning', or 'error'.
 #' @param unrecognisedLevels Actions taken in case unrecognised levels are
 #' found: 'pass', 'warning', or 'error'.
+#' @return A vector of factor
 #' @examples
 #' 
 #' oldFactor <- factor(c("A", "B", "A", "C", "B"), levels=LETTERS[1:3])
@@ -108,6 +109,7 @@ relevelsByNamedVec <- function(x, refs,
 #' 'pass', 'warning', or 'error'.
 #' @param unrecognisedLevels Actions taken in case unrecognised levels are
 #' found: 'pass', 'warning', or 'error'.
+#' @return A vector of factor
 #' @examples
 #' 
 #' oldFactor <- factor(c("A", "B", "A", "C", "B"), levels=LETTERS[1:3])
@@ -149,6 +151,7 @@ relevelsByNotNamedVec <- function(x, refs,
 #' 'pass', 'warning', or 'error'.
 #' @param unrecognisedLevels Actions taken in case unrecognised levels are
 #' found: 'pass', 'warning', or 'error'.
+#' @return A vector of factor
 #' @seealso \code{\link{relevelsByNamedVec}} and
 #' \code{\link{relevelsByNotNamedVec}}
 #' @examples
