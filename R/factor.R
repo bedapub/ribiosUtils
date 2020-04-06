@@ -87,8 +87,8 @@ relevelsByNamedVec <- function(x, refs,
   indNew <- match(commonLevels, refNames)
   newSubLevels <- refs[indNew]
   levels(x)[indOld] <- newSubLevels
-  newLevels <- c(newSubLevels,
-                 setdiff(levels(x), newSubLevels))
+  newLevels <- unique(c(newSubLevels,
+                      setdiff(levels(x), newSubLevels)))
   x <- factor(x, levels=newLevels)
   return(x)
 }
