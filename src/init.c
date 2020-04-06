@@ -47,5 +47,6 @@ void R_init_ribiosUtils(DllInfo *info) {
   R_RegisterCCallable("ribiosUtils", "arg_present", (DL_FUNC) &arg_present);
   R_RegisterCCallable("ribiosUtils", "strReplace", (DL_FUNC) &strReplace);
   R_RegisterCCallable("ribiosUtils", "usage", (DL_FUNC) &usage);
+  R_RegisterCCallable("ribiosUtils", "hlr_callocs", (DL_FUNC) &hlr_callocs);
 
 }
