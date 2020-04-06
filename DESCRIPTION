@@ -1,8 +1,8 @@
 Package: ribiosUtils
 Type: Package
 Title: Utilities from and Interface to the Bioinfo-C (BIOS) Library
-Version: 1.5-6
-Date: 2020-02-27
+Version: 1.5-7
+Date: 2020-04-06
 Authors@R: 
   c(person(given = "Jitao David",
            family = "Zhang",
@@ -28,4 +28,4 @@ Suggests:
 License: GPL-3
 URL: https://github.com/bedapub/ribiosUtils
 BugReports: https://github.com/bedapub/ribiosUtils/issues
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
