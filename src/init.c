@@ -34,5 +34,18 @@ void R_init_ribiosUtils(DllInfo *info) {
   R_forceSymbols(info, TRUE);
 
   /* C functions implemented in ribiosUtils to be exported*/
+  // Required by ribiosArg
+  // arg_init
+  // arg_isInit
+  // arg_getPos
+  // arg_present
+  // strReplace
+  // usage
+  R_RegisterCCallable("ribiosUtils", "arg_init", (DL_FUNC) &arg_init);
+  R_RegisterCCallable("ribiosUtils", "arg_isInit", (DL_FUNC) &arg_isInit);
+  R_RegisterCCallable("ribiosUtils", "arg_getPos", (DL_FUNC) &arg_getPos);
+  R_RegisterCCallable("ribiosUtils", "arg_present", (DL_FUNC) &arg_present);
+  R_RegisterCCallable("ribiosUtils", "strReplace", (DL_FUNC) &strReplace);
+  R_RegisterCCallable("ribiosUtils", "usage", (DL_FUNC) &usage);
 
 }
