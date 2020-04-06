@@ -1,8 +1,12 @@
 /* Common definitions of ribiosUtils */
-#ifndef RIBIOSUTILS_H
-#define RIBIOSUTILS_H
+#ifndef RIBIOS_UTILS_H
+#define RIBIOS_UTILS_H
 
 #define CALLMETHOD_DEF(fun, numArgs) {#fun, (DL_FUNC) &fun, numArgs}
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <R.h>
 #include <Rinternals.h>
@@ -70,5 +74,9 @@
 #include <wwwsession.h>
 #include <xmlbuilder.h>
 #include <xmlparser.h>
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
