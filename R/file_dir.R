@@ -115,3 +115,117 @@ assertFile <- function(...) {
             msg=paste(paste("File not found:", notfound, sep=""),
               collapse="\n"))
 }
+
+#' Overwrite a directory
+#' @param dir Chacater, path to a directory.
+#' @param action Ask the user to input the option (\code{ask}), or one of the
+#' following options: \code{overwrite}, \code{append}, and \code{no}. See below
+#' for other options.
+#'
+#' @return If \code{action} is set to \code{overwrite}, the directory will be
+#' deleted recursively if it exists, a new directory with the same name will be
+#' created, and the function returns \code{TRUE}. If \code{append} is set, the
+#' function creates the directory if necessary and returns \code{TRUE}. If
+#' \code{no} is set, the function does nothing and returns.
+#'
+#' If \code{action} is set to \code{ask}, user will be prompted for actions.
+#'
+#' If \code{overwrite} is set, the directory will be removed and written anew.
+#'
+#' If \code{append} is set, in contrast to \code{overwrite}, the directory and
+#'  the files in it are not removed if they exists. In this case, files with the
+#'   same name will be overwritten. Otherwise, new directories or files
+#'   will be simply created. On the other hand, if the directory does not exist,
+#'   it will be created.
+#'
+#' If \code{no} is set, no action will be taken. The funciton returns
+#' \code{FALSE}.
+#'
+#' @examples
+#' createTempDir <- function() {
+#'   tmpdir <- tempdir()
+#'   tmpfile1 <- tempfile(tmpdir=tmpdir)
+#'   tmpfile2 <- tempfile(tmpdir=tmpdir)
+#'
+#'   writeLines("First file", tmpfile1)
+#'   writeLines("Second file", tmpfile2)
+#'   return(tmpdir)
+#' }
+#' newTempFile <- function(tmpdir) {
+#'   writeLines("Third file", tempfile(tmpdir=tmpdir))
+#' }
+#' \dontrun{
+#'   tmpdir <- createTempDir()
+#'   overwriteDir(tmpdir, action="ask")
+#' }
+#'
+#' ## overwrite: delete the directory and create it a new
+#' tmpdir <- createTempDir()
+#' fileCount <- length(dir(tmpdir))
+#' dir(tmpdir) ## two files should be there
+#' overwriteDir(tmpdir, action="overwrite")
+#' newTempFile(tmpdir)
+#' dir(tmpdir) ## now there should be only one file
+#' stopifnot(length(dir(tmpdir))==1)
+#'
+#' ## append: append files, and overwrite if a file of the same name is there
+#' overwriteDir(tmpdir, action="append")
+#' newTempFile(tmpdir)
+#' dir(tmpdir) ## a new file is written
+#' stopifnot(length(dir(tmpdir))==2)
+#'
+#' ## no: no action, and returns FALSE
+#' noRes <- overwriteDir(tmpdir, action="no")
+#' stopifnot(isFALSE(noRes))
+#'
+#' @export
+overwriteDir <- function(dir,
+                         action=c("ask", "overwrite", "append", "no")) {
+  action <- match.arg(action)
+  ans <- NA
+  msg <- paste(sprintf("Directory %s exists.\n", dir),
+               "Choose an action:\n",
+               " * Overwrite [o]: ",
+               " the directory is removed and created anew.\n",
+               " * Append [a]: ",
+               "Files with same names are overwritten.\n",
+               " * No [N]: No action is taken, NULL is returned", sep="")
+  question <-"Your choice [o/a/N]:"
+  if (action == "ask") {
+    if (dir.exists(dir)) {
+      while (!ans %in% c("o", "a", "N")) {
+        if (!is.na(ans)) {
+          message(sprintf("Invalid input %s", ans))
+        }
+        message(msg)
+        ans <- readline(question)
+        if (ans == "" || ans == "n") {
+          ans <- "N"
+        }
+      }
+    }
+    else {
+      ans <- "a"
+    }
+  } else if (action == "overwrite") {
+    ans <- "o"
+  } else if (action == "append") {
+    ans <- "a"
+  } else {
+    ans <- "N"
+  }
+  if (ans=="o") {
+    if(dir.exists(dir)) {
+      unlink(dir, recursive=TRUE, force=TRUE)
+    }
+    createDir(dir)
+    return(TRUE)
+  } else if (ans=="a") {
+    createDir(dir)
+    return(TRUE)
+  } else if (ans=="N") {
+    return(FALSE)
+  } else {
+    stop("Should not be here")
+  }
+}
