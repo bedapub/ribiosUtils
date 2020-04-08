@@ -176,7 +176,7 @@ assertFile <- function(...) {
 #'
 #' ## no: no action, and returns FALSE
 #' noRes <- overwriteDir(tmpdir, action="no")
-#' stopifnot(isFALSE(noRes))
+#' stopifnot(!noRes)
 #'
 #' @export
 overwriteDir <- function(dir,

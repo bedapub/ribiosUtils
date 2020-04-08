@@ -71,6 +71,6 @@ stopifnot(length(dir(tmpdir))==2)
 
 ## no: no action, and returns FALSE
 noRes <- overwriteDir(tmpdir, action="no")
-stopifnot(isFALSE(noRes))
+stopifnot(!noRes)
 
 }
