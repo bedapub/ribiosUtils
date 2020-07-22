@@ -63,49 +63,50 @@ interactive sessions, sometimes \code{flushLog} is needed to force R write
 all log files to all connections that are registered.
 }
 \examples{
-
-logfile1 <- tempfile()
-logfile2 <- tempfile()
-logcon3 <- stdout()
-if(.Platform$OS.type == "unix") {
-  registerLog("/dev/null")
-} else {
-  registerLog(tempfile())
-}
-registerLog(logfile1)
-registerLog(logfile2)
-registerLog(logcon3)
-
-doLog("Start logging")
-doLog("Do something...")
-doLog("End logging")
-
-flushLog() ## usually not needed, see notes
-
-txt1 <- readLines(logfile1)
-txt2 <- readLines(logfile2)
-
-cat(txt1)
-cat(txt2)
-
-clearLog()
-
-registerLog(logfile1, logfile2, logcon3)
-
-doLog("Start logging - round 2")
-doLog("Do something again ...")
-doLog("End logging - for good")
-
-flushLog() ## usually not needed, see notes
-
-txt1 <- readLines(logfile1)
-txt2 <- readLines(logfile2)
-
-cat(txt1)
-cat(txt2)
-
-## clean up files and objects to close unused connections
-closeLoggerConnections()
+\dontrun{
+  logfile1 <- tempfile()
+  logfile2 <- tempfile()
+  logcon3 <- stdout()
+  if(.Platform$OS.type == "unix") {
+    registerLog("/dev/null")
+  } else {
+    registerLog(tempfile())
+  }
+  registerLog(logfile1)
+  registerLog(logfile2)
+  registerLog(logcon3)
+  
+  doLog("Start logging")
+  doLog("Do something...")
+  doLog("End logging")
+  
+  flushLog() ## usually not needed, see notes
+  
+  txt1 <- readLines(logfile1)
+  txt2 <- readLines(logfile2)
+  
+  cat(txt1)
+  cat(txt2)
+  
+  clearLog()
+  
+  registerLog(logfile1, logfile2, logcon3)
+  
+  doLog("Start logging - round 2")
+  doLog("Do something again ...")
+  doLog("End logging - for good")
+  
+  flushLog() ## usually not needed, see notes
+  
+  txt1 <- readLines(logfile1)
+  txt2 <- readLines(logfile2)
+  
+  cat(txt1)
+  cat(txt2)
+  
+  ## clean up files and objects to close unused connections
+  closeLoggerConnections()
+  }
 }
 \seealso{
 \code{doLog} writes messages iteratively to each connection

@@ -157,26 +157,26 @@ assertFile <- function(...) {
 #' \dontrun{
 #'   tmpdir <- createTempDir()
 #'   overwriteDir(tmpdir, action="ask")
+#'
+#'   ## overwrite: delete the directory and create it a new
+#'   tmpdir <- createTempDir()
+#'   fileCount <- length(dir(tmpdir))
+#'   dir(tmpdir) ## two files should be there
+#'   overwriteDir(tmpdir, action="overwrite")
+#'   newTempFile(tmpdir)
+#'   dir(tmpdir) ## now there should be only one file
+#'   stopifnot(length(dir(tmpdir))==1)
+#'
+#'   ## append: append files, and overwrite if a file of the same name is there
+#'   overwriteDir(tmpdir, action="append")
+#'   newTempFile(tmpdir)
+#'   dir(tmpdir) ## a new file is written
+#'   stopifnot(length(dir(tmpdir))==2)
+#'
+#'   ## no: no action, and returns FALSE
+#'   noRes <- overwriteDir(tmpdir, action="no")
+#'   stopifnot(!noRes)
 #' }
-#'
-#' ## overwrite: delete the directory and create it a new
-#' tmpdir <- createTempDir()
-#' fileCount <- length(dir(tmpdir))
-#' dir(tmpdir) ## two files should be there
-#' overwriteDir(tmpdir, action="overwrite")
-#' newTempFile(tmpdir)
-#' dir(tmpdir) ## now there should be only one file
-#' stopifnot(length(dir(tmpdir))==1)
-#'
-#' ## append: append files, and overwrite if a file of the same name is there
-#' overwriteDir(tmpdir, action="append")
-#' newTempFile(tmpdir)
-#' dir(tmpdir) ## a new file is written
-#' stopifnot(length(dir(tmpdir))==2)
-#'
-#' ## no: no action, and returns FALSE
-#' noRes <- overwriteDir(tmpdir, action="no")
-#' stopifnot(!noRes)
 #'
 #' @export
 overwriteDir <- function(dir,
