@@ -1,9 +1,9 @@
 Package: ribiosUtils
 Type: Package
 Title: Utilities from and Interface to the Bioinfo-C (BIOS) Library
-Version: 1.5-11
-Date: 2020-04-11
-Authors@R: 
+Version: 1.5-12
+Date: 2020-07-22
+Authors@R:
   c(person(given = "Jitao David",
            family = "Zhang",
            role = c("aut", "cre", "ctb"),
