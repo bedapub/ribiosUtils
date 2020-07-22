@@ -297,7 +297,7 @@ void chem_sd_stripH (Texta mol) {
   int na,nb;
   Array ats;
   int a1,a2;
-  unsigned char a1n, a2n;
+  unsigned int a1n, a2n; // unsigned char would also suffice, however using snprintf with %hhu meets complaints in Windows
   int i,k;
   int nbDel;
   char s[7];
@@ -336,7 +336,7 @@ void chem_sd_stripH (Texta mol) {
           continue;
         a2n++;
       }
-      snprintf (s, 7, "%3hhu%3hhu", a1n, a2n);
+      snprintf (s, 7, "%3u%3u", a1n, a2n);
       n = snprintf (textItem (mol,i), 6, "%s", s);
       if (n<0) {
         die("snprintf failed in chem_sd_stripH");
