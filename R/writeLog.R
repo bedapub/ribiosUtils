@@ -113,49 +113,50 @@ closeLoggerConnections <- function() {
 #' @seealso \code{doLog} writes messages iteratively to each connection
 #' registered by \code{registerLog}.
 #' @examples
-#' 
-#' logfile1 <- tempfile()
-#' logfile2 <- tempfile()
-#' logcon3 <- stdout()
-#' if(.Platform$OS.type == "unix") {
-#'   registerLog("/dev/null")
-#' } else {
-#'   registerLog(tempfile())
-#' }
-#' registerLog(logfile1)
-#' registerLog(logfile2)
-#' registerLog(logcon3)
-#' 
-#' doLog("Start logging")
-#' doLog("Do something...")
-#' doLog("End logging")
-#' 
-#' flushLog() ## usually not needed, see notes
-#' 
-#' txt1 <- readLines(logfile1)
-#' txt2 <- readLines(logfile2)
-#' 
-#' cat(txt1)
-#' cat(txt2)
-#' 
-#' clearLog()
-#' 
-#' registerLog(logfile1, logfile2, logcon3)
-#' 
-#' doLog("Start logging - round 2")
-#' doLog("Do something again ...")
-#' doLog("End logging - for good")
-#' 
-#' flushLog() ## usually not needed, see notes
-#' 
-#' txt1 <- readLines(logfile1)
-#' txt2 <- readLines(logfile2)
-#' 
-#' cat(txt1)
-#' cat(txt2)
-#' 
-#' ## clean up files and objects to close unused connections
-#' closeLoggerConnections()
+#' \dontrun{
+#'   logfile1 <- tempfile()
+#'   logfile2 <- tempfile()
+#'   logcon3 <- stdout()
+#'   if(.Platform$OS.type == "unix") {
+#'     registerLog("/dev/null")
+#'   } else {
+#'     registerLog(tempfile())
+#'   }
+#'   registerLog(logfile1)
+#'   registerLog(logfile2)
+#'   registerLog(logcon3)
+#'   
+#'   doLog("Start logging")
+#'   doLog("Do something...")
+#'   doLog("End logging")
+#'   
+#'   flushLog() ## usually not needed, see notes
+#'   
+#'   txt1 <- readLines(logfile1)
+#'   txt2 <- readLines(logfile2)
+#'   
+#'   cat(txt1)
+#'   cat(txt2)
+#'   
+#'   clearLog()
+#'   
+#'   registerLog(logfile1, logfile2, logcon3)
+#'   
+#'   doLog("Start logging - round 2")
+#'   doLog("Do something again ...")
+#'   doLog("End logging - for good")
+#'   
+#'   flushLog() ## usually not needed, see notes
+#'   
+#'   txt1 <- readLines(logfile1)
+#'   txt2 <- readLines(logfile2)
+#'   
+#'   cat(txt1)
+#'   cat(txt2)
+#'   
+#'   ## clean up files and objects to close unused connections
+#'   closeLoggerConnections()
+#'   }
 #' @importFrom methods is
 #' @export registerLog
 registerLog <- function(..., append=FALSE) {
@@ -213,24 +214,24 @@ registerLog <- function(..., append=FALSE) {
 #' @seealso \code{registerLog} to register more than one loggers so that
 #' \code{doLog} can write to them sequentially.
 #' @examples
-#' 
-#' writeLog("This is the start of a log")
-#' writeLog("Message 1", level=1)
-#' writeLog("Message 1.1", level=2)
-#' writeLog("Message 1.2", level=2)
-#' writeLog("Message 2", level=1)
-#' writeLog("Message 3", level=1)
-#' writeLog("Message 3 (special)", level=4)
-#' writeLog("End of the log");
-#' 
-#' ## log with format
-#' writeLog("This is Message %d", 1)
-#' writeLog("Square of 2 is %2.2f", sqrt(2))
-#' 
-#' ## NA is handled automatically
-#' writeLog("This is a not available value: %s", NA, level=1)
-#' writeLog("This is a NULL value: %s", NULL, level=1)
-#' 
+#' \dontrun{
+#'   writeLog("This is the start of a log")
+#'   writeLog("Message 1", level=1)
+#'   writeLog("Message 1.1", level=2)
+#'   writeLog("Message 1.2", level=2)
+#'   writeLog("Message 2", level=1)
+#'   writeLog("Message 3", level=1)
+#'   writeLog("Message 3 (special)", level=4)
+#'   writeLog("End of the log");
+#'   
+#'   ## log with format
+#'   writeLog("This is Message %d", 1)
+#'   writeLog("Square of 2 is %2.2f", sqrt(2))
+#'   
+#'   ## NA is handled automatically
+#'   writeLog("This is a not available value: %s", NA, level=1)
+#'   writeLog("This is a NULL value: %s", NULL, level=1)
+#' }
 #' @export writeLog
 writeLog <- function(fmt, ..., con=stdout(), level=0) {
   format <- paste("[%s] ",
