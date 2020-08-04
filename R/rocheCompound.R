@@ -14,6 +14,23 @@ isRocheCompoundID <- function(str) {
         as.character(str))
 }
 
+#' Shorten Roche compounds identifiers
+#' @param str Character strings that contains one or more Roche core identifiers (\code{RO} followed by seven-digit numbers)
+#' @return Character strings of the same length as the input, with all core identifiers shortened
+#' 
+#' In contrast to \code{\link{rocheCore}}, which only handles character strings that are valid Roche compound identifiers, this function takes any input
+#' string and performs a \code{gsub} operation to shorten Roche core numbers. Therefore, it even works when only a substring matches the pattern of a Roche compound name.
+#'
+#' @examples 
+#' shortenRocheCompoundID(c("RO1234567-001", "RO1234567-001-000", 
+#' "RO1234567", "ROnoise-001", "anyOther-not-affected", 
+#' "RO1234567 and RO9876543 are two imaginary compounds."))
+#' @export
+shortenRocheCompoundID <- function(str) {
+  res <- gsub("RO[0-9]{3}([0-9]{4})(-[0-9]{3})?(-[0-9]{3})?", "RO\\1", str)
+  return(res)
+}
+
 #' Extract core identifiers from Roche compound IDs
 #' @param str Character strings
 #' @param short Logical, if \code{TRUE}, the short version of Roche identifiers (\code{RO[0-9]{4}}) is returned. Default: \code{FALSE}
@@ -33,7 +50,7 @@ rocheCore <- function(str, short=FALSE) {
   res <- gsub("-[0-9]{3}$", "", as.character(str))
   res <- gsub("-[0-9]{3}$", "", res)
   if(short) {
-    res <- gsub("RO[0-9]{3}([0-9]{4})$", "RO\\1", res)
+    res <- shortenRocheCompoundID(res)
   }
   res[!isRO] <- str[!isRO]
   return(res)

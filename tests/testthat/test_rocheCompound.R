@@ -39,3 +39,15 @@ test_that("rocheCore works properly for a vector", {
                              short=TRUE),
                    c("RO4567", "RO4567", "ROtest", "not-relevant"))
 })
+
+
+test_that("shortenRocheCompoundID works property for a vector", {
+  inputStr <- c("RO1234567-001", "RO1234567-001-000", 
+                "RO1234567", "ROnoise-001", "anyOther-not-affected", 
+                "RO1234567 and RO9876543 are two imaginary compounds.")
+  outputStr <-  shortenRocheCompoundID(inputStr)
+  expect_identical(outputStr,
+                   c("RO4567", "RO4567", "RO4567", "ROnoise-001", 
+                     "anyOther-not-affected",
+                     "RO4567 and RO6543 are two imaginary compounds."))
+})
