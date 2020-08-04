@@ -7,3 +7,4 @@ symbols.rds
 *.dll
 .Rhistory
 .Rproj.user
+docs

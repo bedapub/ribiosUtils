@@ -3,11 +3,21 @@
 
 ![R-CMD-check badge](https://github.com/bedapub/ribiosUtils/workflows/R-CMD-check/badge.svg)
 
-## What is *ribiosUtils*?
+## Introduction
 
-*ribiosUtils* is a R package that performs various routine tasks for bioinformatics and computational biology research in drug discovery. It is distributed under the GPL-3 license.
+*ribiosUtils* is a R package that performs various routine tasks for
+bioinformatics and computational biology research in drug discovery. It is
+distributed under the GPL-3 license.
 
 ## Installation
+
+### Install the stable version on CRAN
+
+```r
+install.package("ribiosUtils")
+```
+
+### Install the devel version from GitHub
 
 Run following commands in the R console.
 

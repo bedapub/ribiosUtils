@@ -7,3 +7,7 @@
 ^Makefile$
 ^coverage\.txt$
 ^coverage\.r$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
