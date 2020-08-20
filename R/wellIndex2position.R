@@ -1,4 +1,4 @@
-#' Translate well index numbers  to well positions
+#' Translate well index numbers to well positions
 #' @param ind Well index, integer numbers starting from 1, running rowwise. Non-integer parameters will be coereced to integers.
 #' @param format Character string, well format
 #' @return A \code{data.frame} containing three columns: input \code{WellIndex}, \code{Row} (characters) and \code{Column} (integers)
