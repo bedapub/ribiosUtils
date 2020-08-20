@@ -2,7 +2,7 @@
 % Please edit documentation in R/wellIndex2position.R
 \name{wellIndex2position}
 \alias{wellIndex2position}
-\title{Translate well index numbers  to well positions}
+\title{Translate well index numbers to well positions}
 \usage{
 wellIndex2position(ind, format = c("96", "384"))
 }
@@ -15,7 +15,7 @@ wellIndex2position(ind, format = c("96", "384"))
 A \code{data.frame} containing three columns: input \code{WellIndex}, \code{Row} (characters) and \code{Column} (integers)
 }
 \description{
-Translate well index numbers  to well positions
+Translate well index numbers to well positions
 }
 \examples{
 wellIndex2position(1:96, format="96")
