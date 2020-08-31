@@ -51,8 +51,8 @@ flushLog <- function() {
 #' @export
 closeLoggerConnections <- function() {
   loggers <- getLoggers();
-  if(is.null(loggers)) return;
-  
+  if(is.null(loggers)) return(NULL);
+
   for(i in seq(along=loggers)) {
     con <- loggers[[i]]
     if(is(con, "connection") & !is(con, "terminal"))
