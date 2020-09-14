@@ -4,7 +4,7 @@
 \alias{pQnormScore}
 \title{Transform p-values to continuous scores with the quantile function of the normal distribution}
 \usage{
-pQnormScore(p, sign = 1)
+pQnormScore(p, sign = 1, replaceZero = TRUE)
 }
 \arguments{
 \item{p}{\emph{p}-value(s) between \eqn{(0,1]}}
@@ -12,6 +12,10 @@ pQnormScore(p, sign = 1)
 \item{sign}{Signs of the scores, either positive (in case of positive numbers),
 negative (in case of negative numbers), or zero. In case of a logical vector,
 \code{TRUE} is interpreted as positive and \code{FALSE} is interpreted as negative.}
+
+\item{replaceZero}{Logical, whether to replace zero p-values with the 
+minimal double value specified by the machine. Default is \code{TRUE}. If 
+set to \code{FALSE}, results will contain infinite values.}
 }
 \description{
 Quantile function, also known as the inverse of cumulative distribution function of the normal 
@@ -28,5 +32,5 @@ pQnormScore(testPvals, testLog)
 
 }
 \seealso{
-\code{\link{pAbsLog10Score}}, \code{pScore}
+\code{\link{pAbsLog10Score}}, \code{\link{pScore}}, \code{\link{double}}
 }

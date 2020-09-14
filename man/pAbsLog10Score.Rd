@@ -4,7 +4,7 @@
 \alias{pAbsLog10Score}
 \title{Transform p-values to continuous scores with the absolute-log10 transformation}
 \usage{
-pAbsLog10Score(p, sign = 1)
+pAbsLog10Score(p, sign = 1, replaceZero = TRUE)
 }
 \arguments{
 \item{p}{\emph{p}-value(s) between (0,1]}
@@ -13,6 +13,10 @@ pAbsLog10Score(p, sign = 1)
 numbers), negative (in case of negative numbers), or zero.  In case a
 logical vector, \code{TRUE} is interpreted as positive and \code{FALSE} is
 interpreted as negative.}
+
+\item{replaceZero}{Logical, whether to replace zero p-values with the 
+minimal double value specified by the machine. Default is \code{TRUE}. If 
+set to \code{FALSE}, results will contain infinite values.}
 }
 \description{
 The function maps p values between 0 and 1 to continuous scores ranging on \code{R} by the following equation: \eqn{abs(log10(p))*sign}
@@ -28,5 +32,5 @@ pAbsLog10Score(testPvals, testLog)
 
 }
 \seealso{
-\code{\link{pQnormScore}}, \code{pScore}
+\code{\link{pQnormScore}}, \code{\link{pScore}}, \code{\link{replaceZeroPvalue}}
 }
