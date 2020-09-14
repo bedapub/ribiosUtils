@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-17</span>
       </span>
     </div>
 
@@ -117,7 +117,7 @@
     <p>Match a given vector to column names of a data.frame or matrix</p>
     </div>
 
-    <pre class="usage"><span class='fu'>matchColumnName</span>(<span class='no'>data.frame.cols</span>, <span class='no'>reqCols</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>matchColumnName</span>(<span class='kw'>data.frame.cols</span>, <span class='kw'>reqCols</span>, ignore.case = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -144,11 +144,14 @@ is copied</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>myTestDf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>HBV</span><span class='kw'>=</span><span class='fl'>1</span>:<span class='fl'>3</span>, <span class='kw'>VFB</span><span class='kw'>=</span><span class='fl'>0</span>:<span class='fl'>2</span>, <span class='kw'>BVB</span><span class='kw'>=</span><span class='fl'>4</span>:<span class='fl'>6</span>, <span class='kw'>FCB</span><span class='kw'>=</span><span class='fl'>2</span>:<span class='fl'>4</span>)
-<span class='no'>myFavTeams</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HBV"</span>, <span class='st'>"BVB"</span>)
-<span class='fu'>matchColumnName</span>(<span class='no'>myTestDf</span>, <span class='no'>myFavTeams</span>)</div><div class='output co'>#&gt; [1] 1 3</div><div class='input'><span class='no'>myFavTeamsCase</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"hbv"</span>, <span class='st'>"bVb"</span>)
-<span class='fu'>matchColumnName</span>(<span class='no'>myTestDf</span>, <span class='no'>myFavTeamsCase</span>, <span class='kw'>ignore.case</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] 1 3</div><div class='input'><span class='co'>## NA will be returned in this case if ignore.case is set to FALSE</span>
-<span class='fu'>matchColumnName</span>(<span class='no'>myTestDf</span>, <span class='no'>myFavTeamsCase</span>, <span class='kw'>ignore.case</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] NA NA</div><div class='input'>
+<span class='kw'>myTestDf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(HBV=<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, VFB=<span class='fl'>0</span><span class='op'>:</span><span class='fl'>2</span>, BVB=<span class='fl'>4</span><span class='op'>:</span><span class='fl'>6</span>, FCB=<span class='fl'>2</span><span class='op'>:</span><span class='fl'>4</span>)
+<span class='kw'>myFavTeams</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HBV"</span>, <span class='st'>"BVB"</span>)
+<span class='fu'>matchColumnName</span>(<span class='kw'>myTestDf</span>, <span class='kw'>myFavTeams</span>)
+</div><div class='output co'>#&gt; [1] 1 3</div><div class='input'><span class='kw'>myFavTeamsCase</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"hbv"</span>, <span class='st'>"bVb"</span>)
+<span class='fu'>matchColumnName</span>(<span class='kw'>myTestDf</span>, <span class='kw'>myFavTeamsCase</span>, ignore.case=<span class='fl'>TRUE</span>)
+</div><div class='output co'>#&gt; [1] 1 3</div><div class='input'><span class='co'>## NA will be returned in this case if ignore.case is set to FALSE</span>
+<span class='fu'>matchColumnName</span>(<span class='kw'>myTestDf</span>, <span class='kw'>myFavTeamsCase</span>, ignore.case=<span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt; [1] NA NA</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -165,7 +168,7 @@ is copied</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

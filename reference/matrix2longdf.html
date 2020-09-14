@@ -74,7 +74,7 @@ useful in data visualization and modelling." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-17</span>
       </span>
     </div>
 
@@ -122,10 +122,10 @@ useful in data visualization and modelling.</p>
     </div>
 
     <pre class="usage"><span class='fu'>matrix2longdf</span>(
-  <span class='no'>mat</span>,
-  <span class='no'>row.names</span>,
-  <span class='no'>col.names</span>,
-  <span class='kw'>longdf.colnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"row"</span>, <span class='st'>"column"</span>, <span class='st'>"value"</span>)
+  <span class='kw'>mat</span>,
+  <span class='kw'>row.names</span>,
+  <span class='kw'>col.names</span>,
+  longdf.colnames = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"row"</span>, <span class='st'>"column"</span>, <span class='st'>"value"</span>)
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -167,15 +167,20 @@ data.frame containing row names, column names, and values of the matrix.</p>
 
     <p>The length of <code>row.names</code> and <code>col.names</code> should be as the
 same as the matrix dimension. Otherwise the function raises warnings.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>test.mat</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>1</span>:<span class='fl'>12</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>dimnames</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>LETTERS</span>[<span class='fl'>1</span>:<span class='fl'>3</span>],
-<span class='no'>LETTERS</span>[<span class='fl'>1</span>:<span class='fl'>4</span>]))
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>test.mat</span>)</div><div class='output co'>#&gt;   A B C  D
+<span class='kw'>test.mat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>12</span>, ncol=<span class='fl'>4</span>, nrow=<span class='fl'>3</span>, dimnames=<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>LETTERS</span>[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>],
+<span class='kw'>LETTERS</span>[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>]))
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>test.mat</span>)
+</div><div class='output co'>#&gt;   A B C  D
 #&gt; A 1 4 7 10
 #&gt; B 2 5 8 11
-#&gt; C 3 6 9 12</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'>matrix2longdf</span>(<span class='no'>test.mat</span>))</div><div class='output co'>#&gt;    row column value
+#&gt; C 3 6 9 12</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'>matrix2longdf</span>(<span class='kw'>test.mat</span>))
+</div><div class='output co'>#&gt;    row column value
 #&gt; 1    A      A     1
 #&gt; 2    B      A     2
 #&gt; 3    C      A     3
@@ -187,7 +192,8 @@ same as the matrix dimension. Otherwise the function raises warnings.</p>
 #&gt; 9    C      C     9
 #&gt; 10   A      D    10
 #&gt; 11   B      D    11
-#&gt; 12   C      D    12</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'>matrix2longdf</span>(<span class='no'>test.mat</span>, <span class='kw'>longdf.colnames</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"From"</span>, <span class='st'>"To"</span>, <span class='st'>"Time"</span>)))</div><div class='output co'>#&gt;    From To Time
+#&gt; 12   C      D    12</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'>matrix2longdf</span>(<span class='kw'>test.mat</span>, longdf.colnames=<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"From"</span>, <span class='st'>"To"</span>, <span class='st'>"Time"</span>)))
+</div><div class='output co'>#&gt;    From To Time
 #&gt; 1     A  A    1
 #&gt; 2     B  A    2
 #&gt; 3     C  A    3
@@ -216,7 +222,7 @@ same as the matrix dimension. Otherwise the function raises warnings.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-17</span>
       </span>
     </div>
 
@@ -117,7 +117,7 @@
     <p>Count tokens by splitting strings</p>
     </div>
 
-    <pre class="usage"><span class='fu'>countTokens</span>(<span class='no'>str</span>, <span class='kw'>split</span> <span class='kw'>=</span> <span class='st'>"\t"</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>countTokens</span>(<span class='kw'>str</span>, split = <span class='st'>"\t"</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,13 +143,18 @@
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/base/strsplit.html'>strsplit</a></code> to split strings, or a convenient wrapper
 <code><a href='strtoken.html'>strtoken</a></code> in this package.</p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>myStrings</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HSV\t1887\tFavorite"</span>, <span class='st'>"FCB\t1900"</span>, <span class='st'>"FCK\t1948"</span>)
-<span class='fu'>countTokens</span>(<span class='no'>myStrings</span>)</div><div class='output co'>#&gt; [1] 3 2 2</div><div class='input'>
+<span class='kw'>myStrings</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HSV\t1887\tFavorite"</span>, <span class='st'>"FCB\t1900"</span>, <span class='st'>"FCK\t1948"</span>)
+<span class='fu'>countTokens</span>(<span class='kw'>myStrings</span>)
+</div><div class='output co'>#&gt; [1] 3 2 2</div><div class='input'>
 <span class='co'>## the function deals with factors as well</span>
-<span class='fu'>countTokens</span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='no'>myStrings</span>))</div><div class='output co'>#&gt; [1] 3 2 2</div><div class='input'>
+<span class='fu'>countTokens</span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='kw'>myStrings</span>))
+</div><div class='output co'>#&gt; [1] 3 2 2</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -166,7 +171,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

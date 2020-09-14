@@ -74,7 +74,7 @@ matches, mmatch returns all of them." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-17</span>
       </span>
     </div>
 
@@ -121,7 +121,7 @@ function, where only one match is returned even if there are multiple
 matches, <code>mmatch</code> returns all of them.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mmatch</span>(<span class='no'>x</span>, <span class='no'>table</span>, <span class='kw'>nomatch</span> <span class='kw'>=</span> <span class='fl'>NA_integer_</span>)</pre>
+    <pre class="usage"><span class='fu'>mmatch</span>(<span class='kw'>x</span>, <span class='kw'>table</span>, nomatch = <span class='fl'>NA_integer_</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -148,7 +148,7 @@ item contains the matching indices (similar to <code>match</code>).</p>
 
     <p>Multiple matches can be useful in many cases, and there is no native R
 function for this purpose. User can write their own functions combining
-<code>lapplying</code> with <code>match</code> or <code>%in%</code>, our experience however
+<code>lapplying</code> with <code>match</code> or <code><a href='https://rdrr.io/r/base/match.html'>%in%</a></code>, our experience however
 shows that such non-vectorized function can be extremely slow, especially
 when the <code>x</code> or <code>table</code> vector gets longer.</p>
 <p><code>mmatch</code> delegates the multiple-matching task to a C-level function,
@@ -158,13 +158,18 @@ used by R-implementation.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code>match</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;, C-code was adapted
+from the program written by Roland Schmucki.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>vec1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"BRE"</span>, <span class='st'>"HSV"</span>, <span class='fl'>NA</span>, <span class='st'>"BVB"</span>)
-<span class='no'>vec2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"FCB"</span>, <span class='st'>"FCN"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"FCK"</span>, <span class='fl'>NA</span>, <span class='st'>"BRE"</span>, <span class='st'>"BRE"</span>)
+<span class='kw'>vec1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"BRE"</span>, <span class='st'>"HSV"</span>, <span class='fl'>NA</span>, <span class='st'>"BVB"</span>)
+<span class='kw'>vec2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"FCB"</span>, <span class='st'>"FCN"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"FCK"</span>, <span class='fl'>NA</span>, <span class='st'>"BRE"</span>, <span class='st'>"BRE"</span>)
 
-<span class='fu'>mmatch</span>(<span class='no'>vec1</span>, <span class='no'>vec2</span>)</div><div class='output co'>#&gt; $HSV
+<span class='fu'>mmatch</span>(<span class='kw'>vec1</span>, <span class='kw'>vec2</span>)
+</div><div class='output co'>#&gt; $HSV
 #&gt; [1] 6 4
 #&gt; 
 #&gt; $BVB
@@ -189,7 +194,8 @@ used by R-implementation.</p>
 #&gt; [1] 5
 #&gt; </div><div class='input'>
 <span class='co'>## compare to match</span>
-<span class='fu'><a href='https://rdrr.io/r/base/match.html'>match</a></span>(<span class='no'>vec1</span>, <span class='no'>vec2</span>)</div><div class='output co'>#&gt; [1] 4 5 1 4 9 4 8 5</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/match.html'>match</a></span>(<span class='kw'>vec1</span>, <span class='kw'>vec2</span>)
+</div><div class='output co'>#&gt; [1] 4 5 1 4 9 4 8 5</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -206,7 +212,7 @@ used by R-implementation.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

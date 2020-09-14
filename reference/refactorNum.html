@@ -75,7 +75,7 @@ variables numerically." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-17</span>
       </span>
     </div>
 
@@ -123,7 +123,7 @@ or visualizations. This function re-orders levels of numeric factor
 variables numerically.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>refactorNum</span>(<span class='no'>x</span>, <span class='kw'>decreasing</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>refactorNum</span>(<span class='kw'>x</span>, decreasing = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -141,11 +141,16 @@ variables numerically.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A factor variable, with sorted numeric values as levels</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-(<span class='no'>nums</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"2"</span>,<span class='st'>"4"</span>,<span class='st'>"24"</span>,<span class='st'>"1"</span>,<span class='st'>"2"</span>,<span class='st'>"125"</span>,<span class='st'>"1"</span>,<span class='st'>"2"</span>,<span class='st'>"125"</span>)))</div><div class='output co'>#&gt; [1] 2   4   24  1   2   125 1   2   125
-#&gt; Levels: 1 125 2 24 4</div><div class='input'>(<span class='no'>nums.new</span> <span class='kw'>&lt;-</span> <span class='fu'>refactorNum</span>(<span class='no'>nums</span>))</div><div class='output co'>#&gt; [1] 2   4   24  1   2   125 1   2   125
+(<span class='kw'>nums</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"2"</span>,<span class='st'>"4"</span>,<span class='st'>"24"</span>,<span class='st'>"1"</span>,<span class='st'>"2"</span>,<span class='st'>"125"</span>,<span class='st'>"1"</span>,<span class='st'>"2"</span>,<span class='st'>"125"</span>)))
+</div><div class='output co'>#&gt; [1] 2   4   24  1   2   125 1   2   125
+#&gt; Levels: 1 125 2 24 4</div><div class='input'>(<span class='kw'>nums.new</span> <span class='op'>&lt;-</span> <span class='fu'>refactorNum</span>(<span class='kw'>nums</span>))
+</div><div class='output co'>#&gt; [1] 2   4   24  1   2   125 1   2   125
 #&gt; Levels: 1 2 4 24 125</div><div class='input'>
 </div></pre>
   </div>
@@ -163,7 +168,7 @@ variables numerically.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

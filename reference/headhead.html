@@ -73,7 +73,7 @@ first rows and columns of 2D data structures, e.g. matrix or data.frame." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-17</span>
       </span>
     </div>
 
@@ -119,7 +119,7 @@ first rows and columns of 2D data structures, e.g. matrix or data.frame." />
 first rows and columns of 2D data structures, e.g. matrix or data.frame.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>headhead</span>(<span class='no'>x</span>, <span class='kw'>m</span> <span class='kw'>=</span> <span class='fl'>6L</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>6L</span>)</pre>
+    <pre class="usage"><span class='fu'>headhead</span>(<span class='kw'>x</span>, m = <span class='fl'>6L</span>, n = <span class='fl'>6L</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,11 +151,15 @@ the first rows AND the first columns.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/utils/head.html'>head</a></code>, <code><a href='https://rdrr.io/r/utils/head.html'>tail</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>myMat</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>10000</span>), <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>10L</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>myMat</span>)</div><div class='output co'>#&gt;             [,1]       [,2]       [,3]        [,4]       [,5]       [,6]
+<span class='kw'>myMat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>10000</span>), nrow=<span class='fl'>10L</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>myMat</span>)
+</div><div class='output co'>#&gt;             [,1]       [,2]       [,3]        [,4]       [,5]       [,6]
 #&gt; [1,]  1.29127496 -1.7437579  0.1731759  0.59678722  0.3606456  0.6822638
 #&gt; [2,]  0.01335936  0.6570703 -1.3021897  1.18067844  0.2330678  0.3268203
 #&gt; [3,]  0.55072377 -0.8376692  0.1769292  0.45156390 -0.6052535  1.2054429
@@ -1323,13 +1327,15 @@ the first rows AND the first columns.</p>
 #&gt; [3,]  0.1206410 -1.33932217  0.23761864  0.2985372
 #&gt; [4,] -0.4253392  0.53697502  0.10215227  1.6367350
 #&gt; [5,]  0.7737414  0.06019033  0.12866632  0.2671139
-#&gt; [6,]  1.2301215 -0.18999481 -0.69617107  1.7051948</div><div class='input'><span class='fu'>headhead</span>(<span class='no'>myMat</span>)</div><div class='output co'>#&gt;             [,1]       [,2]       [,3]        [,4]       [,5]       [,6]
+#&gt; [6,]  1.2301215 -0.18999481 -0.69617107  1.7051948</div><div class='input'><span class='fu'>headhead</span>(<span class='kw'>myMat</span>)
+</div><div class='output co'>#&gt;             [,1]       [,2]       [,3]        [,4]       [,5]       [,6]
 #&gt; [1,]  1.29127496 -1.7437579  0.1731759  0.59678722  0.3606456  0.6822638
 #&gt; [2,]  0.01335936  0.6570703 -1.3021897  1.18067844  0.2330678  0.3268203
 #&gt; [3,]  0.55072377 -0.8376692  0.1769292  0.45156390 -0.6052535  1.2054429
 #&gt; [4,]  0.65780739 -0.1129050 -0.8239740  0.47181826 -0.8507764  0.2440023
 #&gt; [5,] -0.09480062 -1.8873465 -0.1237063 -0.64975944  0.8251255 -0.8879151
-#&gt; [6,]  0.54647749 -0.5245702 -0.6344995 -0.07254278  1.0055446 -0.9472169</div><div class='input'><span class='fu'>tailtail</span>(<span class='no'>myMat</span>)</div><div class='output co'>#&gt;            [995,]     [996,]     [997,]      [998,]     [999,]   [1000,]
+#&gt; [6,]  0.54647749 -0.5245702 -0.6344995 -0.07254278  1.0055446 -0.9472169</div><div class='input'><span class='fu'>tailtail</span>(<span class='kw'>myMat</span>)
+</div><div class='output co'>#&gt;            [995,]     [996,]     [997,]      [998,]     [999,]   [1000,]
 #&gt; [5,]  -0.33560525  0.1577386  0.7737414  0.06019033  0.1286663 0.2671139
 #&gt; [6,]   1.25553915 -0.5290820  1.2301215 -0.18999481 -0.6961711 1.7051948
 #&gt; [7,]   0.85309756 -0.7503878  0.4879363 -0.73121188 -1.0371430 1.1999981
@@ -1352,7 +1358,7 @@ the first rows AND the first columns.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

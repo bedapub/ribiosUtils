@@ -75,7 +75,7 @@ Pairwise overlap coefficient of binary matrix by column" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-17</span>
       </span>
     </div>
 
@@ -122,7 +122,7 @@ Pairwise overlap coefficient of binary matrix by column</h1>
 Pairwise overlap coefficient of binary matrix by column</p>
     </div>
 
-    <pre class="usage"><span class='fu'>columnOverlapCoefficient</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>columnOverlapCoefficient</span>(<span class='kw'>x</span>, y = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,8 +146,9 @@ is reported when neither of the columns have any non-zero element.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>1887</span>)
-<span class='no'>testMatrix1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span>(<span class='fl'>120</span>, <span class='fl'>1</span>, <span class='fl'>0.2</span>), <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>15</span>)
-<span class='fu'>columnOverlapCoefficient</span>(<span class='no'>testMatrix1</span>)</div><div class='output co'>#&gt;      [,1] [,2] [,3]      [,4] [,5]      [,6]      [,7] [,8]
+<span class='kw'>testMatrix1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span>(<span class='fl'>120</span>, <span class='fl'>1</span>, <span class='fl'>0.2</span>), nrow=<span class='fl'>15</span>)
+<span class='fu'>columnOverlapCoefficient</span>(<span class='kw'>testMatrix1</span>)
+</div><div class='output co'>#&gt;      [,1] [,2] [,3]      [,4] [,5]      [,6]      [,7] [,8]
 #&gt; [1,]  1.0  NaN    0 0.5000000  NaN 0.0000000 0.5000000    1
 #&gt; [2,]  NaN  NaN  NaN       NaN  NaN       NaN       NaN  NaN
 #&gt; [3,]  0.0  NaN    1 0.0000000  NaN 0.0000000 0.0000000    0
@@ -156,9 +157,11 @@ is reported when neither of the columns have any non-zero element.</p>
 #&gt; [6,]  0.0  NaN    0 0.0000000  NaN 1.0000000 0.6666667    0
 #&gt; [7,]  0.5  NaN    0 0.6666667  NaN 0.6666667 1.0000000    0
 #&gt; [8,]  1.0  NaN    0 0.0000000  NaN 0.0000000 0.0000000    1</div><div class='input'>
-<span class='no'>testMatrix2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span>(<span class='fl'>150</span>, <span class='fl'>1</span>, <span class='fl'>0.2</span>), <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>15</span>)
-<span class='no'>testMatrix12Poe</span> <span class='kw'>&lt;-</span> <span class='fu'>columnOverlapCoefficient</span>(<span class='no'>testMatrix1</span>,
-  <span class='no'>testMatrix2</span>)</div></pre>
+<span class='kw'>testMatrix2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span>(<span class='fl'>150</span>, <span class='fl'>1</span>, <span class='fl'>0.2</span>), nrow=<span class='fl'>15</span>)
+<span class='kw'>testMatrix12Poe</span> <span class='op'>&lt;-</span> <span class='fu'>columnOverlapCoefficient</span>(<span class='kw'>testMatrix1</span>, 
+  <span class='kw'>testMatrix2</span>)
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -174,7 +177,7 @@ is reported when neither of the columns have any non-zero element.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

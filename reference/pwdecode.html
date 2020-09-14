@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-17</span>
       </span>
     </div>
 
@@ -117,7 +117,7 @@
     <p>Decode password encypted with pwencode.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>pwdecode</span>(<span class='no'>password</span>)</pre>
+    <pre class="usage"><span class='fu'>pwdecode</span>(<span class='kw'>password</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -139,11 +139,16 @@ text password and returned.</p></td>
 <p>Note that since R does not support strings embedding null values
 (<code>\000</code>), the password to be decoded has to be given with two slashes,
 e.g. &#8216; \001\000\129\235&#8217;.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;. The C library code
+was written by Detlef Wolf.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>mycode</span> <span class='kw'>&lt;-</span> <span class='st'>" \\001\\000\\141\\314\\033\\033\\033\\033\\033\\142\\303\\056\\166\\311\\037\\042"</span>
-<span class='fu'>pwdecode</span>(<span class='no'>mycode</span>)</div><div class='output co'>#&gt; [1] "HSV"</div><div class='input'>
+<span class='kw'>mycode</span> <span class='op'>&lt;-</span> <span class='st'>" \\001\\000\\141\\314\\033\\033\\033\\033\\033\\142\\303\\056\\166\\311\\037\\042"</span>
+<span class='fu'>pwdecode</span>(<span class='kw'>mycode</span>)
+</div><div class='output co'>#&gt; [1] "HSV"</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -160,7 +165,7 @@ e.g. &#8216; \001\000\129\235&#8217;.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

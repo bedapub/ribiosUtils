@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-17</span>
       </span>
     </div>
 
@@ -118,7 +118,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for matrix</span>
-<span class='fu'><a href='rowscale.html'>rowscale</a></span>(<span class='no'>x</span>, <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'><a href='rowscale.html'>rowscale</a></span>(<span class='kw'>x</span>, center = <span class='fl'>TRUE</span>, scale = <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -145,17 +145,22 @@ to <code>TRUE</code></p></td>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/base/scale.html'>scale</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>mat</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>20</span>), <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>4</span>)
-<span class='no'>rs.mat</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rowscale.html'>rowscale</a></span>(<span class='no'>mat</span>)
+<span class='kw'>mat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>20</span>), nrow=<span class='fl'>4</span>)
+<span class='kw'>rs.mat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='rowscale.html'>rowscale</a></span>(<span class='kw'>mat</span>)
 
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>mat</span>)</div><div class='output co'>#&gt;            [,1]         [,2]       [,3]       [,4]       [,5]
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>mat</span>)
+</div><div class='output co'>#&gt;            [,1]         [,2]       [,3]       [,4]       [,5]
 #&gt; [1,]  0.9112644 -1.525639735 -0.1926041 -1.0582966  1.3186982
 #&gt; [2,] -0.1679937  0.007670531  1.0293835  0.3827825 -0.5242241
 #&gt; [3,]  0.1264878  0.156114019 -0.2077972 -0.4486023  0.5624639
-#&gt; [4,] -0.3684058 -1.967901224  1.6174429 -0.2218656 -0.6634071</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>rs.mat</span>)</div><div class='output co'>#&gt;             [,1]       [,2]        [,3]        [,4]       [,5]
+#&gt; [4,] -0.3684058 -1.967901224  1.6174429 -0.2218656 -0.6634071</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>rs.mat</span>)
+</div><div class='output co'>#&gt;             [,1]       [,2]        [,3]        [,4]       [,5]
 #&gt; [1,]  0.83369735 -1.1569752 -0.06803721 -0.77520921  1.1665242
 #&gt; [2,] -0.52930668 -0.2327354  1.49220681  0.40056027 -1.1307250
 #&gt; [3,]  0.23030980  0.3071870 -0.63712864 -1.26199532  1.3616271
@@ -163,18 +168,23 @@ to <code>TRUE</code></p></td>
 #&gt; attr(,"scaled:center")
 #&gt; [1] -0.10931559  0.14552373  0.03773326 -0.32082737
 #&gt; attr(,"scaled:scale")
-#&gt; [1] 1.2241612 0.5923172 0.3853703 1.2844417</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowMeans</a></span>(<span class='no'>rs.mat</span>)</div><div class='output co'>#&gt; [1] -3.053113e-17 -4.440892e-17 -4.440892e-17  1.110223e-17</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(<span class='no'>rs.mat</span>, <span class='fl'>1L</span>, <span class='no'>sd</span>)</div><div class='output co'>#&gt; [1] 1 1 1 1</div><div class='input'>
-<span class='fu'><a href='rowscale.html'>rowscale</a></span>(<span class='no'>mat</span>, <span class='kw'>center</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>scale</span><span class='kw'>=</span><span class='fl'>FALSE</span>) <span class='co'>## equal to mat</span></div><div class='output co'>#&gt;            [,1]         [,2]       [,3]       [,4]       [,5]
+#&gt; [1] 1.2241612 0.5923172 0.3853703 1.2844417</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowMeans</a></span>(<span class='kw'>rs.mat</span>)
+</div><div class='output co'>#&gt; [1] -3.053113e-17 -4.440892e-17 -4.440892e-17  1.110223e-17</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(<span class='kw'>rs.mat</span>, <span class='fl'>1L</span>, <span class='kw'>sd</span>)
+</div><div class='output co'>#&gt; [1] 1 1 1 1</div><div class='input'>
+<span class='fu'><a href='rowscale.html'>rowscale</a></span>(<span class='kw'>mat</span>, center=<span class='fl'>FALSE</span>, scale=<span class='fl'>FALSE</span>) <span class='co'>## equal to mat</span>
+</div><div class='output co'>#&gt;            [,1]         [,2]       [,3]       [,4]       [,5]
 #&gt; [1,]  0.9112644 -1.525639735 -0.1926041 -1.0582966  1.3186982
 #&gt; [2,] -0.1679937  0.007670531  1.0293835  0.3827825 -0.5242241
 #&gt; [3,]  0.1264878  0.156114019 -0.2077972 -0.4486023  0.5624639
-#&gt; [4,] -0.3684058 -1.967901224  1.6174429 -0.2218656 -0.6634071</div><div class='input'><span class='fu'><a href='rowscale.html'>rowscale</a></span>(<span class='no'>mat</span>, <span class='kw'>center</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>scale</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt;             [,1]       [,2]        [,3]        [,4]       [,5]
+#&gt; [4,] -0.3684058 -1.967901224  1.6174429 -0.2218656 -0.6634071</div><div class='input'><span class='fu'><a href='rowscale.html'>rowscale</a></span>(<span class='kw'>mat</span>, center=<span class='fl'>TRUE</span>, scale=<span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt;             [,1]       [,2]        [,3]        [,4]       [,5]
 #&gt; [1,]  1.02057997 -1.4163241 -0.08328852 -0.94898106  1.4280138
 #&gt; [2,] -0.31351745 -0.1378532  0.88385975  0.23725873 -0.6697478
 #&gt; [3,]  0.08875456  0.1183808 -0.24553046 -0.48633553  0.5247307
 #&gt; [4,] -0.04757844 -1.6470739  1.93827029  0.09896173 -0.3425797
 #&gt; attr(,"scaled:center")
-#&gt; [1] -0.10931559  0.14552373  0.03773326 -0.32082737</div><div class='input'><span class='fu'><a href='rowscale.html'>rowscale</a></span>(<span class='no'>mat</span>, <span class='kw'>center</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>scale</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;            [,1]       [,2]       [,3]       [,4]       [,5]
+#&gt; [1] -0.10931559  0.14552373  0.03773326 -0.32082737</div><div class='input'><span class='fu'><a href='rowscale.html'>rowscale</a></span>(<span class='kw'>mat</span>, center=<span class='fl'>FALSE</span>, scale=<span class='fl'>TRUE</span>)
+</div><div class='output co'>#&gt;            [,1]       [,2]       [,3]       [,4]       [,5]
 #&gt; [1,]  0.7407165 -1.2401083 -0.1565572 -0.8602309  1.0718969
 #&gt; [2,] -0.2734911  0.0124875  1.6758201  0.6231638 -0.8534286
 #&gt; [3,]  0.3262749  0.4026955 -0.5360121 -1.1571679  1.4508737
@@ -197,7 +207,7 @@ to <code>TRUE</code></p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

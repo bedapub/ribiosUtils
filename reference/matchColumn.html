@@ -77,7 +77,7 @@ order of the vector." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-17</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@ whole or subset of the data.frame, with the matching column in the exact
 order of the vector.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>matchColumn</span>(<span class='no'>vector</span>, <span class='no'>data.frame</span>, <span class='no'>column</span>, <span class='kw'>multi</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>matchColumn</span>(<span class='kw'>vector</span>, <span class='kw'>data.frame</span>, <span class='kw'>column</span>, multi = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -202,16 +202,21 @@ should break the code.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>See <code><a href='https://rdrr.io/r/base/match.html'>match</a></code> for basic matching operations.</p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>Team</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"HSC"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>),
-                 <span class='kw'>Pkt</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>25</span>,<span class='fl'>23</span>,<span class='fl'>12</span>,<span class='fl'>18</span>,<span class='fl'>21</span>),
-                 <span class='kw'>row.names</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"C"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"F"</span>, <span class='st'>"E"</span>))
-<span class='no'>teams</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"BRE"</span>, <span class='fl'>NA</span>)
-<span class='no'>ind</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"C"</span>, <span class='st'>"A"</span>, <span class='st'>"G"</span>, <span class='st'>"F"</span>, <span class='st'>"C"</span>, <span class='st'>"B"</span>, <span class='st'>"B"</span>, <span class='fl'>NA</span>)
+<span class='kw'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(Team=<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"HSC"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>),
+                 Pkt=<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>25</span>,<span class='fl'>23</span>,<span class='fl'>12</span>,<span class='fl'>18</span>,<span class='fl'>21</span>),
+                 row.names=<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"C"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"F"</span>, <span class='st'>"E"</span>))
+<span class='kw'>teams</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"BRE"</span>, <span class='fl'>NA</span>)
+<span class='kw'>ind</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"C"</span>, <span class='st'>"A"</span>, <span class='st'>"G"</span>, <span class='st'>"F"</span>, <span class='st'>"C"</span>, <span class='st'>"B"</span>, <span class='st'>"B"</span>, <span class='fl'>NA</span>)
 
-<span class='fu'>matchColumnIndex</span>(<span class='no'>teams</span>, <span class='no'>df</span>, <span class='fl'>1L</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1]  1  2 NA NA</div><div class='input'><span class='fu'>matchColumnIndex</span>(<span class='no'>teams</span>, <span class='no'>df</span>, <span class='fl'>1L</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; $HSV
+<span class='fu'>matchColumnIndex</span>(<span class='kw'>teams</span>, <span class='kw'>df</span>, <span class='fl'>1L</span>, multi=<span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt; [1]  1  2 NA NA</div><div class='input'><span class='fu'>matchColumnIndex</span>(<span class='kw'>teams</span>, <span class='kw'>df</span>, <span class='fl'>1L</span>, multi=<span class='fl'>TRUE</span>)
+</div><div class='output co'>#&gt; $HSV
 #&gt; [1] 1 5
 #&gt; 
 #&gt; $BVB
@@ -222,7 +227,9 @@ should break the code.</p>
 #&gt; 
 #&gt; $&lt;NA&gt;
 #&gt; [1] NA
-#&gt; </div><div class='input'><span class='fu'>matchColumnIndex</span>(<span class='no'>teams</span>, <span class='no'>df</span>, <span class='st'>"Team"</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1]  1  2 NA NA</div><div class='input'><span class='fu'>matchColumnIndex</span>(<span class='no'>teams</span>, <span class='no'>df</span>, <span class='st'>"Team"</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; $HSV
+#&gt; </div><div class='input'><span class='fu'>matchColumnIndex</span>(<span class='kw'>teams</span>, <span class='kw'>df</span>, <span class='st'>"Team"</span>, multi=<span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt; [1]  1  2 NA NA</div><div class='input'><span class='fu'>matchColumnIndex</span>(<span class='kw'>teams</span>, <span class='kw'>df</span>, <span class='st'>"Team"</span>, multi=<span class='fl'>TRUE</span>)
+</div><div class='output co'>#&gt; $HSV
 #&gt; [1] 1 5
 #&gt; 
 #&gt; $BVB
@@ -233,7 +240,10 @@ should break the code.</p>
 #&gt; 
 #&gt; $&lt;NA&gt;
 #&gt; [1] NA
-#&gt; </div><div class='input'><span class='fu'>matchColumnIndex</span>(<span class='no'>teams</span>, <span class='no'>df</span>, <span class='fl'>0</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] NA NA NA NA</div><div class='input'><span class='fu'>matchColumnIndex</span>(<span class='no'>ind</span>, <span class='no'>df</span>, <span class='fl'>0</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1]  1  3 NA  4  1  2  2 NA</div><div class='input'><span class='fu'>matchColumnIndex</span>(<span class='no'>ind</span>, <span class='no'>df</span>, <span class='fl'>0</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; $C
+#&gt; </div><div class='input'><span class='fu'>matchColumnIndex</span>(<span class='kw'>teams</span>, <span class='kw'>df</span>, <span class='fl'>0</span>, multi=<span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt; [1] NA NA NA NA</div><div class='input'><span class='fu'>matchColumnIndex</span>(<span class='kw'>ind</span>, <span class='kw'>df</span>, <span class='fl'>0</span>, multi=<span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt; [1]  1  3 NA  4  1  2  2 NA</div><div class='input'><span class='fu'>matchColumnIndex</span>(<span class='kw'>ind</span>, <span class='kw'>df</span>, <span class='fl'>0</span>, multi=<span class='fl'>TRUE</span>)
+</div><div class='output co'>#&gt; $C
 #&gt; [1] 1
 #&gt; 
 #&gt; $A
@@ -257,25 +267,30 @@ should break the code.</p>
 #&gt; $&lt;NA&gt;
 #&gt; [1] NA
 #&gt; </div><div class='input'>
-<span class='fu'>matchColumn</span>(<span class='no'>teams</span>, <span class='no'>df</span>, <span class='fl'>1L</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt;      Team Pkt
+<span class='fu'>matchColumn</span>(<span class='kw'>teams</span>, <span class='kw'>df</span>, <span class='fl'>1L</span>, multi=<span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt;      Team Pkt
 #&gt; C     HSV  25
 #&gt; B     BVB  23
 #&gt; NA    BRE  NA
-#&gt; NA.1 &lt;NA&gt;  NA</div><div class='input'><span class='fu'>matchColumn</span>(<span class='no'>teams</span>, <span class='no'>df</span>, <span class='fl'>1L</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;      Team Pkt
-#&gt; C     HSV  25
-#&gt; E     HSV  21
-#&gt; B     BVB  23
-#&gt; NA    BRE  NA
-#&gt; NA.1 &lt;NA&gt;  NA</div><div class='input'><span class='fu'>matchColumn</span>(<span class='no'>teams</span>, <span class='no'>df</span>, <span class='st'>"Team"</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt;      Team Pkt
-#&gt; C     HSV  25
-#&gt; B     BVB  23
-#&gt; NA    BRE  NA
-#&gt; NA.1 &lt;NA&gt;  NA</div><div class='input'><span class='fu'>matchColumn</span>(<span class='no'>teams</span>, <span class='no'>df</span>, <span class='st'>"Team"</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;      Team Pkt
+#&gt; NA.1 &lt;NA&gt;  NA</div><div class='input'><span class='fu'>matchColumn</span>(<span class='kw'>teams</span>, <span class='kw'>df</span>, <span class='fl'>1L</span>, multi=<span class='fl'>TRUE</span>)
+</div><div class='output co'>#&gt;      Team Pkt
 #&gt; C     HSV  25
 #&gt; E     HSV  21
 #&gt; B     BVB  23
 #&gt; NA    BRE  NA
-#&gt; NA.1 &lt;NA&gt;  NA</div><div class='input'><span class='fu'>matchColumn</span>(<span class='no'>ind</span>, <span class='no'>df</span>, <span class='fl'>0</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt;   Team Pkt
+#&gt; NA.1 &lt;NA&gt;  NA</div><div class='input'><span class='fu'>matchColumn</span>(<span class='kw'>teams</span>, <span class='kw'>df</span>, <span class='st'>"Team"</span>, multi=<span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt;      Team Pkt
+#&gt; C     HSV  25
+#&gt; B     BVB  23
+#&gt; NA    BRE  NA
+#&gt; NA.1 &lt;NA&gt;  NA</div><div class='input'><span class='fu'>matchColumn</span>(<span class='kw'>teams</span>, <span class='kw'>df</span>, <span class='st'>"Team"</span>, multi=<span class='fl'>TRUE</span>)
+</div><div class='output co'>#&gt;      Team Pkt
+#&gt; C     HSV  25
+#&gt; E     HSV  21
+#&gt; B     BVB  23
+#&gt; NA    BRE  NA
+#&gt; NA.1 &lt;NA&gt;  NA</div><div class='input'><span class='fu'>matchColumn</span>(<span class='kw'>ind</span>, <span class='kw'>df</span>, <span class='fl'>0</span>, multi=<span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt;   Team Pkt
 #&gt; 1  HSV  25
 #&gt; 2  HSC  12
 #&gt; 3 &lt;NA&gt;  NA
@@ -283,7 +298,8 @@ should break the code.</p>
 #&gt; 5  HSV  25
 #&gt; 6  BVB  23
 #&gt; 7  BVB  23
-#&gt; 8 &lt;NA&gt;  NA</div><div class='input'><span class='fu'>matchColumn</span>(<span class='no'>ind</span>, <span class='no'>df</span>, <span class='fl'>0</span>, <span class='kw'>multi</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;   Team Pkt
+#&gt; 8 &lt;NA&gt;  NA</div><div class='input'><span class='fu'>matchColumn</span>(<span class='kw'>ind</span>, <span class='kw'>df</span>, <span class='fl'>0</span>, multi=<span class='fl'>TRUE</span>)
+</div><div class='output co'>#&gt;   Team Pkt
 #&gt; 1  HSV  25
 #&gt; 2  HSC  12
 #&gt; 3 &lt;NA&gt;  NA
@@ -308,7 +324,7 @@ should break the code.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

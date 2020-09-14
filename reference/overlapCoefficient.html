@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-17</span>
       </span>
     </div>
 
@@ -117,9 +117,9 @@
     <p>Overlap coefficient, also known as Szymkiewicz-Simpson coefficient</p>
     </div>
 
-    <pre class="usage"><span class='fu'>overlapCoefficient</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>checkUniqueNonNA</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>overlapCoefficient</span>(<span class='kw'>x</span>, <span class='kw'>y</span>, checkUniqueNonNA = <span class='fl'>FALSE</span>)
 
-<span class='fu'>overlapDistance</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>checkUniqueNonNA</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>overlapDistance</span>(<span class='kw'>x</span>, <span class='kw'>y</span>, checkUniqueNonNA = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,14 +150,18 @@ made unique and non-NA</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>myX</span> <span class='kw'>&lt;-</span> <span class='fl'>1</span>:<span class='fl'>6</span>
-<span class='no'>myY</span> <span class='kw'>&lt;-</span> <span class='fl'>4</span>:<span class='fl'>9</span>
-<span class='fu'>overlapCoefficient</span>(<span class='no'>myX</span>, <span class='no'>myY</span>)</div><div class='output co'>#&gt; [1] 0.5</div><div class='input'>
-<span class='no'>myY2</span> <span class='kw'>&lt;-</span> <span class='fl'>4</span>:<span class='fl'>10</span>
-<span class='fu'>overlapCoefficient</span>(<span class='no'>myX</span>, <span class='no'>myY2</span>)</div><div class='output co'>#&gt; [1] 0.5</div><div class='input'><span class='co'>## compare the result with Jaccard Index</span>
-<span class='fu'><a href='jaccardIndex.html'>jaccardIndex</a></span>(<span class='no'>myX</span>, <span class='no'>myY2</span>)</div><div class='output co'>#&gt; [1] 0.3</div><div class='input'>
+<span class='kw'>myX</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>
+<span class='kw'>myY</span> <span class='op'>&lt;-</span> <span class='fl'>4</span><span class='op'>:</span><span class='fl'>9</span>
+<span class='fu'>overlapCoefficient</span>(<span class='kw'>myX</span>, <span class='kw'>myY</span>)
+</div><div class='output co'>#&gt; [1] 0.5</div><div class='input'>
+<span class='kw'>myY2</span> <span class='op'>&lt;-</span> <span class='fl'>4</span><span class='op'>:</span><span class='fl'>10</span>
+<span class='fu'>overlapCoefficient</span>(<span class='kw'>myX</span>, <span class='kw'>myY2</span>)
+</div><div class='output co'>#&gt; [1] 0.5</div><div class='input'><span class='co'>## compare the result with Jaccard Index</span>
+<span class='fu'><a href='jaccardIndex.html'>jaccardIndex</a></span>(<span class='kw'>myX</span>, <span class='kw'>myY2</span>)
+</div><div class='output co'>#&gt; [1] 0.3</div><div class='input'>
 <span class='co'>## overlapDistance</span>
-<span class='fu'>overlapDistance</span>(<span class='no'>myX</span>, <span class='no'>myY2</span>)</div><div class='output co'>#&gt; [1] 0.5</div><div class='input'>
+<span class='fu'>overlapDistance</span>(<span class='kw'>myX</span>, <span class='kw'>myY2</span>)
+</div><div class='output co'>#&gt; [1] 0.5</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -174,7 +178,7 @@ made unique and non-NA</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

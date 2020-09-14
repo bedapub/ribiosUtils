@@ -75,7 +75,7 @@ specified by the user." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5-17</span>
       </span>
     </div>
 
@@ -124,12 +124,12 @@ specified by the user.</p>
     </div>
 
     <pre class="usage"><span class='fu'>keepMaxStatRow</span>(
-  <span class='no'>matrix</span>,
-  <span class='no'>keys</span>,
-  <span class='kw'>keepNArows</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>stat</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>x</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
-  <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rownames"</span>, <span class='st'>"attribute"</span>, <span class='st'>"discard"</span>),
-  <span class='no'>...</span>
+  <span class='kw'>matrix</span>,
+  <span class='kw'>keys</span>,
+  keepNArows = <span class='fl'>TRUE</span>,
+  stat = <span class='fu'>function</span>(<span class='kw'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='kw'>x</span>, na.rm = <span class='fl'>TRUE</span>),
+  levels = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rownames"</span>, <span class='st'>"attribute"</span>, <span class='st'>"discard"</span>),
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -181,52 +181,69 @@ statistics each key as <code>TRUE</code> and otherwise as <code>FALSE</code>.
 <code>keepMaxStatRowInd</code> returns the integer indices of such rows. Finally
 <code>keepMaxStatRow</code> returns the resulting matrices.</p>
 <p>For use see examples</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>myFun1</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>x</span>, <span class='kw'>na.rm</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='no'>myFun2</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span>(<span class='no'>x</span>, <span class='kw'>na.rm</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='no'>mat1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>3</span>,<span class='fl'>4</span>,-<span class='fl'>5</span>,
+<span class='kw'>myFun1</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='kw'>x</span>, na.rm=<span class='fl'>TRUE</span>)
+<span class='kw'>myFun2</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>x</span>) <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span>(<span class='kw'>x</span>, na.rm=<span class='fl'>TRUE</span>)
+<span class='kw'>mat1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>3</span>,<span class='fl'>4</span>,<span class='op'>-</span><span class='fl'>5</span>,
                  <span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,
                  <span class='fl'>7</span>,<span class='fl'>9</span>,<span class='fl'>5</span>,<span class='fl'>3</span>,
-                 <span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>4</span>,<span class='fl'>3</span>), <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>byrow</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='no'>keys1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"B"</span>)
+                 <span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>4</span>,<span class='fl'>3</span>), ncol=<span class='fl'>4</span>, byrow=<span class='fl'>TRUE</span>)
+<span class='kw'>keys1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"B"</span>)
 
-<span class='fu'>isMaxStatRow</span>(<span class='no'>mat1</span>, <span class='no'>keys1</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='no'>myFun1</span>)</div><div class='output co'>#&gt; [1] FALSE FALSE  TRUE  TRUE</div><div class='input'><span class='fu'>isMaxStatRow</span>(<span class='no'>mat1</span>, <span class='no'>keys1</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='no'>myFun2</span>)</div><div class='output co'>#&gt; [1]  TRUE FALSE FALSE  TRUE</div><div class='input'>
-<span class='fu'>keepMaxStatRowInd</span>(<span class='no'>mat1</span>, <span class='no'>keys1</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='no'>myFun1</span>)</div><div class='output co'>#&gt; [1] 3 4</div><div class='input'><span class='fu'>keepMaxStatRowInd</span>(<span class='no'>mat1</span>, <span class='no'>keys1</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='no'>myFun2</span>)</div><div class='output co'>#&gt; [1] 1 4</div><div class='input'>
-<span class='fu'>keepMaxStatRow</span>(<span class='no'>mat1</span>, <span class='no'>keys1</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='no'>myFun1</span>)</div><div class='output co'>#&gt;   [,1] [,2] [,3] [,4]
+<span class='fu'>isMaxStatRow</span>(<span class='kw'>mat1</span>, <span class='kw'>keys1</span>, stat=<span class='kw'>myFun1</span>)
+</div><div class='output co'>#&gt; [1] FALSE FALSE  TRUE  TRUE</div><div class='input'><span class='fu'>isMaxStatRow</span>(<span class='kw'>mat1</span>, <span class='kw'>keys1</span>, stat=<span class='kw'>myFun2</span>)
+</div><div class='output co'>#&gt; [1]  TRUE FALSE FALSE  TRUE</div><div class='input'>
+<span class='fu'>keepMaxStatRowInd</span>(<span class='kw'>mat1</span>, <span class='kw'>keys1</span>, stat=<span class='kw'>myFun1</span>)
+</div><div class='output co'>#&gt; [1] 3 4</div><div class='input'><span class='fu'>keepMaxStatRowInd</span>(<span class='kw'>mat1</span>, <span class='kw'>keys1</span>, stat=<span class='kw'>myFun2</span>)
+</div><div class='output co'>#&gt; [1] 1 4</div><div class='input'>
+<span class='fu'>keepMaxStatRow</span>(<span class='kw'>mat1</span>, <span class='kw'>keys1</span>, stat=<span class='kw'>myFun1</span>)
+</div><div class='output co'>#&gt;   [,1] [,2] [,3] [,4]
 #&gt; A    7    9    5    3
-#&gt; B    0    1    4    3</div><div class='input'><span class='fu'>keepMaxStatRow</span>(<span class='no'>mat1</span>, <span class='no'>keys1</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='st'>"myFun2"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in get(stat, envir = parent.frame()): object 'myFun2' not found</span></div><div class='input'><span class='fu'>keepMaxStatRow</span>(<span class='no'>mat1</span>, <span class='no'>keys1</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='st'>"myFun2"</span>, <span class='kw'>levels</span><span class='kw'>=</span><span class='st'>"discard"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in get(stat, envir = parent.frame()): object 'myFun2' not found</span></div><div class='input'><span class='fu'>keepMaxStatRow</span>(<span class='no'>mat1</span>, <span class='no'>keys1</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='st'>"myFun2"</span>, <span class='kw'>levels</span><span class='kw'>=</span><span class='st'>"attribute"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in get(stat, envir = parent.frame()): object 'myFun2' not found</span></div><div class='input'>
-<span class='no'>mat2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>3</span>,<span class='fl'>4</span>,<span class='fl'>5</span>,
+#&gt; B    0    1    4    3</div><div class='input'><span class='fu'>keepMaxStatRow</span>(<span class='kw'>mat1</span>, <span class='kw'>keys1</span>, stat=<span class='st'>"myFun2"</span>)
+</div><div class='output co'>#&gt; <span class='error'>Error in get(stat, envir = parent.frame()): object 'myFun2' not found</span></div><div class='input'><span class='fu'>keepMaxStatRow</span>(<span class='kw'>mat1</span>, <span class='kw'>keys1</span>, stat=<span class='st'>"myFun2"</span>, levels=<span class='st'>"discard"</span>)
+</div><div class='output co'>#&gt; <span class='error'>Error in get(stat, envir = parent.frame()): object 'myFun2' not found</span></div><div class='input'><span class='fu'>keepMaxStatRow</span>(<span class='kw'>mat1</span>, <span class='kw'>keys1</span>, stat=<span class='st'>"myFun2"</span>, levels=<span class='st'>"attribute"</span>)
+</div><div class='output co'>#&gt; <span class='error'>Error in get(stat, envir = parent.frame()): object 'myFun2' not found</span></div><div class='input'>
+<span class='kw'>mat2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>3</span>,<span class='fl'>4</span>,<span class='fl'>5</span>,
                  <span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,
                  <span class='fl'>7</span>,<span class='fl'>9</span>,<span class='fl'>5</span>,<span class='fl'>3</span>,
                  <span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>4</span>,<span class='fl'>3</span>,
-                 <span class='fl'>4</span>,<span class='fl'>0</span>,-<span class='fl'>1</span>,<span class='fl'>3.1</span>,
-                 <span class='fl'>9</span>,<span class='fl'>4</span>,-<span class='fl'>3</span>,<span class='fl'>2</span>,
+                 <span class='fl'>4</span>,<span class='fl'>0</span>,<span class='op'>-</span><span class='fl'>1</span>,<span class='fl'>3.1</span>,
+                 <span class='fl'>9</span>,<span class='fl'>4</span>,<span class='op'>-</span><span class='fl'>3</span>,<span class='fl'>2</span>,
                  <span class='fl'>8</span>,<span class='fl'>9</span>,<span class='fl'>1</span>,<span class='fl'>2</span>,
                  <span class='fl'>0.1</span>,<span class='fl'>0.2</span>,<span class='fl'>0.5</span>,<span class='fl'>NA</span>,
-                 <span class='fl'>NA</span>, <span class='fl'>4</span>, <span class='fl'>3</span>,<span class='fl'>NA</span>), <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>byrow</span><span class='kw'>=</span><span class='fl'>TRUE</span>,
-               <span class='kw'>dimnames</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>LETTERS</span>[<span class='fl'>1</span>:<span class='fl'>9</span>], <span class='kw'>NULL</span>))
-<span class='no'>keys2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='fl'>NA</span>, <span class='fl'>NA</span>, <span class='st'>"C"</span>, <span class='st'>"A"</span>, <span class='st'>"D"</span>)
+                 <span class='fl'>NA</span>, <span class='fl'>4</span>, <span class='fl'>3</span>,<span class='fl'>NA</span>), ncol=<span class='fl'>4</span>, byrow=<span class='fl'>TRUE</span>,
+               dimnames=<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>LETTERS</span>[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>9</span>], <span class='kw'>NULL</span>))
+<span class='kw'>keys2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='fl'>NA</span>, <span class='fl'>NA</span>, <span class='st'>"C"</span>, <span class='st'>"A"</span>, <span class='st'>"D"</span>)
 
-<span class='fu'>isMaxStatRow</span>(<span class='no'>mat2</span>, <span class='no'>keys2</span>, <span class='kw'>keepNArows</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='no'>myFun1</span>)</div><div class='output co'>#&gt; [1] FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE</div><div class='input'><span class='fu'>keepMaxStatRowInd</span>(<span class='no'>mat2</span>, <span class='no'>keys2</span>, <span class='kw'>keepNArows</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='no'>myFun1</span>)</div><div class='output co'>#&gt; [1] 3 4 7 9</div><div class='input'>
-<span class='fu'>keepMaxStatRow</span>(<span class='no'>mat2</span>, <span class='no'>keys2</span>, <span class='kw'>keepNArows</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='no'>myFun1</span>)</div><div class='output co'>#&gt;   [,1] [,2] [,3] [,4]
+<span class='fu'>isMaxStatRow</span>(<span class='kw'>mat2</span>, <span class='kw'>keys2</span>, keepNArows=<span class='fl'>FALSE</span>, stat=<span class='kw'>myFun1</span>)
+</div><div class='output co'>#&gt; [1] FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE</div><div class='input'><span class='fu'>keepMaxStatRowInd</span>(<span class='kw'>mat2</span>, <span class='kw'>keys2</span>, keepNArows=<span class='fl'>FALSE</span>, stat=<span class='kw'>myFun1</span>)
+</div><div class='output co'>#&gt; [1] 3 4 7 9</div><div class='input'>
+<span class='fu'>keepMaxStatRow</span>(<span class='kw'>mat2</span>, <span class='kw'>keys2</span>, keepNArows=<span class='fl'>FALSE</span>, stat=<span class='kw'>myFun1</span>)
+</div><div class='output co'>#&gt;   [,1] [,2] [,3] [,4]
 #&gt; A    7    9    5    3
 #&gt; B    0    1    4    3
 #&gt; C    8    9    1    2
-#&gt; D   NA    4    3   NA</div><div class='input'><span class='fu'>keepMaxStatRow</span>(<span class='no'>mat2</span>, <span class='no'>keys2</span>, <span class='kw'>keepNArows</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='no'>myFun1</span>)</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
+#&gt; D   NA    4    3   NA</div><div class='input'><span class='fu'>keepMaxStatRow</span>(<span class='kw'>mat2</span>, <span class='kw'>keys2</span>, keepNArows=<span class='fl'>TRUE</span>, stat=<span class='kw'>myFun1</span>)
+</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
 #&gt; A       7    9    5  3.0
 #&gt; B       0    1    4  3.0
 #&gt; &lt;NA&gt;    4    0   -1  3.1
 #&gt; &lt;NA&gt;    9    4   -3  2.0
 #&gt; C       8    9    1  2.0
-#&gt; D      NA    4    3   NA</div><div class='input'><span class='fu'>keepMaxStatRow</span>(<span class='no'>mat2</span>, <span class='no'>keys2</span>, <span class='kw'>keepNArows</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='no'>myFun1</span>, <span class='kw'>levels</span><span class='kw'>=</span><span class='st'>"discard"</span>)</div><div class='output co'>#&gt;   [,1] [,2] [,3] [,4]
+#&gt; D      NA    4    3   NA</div><div class='input'><span class='fu'>keepMaxStatRow</span>(<span class='kw'>mat2</span>, <span class='kw'>keys2</span>, keepNArows=<span class='fl'>TRUE</span>, stat=<span class='kw'>myFun1</span>, levels=<span class='st'>"discard"</span>)
+</div><div class='output co'>#&gt;   [,1] [,2] [,3] [,4]
 #&gt; C    7    9    5  3.0
 #&gt; D    0    1    4  3.0
 #&gt; E    4    0   -1  3.1
 #&gt; F    9    4   -3  2.0
 #&gt; G    8    9    1  2.0
-#&gt; I   NA    4    3   NA</div><div class='input'><span class='fu'>keepMaxStatRow</span>(<span class='no'>mat2</span>, <span class='no'>keys2</span>, <span class='kw'>keepNArows</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>stat</span><span class='kw'>=</span><span class='no'>myFun1</span>, <span class='kw'>levels</span><span class='kw'>=</span><span class='st'>"attribute"</span>)</div><div class='output co'>#&gt;   [,1] [,2] [,3] [,4]
+#&gt; I   NA    4    3   NA</div><div class='input'><span class='fu'>keepMaxStatRow</span>(<span class='kw'>mat2</span>, <span class='kw'>keys2</span>, keepNArows=<span class='fl'>TRUE</span>, stat=<span class='kw'>myFun1</span>, levels=<span class='st'>"attribute"</span>)
+</div><div class='output co'>#&gt;   [,1] [,2] [,3] [,4]
 #&gt; C    7    9    5  3.0
 #&gt; D    0    1    4  3.0
 #&gt; E    4    0   -1  3.1
@@ -251,7 +268,7 @@ statistics each key as <code>TRUE</code> and otherwise as <code>FALSE</code>.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
