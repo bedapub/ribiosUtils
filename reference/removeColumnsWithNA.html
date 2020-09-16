@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Subset a data.frame by column name, allowing differences in cases — subsetByColumnName • ribiosUtils</title>
+<title>Remove columns in a matrix that contains one or more NAs — removeColumnsWithNA • ribiosUtils</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Subset a data.frame by column name, allowing differences in cases — subsetByColumnName" />
-<meta property="og:description" content="The function calls assertColumnName internally to match the
-column names." />
+<meta property="og:title" content="Remove columns in a matrix that contains one or more NAs — removeColumnsWithNA" />
+<meta property="og:description" content="Remove columns in a matrix that contains one or more NAs" />
 
 
 
@@ -109,56 +108,41 @@ column names." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Subset a data.frame by column name, allowing differences in cases</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bedapub/ribiosUtils/blob/master/R/dfmat.R'><code>R/dfmat.R</code></a></small>
-    <div class="hidden name"><code>subsetByColumnName.Rd</code></div>
+    <h1>Remove columns in a matrix that contains one or more NAs</h1>
+    <small class="dont-index">Source: <a href='https://github.com/bedapub/ribiosUtils/blob/master/R/removeRowsWithAnyNA.R'><code>R/removeRowsWithAnyNA.R</code></a></small>
+    <div class="hidden name"><code>removeColumnsWithNA.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The function calls <code><a href='assertColumnName.html'>assertColumnName</a></code> internally to match the
-column names.</p>
+    <p>Remove columns in a matrix that contains one or more NAs</p>
     </div>
 
-    <pre class="usage"><span class='fu'>subsetByColumnName</span>(<span class='kw'>data.frame</span>, <span class='kw'>reqCols</span>, ignore.case = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>removeColumnsWithNA</span>(<span class='kw'>mat</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>data.frame</th>
-      <td><p>A data.frame object</p></td>
-    </tr>
-    <tr>
-      <th>reqCols</th>
-      <td><p>required columns</p></td>
-    </tr>
-    <tr>
-      <th>ignore.case</th>
-      <td><p>logical, whether the case is considered</p></td>
+      <th>mat</th>
+      <td><p>A matrix</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>If all required column names are present, the data.frame object will
-be subset to include only these columns and the result data.frame is
-returned. Otherwise an error message is printed.</p>
+    <p>A matrix, with columns containing one or more NAs removed</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='kw'>myTestDf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(HBV=<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, VFB=<span class='fl'>0</span><span class='op'>:</span><span class='fl'>2</span>, BVB=<span class='fl'>4</span><span class='op'>:</span><span class='fl'>6</span>, FCB=<span class='fl'>2</span><span class='op'>:</span><span class='fl'>4</span>)
-<span class='kw'>myFavTeams</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HBV"</span>, <span class='st'>"BVB"</span>)
-<span class='fu'>subsetByColumnName</span>(<span class='kw'>myTestDf</span>, <span class='kw'>myFavTeams</span>)
-</div><div class='output co'>#&gt;   HBV BVB
-#&gt; 1   1   4
-#&gt; 2   2   5
-#&gt; 3   3   6</div><div class='input'><span class='kw'>myFavTeamsCase</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"hbv"</span>, <span class='st'>"bVb"</span>)
-<span class='fu'>subsetByColumnName</span>(<span class='kw'>myTestDf</span>, <span class='kw'>myFavTeamsCase</span>, ignore.case=<span class='fl'>TRUE</span>)
-</div><div class='output co'>#&gt;   hbv bVb
-#&gt; 1   1   4
-#&gt; 2   2   5
-#&gt; 3   3   6</div><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>myMat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>9</span>, <span class='fl'>NA</span>, <span class='fl'>10</span><span class='op'>:</span><span class='fl'>17</span>), nrow=<span class='fl'>6</span>, byrow=<span class='fl'>TRUE</span>,
+  dimnames=<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span>(<span class='st'>"R%d"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>), <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span>(<span class='st'>"C%d"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>)))
+<span class='fu'>removeColumnsWithNA</span>(<span class='kw'>myMat</span>)
+</div><div class='output co'>#&gt;    C2 C3
+#&gt; R1  2  3
+#&gt; R2  5  6
+#&gt; R3  8  9
+#&gt; R4 10 11
+#&gt; R5 13 14
+#&gt; R6 16 17</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
