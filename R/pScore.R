@@ -4,7 +4,7 @@
 #' 
 #' @return A numeric vector of the same length as the input vector, with zeros replaced by the minimal absolute double value defined by the machine multiplied by the factor.
 #' 
-#' @notes Values under the minimal positive double value are considered zero and replaced.
+#' @note Values under the minimal positive double value are considered zero and replaced.
 #' 
 #' @examples 
 #' ps <- seq(0,1,0.1)
