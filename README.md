@@ -14,7 +14,7 @@ distributed under the GPL-3 license.
 ### Install the stable version on CRAN
 
 ```r
-install.package("ribiosUtils")
+install.packages("ribiosUtils")
 ```
 
 ### Install the devel version from GitHub
