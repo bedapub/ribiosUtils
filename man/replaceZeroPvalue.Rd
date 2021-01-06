@@ -17,6 +17,9 @@ A numeric vector of the same length as the input vector, with zeros replaced by 
 \description{
 Replace p-values of zero
 }
+\note{
+Values under the minimal positive double value are considered zero and replaced.
+}
 \examples{
 ps <- seq(0,1,0.1)
 replaceZeroPvalue(ps)
