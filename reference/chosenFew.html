@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -91,7 +91,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -117,7 +117,7 @@
     <p>Print the chosen few (the first and the last) items of a long vector</p>
     </div>
 
-    <pre class="usage"><span class='fu'>chosenFew</span>(<span class='kw'>vec</span>, start = <span class='fl'>3</span>, end = <span class='fl'>1</span>, collapse = <span class='st'>","</span>)</pre>
+    <pre class="usage"><span class='fu'>chosenFew</span><span class='op'>(</span><span class='va'>vec</span>, start <span class='op'>=</span> <span class='fl'>3</span>, end <span class='op'>=</span> <span class='fl'>1</span>, collapse <span class='op'>=</span> <span class='st'>","</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,13 +154,13 @@ characters</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>lvec1</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>100</span>
-<span class='fu'>chosenFew</span>(<span class='kw'>lvec1</span>)
-</div><div class='output co'>#&gt; [1] "1,2,3,...,100"</div><div class='input'><span class='fu'>chosenFew</span>(<span class='kw'>lvec1</span>, start=<span class='fl'>5</span>, end=<span class='fl'>3</span>)
+<span class='va'>lvec1</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>100</span>
+<span class='fu'>chosenFew</span><span class='op'>(</span><span class='va'>lvec1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "1,2,3,...,100"</div><div class='input'><span class='fu'>chosenFew</span><span class='op'>(</span><span class='va'>lvec1</span>, start<span class='op'>=</span><span class='fl'>5</span>, end<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "1,2,3,4,5,...,98,99,100"</div><div class='input'>
-<span class='kw'>svec</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>8</span>
-<span class='fu'>chosenFew</span>(<span class='kw'>svec</span>)
-</div><div class='output co'>#&gt; [1] "1,2,3,...,8"</div><div class='input'><span class='fu'>chosenFew</span>(<span class='kw'>svec</span>, start=<span class='fl'>5</span>, end=<span class='fl'>4</span>)
+<span class='va'>svec</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>8</span>
+<span class='fu'>chosenFew</span><span class='op'>(</span><span class='va'>svec</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "1,2,3,...,8"</div><div class='input'><span class='fu'>chosenFew</span><span class='op'>(</span><span class='va'>svec</span>, start<span class='op'>=</span><span class='fl'>5</span>, end<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "1,2,3,4,5,6,7,8"</div><div class='input'>
 </div></pre>
   </div>

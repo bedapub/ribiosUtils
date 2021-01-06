@@ -81,7 +81,7 @@ first rows and columns of 2D data structures, e.g. matrix or data.frame." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -92,7 +92,7 @@ first rows and columns of 2D data structures, e.g. matrix or data.frame." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -119,7 +119,7 @@ first rows and columns of 2D data structures, e.g. matrix or data.frame." />
 first rows and columns of 2D data structures, e.g. matrix or data.frame.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>headhead</span>(<span class='kw'>x</span>, m = <span class='fl'>6L</span>, n = <span class='fl'>6L</span>)</pre>
+    <pre class="usage"><span class='fu'>headhead</span><span class='op'>(</span><span class='va'>x</span>, m <span class='op'>=</span> <span class='fl'>6L</span>, n <span class='op'>=</span> <span class='fl'>6L</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -157,8 +157,8 @@ the first rows AND the first columns.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>myMat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>10000</span>), nrow=<span class='fl'>10L</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>myMat</span>)
+<span class='va'>myMat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10000</span><span class='op'>)</span>, nrow<span class='op'>=</span><span class='fl'>10L</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>myMat</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;            [,1]       [,2]       [,3]        [,4]       [,5]       [,6]
 #&gt; [1,]  0.2116982 -0.4731268 -0.7205228  1.10717815 -0.9886355  1.4490535
 #&gt; [2,] -0.5582103  0.6102724  0.2401618  0.50638677  1.6819205 -0.1589979
@@ -1327,14 +1327,14 @@ the first rows AND the first columns.</p>
 #&gt; [3,] -0.31819175 -0.5027109  1.4226528 -0.6277373
 #&gt; [4,]  0.95371872 -0.3568965 -0.8496968  0.9012850
 #&gt; [5,] -0.98163218 -1.5583489 -0.2848249 -0.1925418
-#&gt; [6,] -0.04176264  0.9468869 -1.2858840 -0.9225215</div><div class='input'><span class='fu'>headhead</span>(<span class='kw'>myMat</span>)
+#&gt; [6,] -0.04176264  0.9468869 -1.2858840 -0.9225215</div><div class='input'><span class='fu'>headhead</span><span class='op'>(</span><span class='va'>myMat</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;            [,1]       [,2]       [,3]        [,4]       [,5]       [,6]
 #&gt; [1,]  0.2116982 -0.4731268 -0.7205228  1.10717815 -0.9886355  1.4490535
 #&gt; [2,] -0.5582103  0.6102724  0.2401618  0.50638677  1.6819205 -0.1589979
 #&gt; [3,]  0.4307754  0.2082309 -1.9303377 -0.02222775 -0.3393546  0.2380096
 #&gt; [4,] -1.3317544  0.7791137  0.8906630  1.44404664 -0.7824672 -0.6767043
 #&gt; [5,]  0.6266521  0.4720021 -0.4427249 -0.60749971 -2.4125135  0.5144476
-#&gt; [6,]  0.1199766  0.6297750 -0.4950692 -0.09847563  1.1999424  0.6132141</div><div class='input'><span class='fu'>tailtail</span>(<span class='kw'>myMat</span>)
+#&gt; [6,]  0.1199766  0.6297750 -0.4950692 -0.09847563  1.1999424  0.6132141</div><div class='input'><span class='fu'>tailtail</span><span class='op'>(</span><span class='va'>myMat</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;            [995,]     [996,]      [997,]      [998,]     [999,]    [1000,]
 #&gt; [5,]  -1.58589108 -0.7042546 -0.98163218 -1.55834895 -0.2848249 -0.1925418
 #&gt; [6,]  -1.11158783 -0.7146343 -0.04176264  0.94688695 -1.2858840 -0.9225215

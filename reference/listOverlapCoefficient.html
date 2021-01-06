@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -91,7 +91,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -117,7 +117,7 @@
     <p>Pairwise overlap coefficient of lists</p>
     </div>
 
-    <pre class="usage"><span class='fu'>listOverlapCoefficient</span>(<span class='kw'>x</span>, y = <span class='kw'>NULL</span>, checkUniqueNonNA = <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>listOverlapCoefficient</span><span class='op'>(</span><span class='va'>x</span>, y <span class='op'>=</span> <span class='cn'>NULL</span>, checkUniqueNonNA <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -145,18 +145,18 @@ up the code</p></td>
     <p>A matrix of column-wise pairwise overlap coefficients.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>1887</span>)
-<span class='kw'>testSets1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span>(<span class='fl'>10</span>, size=<span class='fl'>26</span>, prob=<span class='fl'>0.3</span>), 
-  <span class='fu'>function</span>(<span class='kw'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='kw'>LETTERS</span>, <span class='kw'>x</span>, replace=<span class='fl'>FALSE</span>))
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>testSets1</span>) <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span>(<span class='st'>"List%d"</span>, <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(along=<span class='kw'>testSets1</span>))
-<span class='kw'>testSets1Poe</span> <span class='op'>&lt;-</span> <span class='fu'>listOverlapCoefficient</span>(<span class='kw'>testSets1</span>)
-<span class='kw'>testSets1PoeNoCheck</span> <span class='op'>&lt;-</span> <span class='fu'>listOverlapCoefficient</span>(<span class='kw'>testSets1</span>, checkUniqueNonNA=<span class='fl'>FALSE</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/identical.html'>identical</a></span>(<span class='kw'>testSets1Poe</span>, <span class='kw'>testSets1PoeNoCheck</span>))
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1887</span><span class='op'>)</span>
+<span class='va'>testSets1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span><span class='op'>(</span><span class='fl'>10</span>, size<span class='op'>=</span><span class='fl'>26</span>, prob<span class='op'>=</span><span class='fl'>0.3</span><span class='op'>)</span>, 
+  <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>LETTERS</span>, <span class='va'>x</span>, replace<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>testSets1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"List%d"</span>, <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span>along<span class='op'>=</span><span class='va'>testSets1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>testSets1Poe</span> <span class='op'>&lt;-</span> <span class='fu'>listOverlapCoefficient</span><span class='op'>(</span><span class='va'>testSets1</span><span class='op'>)</span>
+<span class='va'>testSets1PoeNoCheck</span> <span class='op'>&lt;-</span> <span class='fu'>listOverlapCoefficient</span><span class='op'>(</span><span class='va'>testSets1</span>, checkUniqueNonNA<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/identical.html'>identical</a></span><span class='op'>(</span><span class='va'>testSets1Poe</span>, <span class='va'>testSets1PoeNoCheck</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='kw'>testSets2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span>(<span class='fl'>15</span>, size=<span class='fl'>26</span>, prob=<span class='fl'>0.3</span>),
-  <span class='fu'>function</span>(<span class='kw'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='kw'>LETTERS</span>, <span class='kw'>x</span>, replace=<span class='fl'>FALSE</span>))
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>testSets2</span>) <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span>(<span class='st'>"AnotherList%d"</span>, <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(along=<span class='kw'>testSets2</span>))
-<span class='kw'>testSets12Poe</span> <span class='op'>&lt;-</span> <span class='fu'>listOverlapCoefficient</span>(<span class='kw'>testSets1</span>, <span class='kw'>testSets2</span>)
+<span class='va'>testSets2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span><span class='op'>(</span><span class='fl'>15</span>, size<span class='op'>=</span><span class='fl'>26</span>, prob<span class='op'>=</span><span class='fl'>0.3</span><span class='op'>)</span>,
+  <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>LETTERS</span>, <span class='va'>x</span>, replace<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>testSets2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"AnotherList%d"</span>, <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span>along<span class='op'>=</span><span class='va'>testSets2</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>testSets12Poe</span> <span class='op'>&lt;-</span> <span class='fu'>listOverlapCoefficient</span><span class='op'>(</span><span class='va'>testSets1</span>, <span class='va'>testSets2</span><span class='op'>)</span>
 
 </div></pre>
   </div>

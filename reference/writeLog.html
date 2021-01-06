@@ -82,7 +82,7 @@ need to run registerLog first." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -93,7 +93,7 @@ need to run registerLog first." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -121,7 +121,7 @@ status of scripts to <em>one connection</em>. To use it one does <em>not</em>
 need to run <code>registerLog</code> first.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>writeLog</span>(<span class='kw'>fmt</span>, <span class='kw'>...</span>, con = <span class='fu'><a href='https://rdrr.io/r/base/showConnections.html'>stdout</a></span>(), level = <span class='fl'>0</span>)</pre>
+    <pre class="usage"><span class='fu'>writeLog</span><span class='op'>(</span><span class='va'>fmt</span>, <span class='va'>...</span>, con <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/showConnections.html'>stdout</a></span><span class='op'>(</span><span class='op'>)</span>, level <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,24 +165,24 @@ logging.</p>
     <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-  <span class='fu'>writeLog</span>(<span class='st'>"This is the start of a log"</span>)
-  <span class='fu'>writeLog</span>(<span class='st'>"Message 1"</span>, level=<span class='fl'>1</span>)
-  <span class='fu'>writeLog</span>(<span class='st'>"Message 1.1"</span>, level=<span class='fl'>2</span>)
-  <span class='fu'>writeLog</span>(<span class='st'>"Message 1.2"</span>, level=<span class='fl'>2</span>)
-  <span class='fu'>writeLog</span>(<span class='st'>"Message 2"</span>, level=<span class='fl'>1</span>)
-  <span class='fu'>writeLog</span>(<span class='st'>"Message 3"</span>, level=<span class='fl'>1</span>)
-  <span class='fu'>writeLog</span>(<span class='st'>"Message 3 (special)"</span>, level=<span class='fl'>4</span>)
-  <span class='fu'>writeLog</span>(<span class='st'>"End of the log"</span>);
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'>writeLog</span><span class='op'>(</span><span class='st'>"This is the start of a log"</span><span class='op'>)</span>
+  <span class='fu'>writeLog</span><span class='op'>(</span><span class='st'>"Message 1"</span>, level<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
+  <span class='fu'>writeLog</span><span class='op'>(</span><span class='st'>"Message 1.1"</span>, level<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
+  <span class='fu'>writeLog</span><span class='op'>(</span><span class='st'>"Message 1.2"</span>, level<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
+  <span class='fu'>writeLog</span><span class='op'>(</span><span class='st'>"Message 2"</span>, level<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
+  <span class='fu'>writeLog</span><span class='op'>(</span><span class='st'>"Message 3"</span>, level<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
+  <span class='fu'>writeLog</span><span class='op'>(</span><span class='st'>"Message 3 (special)"</span>, level<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span>
+  <span class='fu'>writeLog</span><span class='op'>(</span><span class='st'>"End of the log"</span><span class='op'>)</span>;
   
   <span class='co'>## log with format</span>
-  <span class='fu'>writeLog</span>(<span class='st'>"This is Message %d"</span>, <span class='fl'>1</span>)
-  <span class='fu'>writeLog</span>(<span class='st'>"Square of 2 is %2.2f"</span>, <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>(<span class='fl'>2</span>))
+  <span class='fu'>writeLog</span><span class='op'>(</span><span class='st'>"This is Message %d"</span>, <span class='fl'>1</span><span class='op'>)</span>
+  <span class='fu'>writeLog</span><span class='op'>(</span><span class='st'>"Square of 2 is %2.2f"</span>, <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
   
   <span class='co'>## NA is handled automatically</span>
-  <span class='fu'>writeLog</span>(<span class='st'>"This is a not available value: %s"</span>, <span class='fl'>NA</span>, level=<span class='fl'>1</span>)
-  <span class='fu'>writeLog</span>(<span class='st'>"This is a NULL value: %s"</span>, <span class='kw'>NULL</span>, level=<span class='fl'>1</span>)
-}
+  <span class='fu'>writeLog</span><span class='op'>(</span><span class='st'>"This is a not available value: %s"</span>, <span class='cn'>NA</span>, level<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
+  <span class='fu'>writeLog</span><span class='op'>(</span><span class='st'>"This is a NULL value: %s"</span>, <span class='cn'>NULL</span>, level<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

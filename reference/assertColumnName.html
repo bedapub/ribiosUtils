@@ -81,7 +81,7 @@ column names." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -92,7 +92,7 @@ column names." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -119,7 +119,7 @@ column names." />
 column names.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>assertColumnName</span>(<span class='kw'>data.frame.cols</span>, <span class='kw'>reqCols</span>, ignore.case = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>assertColumnName</span><span class='op'>(</span><span class='va'>data.frame.cols</span>, <span class='va'>reqCols</span>, ignore.case <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -147,11 +147,11 @@ is copied</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>myTestDf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(HBV=<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, VFB=<span class='fl'>0</span><span class='op'>:</span><span class='fl'>2</span>, BVB=<span class='fl'>4</span><span class='op'>:</span><span class='fl'>6</span>, FCB=<span class='fl'>2</span><span class='op'>:</span><span class='fl'>4</span>)
-<span class='kw'>myFavTeams</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HBV"</span>, <span class='st'>"BVB"</span>)
-<span class='fu'>assertColumnName</span>(<span class='kw'>myTestDf</span>, <span class='kw'>myFavTeams</span>)
-<span class='kw'>myFavTeamsCase</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"hbv"</span>, <span class='st'>"bVb"</span>)
-<span class='fu'>assertColumnName</span>(<span class='kw'>myTestDf</span>, <span class='kw'>myFavTeamsCase</span>, ignore.case=<span class='fl'>TRUE</span>)
+<span class='va'>myTestDf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>HBV<span class='op'>=</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, VFB<span class='op'>=</span><span class='fl'>0</span><span class='op'>:</span><span class='fl'>2</span>, BVB<span class='op'>=</span><span class='fl'>4</span><span class='op'>:</span><span class='fl'>6</span>, FCB<span class='op'>=</span><span class='fl'>2</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span>
+<span class='va'>myFavTeams</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"HBV"</span>, <span class='st'>"BVB"</span><span class='op'>)</span>
+<span class='fu'>assertColumnName</span><span class='op'>(</span><span class='va'>myTestDf</span>, <span class='va'>myFavTeams</span><span class='op'>)</span>
+<span class='va'>myFavTeamsCase</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"hbv"</span>, <span class='st'>"bVb"</span><span class='op'>)</span>
+<span class='fu'>assertColumnName</span><span class='op'>(</span><span class='va'>myTestDf</span>, <span class='va'>myFavTeamsCase</span>, ignore.case<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
 
 </div></pre>
   </div>

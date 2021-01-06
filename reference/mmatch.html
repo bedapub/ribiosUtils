@@ -82,7 +82,7 @@ matches, mmatch returns all of them." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -93,7 +93,7 @@ matches, mmatch returns all of them." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -121,7 +121,7 @@ function, where only one match is returned even if there are multiple
 matches, <code>mmatch</code> returns all of them.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mmatch</span>(<span class='kw'>x</span>, <span class='kw'>table</span>, nomatch = <span class='fl'>NA_integer_</span>)</pre>
+    <pre class="usage"><span class='fu'>mmatch</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>table</span>, nomatch <span class='op'>=</span> <span class='cn'>NA_integer_</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,10 +165,10 @@ from the program written by Roland Schmucki.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>vec1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"BRE"</span>, <span class='st'>"HSV"</span>, <span class='fl'>NA</span>, <span class='st'>"BVB"</span>)
-<span class='kw'>vec2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"FCB"</span>, <span class='st'>"FCN"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"FCK"</span>, <span class='fl'>NA</span>, <span class='st'>"BRE"</span>, <span class='st'>"BRE"</span>)
+<span class='va'>vec1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"BRE"</span>, <span class='st'>"HSV"</span>, <span class='cn'>NA</span>, <span class='st'>"BVB"</span><span class='op'>)</span>
+<span class='va'>vec2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"FCB"</span>, <span class='st'>"FCN"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"FCK"</span>, <span class='cn'>NA</span>, <span class='st'>"BRE"</span>, <span class='st'>"BRE"</span><span class='op'>)</span>
 
-<span class='fu'>mmatch</span>(<span class='kw'>vec1</span>, <span class='kw'>vec2</span>)
+<span class='fu'>mmatch</span><span class='op'>(</span><span class='va'>vec1</span>, <span class='va'>vec2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $HSV
 #&gt; [1] 6 4
 #&gt; 
@@ -194,7 +194,7 @@ from the program written by Roland Schmucki.</p>
 #&gt; [1] 5
 #&gt; </div><div class='input'>
 <span class='co'>## compare to match</span>
-<span class='fu'><a href='https://rdrr.io/r/base/match.html'>match</a></span>(<span class='kw'>vec1</span>, <span class='kw'>vec2</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/match.html'>match</a></span><span class='op'>(</span><span class='va'>vec1</span>, <span class='va'>vec2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 4 5 1 4 9 4 8 5</div><div class='input'>
 </div></pre>
   </div>

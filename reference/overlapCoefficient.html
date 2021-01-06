@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -91,7 +91,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -117,9 +117,9 @@
     <p>Overlap coefficient, also known as Szymkiewicz-Simpson coefficient</p>
     </div>
 
-    <pre class="usage"><span class='fu'>overlapCoefficient</span>(<span class='kw'>x</span>, <span class='kw'>y</span>, checkUniqueNonNA = <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>overlapCoefficient</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, checkUniqueNonNA <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>overlapDistance</span>(<span class='kw'>x</span>, <span class='kw'>y</span>, checkUniqueNonNA = <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>overlapDistance</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, checkUniqueNonNA <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,17 +150,17 @@ made unique and non-NA</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>myX</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>
-<span class='kw'>myY</span> <span class='op'>&lt;-</span> <span class='fl'>4</span><span class='op'>:</span><span class='fl'>9</span>
-<span class='fu'>overlapCoefficient</span>(<span class='kw'>myX</span>, <span class='kw'>myY</span>)
+<span class='va'>myX</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>
+<span class='va'>myY</span> <span class='op'>&lt;-</span> <span class='fl'>4</span><span class='op'>:</span><span class='fl'>9</span>
+<span class='fu'>overlapCoefficient</span><span class='op'>(</span><span class='va'>myX</span>, <span class='va'>myY</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 0.5</div><div class='input'>
-<span class='kw'>myY2</span> <span class='op'>&lt;-</span> <span class='fl'>4</span><span class='op'>:</span><span class='fl'>10</span>
-<span class='fu'>overlapCoefficient</span>(<span class='kw'>myX</span>, <span class='kw'>myY2</span>)
+<span class='va'>myY2</span> <span class='op'>&lt;-</span> <span class='fl'>4</span><span class='op'>:</span><span class='fl'>10</span>
+<span class='fu'>overlapCoefficient</span><span class='op'>(</span><span class='va'>myX</span>, <span class='va'>myY2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 0.5</div><div class='input'><span class='co'>## compare the result with Jaccard Index</span>
-<span class='fu'><a href='jaccardIndex.html'>jaccardIndex</a></span>(<span class='kw'>myX</span>, <span class='kw'>myY2</span>)
+<span class='fu'><a href='jaccardIndex.html'>jaccardIndex</a></span><span class='op'>(</span><span class='va'>myX</span>, <span class='va'>myY2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 0.3</div><div class='input'>
 <span class='co'>## overlapDistance</span>
-<span class='fu'>overlapDistance</span>(<span class='kw'>myX</span>, <span class='kw'>myY2</span>)
+<span class='fu'>overlapDistance</span><span class='op'>(</span><span class='va'>myX</span>, <span class='va'>myY2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 0.5</div><div class='input'>
 </div></pre>
   </div>

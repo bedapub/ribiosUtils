@@ -83,7 +83,7 @@ Pairwise overlap coefficient of binary matrix by column" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -94,7 +94,7 @@ Pairwise overlap coefficient of binary matrix by column" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -122,7 +122,7 @@ Pairwise overlap coefficient of binary matrix by column</h1>
 Pairwise overlap coefficient of binary matrix by column</p>
     </div>
 
-    <pre class="usage"><span class='fu'>columnOverlapCoefficient</span>(<span class='kw'>x</span>, y = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>columnOverlapCoefficient</span><span class='op'>(</span><span class='va'>x</span>, y <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -145,9 +145,9 @@ is reported when neither of the columns have any non-zero element.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>1887</span>)
-<span class='kw'>testMatrix1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span>(<span class='fl'>120</span>, <span class='fl'>1</span>, <span class='fl'>0.2</span>), nrow=<span class='fl'>15</span>)
-<span class='fu'>columnOverlapCoefficient</span>(<span class='kw'>testMatrix1</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1887</span><span class='op'>)</span>
+<span class='va'>testMatrix1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span><span class='op'>(</span><span class='fl'>120</span>, <span class='fl'>1</span>, <span class='fl'>0.2</span><span class='op'>)</span>, nrow<span class='op'>=</span><span class='fl'>15</span><span class='op'>)</span>
+<span class='fu'>columnOverlapCoefficient</span><span class='op'>(</span><span class='va'>testMatrix1</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;      [,1] [,2] [,3]      [,4] [,5]      [,6]      [,7] [,8]
 #&gt; [1,]  1.0  NaN    0 0.5000000  NaN 0.0000000 0.5000000    1
 #&gt; [2,]  NaN  NaN  NaN       NaN  NaN       NaN       NaN  NaN
@@ -157,9 +157,9 @@ is reported when neither of the columns have any non-zero element.</p>
 #&gt; [6,]  0.0  NaN    0 0.0000000  NaN 1.0000000 0.6666667    0
 #&gt; [7,]  0.5  NaN    0 0.6666667  NaN 0.6666667 1.0000000    0
 #&gt; [8,]  1.0  NaN    0 0.0000000  NaN 0.0000000 0.0000000    1</div><div class='input'>
-<span class='kw'>testMatrix2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span>(<span class='fl'>150</span>, <span class='fl'>1</span>, <span class='fl'>0.2</span>), nrow=<span class='fl'>15</span>)
-<span class='kw'>testMatrix12Poe</span> <span class='op'>&lt;-</span> <span class='fu'>columnOverlapCoefficient</span>(<span class='kw'>testMatrix1</span>, 
-  <span class='kw'>testMatrix2</span>)
+<span class='va'>testMatrix2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span><span class='op'>(</span><span class='fl'>150</span>, <span class='fl'>1</span>, <span class='fl'>0.2</span><span class='op'>)</span>, nrow<span class='op'>=</span><span class='fl'>15</span><span class='op'>)</span>
+<span class='va'>testMatrix12Poe</span> <span class='op'>&lt;-</span> <span class='fu'>columnOverlapCoefficient</span><span class='op'>(</span><span class='va'>testMatrix1</span>, 
+  <span class='va'>testMatrix2</span><span class='op'>)</span>
 
 </div></pre>
   </div>

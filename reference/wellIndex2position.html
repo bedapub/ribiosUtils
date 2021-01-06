@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -91,7 +91,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -117,7 +117,7 @@
     <p>Translate well index numbers to well positions</p>
     </div>
 
-    <pre class="usage"><span class='fu'>wellIndex2position</span>(<span class='kw'>ind</span>, format = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"96"</span>, <span class='st'>"384"</span>))</pre>
+    <pre class="usage"><span class='fu'>wellIndex2position</span><span class='op'>(</span><span class='va'>ind</span>, format <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"96"</span>, <span class='st'>"384"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -137,7 +137,7 @@
     <p>A <code>data.frame</code> containing three columns: input <code>WellIndex</code>, <code>Row</code> (characters) and <code>Column</code> (integers)</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>wellIndex2position</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>96</span>, format=<span class='st'>"96"</span>)
+    <pre class="examples"><div class='input'><span class='fu'>wellIndex2position</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>96</span>, format<span class='op'>=</span><span class='st'>"96"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;    WellIndex Row Column
 #&gt; 1          1   A      1
 #&gt; 2          2   A      2
@@ -234,14 +234,14 @@
 #&gt; 93        93   H      9
 #&gt; 94        94   H     10
 #&gt; 95        95   H     11
-#&gt; 96        96   H     12</div><div class='input'><span class='fu'>wellIndex2position</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>,<span class='fl'>2</span>,<span class='fl'>5</span>,<span class='fl'>34</span>,<span class='fl'>85</span>, <span class='fl'>NA</span>), format=<span class='st'>"96"</span>)
+#&gt; 96        96   H     12</div><div class='input'><span class='fu'>wellIndex2position</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>,<span class='fl'>2</span>,<span class='fl'>5</span>,<span class='fl'>34</span>,<span class='fl'>85</span>, <span class='cn'>NA</span><span class='op'>)</span>, format<span class='op'>=</span><span class='st'>"96"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   WellIndex  Row Column
 #&gt; 1         3    A      3
 #&gt; 2         2    A      2
 #&gt; 3         5    A      5
 #&gt; 4        34    C     10
 #&gt; 5        85    H      1
-#&gt; 6        NA &lt;NA&gt;     NA</div><div class='input'><span class='fu'>wellIndex2position</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>384</span>, format=<span class='st'>"384"</span>)
+#&gt; 6        NA &lt;NA&gt;     NA</div><div class='input'><span class='fu'>wellIndex2position</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>384</span>, format<span class='op'>=</span><span class='st'>"384"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;     WellIndex Row Column
 #&gt; 1           1   A      1
 #&gt; 2           2   A      2

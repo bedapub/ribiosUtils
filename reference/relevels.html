@@ -81,7 +81,7 @@ relevelsByNotNamedVec for not named vectors" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -92,7 +92,7 @@ relevelsByNotNamedVec for not named vectors" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -119,12 +119,12 @@ relevelsByNotNamedVec for not named vectors" />
 <code><a href='relevelsByNotNamedVec.html'>relevelsByNotNamedVec</a></code> for not named vectors</p>
     </div>
 
-    <pre class="usage"><span class='fu'>relevels</span>(
-  <span class='kw'>x</span>,
-  <span class='kw'>refs</span>,
-  missingLevels = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"pass"</span>, <span class='st'>"warning"</span>, <span class='st'>"error"</span>),
-  unrecognisedLevels = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"warning"</span>, <span class='st'>"pass"</span>, <span class='st'>"error"</span>)
-)</pre>
+    <pre class="usage"><span class='fu'>relevels</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>refs</span>,
+  missingLevels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pass"</span>, <span class='st'>"warning"</span>, <span class='st'>"error"</span><span class='op'>)</span>,
+  unrecognisedLevels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"warning"</span>, <span class='st'>"pass"</span>, <span class='st'>"error"</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -159,13 +159,13 @@ found: 'pass', 'warning', or 'error'.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>oldFactor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"C"</span>, <span class='st'>"B"</span>), levels=<span class='kw'>LETTERS</span>[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>])
-<span class='kw'>refLevels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"B"</span>, <span class='st'>"C"</span>, <span class='st'>"A"</span>)
-<span class='kw'>refDict</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>=<span class='st'>"a"</span>, <span class='st'>"B"</span>=<span class='st'>"b"</span>, <span class='st'>"C"</span>=<span class='st'>"c"</span>)
-<span class='kw'>newFactor</span> <span class='op'>&lt;-</span> <span class='fu'>relevels</span>(<span class='kw'>oldFactor</span>, <span class='kw'>refLevels</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/identical.html'>identical</a></span>(<span class='kw'>newFactor</span>, <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"C"</span>, <span class='st'>"B"</span>), levels=<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"B"</span>, <span class='st'>"C"</span>, <span class='st'>"A"</span>))))
-<span class='kw'>newFactor2</span> <span class='op'>&lt;-</span>  <span class='fu'>relevels</span>(<span class='kw'>oldFactor</span>, <span class='kw'>refDict</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/identical.html'>identical</a></span>(<span class='kw'>newFactor2</span>, <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"a"</span>, <span class='st'>"c"</span>, <span class='st'>"b"</span>), levels=<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"c"</span>))))
+<span class='va'>oldFactor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"C"</span>, <span class='st'>"B"</span><span class='op'>)</span>, levels<span class='op'>=</span><span class='va'>LETTERS</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span><span class='op'>)</span>
+<span class='va'>refLevels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"B"</span>, <span class='st'>"C"</span>, <span class='st'>"A"</span><span class='op'>)</span>
+<span class='va'>refDict</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span><span class='op'>=</span><span class='st'>"a"</span>, <span class='st'>"B"</span><span class='op'>=</span><span class='st'>"b"</span>, <span class='st'>"C"</span><span class='op'>=</span><span class='st'>"c"</span><span class='op'>)</span>
+<span class='va'>newFactor</span> <span class='op'>&lt;-</span> <span class='fu'>relevels</span><span class='op'>(</span><span class='va'>oldFactor</span>, <span class='va'>refLevels</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/identical.html'>identical</a></span><span class='op'>(</span><span class='va'>newFactor</span>, <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"C"</span>, <span class='st'>"B"</span><span class='op'>)</span>, levels<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"B"</span>, <span class='st'>"C"</span>, <span class='st'>"A"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>newFactor2</span> <span class='op'>&lt;-</span>  <span class='fu'>relevels</span><span class='op'>(</span><span class='va'>oldFactor</span>, <span class='va'>refDict</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/identical.html'>identical</a></span><span class='op'>(</span><span class='va'>newFactor2</span>, <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"a"</span>, <span class='st'>"c"</span>, <span class='st'>"b"</span><span class='op'>)</span>, levels<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"c"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 
 </div></pre>
   </div>

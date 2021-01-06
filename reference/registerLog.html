@@ -86,7 +86,7 @@ the connections." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -97,7 +97,7 @@ the connections." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -127,7 +127,7 @@ the functions take care of low-level details such as openning and closing
 the connections.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>registerLog</span>(<span class='kw'>...</span>, append = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>registerLog</span><span class='op'>(</span><span class='va'>...</span>, append <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -187,50 +187,50 @@ registered by <code>registerLog</code>.</p></div>
     <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-  <span class='kw'>logfile1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()
-  <span class='kw'>logfile2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()
-  <span class='kw'>logcon3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/showConnections.html'>stdout</a></span>()
-  <span class='co'>if</span>(<span class='kw'>.Platform</span><span class='op'>$</span><span class='kw'>OS.type</span> <span class='op'>==</span> <span class='st'>"unix"</span>) {
-    <span class='fu'>registerLog</span>(<span class='st'>"/dev/null"</span>)
-  } <span class='co'>else</span> {
-    <span class='fu'>registerLog</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>())
-  }
-  <span class='fu'>registerLog</span>(<span class='kw'>logfile1</span>)
-  <span class='fu'>registerLog</span>(<span class='kw'>logfile2</span>)
-  <span class='fu'>registerLog</span>(<span class='kw'>logcon3</span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>logfile1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span><span class='op'>)</span>
+  <span class='va'>logfile2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span><span class='op'>)</span>
+  <span class='va'>logcon3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/showConnections.html'>stdout</a></span><span class='op'>(</span><span class='op'>)</span>
+  <span class='kw'>if</span><span class='op'>(</span><span class='va'>.Platform</span><span class='op'>$</span><span class='va'>OS.type</span> <span class='op'>==</span> <span class='st'>"unix"</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='fu'>registerLog</span><span class='op'>(</span><span class='st'>"/dev/null"</span><span class='op'>)</span>
+  <span class='op'>}</span> <span class='kw'>else</span> <span class='op'>{</span>
+    <span class='fu'>registerLog</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>}</span>
+  <span class='fu'>registerLog</span><span class='op'>(</span><span class='va'>logfile1</span><span class='op'>)</span>
+  <span class='fu'>registerLog</span><span class='op'>(</span><span class='va'>logfile2</span><span class='op'>)</span>
+  <span class='fu'>registerLog</span><span class='op'>(</span><span class='va'>logcon3</span><span class='op'>)</span>
   
-  <span class='fu'><a href='writeLog.html'>doLog</a></span>(<span class='st'>"Start logging"</span>)
-  <span class='fu'><a href='writeLog.html'>doLog</a></span>(<span class='st'>"Do something..."</span>)
-  <span class='fu'><a href='writeLog.html'>doLog</a></span>(<span class='st'>"End logging"</span>)
+  <span class='fu'><a href='writeLog.html'>doLog</a></span><span class='op'>(</span><span class='st'>"Start logging"</span><span class='op'>)</span>
+  <span class='fu'><a href='writeLog.html'>doLog</a></span><span class='op'>(</span><span class='st'>"Do something..."</span><span class='op'>)</span>
+  <span class='fu'><a href='writeLog.html'>doLog</a></span><span class='op'>(</span><span class='st'>"End logging"</span><span class='op'>)</span>
   
-  <span class='fu'>flushLog</span>() <span class='co'>## usually not needed, see notes</span>
+  <span class='fu'>flushLog</span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## usually not needed, see notes</span>
   
-  <span class='kw'>txt1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span>(<span class='kw'>logfile1</span>)
-  <span class='kw'>txt2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span>(<span class='kw'>logfile2</span>)
+  <span class='va'>txt1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span><span class='op'>(</span><span class='va'>logfile1</span><span class='op'>)</span>
+  <span class='va'>txt2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span><span class='op'>(</span><span class='va'>logfile2</span><span class='op'>)</span>
   
-  <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='kw'>txt1</span>)
-  <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='kw'>txt2</span>)
+  <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>txt1</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>txt2</span><span class='op'>)</span>
   
-  <span class='fu'>clearLog</span>()
+  <span class='fu'>clearLog</span><span class='op'>(</span><span class='op'>)</span>
   
-  <span class='fu'>registerLog</span>(<span class='kw'>logfile1</span>, <span class='kw'>logfile2</span>, <span class='kw'>logcon3</span>)
+  <span class='fu'>registerLog</span><span class='op'>(</span><span class='va'>logfile1</span>, <span class='va'>logfile2</span>, <span class='va'>logcon3</span><span class='op'>)</span>
   
-  <span class='fu'><a href='writeLog.html'>doLog</a></span>(<span class='st'>"Start logging - round 2"</span>)
-  <span class='fu'><a href='writeLog.html'>doLog</a></span>(<span class='st'>"Do something again ..."</span>)
-  <span class='fu'><a href='writeLog.html'>doLog</a></span>(<span class='st'>"End logging - for good"</span>)
+  <span class='fu'><a href='writeLog.html'>doLog</a></span><span class='op'>(</span><span class='st'>"Start logging - round 2"</span><span class='op'>)</span>
+  <span class='fu'><a href='writeLog.html'>doLog</a></span><span class='op'>(</span><span class='st'>"Do something again ..."</span><span class='op'>)</span>
+  <span class='fu'><a href='writeLog.html'>doLog</a></span><span class='op'>(</span><span class='st'>"End logging - for good"</span><span class='op'>)</span>
   
-  <span class='fu'>flushLog</span>() <span class='co'>## usually not needed, see notes</span>
+  <span class='fu'>flushLog</span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## usually not needed, see notes</span>
   
-  <span class='kw'>txt1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span>(<span class='kw'>logfile1</span>)
-  <span class='kw'>txt2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span>(<span class='kw'>logfile2</span>)
+  <span class='va'>txt1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span><span class='op'>(</span><span class='va'>logfile1</span><span class='op'>)</span>
+  <span class='va'>txt2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span><span class='op'>(</span><span class='va'>logfile2</span><span class='op'>)</span>
   
-  <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='kw'>txt1</span>)
-  <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='kw'>txt2</span>)
+  <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>txt1</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>txt2</span><span class='op'>)</span>
   
   <span class='co'>## clean up files and objects to close unused connections</span>
-  <span class='fu'><a href='closeLoggerConnections.html'>closeLoggerConnections</a></span>()
-  }
+  <span class='fu'><a href='closeLoggerConnections.html'>closeLoggerConnections</a></span><span class='op'>(</span><span class='op'>)</span>
+  <span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

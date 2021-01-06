@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -91,7 +91,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -117,7 +117,7 @@
     <p>Overwrite a directory</p>
     </div>
 
-    <pre class="usage"><span class='fu'>overwriteDir</span>(<span class='kw'>dir</span>, action = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ask"</span>, <span class='st'>"overwrite"</span>, <span class='st'>"append"</span>, <span class='st'>"no"</span>))</pre>
+    <pre class="usage"><span class='fu'>overwriteDir</span><span class='op'>(</span><span class='va'>dir</span>, action <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ask"</span>, <span class='st'>"overwrite"</span>, <span class='st'>"append"</span>, <span class='st'>"no"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -152,41 +152,41 @@ function creates the directory if necessary and returns <code>TRUE</code>. If
 <code>FALSE</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>createTempDir</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>() {
-  <span class='kw'>tmpdir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>()
-  <span class='kw'>tmpfile1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>(tmpdir=<span class='kw'>tmpdir</span>)
-  <span class='kw'>tmpfile2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>(tmpdir=<span class='kw'>tmpdir</span>)
+    <pre class="examples"><div class='input'><span class='va'>createTempDir</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>tmpdir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span>
+  <span class='va'>tmpfile1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span>tmpdir<span class='op'>=</span><span class='va'>tmpdir</span><span class='op'>)</span>
+  <span class='va'>tmpfile2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span>tmpdir<span class='op'>=</span><span class='va'>tmpdir</span><span class='op'>)</span>
 
-  <span class='fu'><a href='https://rdrr.io/r/base/writeLines.html'>writeLines</a></span>(<span class='st'>"First file"</span>, <span class='kw'>tmpfile1</span>)
-  <span class='fu'><a href='https://rdrr.io/r/base/writeLines.html'>writeLines</a></span>(<span class='st'>"Second file"</span>, <span class='kw'>tmpfile2</span>)
-  <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>(<span class='kw'>tmpdir</span>)
-}
-<span class='kw'>newTempFile</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>tmpdir</span>) {
-  <span class='fu'><a href='https://rdrr.io/r/base/writeLines.html'>writeLines</a></span>(<span class='st'>"Third file"</span>, <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>(tmpdir=<span class='kw'>tmpdir</span>))
-}
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-  <span class='kw'>tmpdir</span> <span class='op'>&lt;-</span> <span class='fu'>createTempDir</span>()
-  <span class='fu'>overwriteDir</span>(<span class='kw'>tmpdir</span>, action=<span class='st'>"ask"</span>)
+  <span class='fu'><a href='https://rdrr.io/r/base/writeLines.html'>writeLines</a></span><span class='op'>(</span><span class='st'>"First file"</span>, <span class='va'>tmpfile1</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/writeLines.html'>writeLines</a></span><span class='op'>(</span><span class='st'>"Second file"</span>, <span class='va'>tmpfile2</span><span class='op'>)</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='va'>tmpdir</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='va'>newTempFile</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>tmpdir</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/writeLines.html'>writeLines</a></span><span class='op'>(</span><span class='st'>"Third file"</span>, <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span>tmpdir<span class='op'>=</span><span class='va'>tmpdir</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>tmpdir</span> <span class='op'>&lt;-</span> <span class='fu'>createTempDir</span><span class='op'>(</span><span class='op'>)</span>
+  <span class='fu'>overwriteDir</span><span class='op'>(</span><span class='va'>tmpdir</span>, action<span class='op'>=</span><span class='st'>"ask"</span><span class='op'>)</span>
 
   <span class='co'>## overwrite: delete the directory and create it a new</span>
-  <span class='kw'>tmpdir</span> <span class='op'>&lt;-</span> <span class='fu'>createTempDir</span>()
-  <span class='kw'>fileCount</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='kw'>tmpdir</span>))
-  <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='kw'>tmpdir</span>) <span class='co'>## two files should be there</span>
-  <span class='fu'>overwriteDir</span>(<span class='kw'>tmpdir</span>, action=<span class='st'>"overwrite"</span>)
-  <span class='fu'>newTempFile</span>(<span class='kw'>tmpdir</span>)
-  <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='kw'>tmpdir</span>) <span class='co'>## now there should be only one file</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='kw'>tmpdir</span>))<span class='op'>==</span><span class='fl'>1</span>)
+  <span class='va'>tmpdir</span> <span class='op'>&lt;-</span> <span class='fu'>createTempDir</span><span class='op'>(</span><span class='op'>)</span>
+  <span class='va'>fileCount</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span><span class='op'>(</span><span class='va'>tmpdir</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span><span class='op'>(</span><span class='va'>tmpdir</span><span class='op'>)</span> <span class='co'>## two files should be there</span>
+  <span class='fu'>overwriteDir</span><span class='op'>(</span><span class='va'>tmpdir</span>, action<span class='op'>=</span><span class='st'>"overwrite"</span><span class='op'>)</span>
+  <span class='fu'>newTempFile</span><span class='op'>(</span><span class='va'>tmpdir</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span><span class='op'>(</span><span class='va'>tmpdir</span><span class='op'>)</span> <span class='co'>## now there should be only one file</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span><span class='op'>(</span><span class='va'>tmpdir</span><span class='op'>)</span><span class='op'>)</span><span class='op'>==</span><span class='fl'>1</span><span class='op'>)</span>
 
   <span class='co'>## append: append files, and overwrite if a file of the same name is there</span>
-  <span class='fu'>overwriteDir</span>(<span class='kw'>tmpdir</span>, action=<span class='st'>"append"</span>)
-  <span class='fu'>newTempFile</span>(<span class='kw'>tmpdir</span>)
-  <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='kw'>tmpdir</span>) <span class='co'>## a new file is written</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='kw'>tmpdir</span>))<span class='op'>==</span><span class='fl'>2</span>)
+  <span class='fu'>overwriteDir</span><span class='op'>(</span><span class='va'>tmpdir</span>, action<span class='op'>=</span><span class='st'>"append"</span><span class='op'>)</span>
+  <span class='fu'>newTempFile</span><span class='op'>(</span><span class='va'>tmpdir</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span><span class='op'>(</span><span class='va'>tmpdir</span><span class='op'>)</span> <span class='co'>## a new file is written</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span><span class='op'>(</span><span class='va'>tmpdir</span><span class='op'>)</span><span class='op'>)</span><span class='op'>==</span><span class='fl'>2</span><span class='op'>)</span>
 
   <span class='co'>## no: no action, and returns FALSE</span>
-  <span class='kw'>noRes</span> <span class='op'>&lt;-</span> <span class='fu'>overwriteDir</span>(<span class='kw'>tmpdir</span>, action=<span class='st'>"no"</span>)
-  <span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='op'>!</span><span class='kw'>noRes</span>)
-}
+  <span class='va'>noRes</span> <span class='op'>&lt;-</span> <span class='fu'>overwriteDir</span><span class='op'>(</span><span class='va'>tmpdir</span>, action<span class='op'>=</span><span class='st'>"no"</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='op'>!</span><span class='va'>noRes</span><span class='op'>)</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>

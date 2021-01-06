@@ -83,7 +83,7 @@ cumulative sum over sum a.k.a. cumsumprop" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -94,7 +94,7 @@ cumulative sum over sum a.k.a. cumsumprop" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -122,12 +122,12 @@ cumulative sum over sum a.k.a. cumsumprop</h1>
 cumulative sum over sum a.k.a. cumsumprop</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mergeInfreqLevelsByCumsumprop</span>(
-  <span class='kw'>classes</span>,
-  thr = <span class='fl'>0.9</span>,
-  mergedLevel = <span class='st'>"others"</span>,
-  returnFactor = <span class='fl'>TRUE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>mergeInfreqLevelsByCumsumprop</span><span class='op'>(</span>
+  <span class='va'>classes</span>,
+  thr <span class='op'>=</span> <span class='fl'>0.9</span>,
+  mergedLevel <span class='op'>=</span> <span class='st'>"others"</span>,
+  returnFactor <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -163,25 +163,25 @@ unchanged.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>1887</span>)
-<span class='kw'>myVals</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"A"</span>, <span class='fl'>4</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"B"</span>, <span class='fl'>3</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"C"</span>, <span class='fl'>2</span>), <span class='st'>"D"</span>))
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1887</span><span class='op'>)</span>
+<span class='va'>myVals</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='fl'>4</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='st'>"B"</span>, <span class='fl'>3</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='st'>"C"</span>, <span class='fl'>2</span><span class='op'>)</span>, <span class='st'>"D"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='co'>## in the example below, since A, B, C make up of 90% of the total,</span>
 <span class='co'>## D is infrequent. Since it is alone, it is not merged</span>
-<span class='fu'>mergeInfreqLevelsByCumsumprop</span>(<span class='kw'>myVals</span>, <span class='fl'>0.9</span>) 
+<span class='fu'>mergeInfreqLevelsByCumsumprop</span><span class='op'>(</span><span class='va'>myVals</span>, <span class='fl'>0.9</span><span class='op'>)</span> 
 </div><div class='output co'>#&gt;  [1] C A D B C B A A A B
-#&gt; Levels: A B C D</div><div class='input'><span class='fu'>mergeInfreqLevelsByCumsumprop</span>(<span class='kw'>myVals</span>, <span class='fl'>0.9</span>, returnFactor=<span class='fl'>FALSE</span>) <span class='co'>## return characters</span>
+#&gt; Levels: A B C D</div><div class='input'><span class='fu'>mergeInfreqLevelsByCumsumprop</span><span class='op'>(</span><span class='va'>myVals</span>, <span class='fl'>0.9</span>, returnFactor<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='co'>## return characters</span>
 </div><div class='output co'>#&gt;  [1] "C" "A" "D" "B" "C" "B" "A" "A" "A" "B"</div><div class='input'><span class='co'>## in the example below, since A and B make up 70% of the total, </span>
 <span class='co'>## and A, B, C 90%, they are all frequent and D is infrequent. </span>
 <span class='co'>## Following the logic above, no merging happens</span>
-<span class='fu'>mergeInfreqLevelsByCumsumprop</span>(<span class='kw'>myVals</span>, <span class='fl'>0.8</span>)
+<span class='fu'>mergeInfreqLevelsByCumsumprop</span><span class='op'>(</span><span class='va'>myVals</span>, <span class='fl'>0.8</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] C A D B C B A A A B
-#&gt; Levels: A B C D</div><div class='input'><span class='fu'>mergeInfreqLevelsByCumsumprop</span>(<span class='kw'>myVals</span>, <span class='fl'>0.7</span>) <span class='co'>## A and B are left, C and D are merged</span>
+#&gt; Levels: A B C D</div><div class='input'><span class='fu'>mergeInfreqLevelsByCumsumprop</span><span class='op'>(</span><span class='va'>myVals</span>, <span class='fl'>0.7</span><span class='op'>)</span> <span class='co'>## A and B are left, C and D are merged</span>
 </div><div class='output co'>#&gt;  [1] others A      others B      others B      A      A      A      B     
-#&gt; Levels: A B others</div><div class='input'><span class='fu'>mergeInfreqLevelsByCumsumprop</span>(<span class='kw'>myVals</span>, <span class='fl'>0.5</span>) <span class='co'>## A and B are left, C and D are merged</span>
+#&gt; Levels: A B others</div><div class='input'><span class='fu'>mergeInfreqLevelsByCumsumprop</span><span class='op'>(</span><span class='va'>myVals</span>, <span class='fl'>0.5</span><span class='op'>)</span> <span class='co'>## A and B are left, C and D are merged</span>
 </div><div class='output co'>#&gt;  [1] others A      others B      others B      A      A      A      B     
-#&gt; Levels: A B others</div><div class='input'><span class='fu'>mergeInfreqLevelsByCumsumprop</span>(<span class='kw'>myVals</span>, <span class='fl'>0.4</span>) <span class='co'>## A is left</span>
+#&gt; Levels: A B others</div><div class='input'><span class='fu'>mergeInfreqLevelsByCumsumprop</span><span class='op'>(</span><span class='va'>myVals</span>, <span class='fl'>0.4</span><span class='op'>)</span> <span class='co'>## A is left</span>
 </div><div class='output co'>#&gt;  [1] others A      others others others others A      A      A      others
-#&gt; Levels: A others</div><div class='input'><span class='fu'>mergeInfreqLevelsByCumsumprop</span>(<span class='kw'>myVals</span>, <span class='fl'>0.3</span>) <span class='co'>## A is left</span>
+#&gt; Levels: A others</div><div class='input'><span class='fu'>mergeInfreqLevelsByCumsumprop</span><span class='op'>(</span><span class='va'>myVals</span>, <span class='fl'>0.3</span><span class='op'>)</span> <span class='co'>## A is left</span>
 </div><div class='output co'>#&gt;  [1] others A      others others others others A      A      A      others
 #&gt; Levels: A others</div><div class='input'>
 </div></pre>

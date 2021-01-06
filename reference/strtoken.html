@@ -83,7 +83,7 @@ tokenized items in the selected position(s) are returned. See examples." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -94,7 +94,7 @@ tokenized items in the selected position(s) are returned. See examples." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/bedapub/ribiosUtils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -123,7 +123,7 @@ tokenized items when <code>index</code> is missing. If <code>index</code> is giv
 tokenized items in the selected position(s) are returned. See examples.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>strtoken</span>(<span class='kw'>x</span>, <span class='kw'>split</span>, <span class='kw'>index</span>, <span class='kw'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>strtoken</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>split</span>, <span class='va'>index</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,8 +165,8 @@ than one integer indices; otherwise a character vector.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>myStr</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HSV\t1887"</span>, <span class='st'>"FCB\t1900"</span>, <span class='st'>"FCK\t1948"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/strsplit.html'>strsplit</a></span>(<span class='kw'>myStr</span>, <span class='st'>"\t"</span>)
+<span class='va'>myStr</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"HSV\t1887"</span>, <span class='st'>"FCB\t1900"</span>, <span class='st'>"FCK\t1948"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/strsplit.html'>strsplit</a></span><span class='op'>(</span><span class='va'>myStr</span>, <span class='st'>"\t"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "HSV"  "1887"
 #&gt; 
@@ -176,19 +176,19 @@ than one integer indices; otherwise a character vector.</p>
 #&gt; [[3]]
 #&gt; [1] "FCK"  "1948"
 #&gt; </div><div class='input'>
-<span class='fu'>strtoken</span>(<span class='kw'>myStr</span>, <span class='st'>"\t"</span>)
+<span class='fu'>strtoken</span><span class='op'>(</span><span class='va'>myStr</span>, <span class='st'>"\t"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;      [,1]  [,2]  
 #&gt; [1,] "HSV" "1887"
 #&gt; [2,] "FCB" "1900"
-#&gt; [3,] "FCK" "1948"</div><div class='input'><span class='fu'>strtoken</span>(<span class='kw'>myStr</span>, <span class='st'>"\t"</span>, index=<span class='fl'>1L</span>)
-</div><div class='output co'>#&gt; [1] "HSV" "FCB" "FCK"</div><div class='input'><span class='fu'>strtoken</span>(<span class='kw'>myStr</span>, <span class='st'>"\t"</span>, index=<span class='fl'>2L</span>)
+#&gt; [3,] "FCK" "1948"</div><div class='input'><span class='fu'>strtoken</span><span class='op'>(</span><span class='va'>myStr</span>, <span class='st'>"\t"</span>, index<span class='op'>=</span><span class='fl'>1L</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "HSV" "FCB" "FCK"</div><div class='input'><span class='fu'>strtoken</span><span class='op'>(</span><span class='va'>myStr</span>, <span class='st'>"\t"</span>, index<span class='op'>=</span><span class='fl'>2L</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "1887" "1900" "1948"</div><div class='input'>
-<span class='kw'>myFac</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='kw'>myStr</span>)
-<span class='fu'>strtoken</span>(<span class='kw'>myFac</span>, <span class='st'>"\t"</span>)
+<span class='va'>myFac</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>myStr</span><span class='op'>)</span>
+<span class='fu'>strtoken</span><span class='op'>(</span><span class='va'>myFac</span>, <span class='st'>"\t"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;      [,1]  [,2]  
 #&gt; [1,] "HSV" "1887"
 #&gt; [2,] "FCB" "1900"
-#&gt; [3,] "FCK" "1948"</div><div class='input'><span class='fu'>strtoken</span>(<span class='kw'>myFac</span>, <span class='st'>"\t"</span>, index=<span class='fl'>1L</span>)
+#&gt; [3,] "FCK" "1948"</div><div class='input'><span class='fu'>strtoken</span><span class='op'>(</span><span class='va'>myFac</span>, <span class='st'>"\t"</span>, index<span class='op'>=</span><span class='fl'>1L</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "HSV" "FCB" "FCK"</div><div class='input'>
 </div></pre>
   </div>
