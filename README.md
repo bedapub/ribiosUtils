@@ -11,12 +11,6 @@ distributed under the GPL-3 license.
 
 ## Installation
 
-### Install the stable version on CRAN
-
-```r
-install.packages("ribiosUtils")
-```
-
 ### Install the devel version from GitHub
 
 Run following commands in the R console.
@@ -24,6 +18,14 @@ Run following commands in the R console.
 ```{R}
 library(devtools)
 devtools::install_github("bedapub/ribiosUtils")
+```
+
+### Install the stable version on CRAN
+
+*The CRAN version is temporarily not available due to pending changes*.
+
+```r
+install.packages("ribiosUtils")
 ```
 
 ## History
