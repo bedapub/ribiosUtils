@@ -429,3 +429,24 @@ list2df <- function(list, names=NULL, col.names=c("Name", "Item")) {
   colnames(res) <- col.names
   return(res)
 }
+
+cbindByRownames <- function(..., type=c("intersect", "union")) {
+  type <- match.arg(type)
+  input <- as.list(...)
+  rnameList <- lapply(input, rownames)
+  if(type=="intersect") {
+    rnames <- mintersect(rnameList)
+    tomergeList <- lapply(input, function(x) x[rnames,, drop=FALSE])
+  } else if (type=="union") {
+    rnames <- munion(rnameList)
+    tomergeList <- lapply(input, function(df) {
+      addrows <- setdiff(rnames, rownames(df))
+      df <- rbind(df,
+                  matrix(NA, nrow=length(addrows), ncol=ncol(df),
+                         dimnames=list(addrows, colnames(df))))
+      res <- df[rnames,,drop=FALSE]
+    })
+  }
+  res <- do.call(cbind, tomergeList)
+  return(res)
+}
