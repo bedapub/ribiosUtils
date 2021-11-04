@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.0</span>
       </span>
     </div>
 
@@ -144,20 +144,22 @@
     <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='va'>testMat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>16</span>, nrow<span class='op'>=</span><span class='fl'>4</span>, dimnames<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"B"</span>, <span class='st'>"D"</span>, <span class='st'>"A"</span>, <span class='st'>"C"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"t"</span>, <span class='st'>"f"</span>, <span class='st'>"a"</span>, <span class='st'>"g"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'>sortByDimnames</span><span class='op'>(</span><span class='va'>testMat</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    a f  g t
-#&gt; A 11 7 15 3
-#&gt; B  9 5 13 1
-#&gt; C 12 8 16 4
-#&gt; D 10 6 14 2</div><div class='input'><span class='fu'>sortByDimnames</span><span class='op'>(</span><span class='va'>testMat</span>, row.decreasing<span class='op'>=</span><span class='cn'>TRUE</span>, col.decreasing<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    a f  g t
-#&gt; D 10 6 14 2
-#&gt; C 12 8 16 4
-#&gt; B  9 5 13 1
-#&gt; A 11 7 15 3</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='va'>testMat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>16</span>, nrow<span class='op'>=</span><span class='fl'>4</span>, dimnames<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"B"</span>, <span class='st'>"D"</span>, <span class='st'>"A"</span>, <span class='st'>"C"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"t"</span>, <span class='st'>"f"</span>, <span class='st'>"a"</span>, <span class='st'>"g"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>sortByDimnames</span><span class='op'>(</span><span class='va'>testMat</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    a f  g t</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> A 11 7 15 3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> B  9 5 13 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> C 12 8 16 4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> D 10 6 14 2</span>
+<span class='r-in'><span class='fu'>sortByDimnames</span><span class='op'>(</span><span class='va'>testMat</span>, row.decreasing<span class='op'>=</span><span class='cn'>TRUE</span>, col.decreasing<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    a f  g t</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> D 10 6 14 2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> C 12 8 16 4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> B  9 5 13 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> A 11 7 15 3</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

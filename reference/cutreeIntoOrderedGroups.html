@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Invert the names and elements of a list — invertList • ribiosUtils</title>
+<title>Cut a tree into groups of ordered sizes — cutreeIntoOrderedGroups • ribiosUtils</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Invert the names and elements of a list — invertList" />
-<meta property="og:description" content="Invert the names and elements of a list" />
+<meta property="og:title" content="Cut a tree into groups of ordered sizes — cutreeIntoOrderedGroups" />
+<meta property="og:description" content="Cut a tree into groups of ordered sizes" />
 
 
 
@@ -108,52 +108,80 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Invert the names and elements of a list</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bedapub/ribiosUtils/blob/master/R/invertList.R'><code>R/invertList.R</code></a></small>
-    <div class="hidden name"><code>invertList.Rd</code></div>
+    <h1>Cut a tree into groups of ordered sizes</h1>
+    <small class="dont-index">Source: <a href='https://github.com/bedapub/ribiosUtils/blob/master/R/cuttreeIntoOrderedGroups.R'><code>R/cuttreeIntoOrderedGroups.R</code></a></small>
+    <div class="hidden name"><code>cutreeIntoOrderedGroups.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Invert the names and elements of a list</p>
+    <p>Cut a tree into groups of ordered sizes</p>
     </div>
 
-    <pre class="usage"><span class='fu'>invertList</span><span class='op'>(</span><span class='va'>inputList</span>, simplify <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>cutreeIntoOrderedGroups</span><span class='op'>(</span><span class='va'>tree</span>, k <span class='op'>=</span> <span class='cn'>NULL</span>, h <span class='op'>=</span> <span class='cn'>NULL</span>, decreasing <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>inputList</th>
-      <td><p>a list, other classed (e.g. named vectors) will be converted to lists</p></td>
+      <th>tree</th>
+      <td><p>a tree as produced by <code><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></code>, will be passed to
+<code><a href='https://rdrr.io/r/stats/cutree.html'>cutree</a></code></p></td>
     </tr>
     <tr>
-      <th>simplify</th>
-      <td><p>Logical, if yes and if no duplicated names, return a vector</p></td>
+      <th>k</th>
+      <td><p>an integer scalar or vector with the desired number of groups</p></td>
+    </tr>
+    <tr>
+      <th>h</th>
+      <td><p>numeric scalar or vector with heights where the tree should be cut.</p></td>
+    </tr>
+    <tr>
+      <th>decreasing</th>
+      <td><p>logical, should be the first group the largest?</p>
+<p>Cut a tree, e.g. as resulting from <code><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></code>, into groups, with 
+the groups being ordered by their size.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://rdrr.io/r/stats/cutree.html'>cutree</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='va'>myList</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"A"</span><span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"alpha"</span><span class='op'>)</span>, <span class='st'>"B"</span><span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"b"</span>, <span class='st'>"Beta"</span><span class='op'>)</span>, <span class='st'>"C"</span><span class='op'>=</span><span class='st'>"c"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='fu'>invertList</span><span class='op'>(</span><span class='va'>myList</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> $a</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "A"</span>
+    <pre class="examples"><span class='r-in'><span class='va'>hc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/hclust.html'>hclust</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span><span class='op'>(</span><span class='va'>USArrests</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>hck5</span> <span class='op'>&lt;-</span> <span class='fu'>cutreeIntoOrderedGroups</span><span class='op'>(</span><span class='va'>hc</span>, k <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>hck5</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hck5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  1  2  3  4  5 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 14 10 10  2 </span>
+<span class='r-in'><span class='co'>## compare with cutree, which does not order the groups</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/cutree.html'>cutree</a></span><span class='op'>(</span><span class='va'>hc</span>, k<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> $alpha</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "A"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  1  2  3  4  5 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 14 10  2 10 </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>hck25</span> <span class='op'>&lt;-</span> <span class='fu'>cutreeIntoOrderedGroups</span><span class='op'>(</span><span class='va'>hc</span>, k <span class='op'>=</span> <span class='fl'>2</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='va'>hck25</span>, <span class='fl'>2</span>, <span class='va'>table</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $`2`</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> $b</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "B"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  1  2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34 16 </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> $Beta</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "B"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $`3`</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> $c</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "C"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  1  2  3 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20 16 14 </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-in'><span class='fu'>invertList</span><span class='op'>(</span><span class='va'>myList</span>, simplify<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>     a alpha     b  Beta     c </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>   "A"   "A"   "B"   "B"   "C" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $`4`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  1  2  3  4 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20 14 14  2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $`5`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  1  2  3  4  5 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 14 10 10  2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

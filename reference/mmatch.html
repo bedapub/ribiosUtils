@@ -74,7 +74,7 @@ matches, mmatch returns all of them." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.0</span>
       </span>
     </div>
 
@@ -148,7 +148,7 @@ item contains the matching indices (similar to <code>match</code>).</p>
 
     <p>Multiple matches can be useful in many cases, and there is no native R
 function for this purpose. User can write their own functions combining
-<code>lapplying</code> with <code>match</code> or <code><a href='https://rdrr.io/r/base/match.html'>%in%</a></code>, our experience however
+<code>lapplying</code> with <code>match</code> or <code>%in%</code>, our experience however
 shows that such non-vectorized function can be extremely slow, especially
 when the <code>x</code> or <code>table</code> vector gets longer.</p>
 <p><code>mmatch</code> delegates the multiple-matching task to a C-level function,
@@ -164,39 +164,41 @@ used by R-implementation.</p>
 from the program written by Roland Schmucki.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='va'>vec1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"BRE"</span>, <span class='st'>"HSV"</span>, <span class='cn'>NA</span>, <span class='st'>"BVB"</span><span class='op'>)</span>
-<span class='va'>vec2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"FCB"</span>, <span class='st'>"FCN"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"FCK"</span>, <span class='cn'>NA</span>, <span class='st'>"BRE"</span>, <span class='st'>"BRE"</span><span class='op'>)</span>
-
-<span class='fu'>mmatch</span><span class='op'>(</span><span class='va'>vec1</span>, <span class='va'>vec2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $HSV
-#&gt; [1] 6 4
-#&gt; 
-#&gt; $BVB
-#&gt; [1] 5
-#&gt; 
-#&gt; $FCB
-#&gt; [1] 1 3
-#&gt; 
-#&gt; $HSV
-#&gt; [1] 6 4
-#&gt; 
-#&gt; $BRE
-#&gt; [1]  9 10
-#&gt; 
-#&gt; $HSV
-#&gt; [1] 6 4
-#&gt; 
-#&gt; $&lt;NA&gt;
-#&gt; [1] 8
-#&gt; 
-#&gt; $BVB
-#&gt; [1] 5
-#&gt; </div><div class='input'>
-<span class='co'>## compare to match</span>
-<span class='fu'><a href='https://rdrr.io/r/base/match.html'>match</a></span><span class='op'>(</span><span class='va'>vec1</span>, <span class='va'>vec2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 4 5 1 4 9 4 8 5</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='va'>vec1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"BRE"</span>, <span class='st'>"HSV"</span>, <span class='cn'>NA</span>, <span class='st'>"BVB"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>vec2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"FCB"</span>, <span class='st'>"FCN"</span>, <span class='st'>"FCB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"BVB"</span>, <span class='st'>"HSV"</span>, <span class='st'>"FCK"</span>, <span class='cn'>NA</span>, <span class='st'>"BRE"</span>, <span class='st'>"BRE"</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>mmatch</span><span class='op'>(</span><span class='va'>vec1</span>, <span class='va'>vec2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $HSV</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 6 4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $BVB</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $FCB</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 1 3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $HSV</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 6 4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $BRE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1]  9 10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $HSV</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 6 4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $&lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 8</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $BVB</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## compare to match</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/match.html'>match</a></span><span class='op'>(</span><span class='va'>vec1</span>, <span class='va'>vec2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 4 5 1 4 9 4 8 5</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

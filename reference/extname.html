@@ -75,7 +75,7 @@ information from one or more file names." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.0</span>
       </span>
     </div>
 
@@ -160,24 +160,37 @@ extension is <code>txt</code>.</p>
     <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'>extname</span><span class='op'>(</span><span class='st'>"mybook.pdf"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "pdf"</div><div class='input'><span class='fu'>extname</span><span class='op'>(</span><span class='st'>"sequence.in.fasta"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "fasta"</div><div class='input'><span class='fu'>extname</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"/path/mybook.pdf"</span>, <span class='st'>"test.doc"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "pdf" "doc"</div><div class='input'><span class='fu'>extname</span><span class='op'>(</span><span class='st'>"README"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] NA</div><div class='input'><span class='fu'>extname</span><span class='op'>(</span><span class='st'>"README"</span>, ifnotfound<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] ""</div><div class='input'><span class='fu'>extname</span><span class='op'>(</span><span class='st'>"/path/my\ home/Holiday Plan.txt"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "txt"</div><div class='input'>
-<span class='fu'>basefilename</span><span class='op'>(</span><span class='st'>"mybook.pdf"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "mybook"</div><div class='input'><span class='fu'>basefilename</span><span class='op'>(</span><span class='st'>"sequence.in.fasta"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "sequence.in"</div><div class='input'><span class='fu'>basefilename</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"/path/mybook.pdf"</span>, <span class='st'>"test.doc"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "mybook" "test"  </div><div class='input'><span class='fu'>basefilename</span><span class='op'>(</span><span class='st'>"README"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "README"</div><div class='input'><span class='fu'>basefilename</span><span class='op'>(</span><span class='st'>"/path/my\ home/Holiday Plan.txt"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "Holiday Plan"</div><div class='input'>
-<span class='fu'>basefilename</span><span class='op'>(</span><span class='st'>"myBook.pdf"</span>, lower.case<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "mybook"</div><div class='input'><span class='fu'>extname</span><span class='op'>(</span><span class='st'>"myBook.PDF"</span>, lower.case<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "pdf"</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='fu'>extname</span><span class='op'>(</span><span class='st'>"mybook.pdf"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "pdf"</span>
+<span class='r-in'><span class='fu'>extname</span><span class='op'>(</span><span class='st'>"sequence.in.fasta"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "fasta"</span>
+<span class='r-in'><span class='fu'>extname</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"/path/mybook.pdf"</span>, <span class='st'>"test.doc"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "pdf" "doc"</span>
+<span class='r-in'><span class='fu'>extname</span><span class='op'>(</span><span class='st'>"README"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] NA</span>
+<span class='r-in'><span class='fu'>extname</span><span class='op'>(</span><span class='st'>"README"</span>, ifnotfound<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] ""</span>
+<span class='r-in'><span class='fu'>extname</span><span class='op'>(</span><span class='st'>"/path/my\ home/Holiday Plan.txt"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "txt"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>basefilename</span><span class='op'>(</span><span class='st'>"mybook.pdf"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "mybook"</span>
+<span class='r-in'><span class='fu'>basefilename</span><span class='op'>(</span><span class='st'>"sequence.in.fasta"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "sequence.in"</span>
+<span class='r-in'><span class='fu'>basefilename</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"/path/mybook.pdf"</span>, <span class='st'>"test.doc"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "mybook" "test"  </span>
+<span class='r-in'><span class='fu'>basefilename</span><span class='op'>(</span><span class='st'>"README"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "README"</span>
+<span class='r-in'><span class='fu'>basefilename</span><span class='op'>(</span><span class='st'>"/path/my\ home/Holiday Plan.txt"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Holiday Plan"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>basefilename</span><span class='op'>(</span><span class='st'>"myBook.pdf"</span>, lower.case<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "mybook"</span>
+<span class='r-in'><span class='fu'>extname</span><span class='op'>(</span><span class='st'>"myBook.PDF"</span>, lower.case<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "pdf"</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.0</span>
       </span>
     </div>
 
@@ -145,18 +145,19 @@ number of columns in <code>mat1</code> and <code>mat2</code>, respectively. The 
 common rownames shared by the two matrices.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>myMat1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>24</span><span class='op'>)</span>, nrow<span class='op'>=</span><span class='fl'>6</span>, byrow<span class='op'>=</span><span class='cn'>TRUE</span>,
-  dimnames<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"R%d"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"C%d"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>myMat2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>35</span><span class='op'>)</span>, nrow<span class='op'>=</span><span class='fl'>7</span>, byrow<span class='op'>=</span><span class='cn'>TRUE</span>,
-  dimnames<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"R%d"</span>, <span class='fl'>7</span><span class='op'>:</span><span class='fl'>1</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"C%d"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'>corByRownames</span><span class='op'>(</span><span class='va'>myMat1</span>, <span class='va'>myMat2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;            C1           C2         C3         C4          C5
-#&gt; C1 -0.3121047 -0.666503364  0.4158111  0.1133333 -0.39083053
-#&gt; C2 -0.4122894  0.088724404  0.5347137  0.1220808  0.47403180
-#&gt; C3 -0.6937419 -0.200372221 -0.0902017  0.8089499  0.10073400
-#&gt; C4  0.5978218 -0.009547803  0.4339425 -0.7000653  0.05422141
-#&gt; attr(,"commonRownames")
-#&gt; [1] "R1" "R2" "R3" "R4" "R5" "R6"</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>myMat1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>24</span><span class='op'>)</span>, nrow<span class='op'>=</span><span class='fl'>6</span>, byrow<span class='op'>=</span><span class='cn'>TRUE</span>,</span>
+<span class='r-in'>  dimnames<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"R%d"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"C%d"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>myMat2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>35</span><span class='op'>)</span>, nrow<span class='op'>=</span><span class='fl'>7</span>, byrow<span class='op'>=</span><span class='cn'>TRUE</span>,</span>
+<span class='r-in'>  dimnames<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"R%d"</span>, <span class='fl'>7</span><span class='op'>:</span><span class='fl'>1</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"C%d"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>corByRownames</span><span class='op'>(</span><span class='va'>myMat1</span>, <span class='va'>myMat2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>            C1           C2         C3         C4          C5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> C1 -0.3121047 -0.666503364  0.4158111  0.1133333 -0.39083053</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> C2 -0.4122894  0.088724404  0.5347137  0.1220808  0.47403180</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> C3 -0.6937419 -0.200372221 -0.0902017  0.8089499  0.10073400</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> C4  0.5978218 -0.009547803  0.4339425 -0.7000653  0.05422141</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> attr(,"commonRownames")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "R1" "R2" "R3" "R4" "R5" "R6"</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

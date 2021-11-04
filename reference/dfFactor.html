@@ -73,7 +73,7 @@ See details below." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.0</span>
       </span>
     </div>
 
@@ -155,21 +155,26 @@ factor when it is still not and returned.</p>
     <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>gender<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"M"</span>, <span class='st'>"M"</span>, <span class='st'>"F"</span>, <span class='st'>"F"</span>, <span class='st'>"M"</span><span class='op'>)</span>,
-age<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>12</span>,<span class='fl'>12</span>,<span class='fl'>14</span>,<span class='fl'>12</span>,<span class='fl'>14</span><span class='op'>)</span>, score<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B-"</span>, <span class='st'>"C"</span>, <span class='st'>"B-"</span>, <span class='st'>"A"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'>dfFactor</span><span class='op'>(</span><span class='va'>df</span>, <span class='st'>"gender"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] M M F F M
-#&gt; Levels: F M</div><div class='input'><span class='fu'>dfFactor</span><span class='op'>(</span><span class='va'>df</span>, <span class='st'>"score"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] A  B- C  B- A 
-#&gt; Levels: A B- C</div><div class='input'><span class='fu'>dfFactor</span><span class='op'>(</span><span class='va'>df</span>, <span class='fl'>1L</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] M M F F M
-#&gt; Levels: F M</div><div class='input'><span class='fu'>dfFactor</span><span class='op'>(</span><span class='va'>df</span>, <span class='fl'>2L</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 12 12 14 12 14
-#&gt; Levels: 12 14</div><div class='input'><span class='fu'>dfFactor</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>df</span><span class='op'>$</span><span class='va'>score</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] A  B- C  B- A 
-#&gt; Levels: A B- C</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>gender<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"M"</span>, <span class='st'>"M"</span>, <span class='st'>"F"</span>, <span class='st'>"F"</span>, <span class='st'>"M"</span><span class='op'>)</span>,</span>
+<span class='r-in'>age<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>12</span>,<span class='fl'>12</span>,<span class='fl'>14</span>,<span class='fl'>12</span>,<span class='fl'>14</span><span class='op'>)</span>, score<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B-"</span>, <span class='st'>"C"</span>, <span class='st'>"B-"</span>, <span class='st'>"A"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>dfFactor</span><span class='op'>(</span><span class='va'>df</span>, <span class='st'>"gender"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] M M F F M</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Levels: F M</span>
+<span class='r-in'><span class='fu'>dfFactor</span><span class='op'>(</span><span class='va'>df</span>, <span class='st'>"score"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] A  B- C  B- A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Levels: A B- C</span>
+<span class='r-in'><span class='fu'>dfFactor</span><span class='op'>(</span><span class='va'>df</span>, <span class='fl'>1L</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] M M F F M</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Levels: F M</span>
+<span class='r-in'><span class='fu'>dfFactor</span><span class='op'>(</span><span class='va'>df</span>, <span class='fl'>2L</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 12 12 14 12 14</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Levels: 12 14</span>
+<span class='r-in'><span class='fu'>dfFactor</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>df</span><span class='op'>$</span><span class='va'>score</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] A  B- C  B- A </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Levels: A B- C</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

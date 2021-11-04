@@ -73,7 +73,7 @@ purposes. See examples for its usage." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.0</span>
       </span>
     </div>
 
@@ -157,17 +157,22 @@ elements that are not shown in the vector.</p>
     <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='va'>testVec1</span> <span class='op'>&lt;-</span> <span class='va'>LETTERS</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>]</span>
-<span class='fu'>headtail</span><span class='op'>(</span><span class='va'>testVec1</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "A, B, ..., J"</div><div class='input'><span class='fu'>headtail</span><span class='op'>(</span><span class='va'>testVec1</span>, head<span class='op'>=</span><span class='fl'>3</span>, tail<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "A, B, C, ..., H, I, J"</div><div class='input'><span class='fu'>headtail</span><span class='op'>(</span><span class='va'>testVec1</span>, head<span class='op'>=</span><span class='fl'>3</span>, tail<span class='op'>=</span><span class='fl'>3</span>, collapse<span class='op'>=</span><span class='st'>"|"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "A|B|C|...|H|I|J"</div><div class='input'>
-<span class='va'>testVec2</span> <span class='op'>&lt;-</span> <span class='va'>letters</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span>
-<span class='fu'>headtail</span><span class='op'>(</span><span class='va'>testVec2</span>, head<span class='op'>=</span><span class='fl'>1</span>, tail<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a, ..., c"</div><div class='input'><span class='fu'>headtail</span><span class='op'>(</span><span class='va'>testVec2</span>, head<span class='op'>=</span><span class='fl'>2</span>, tail<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a, b, c"</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='va'>testVec1</span> <span class='op'>&lt;-</span> <span class='va'>LETTERS</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>]</span></span>
+<span class='r-in'><span class='fu'>headtail</span><span class='op'>(</span><span class='va'>testVec1</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "A, B, ..., J"</span>
+<span class='r-in'><span class='fu'>headtail</span><span class='op'>(</span><span class='va'>testVec1</span>, head<span class='op'>=</span><span class='fl'>3</span>, tail<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "A, B, C, ..., H, I, J"</span>
+<span class='r-in'><span class='fu'>headtail</span><span class='op'>(</span><span class='va'>testVec1</span>, head<span class='op'>=</span><span class='fl'>3</span>, tail<span class='op'>=</span><span class='fl'>3</span>, collapse<span class='op'>=</span><span class='st'>"|"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "A|B|C|...|H|I|J"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>testVec2</span> <span class='op'>&lt;-</span> <span class='va'>letters</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span></span>
+<span class='r-in'><span class='fu'>headtail</span><span class='op'>(</span><span class='va'>testVec2</span>, head<span class='op'>=</span><span class='fl'>1</span>, tail<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "a, ..., c"</span>
+<span class='r-in'><span class='fu'>headtail</span><span class='op'>(</span><span class='va'>testVec2</span>, head<span class='op'>=</span><span class='fl'>2</span>, tail<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "a, b, c"</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

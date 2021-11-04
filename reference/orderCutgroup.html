@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check dimensionality of both design and contrast matrix — assertDesignContrast • ribiosUtils</title>
+<title>Reorder the groups by their group size — orderCutgroup • ribiosUtils</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Check dimensionality of both design and contrast matrix — assertDesignContrast" />
-<meta property="og:description" content="Check dimensionality of both design and contrast matrix" />
+<meta property="og:title" content="Reorder the groups by their group size — orderCutgroup" />
+<meta property="og:description" content="Reorder the groups by their group size" />
 
 
 
@@ -108,50 +108,36 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check dimensionality of both design and contrast matrix</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bedapub/ribiosUtils/blob/master/R/design_contrast.R'><code>R/design_contrast.R</code></a></small>
-    <div class="hidden name"><code>assertDesignContrast.Rd</code></div>
+    <h1>Reorder the groups by their group size</h1>
+    <small class="dont-index">Source: <a href='https://github.com/bedapub/ribiosUtils/blob/master/R/cuttreeIntoOrderedGroups.R'><code>R/cuttreeIntoOrderedGroups.R</code></a></small>
+    <div class="hidden name"><code>orderCutgroup.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Check dimensionality of both design and contrast matrix</p>
+    <p>Reorder the groups by their group size</p>
     </div>
 
-    <pre class="usage"><span class='fu'>assertDesignContrast</span><span class='op'>(</span><span class='va'>nsample</span>, <span class='va'>design</span>, <span class='va'>contrast</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>orderCutgroup</span><span class='op'>(</span><span class='va'>groups</span>, decreasing <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>nsample</th>
-      <td><p>Integer, number of samples</p></td>
+      <th>groups</th>
+      <td><p>Named vectors of integers as group indices</p></td>
     </tr>
     <tr>
-      <th>design</th>
-      <td><p>Design matrix</p></td>
-    </tr>
-    <tr>
-      <th>contrast</th>
-      <td><p>Contrast matrix</p></td>
+      <th>decreasing</th>
+      <td><p>Logical, should the first group be the largest?</p>
+<p>The function permutes a vector of names integers so that the names 
+matching the same integer match to the same or another integer, while 
+assuring that the permuted group matching the first integer
+ (or the last integer if <code>decreasing</code> is set to <code>FALSE</code>) is the 
+ largest group by count.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Side effect is used: the function stops if there are errors in the
-dimensionalities</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='assertDesign.html'>assertDesign</a></code>, <code><a href='assertContrast.html'>assertContrast</a></code></p></div>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'></span>
-<span class='r-in'><span class='va'>nsample</span> <span class='op'>&lt;-</span> <span class='fl'>4</span></span>
-<span class='r-in'><span class='va'>design</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>20</span>, ncol<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span></span>
-<span class='r-in'><span class='va'>contrast</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>, <span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='op'>-</span><span class='fl'>1</span>,<span class='fl'>0</span><span class='op'>)</span>, nrow<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span></span>
-<span class='r-in'><span class='fu'>assertDesignContrast</span><span class='op'>(</span><span class='va'>nsample</span>, <span class='va'>design</span>, <span class='va'>contrast</span><span class='op'>)</span></span>
-<span class='r-in'></span>
-</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

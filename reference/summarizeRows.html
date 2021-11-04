@@ -73,7 +73,7 @@ by a factor vector." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.0</span>
       </span>
     </div>
 
@@ -131,8 +131,8 @@ by a factor vector.</p>
     <tr>
       <th>factor</th>
       <td><p>A vector of factors, either of the length of
-<code><a href='https://rdrr.io/r/base/nrow.html'>nrow(matrix)</a></code> (for <code>summarizeRows</code>), or the length of
-<code><a href='https://rdrr.io/r/base/nrow.html'>ncol(matrix)</a></code> (for <code>summarizeColumns</code>).</p></td>
+<code>nrow(matrix)</code> (for <code>summarizeRows</code>), or the length of
+<code>ncol(matrix)</code> (for <code>summarizeColumns</code>).</p></td>
     </tr>
     <tr>
       <th>fun</th>
@@ -159,61 +159,70 @@ contribute to the summarized matrix.</p>
     <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='va'>my.matrix</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>25</span>, nrow<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>my.matrix</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4] [,5]
-#&gt; [1,]    1    6   11   16   21
-#&gt; [2,]    2    7   12   17   22
-#&gt; [3,]    3    8   13   18   23
-#&gt; [4,]    4    9   14   19   24
-#&gt; [5,]    5   10   15   20   25</div><div class='input'>
-<span class='va'>my.factor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"C"</span>, <span class='st'>"B"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'>summarizeRows</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.factor</span>, fun<span class='op'>=</span><span class='va'>mean</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   [,1] [,2] [,3] [,4] [,5]
-#&gt; A  2.0  7.0 12.0 17.0 22.0
-#&gt; B  3.5  8.5 13.5 18.5 23.5
-#&gt; C  4.0  9.0 14.0 19.0 24.0</div><div class='input'><span class='fu'>summarizeRows</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.factor</span>, fun<span class='op'>=</span><span class='va'>prod</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   [,1] [,2] [,3] [,4] [,5]
-#&gt; A    3   48  143  288  483
-#&gt; B   10   70  180  340  550
-#&gt; C    4    9   14   19   24</div><div class='input'><span class='fu'>summarizeColumns</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.factor</span>, fun<span class='op'>=</span><span class='va'>mean</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;       A    B  C
-#&gt; [1,]  6 13.5 16
-#&gt; [2,]  7 14.5 17
-#&gt; [3,]  8 15.5 18
-#&gt; [4,]  9 16.5 19
-#&gt; [5,] 10 17.5 20</div><div class='input'><span class='fu'>summarizeColumns</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.factor</span>, fun<span class='op'>=</span><span class='va'>prod</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;       A   B  C
-#&gt; [1,] 11 126 16
-#&gt; [2,] 24 154 17
-#&gt; [3,] 39 184 18
-#&gt; [4,] 56 216 19
-#&gt; [5,] 75 250 20</div><div class='input'>
-<span class='co'>## NA values in factor</span>
-<span class='va'>my.na.factor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"C"</span>, <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'>summarizeRows</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.na.factor</span>, fun<span class='op'>=</span><span class='va'>mean</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   [,1] [,2] [,3] [,4] [,5]
-#&gt; A    2    7   12   17   22
-#&gt; B    2    7   12   17   22
-#&gt; C    4    9   14   19   24</div><div class='input'><span class='fu'>summarizeRows</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.na.factor</span>, fun<span class='op'>=</span><span class='va'>prod</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   [,1] [,2] [,3] [,4] [,5]
-#&gt; A    3   48  143  288  483
-#&gt; B    2    7   12   17   22
-#&gt; C    4    9   14   19   24</div><div class='input'><span class='fu'>summarizeColumns</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.na.factor</span>, fun<span class='op'>=</span><span class='va'>mean</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;       A  B  C
-#&gt; [1,]  6  6 16
-#&gt; [2,]  7  7 17
-#&gt; [3,]  8  8 18
-#&gt; [4,]  9  9 19
-#&gt; [5,] 10 10 20</div><div class='input'><span class='fu'>summarizeColumns</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.na.factor</span>, fun<span class='op'>=</span><span class='va'>prod</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;       A  B  C
-#&gt; [1,] 11  6 16
-#&gt; [2,] 24  7 17
-#&gt; [3,] 39  8 18
-#&gt; [4,] 56  9 19
-#&gt; [5,] 75 10 20</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='va'>my.matrix</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>25</span>, nrow<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>my.matrix</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1] [,2] [,3] [,4] [,5]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,]    1    6   11   16   21</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,]    2    7   12   17   22</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3,]    3    8   13   18   23</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4,]    4    9   14   19   24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [5,]    5   10   15   20   25</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>my.factor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"C"</span>, <span class='st'>"B"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>summarizeRows</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.factor</span>, fun<span class='op'>=</span><span class='va'>mean</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [,1] [,2] [,3] [,4] [,5]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> A  2.0  7.0 12.0 17.0 22.0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> B  3.5  8.5 13.5 18.5 23.5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> C  4.0  9.0 14.0 19.0 24.0</span>
+<span class='r-in'><span class='fu'>summarizeRows</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.factor</span>, fun<span class='op'>=</span><span class='va'>prod</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [,1] [,2] [,3] [,4] [,5]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> A    3   48  143  288  483</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> B   10   70  180  340  550</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> C    4    9   14   19   24</span>
+<span class='r-in'><span class='fu'>summarizeColumns</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.factor</span>, fun<span class='op'>=</span><span class='va'>mean</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       A    B  C</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,]  6 13.5 16</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,]  7 14.5 17</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3,]  8 15.5 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4,]  9 16.5 19</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [5,] 10 17.5 20</span>
+<span class='r-in'><span class='fu'>summarizeColumns</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.factor</span>, fun<span class='op'>=</span><span class='va'>prod</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       A   B  C</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] 11 126 16</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,] 24 154 17</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3,] 39 184 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4,] 56 216 19</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [5,] 75 250 20</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## NA values in factor</span></span>
+<span class='r-in'><span class='va'>my.na.factor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"A"</span>, <span class='st'>"C"</span>, <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>summarizeRows</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.na.factor</span>, fun<span class='op'>=</span><span class='va'>mean</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [,1] [,2] [,3] [,4] [,5]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> A    2    7   12   17   22</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> B    2    7   12   17   22</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> C    4    9   14   19   24</span>
+<span class='r-in'><span class='fu'>summarizeRows</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.na.factor</span>, fun<span class='op'>=</span><span class='va'>prod</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [,1] [,2] [,3] [,4] [,5]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> A    3   48  143  288  483</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> B    2    7   12   17   22</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> C    4    9   14   19   24</span>
+<span class='r-in'><span class='fu'>summarizeColumns</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.na.factor</span>, fun<span class='op'>=</span><span class='va'>mean</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       A  B  C</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,]  6  6 16</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,]  7  7 17</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3,]  8  8 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4,]  9  9 19</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [5,] 10 10 20</span>
+<span class='r-in'><span class='fu'>summarizeColumns</span><span class='op'>(</span>matrix<span class='op'>=</span><span class='va'>my.matrix</span>, factor<span class='op'>=</span><span class='va'>my.na.factor</span>, fun<span class='op'>=</span><span class='va'>prod</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       A  B  C</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] 11  6 16</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,] 24  7 17</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3,] 39  8 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4,] 56  9 19</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [5,] 75 10 20</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

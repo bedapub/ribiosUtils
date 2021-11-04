@@ -74,7 +74,7 @@ useful in data visualization and modelling." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.0</span>
       </span>
     </div>
 
@@ -172,41 +172,44 @@ same as the matrix dimension. Otherwise the function raises warnings.</p>
     <p>Jitao David Zhang &lt;jitao_david.zhang@roche.com&gt;</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='va'>test.mat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>12</span>, ncol<span class='op'>=</span><span class='fl'>4</span>, nrow<span class='op'>=</span><span class='fl'>3</span>, dimnames<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>LETTERS</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span>,
-<span class='va'>LETTERS</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>test.mat</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   A B C  D
-#&gt; A 1 4 7 10
-#&gt; B 2 5 8 11
-#&gt; C 3 6 9 12</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>matrix2longdf</span><span class='op'>(</span><span class='va'>test.mat</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    row column value
-#&gt; 1    A      A     1
-#&gt; 2    B      A     2
-#&gt; 3    C      A     3
-#&gt; 4    A      B     4
-#&gt; 5    B      B     5
-#&gt; 6    C      B     6
-#&gt; 7    A      C     7
-#&gt; 8    B      C     8
-#&gt; 9    C      C     9
-#&gt; 10   A      D    10
-#&gt; 11   B      D    11
-#&gt; 12   C      D    12</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>matrix2longdf</span><span class='op'>(</span><span class='va'>test.mat</span>, longdf.colnames<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"From"</span>, <span class='st'>"To"</span>, <span class='st'>"Time"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    From To Time
-#&gt; 1     A  A    1
-#&gt; 2     B  A    2
-#&gt; 3     C  A    3
-#&gt; 4     A  B    4
-#&gt; 5     B  B    5
-#&gt; 6     C  B    6
-#&gt; 7     A  C    7
-#&gt; 8     B  C    8
-#&gt; 9     C  C    9
-#&gt; 10    A  D   10
-#&gt; 11    B  D   11
-#&gt; 12    C  D   12</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='va'>test.mat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>12</span>, ncol<span class='op'>=</span><span class='fl'>4</span>, nrow<span class='op'>=</span><span class='fl'>3</span>, dimnames<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>LETTERS</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span>,</span>
+<span class='r-in'><span class='va'>LETTERS</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>test.mat</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   A B C  D</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> A 1 4 7 10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> B 2 5 8 11</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> C 3 6 9 12</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>matrix2longdf</span><span class='op'>(</span><span class='va'>test.mat</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    row column value</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1    A      A     1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2    B      A     2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3    C      A     3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4    A      B     4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5    B      B     5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6    C      B     6</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7    A      C     7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8    B      C     8</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9    C      C     9</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10   A      D    10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11   B      D    11</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12   C      D    12</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>matrix2longdf</span><span class='op'>(</span><span class='va'>test.mat</span>, longdf.colnames<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"From"</span>, <span class='st'>"To"</span>, <span class='st'>"Time"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    From To Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1     A  A    1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2     B  A    2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3     C  A    3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4     A  B    4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5     B  B    5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6     C  B    6</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7     A  C    7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8     B  C    8</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9     C  C    9</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10    A  D   10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11    B  D   11</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12    C  D   12</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
