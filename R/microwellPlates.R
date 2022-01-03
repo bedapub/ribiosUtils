@@ -42,7 +42,7 @@ wellIndex2position <- function(ind, format=c("96", "384")) {
 #' @return A vector of the same length, with all labels adjusted to the equal
 #' width, with left-padding zeros added whenever it makes sense. If the input
 #' labels are already of the same length, no change is applied.
-#' @example
+#' @examples
 #' equateWellLabelWidth(c("A1", "C10", "D12"))
 #' @export
 equateWellLabelWidth <- function(wells) {
