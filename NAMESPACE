@@ -2,6 +2,7 @@
 
 S3method(print,BEDAinfo)
 S3method(rowscale,matrix)
+S3method(rowscale,table)
 S3method(rrank,default)
 S3method(rrank,matrix)
 export(allIdentical)
