@@ -18,3 +18,6 @@ labels are already of the same length, no change is applied.
 \description{
 Format labels for wells in microwell plates to equal widths
 }
+\examples{
+equateWellLabelWidth(c("A1", "C10", "D12"))
+}
