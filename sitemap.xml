@@ -13,6 +13,9 @@
     <loc>/reference/allIdentical.html</loc>
   </url>
   <url>
+    <loc>/reference/applyTopOrIncAndNotExclFilter.html</loc>
+  </url>
+  <url>
     <loc>/reference/asNumMatrix.html</loc>
   </url>
   <url>
@@ -35,6 +38,9 @@
   </url>
   <url>
     <loc>/reference/bound.html</loc>
+  </url>
+  <url>
+    <loc>/reference/cbindByRownames.html</loc>
   </url>
   <url>
     <loc>/reference/checkFile.html</loc>
@@ -88,6 +94,9 @@
     <loc>/reference/extname.html</loc>
   </url>
   <url>
+    <loc>/reference/firstUp.html</loc>
+  </url>
+  <url>
     <loc>/reference/fixWidthStr.html</loc>
   </url>
   <url>
@@ -127,10 +136,16 @@
     <loc>/reference/isRocheCompoundID.html</loc>
   </url>
   <url>
+    <loc>/reference/isTopOrIncAndNotExcl.html</loc>
+  </url>
+  <url>
     <loc>/reference/jaccardIndex.html</loc>
   </url>
   <url>
     <loc>/reference/keepMaxStatRow.html</loc>
+  </url>
+  <url>
+    <loc>/reference/lastChar.html</loc>
   </url>
   <url>
     <loc>/reference/libordie.html</loc>
@@ -239,6 +254,9 @@
   </url>
   <url>
     <loc>/reference/removeColumns.html</loc>
+  </url>
+  <url>
+    <loc>/reference/removeColumnsByFunc.html</loc>
   </url>
   <url>
     <loc>/reference/removeColumnsWithNA.html</loc>
