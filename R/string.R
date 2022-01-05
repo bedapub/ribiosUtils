@@ -155,3 +155,24 @@ fixWidthStr <- function(str, nchar=8, align=c("left", "right")) {
 }
 
 
+#' Make the first alphabet of strings uppercase
+#' @param str A vector of character strings
+#' @return A vector of the same length, with the first alphabet in uppercase
+#' @seealso \code{\link[tools]{toTitleCase}}
+#' @examples
+#' firstUp('test string')
+#' firstUp(strsplit('many many years ago', ' ')[[1]])
+#' @export
+firstUp <- function(str) {
+  res <- paste0(toupper(substr(str, 1,1)), substr(str, 2, nchar(str)))
+  return(res)
+}
+
+#' Return last characters from strings
+#' @param str A vector of character strings
+#' @return A vector of the same length, containing last characters
+#' @examples
+#' lastChar("Go tell it on the mountain")
+#' lastChar(c("HSV", "FCB", "BVB"))
+#' @export
+lastChar <- function(str) substr(str, nchar(str), nchar(str))

@@ -119,6 +119,31 @@ removeColumns <- function(data.frame, columns, drop=FALSE) {
   return(data.frame)
 }
 
+
+#' Remove rows or column by function
+#' @param matrix A matrix
+#' @param removeFunc A function which should return boolean results
+#' @return A matrix with rows or columns whose return value of \code{removeFunc}
+#' is \code{TRUE}
+#' @export
+#' @examples
+#' myMat <- matrix(c(1, 3 ,5, 4, 5, 6, 7, 9, 11), byrow=FALSE, nrow=3)
+#' removeColumnsByFunc(myMat, removeFunc=function(x) any(x %% 2 == 0))
+#' removeRowsByFunc(myMat, removeFunc=function(x) any(x %% 2 == 0))
+removeColumnsByFunc <- function(matrix, removeFunc) {
+  vec <- apply(matrix, 2, removeFunc)
+  res <- matrix[, !vec, drop=FALSE]
+  return(res)
+}
+
+#' @rdname removeColumnsByFunc
+#' @export
+removeRowsByFunc <- function(matrix, removeFunc) {
+  vec <- apply(matrix, 1, removeFunc)
+  res <- matrix[!vec, , drop=FALSE]
+  return(res)
+}
+
 ## change column names
 replaceByMatch <- function(vector, old.items, new.items) {
   stopifnot(all(old.items %in% vector))
@@ -205,7 +230,7 @@ sortByCol <- function (data.frame, columns,
     } else if (!all(is.numeric(columns)) && !all(is.logical(columns))) {
         stop("'columns' must be one of the following data types: chracters, numeric and logical\n")
     }
-    
+
     subdf <- data.frame[,columns,drop=FALSE]
     local.order <- function(...) order(..., na.last=na.last,decreasing=decreasing)
     ord <- do.call(local.order, subdf) ## see example(order)
@@ -430,9 +455,39 @@ list2df <- function(list, names=NULL, col.names=c("Name", "Item")) {
   return(res)
 }
 
+ellipsis2list <- function(...) {
+  input <- list(...)
+  if(length(input)==1) {
+    if(is.list(input[[1]])) {
+      input <- input[[1]]
+    } else {
+      stop("At least two matrices or data.frames are required")
+    }
+  }
+  return(input)
+}
+
+#' Column bind by rownames
+#' @param ... Two or more matrices, or a list of matrices.
+#' @param type Character string, how are row names that are not shared by all
+#' items handled, either \code{intersect} (intersect are kept) or \code{union}
+#' (union is used, \code{NA} is inserted whenever necessary)
+#' @return A \code{matrix}
+#' @export
+#' @examples
+#' mat1 <- matrix(1:9, nrow=3, byrow=FALSE,
+#'                dimnames=list(LETTERS[1:3], LETTERS[1:3]))
+#' mat2 <- matrix(1:9, nrow=3, byrow=FALSE,
+#'                dimnames=list(LETTERS[2:4], LETTERS[4:6]))
+#' mat3 <- matrix(1:9, nrow=3, byrow=FALSE,
+#'                dimnames=list(LETTERS[c(2,4,5)], LETTERS[7:9]))
+#' cbindByRownames(mat1, mat2, mat3, type="intersect")
+#' cbindByRownames(mat1, mat2, mat3, type="union")
+#' ## it is also possible to pass a list
+#' cbindByRownames(list(mat1, mat2, mat3), type="union")
 cbindByRownames <- function(..., type=c("intersect", "union")) {
   type <- match.arg(type)
-  input <- as.list(...)
+  input <- ellipsis2list(...)
   rnameList <- lapply(input, rownames)
   if(type=="intersect") {
     rnames <- mintersect(rnameList)
@@ -450,3 +505,129 @@ cbindByRownames <- function(..., type=c("intersect", "union")) {
   res <- do.call(cbind, tomergeList)
   return(res)
 }
+
+#' @rdname cbindByRownames
+#' @examples
+#' mat4 <- matrix(1:9, nrow=3, byrow=FALSE,
+#'                dimnames=list(LETTERS[1:3], LETTERS[1:3]))
+#' mat5 <- matrix(1:9, nrow=3, byrow=FALSE,
+#'                dimnames=list(LETTERS[4:6], LETTERS[2:4]))
+#' mat6 <- matrix(1:9, nrow=3, byrow=TRUE,
+#'                dimnames=list(LETTERS[7:9], LETTERS[c(2,4,6)]))
+#' rbindByColnames(mat4, mat5, mat6, type="intersect")
+#' rbindByColnames(mat4, mat5, mat6,  type="union")
+#' ## it is also possible to pass a list
+#' rbindByColnames(list(mat4, mat5, mat6), type="union")
+#' @export
+rbindByColnames <- function(..., type=c("intersect", "union")) {
+  type <- match.arg(type)
+  input <- ellipsis2list(...)
+  cnameList <- lapply(input, colnames)
+  if(type=="intersect") {
+    cnames <- mintersect(cnameList)
+    tomergeList <- lapply(input, function(x) x[, cnames, drop=FALSE])
+  } else if (type=="union") {
+    cnames <- munion(cnameList)
+    tomergeList <- lapply(input, function(df) {
+      addcols <- setdiff(cnames, colnames(df))
+      df <- cbind(df,
+                  matrix(NA, 
+                         ncol=length(addcols), nrow=nrow(df),
+                         dimnames=list(rownames(df), addcols)))
+      res <- df[,cnames,drop=FALSE]
+    })
+  }
+  res <- do.call(rbind, tomergeList)
+  return(res)
+}
+
+#' Logical vector of being top or included and not excluded
+#' @param x An atomic vector that can be sorted by \code{sort}, for instance integers and character strings.
+#' @param top Integer, number of top elements that we want to consider.
+#' @param incFunc Function, applied to \code{x} to return a logical vector of the same length, indicating whether the values should be included even if it does not belong to the top elements.
+#' @param excFunc Function, applied to \code{x} to return a logical vector of the same length, indicating whether the values should be excluded even if it does belong to the top elements.
+#' @param decreasing Logical, passed to \code{sort}. The default value is set to
+#' \code{TRUE}, which means that the highest values are considered the top
+#' elements. If set to \code{FALSE}, the lowest values are considered the top elements.
+#' @return A logical vector of the same length as the input \code{x}, indicating whether each element is being either top or included, and not excluded.
+#' The function can be used to keep top elements of a vector while considering both inclusion and exclusion criteria.
+#' @examples
+#' myVal <- c(2, 4, 8, 7, 1)
+#' isTopOrIncAndNotExcl(myVal, top=1)
+#' isTopOrIncAndNotExcl(myVal, top=3)
+#' isTopOrIncAndNotExcl(myVal, top=3, incFunc=function(x) x>=2)
+#' isTopOrIncAndNotExcl(myVal, top=3, excFunc=function(x) x%%2==1)
+#' isTopOrIncAndNotExcl(myVal, top=3, incFunc=function(x) x>=2, excFunc=function(x) x%%2==1)
+#' myVal2 <- c("a", "A", "a", "A", "A")
+#' isTopOrIncAndNotExcl(myVal2, 2)
+#' isTopOrIncAndNotExcl(myVal2, 2, incFunc=function(x) x=="A")
+#' isTopOrIncAndNotExcl(myVal2, 4)
+#' isTopOrIncAndNotExcl(myVal2, 4, excFunc=function(x) x=="a")
+#' \dontrun{
+#' ## the function returns all TRUEs if top is larger than the length of the vector
+#' isTopOrIncAndNotExcl(myVal, top=9)
+#' }
+#' @export
+isTopOrIncAndNotExcl <- function(x, top=1, 
+                                 incFunc,
+                                 excFunc,
+                                 decreasing=TRUE) {
+  if(!missing(incFunc)) {
+    stopifnot(is.function(incFunc))
+    isIncl <- do.call(incFunc, list(x))
+  } else {
+    isIncl <- rep(FALSE, length(x))
+  }
+  if(!missing(excFunc)) {
+    stopifnot(is.function(excFunc))
+    isExcl <- do.call(excFunc, list(x))
+  } else {
+    isExcl <- rep(FALSE, length(x))
+  }
+  ind <- order(x, decreasing=decreasing)[1:pmin(top, length(x))]
+  isTop <- rep(FALSE, length(x))
+  isTop[ind] <- TRUE
+  res <- (isTop | isIncl) & !isExcl
+  return(res)
+}
+
+#' Apply isTopOrIncAndNotExcl filter to a matrix
+#' @param matrix A matrix.
+#' @param MARGIN Integer, 1 stands for row and 2 stands for column, passed to \code{apply}.
+#' @param top Integer, how many top elements should be kept, passed to \code{isTopOrIncAndNotExcl}.
+#' @param falseValue The same type as data in the matrix, used to replace values that is \code{FALSE} when judged by \code{isTopOrIncAndNotExcl}.
+#' @param ... Further parameters passed to \code{isTopOrIncAndNotExcl}, including \code{incFunc}, \code{excFunc}, and \code{decreasing}.
+#' The function applies the filter function \code{isTopOrIncAndNotExcl} to each row or each column to a matrix, keeps the values that are \code{TRUE} based on the logical vector returned by function, and replaces the values that are \code{FALSE} with the value defined by \code{falseValue}.
+#' @return A matrix with the same dimnames but with elements not satisfying \code{isTopOrIncAndNotExcl} replaced by \code{falseValue}.
+#' @examples
+#' myMat <- matrix(c(1,2,3,4,8,7,6,5,12,9,11,10), nrow=3, byrow=TRUE,
+#'    dimnames=list(c("A", "B", "C"), c("Alpha", "Beta", "Gamma", "Delta")))
+#' print(myMat)
+#' applyTopOrIncAndNotExclFilter(myMat, 1, top=2, falseValue=-1)
+#' applyTopOrIncAndNotExclFilter(myMat, 2, top=2, falseValue=-1)
+#' applyTopOrIncAndNotExclFilter(myMat, 2, top=2, falseValue=-1, decreasing=FALSE)
+#' applyTopOrIncAndNotExclFilter(myMat, 1, top=2, falseValue=-1, incFunc=function(x) x%%2==0)
+#' applyTopOrIncAndNotExclFilter(myMat, 1, top=2, falseValue=-1,
+#'    incFunc=function(x) x%%2==0, excFunc=function(x) x<5)
+#' @export
+applyTopOrIncAndNotExclFilter <- function(matrix, MARGIN,
+                                          top=1,
+                                          falseValue=0,
+                                          ...) {
+  if(typeof(falseValue) != typeof(matrix)) {
+    warning(sprintf("Type of matrix (%s) does not match that of falseValue(%s)\n",
+                    typeof(matrix), typeof(falseValue)))
+  }
+  mat <- apply(matrix, MARGIN, function(x) {
+    vec <- isTopOrIncAndNotExcl(x, top=top, ...)
+    res <- rep(falseValue, length(x))
+    res[vec] <- x[vec]
+    return(res)
+  })
+  if(MARGIN==1) {
+    mat <- t(mat)
+  }
+  dimnames(mat) <- dimnames(matrix)
+  return(mat)
+}
+
