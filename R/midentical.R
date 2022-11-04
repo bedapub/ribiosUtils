@@ -9,6 +9,7 @@
 #' @param num.eq,single.NA,attrib.as.set,ignore.bytecode, See
 #' \code{\link{identical}}
 #' @param ignore.environment,ignore.srcref See \code{\link{identical}}
+#' @param extptr.as.ref See \code{\link{identical}}, new parameter since R-4.2
 #' @return A logical value, \code{TRUE} if all objects are identical
 #' @author Jitao David Zhang <jitao_david.zhang@@roche.com>
 #' @seealso \code{identical}
@@ -36,7 +37,7 @@ midentical <- function(..., num.eq=TRUE, single.NA=TRUE,
                        extptr.as.ref=FALSE) {
   li <- list(...)
   if(length(li)==1L) li <- li[[1L]]
-  
+
   stopifnot(length(li)>=2L)
   identical.formals <- names(formals(identical))
   call.list <- list(x=li[[1L]], y=li[[2L]],
@@ -54,7 +55,8 @@ midentical <- function(..., num.eq=TRUE, single.NA=TRUE,
                         attrib.as.set=attrib.as.set,
                         ignore.bytecode=ignore.bytecode,
                         ignore.environment=ignore.environment,
-                        ignore.srcref=ignore.srcref)[identical.formals]
+                        ignore.srcref=ignore.srcref,
+                        extptr.as.ref=extptr.as.ref)[identical.formals]
       res <- res && do.call(identical, call.list)
       if(!res) return(FALSE)
     }
