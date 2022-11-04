@@ -8,3 +8,7 @@ symbols.rds
 .Rhistory
 .Rproj.user
 docs
+*.tar.gz
+*.Rcheck
+..Rcheck
+R/x86_64-pc-linux-gnu-library/
