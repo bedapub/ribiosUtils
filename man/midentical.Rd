@@ -11,7 +11,8 @@ midentical(
   attrib.as.set = TRUE,
   ignore.bytecode = TRUE,
   ignore.environment = FALSE,
-  ignore.srcref = TRUE
+  ignore.srcref = TRUE,
+  extptr.as.ref = FALSE
 )
 }
 \arguments{
@@ -21,6 +22,8 @@ midentical(
 \code{\link{identical}}}
 
 \item{ignore.environment, ignore.srcref}{See \code{\link{identical}}}
+
+\item{extptr.as.ref}{See \code{\link{identical}}, new parameter since R-4.2}
 }
 \value{
 A logical value, \code{TRUE} if all objects are identical
