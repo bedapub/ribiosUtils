@@ -18,7 +18,7 @@ to be placed to the most left of the data.frame"><!-- mathjax --><script src="ht
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -52,20 +52,25 @@ to be placed to the most left of the data.frame</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">putColsFirst</span><span class="op">(</span><span class="va">data.frame</span>, <span class="va">columns</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">putColsFirst</span><span class="op">(</span><span class="va">data.frame</span>, <span class="va">columns</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>data.frame</dt>
 <dd><p>Data.frame</p></dd>
+
+
 <dt>columns</dt>
 <dd><p>Character vector, names of columns which are to be put to the
 left</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>data.frame with re-arranged columns</p>
+    
+
+<p>data.frame with re-arranged columns</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -74,22 +79,22 @@ left</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">clubs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>Points<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">21</span>,<span class="fl">23</span>,<span class="fl">28</span>,<span class="fl">24</span><span class="op">)</span>, Name<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BVB"</span>, <span class="st">"FCB"</span>, <span class="st">"HSV"</span>,</span>
-<span class="r-in"><span class="st">"FCK"</span><span class="op">)</span>, games<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">12</span>,<span class="fl">11</span>,<span class="fl">11</span>,<span class="fl">12</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">putColsFirst</span><span class="op">(</span><span class="va">clubs</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Name"</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">clubs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>Points<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">21</span>,<span class="fl">23</span>,<span class="fl">28</span>,<span class="fl">24</span><span class="op">)</span>, Name<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BVB"</span>, <span class="st">"FCB"</span>, <span class="st">"HSV"</span>,</span></span>
+<span class="r-in"><span><span class="st">"FCK"</span><span class="op">)</span>, games<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">12</span>,<span class="fl">11</span>,<span class="fl">11</span>,<span class="fl">12</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">putColsFirst</span><span class="op">(</span><span class="va">clubs</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Name"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Name Points games</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  BVB     21    12</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  FCB     23    11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3  HSV     28    11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4  FCK     24    12</span>
-<span class="r-in"><span class="fu">putColsFirst</span><span class="op">(</span><span class="va">clubs</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Name"</span>, <span class="st">"games"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">putColsFirst</span><span class="op">(</span><span class="va">clubs</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Name"</span>, <span class="st">"games"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Name games Points</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  BVB    12     21</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  FCB    11     23</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3  HSV    11     28</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4  FCK    12     24</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -104,7 +109,7 @@ left</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

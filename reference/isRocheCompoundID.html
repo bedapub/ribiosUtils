@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,25 +50,30 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">isRocheCompoundID</span><span class="op">(</span><span class="va">str</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">isRocheCompoundID</span><span class="op">(</span><span class="va">str</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>str</dt>
 <dd><p>Character string(s)</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A logical vector of the same length as <code>str</code>, indicating whether each element is a Roche compound ID or not.
-Short versions (RO[1-9]2,7) are supported.</p>
+    
+
+<p>A logical vector of the same length as <code>str</code>, indicating whether each element is a Roche compound ID or not.</p>
+
+
+<p>Short versions (RO[1-9]2,7) are supported.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">isRocheCompoundID</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"RO1234567"</span>, <span class="st">"RO-1234567"</span>, </span>
-<span class="r-in">                   <span class="st">"RO1234567-000"</span>, <span class="st">"RO1234567-000-000"</span>,</span>
-<span class="r-in">                   <span class="st">"ROnoise-000-000"</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">isRocheCompoundID</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"RO1234567"</span>, <span class="st">"RO-1234567"</span>, </span></span>
+<span class="r-in"><span>                   <span class="st">"RO1234567-000"</span>, <span class="st">"RO1234567-000-000"</span>,</span></span>
+<span class="r-in"><span>                   <span class="st">"ROnoise-000-000"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]  TRUE  TRUE  TRUE  TRUE FALSE</span>
 </code></pre></div>
     </div>
@@ -84,7 +89,7 @@ Short versions (RO[1-9]2,7) are supported.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

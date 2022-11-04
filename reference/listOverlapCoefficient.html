@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,42 +50,49 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">listOverlapCoefficient</span><span class="op">(</span><span class="va">x</span>, y <span class="op">=</span> <span class="cn">NULL</span>, checkUniqueNonNA <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">listOverlapCoefficient</span><span class="op">(</span><span class="va">x</span>, y <span class="op">=</span> <span class="cn">NULL</span>, checkUniqueNonNA <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>A list of vectors that are interpreted as sets of elements</p></dd>
+
+
 <dt>y</dt>
 <dd><p>A list of vectors that are interpreted as sets of elements. In case of <code>NULL</code>,
 pairwise overlap coefficient of lists in <code>x</code> is returned.</p></dd>
+
+
 <dt>checkUniqueNonNA</dt>
 <dd><p>Logical, should vectors in the list be first cleaned up so that NA values
 are removed and the elements are made unique? Default is set as <code>TRUE</code>; if the user is 
 confident that the vectors are indeed valid sets, this option can be set as <code>FALSE</code> to speed
 up the code</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A matrix of column-wise pairwise overlap coefficients.</p>
+    
+
+<p>A matrix of column-wise pairwise overlap coefficients.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1887</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">testSets1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="fl">10</span>, size<span class="op">=</span><span class="fl">26</span>, prob<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span>, </span>
-<span class="r-in">  <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">LETTERS</span>, <span class="va">x</span>, replace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">testSets1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"List%d"</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>along<span class="op">=</span><span class="va">testSets1</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">testSets1Poe</span> <span class="op">&lt;-</span> <span class="fu">listOverlapCoefficient</span><span class="op">(</span><span class="va">testSets1</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">testSets1PoeNoCheck</span> <span class="op">&lt;-</span> <span class="fu">listOverlapCoefficient</span><span class="op">(</span><span class="va">testSets1</span>, checkUniqueNonNA<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="va">testSets1Poe</span>, <span class="va">testSets1PoeNoCheck</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">testSets2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="fl">15</span>, size<span class="op">=</span><span class="fl">26</span>, prob<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span>,</span>
-<span class="r-in">  <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">LETTERS</span>, <span class="va">x</span>, replace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">testSets2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"AnotherList%d"</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>along<span class="op">=</span><span class="va">testSets2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">testSets12Poe</span> <span class="op">&lt;-</span> <span class="fu">listOverlapCoefficient</span><span class="op">(</span><span class="va">testSets1</span>, <span class="va">testSets2</span><span class="op">)</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1887</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">testSets1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="fl">10</span>, size<span class="op">=</span><span class="fl">26</span>, prob<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>  <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">LETTERS</span>, <span class="va">x</span>, replace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">testSets1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"List%d"</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>along<span class="op">=</span><span class="va">testSets1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">testSets1Poe</span> <span class="op">&lt;-</span> <span class="fu">listOverlapCoefficient</span><span class="op">(</span><span class="va">testSets1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">testSets1PoeNoCheck</span> <span class="op">&lt;-</span> <span class="fu">listOverlapCoefficient</span><span class="op">(</span><span class="va">testSets1</span>, checkUniqueNonNA<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="va">testSets1Poe</span>, <span class="va">testSets1PoeNoCheck</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">testSets2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="fl">15</span>, size<span class="op">=</span><span class="fl">26</span>, prob<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">LETTERS</span>, <span class="va">x</span>, replace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">testSets2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"AnotherList%d"</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>along<span class="op">=</span><span class="va">testSets2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">testSets12Poe</span> <span class="op">&lt;-</span> <span class="fu">listOverlapCoefficient</span><span class="op">(</span><span class="va">testSets1</span>, <span class="va">testSets2</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -100,7 +107,7 @@ up the code</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

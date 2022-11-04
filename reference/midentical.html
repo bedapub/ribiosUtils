@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,30 +50,37 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">midentical</span><span class="op">(</span>
-  <span class="va">...</span>,
-  num.eq <span class="op">=</span> <span class="cn">TRUE</span>,
-  single.NA <span class="op">=</span> <span class="cn">TRUE</span>,
-  attrib.as.set <span class="op">=</span> <span class="cn">TRUE</span>,
-  ignore.bytecode <span class="op">=</span> <span class="cn">TRUE</span>,
-  ignore.environment <span class="op">=</span> <span class="cn">FALSE</span>,
-  ignore.srcref <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">midentical</span><span class="op">(</span></span>
+<span>  <span class="va">...</span>,</span>
+<span>  num.eq <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  single.NA <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  attrib.as.set <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  ignore.bytecode <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  ignore.environment <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  ignore.srcref <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
 <dd><p>Objects to be tested, or a list of them</p></dd>
+
+
 <dt>num.eq, single.NA, attrib.as.set, ignore.bytecode, </dt>
 <dd><p>See
 <code><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></code></p></dd>
+
+
 <dt>ignore.environment, ignore.srcref</dt>
 <dd><p>See <code><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A logical value, <code>TRUE</code> if all objects are identical</p>
+    
+
+<p>A logical value, <code>TRUE</code> if all objects are identical</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -91,26 +98,26 @@ of only two.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">set1</span> <span class="op">&lt;-</span> <span class="st">"HSV"</span></span>
-<span class="r-in"><span class="va">set2</span> <span class="op">&lt;-</span> <span class="va">set3</span> <span class="op">&lt;-</span> <span class="va">set4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HSV"</span>, <span class="st">"FCB"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">midentical</span><span class="op">(</span><span class="va">set1</span>, <span class="va">set2</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">set1</span> <span class="op">&lt;-</span> <span class="st">"HSV"</span></span></span>
+<span class="r-in"><span><span class="va">set2</span> <span class="op">&lt;-</span> <span class="va">set3</span> <span class="op">&lt;-</span> <span class="va">set4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HSV"</span>, <span class="st">"FCB"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">midentical</span><span class="op">(</span><span class="va">set1</span>, <span class="va">set2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
-<span class="r-in"><span class="fu">midentical</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">set1</span>, <span class="va">set2</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">midentical</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">set1</span>, <span class="va">set2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">midentical</span><span class="op">(</span><span class="va">set2</span>, <span class="va">set3</span>, <span class="va">set4</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">midentical</span><span class="op">(</span><span class="va">set2</span>, <span class="va">set3</span>, <span class="va">set4</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"><span class="fu">midentical</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">set2</span>, <span class="va">set3</span>, <span class="va">set4</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">midentical</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">set2</span>, <span class="va">set3</span>, <span class="va">set4</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## other options passed to identical</span></span>
-<span class="r-in"><span class="fu">midentical</span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">0</span>, <span class="op">+</span><span class="fl">0</span>, num.eq<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## other options passed to identical</span></span></span>
+<span class="r-in"><span><span class="fu">midentical</span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">0</span>, <span class="op">+</span><span class="fl">0</span>, num.eq<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
-<span class="r-in"><span class="fu">midentical</span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">0</span>, <span class="op">+</span><span class="fl">0</span>, num.eq<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">midentical</span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">0</span>, <span class="op">+</span><span class="fl">0</span>, num.eq<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -125,7 +132,7 @@ of only two.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -18,7 +18,7 @@ in parsing user inputs, e.g. from command line."><!-- mathjax --><script src="ht
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -52,25 +52,37 @@ in parsing user inputs, e.g. from command line.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">imatch</span><span class="op">(</span><span class="va">x</span>, <span class="va">table</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">imatch</span><span class="op">(</span><span class="va">x</span>, <span class="va">table</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>String vector</p></dd>
+
+
 <dt>table</dt>
 <dd><p>A vector to be matched</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Other parameters passed to <code>match</code> or <code>pmatch</code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>imatch</code> and <code>ipmatch</code> returns matching indices, or
-<code>NA</code> (by default) if the match failed.
-<code>matchv</code>, <code>imatchv</code> and <code>ipmatchv</code> returns the matching
+    
+
+<p><code>imatch</code> and <code>ipmatch</code> returns matching indices, or
+<code>NA</code> (by default) if the match failed.</p>
+
+
+<p><code>matchv</code>, <code>imatchv</code> and <code>ipmatchv</code> returns the matching
 element in <code>table</code>, or <code>NA</code> if the match failed. Note that when
-cases are different in <code>x</code> and <code>table</code>, the one in <code>table</code>will be returned. This is especially useful for cases where user's input has
+cases are different in <code>x</code> and <code>table</code>, the one in <code>table</code></p>
+
+
+<p>will be returned. This is especially useful for cases where user's input has
 different cases as the internal options.</p>
     </div>
     <div id="details">
@@ -93,31 +105,31 @@ matched value (therefore the ‘v’) if the match succeeded, or
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">user.input</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hsv"</span>, <span class="st">"BvB"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">user.input2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HS"</span>, <span class="st">"BV"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">internal.options</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HSV"</span>, <span class="st">"FCB"</span>, <span class="st">"BVB"</span>, <span class="st">"FCN"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/match.html" class="external-link">match</a></span><span class="op">(</span><span class="va">user.input</span>, <span class="va">internal.options</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">user.input</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hsv"</span>, <span class="st">"BvB"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">user.input2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HS"</span>, <span class="st">"BV"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">internal.options</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HSV"</span>, <span class="st">"FCB"</span>, <span class="st">"BVB"</span>, <span class="st">"FCN"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/match.html" class="external-link">match</a></span><span class="op">(</span><span class="va">user.input</span>, <span class="va">internal.options</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA NA</span>
-<span class="r-in"><span class="fu">imatch</span><span class="op">(</span><span class="va">user.input</span>, <span class="va">internal.options</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">imatch</span><span class="op">(</span><span class="va">user.input</span>, <span class="va">internal.options</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 3</span>
-<span class="r-in"><span class="fu">ipmatch</span><span class="op">(</span><span class="va">user.input</span>, <span class="va">internal.options</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ipmatch</span><span class="op">(</span><span class="va">user.input</span>, <span class="va">internal.options</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 3</span>
-<span class="r-in"><span class="fu">ipmatch</span><span class="op">(</span><span class="va">user.input2</span>, <span class="va">internal.options</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ipmatch</span><span class="op">(</span><span class="va">user.input2</span>, <span class="va">internal.options</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 3</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">matchv</span><span class="op">(</span><span class="va">user.input</span>, <span class="va">internal.options</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">matchv</span><span class="op">(</span><span class="va">user.input</span>, <span class="va">internal.options</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA NA</span>
-<span class="r-in"><span class="fu">matchv</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="va">user.input</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="va">internal.options</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">matchv</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="va">user.input</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="va">internal.options</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "hsv" "bvb"</span>
-<span class="r-in"><span class="fu">imatchv</span><span class="op">(</span><span class="va">user.input</span>, <span class="va">internal.options</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">imatchv</span><span class="op">(</span><span class="va">user.input</span>, <span class="va">internal.options</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "HSV" "BVB"</span>
-<span class="r-in"><span class="fu">ipmatchv</span><span class="op">(</span><span class="va">user.input</span>, <span class="va">internal.options</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ipmatchv</span><span class="op">(</span><span class="va">user.input</span>, <span class="va">internal.options</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "HSV" "BVB"</span>
-<span class="r-in"><span class="fu">ipmatchv</span><span class="op">(</span><span class="va">user.input2</span>, <span class="va">internal.options</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ipmatchv</span><span class="op">(</span><span class="va">user.input2</span>, <span class="va">internal.options</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "HSV" "BVB"</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -132,7 +144,7 @@ matched value (therefore the ‘v’) if the match succeeded, or
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

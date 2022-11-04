@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,7 +50,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">cutreeIntoOrderedGroups</span><span class="op">(</span><span class="va">tree</span>, k <span class="op">=</span> <span class="cn">NULL</span>, h <span class="op">=</span> <span class="cn">NULL</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cutreeIntoOrderedGroups</span><span class="op">(</span><span class="va">tree</span>, k <span class="op">=</span> <span class="cn">NULL</span>, h <span class="op">=</span> <span class="cn">NULL</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -58,14 +58,21 @@
     <dl><dt>tree</dt>
 <dd><p>a tree as produced by <code><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></code>, will be passed to
 <code><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">cutree</a></code></p></dd>
+
+
 <dt>k</dt>
 <dd><p>an integer scalar or vector with the desired number of groups</p></dd>
+
+
 <dt>h</dt>
 <dd><p>numeric scalar or vector with heights where the tree should be cut.</p></dd>
+
+
 <dt>decreasing</dt>
 <dd><p>logical, should be the first group the largest?</p>
 <p>Cut a tree, e.g. as resulting from <code><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></code>, into groups, with 
 the groups being ordered by their size.</p></dd>
+
 </dl></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -74,20 +81,20 @@ the groups being ordered by their size.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">hc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">hck5</span> <span class="op">&lt;-</span> <span class="fu">cutreeIntoOrderedGroups</span><span class="op">(</span><span class="va">hc</span>, k <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">hck5</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">hc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">hck5</span> <span class="op">&lt;-</span> <span class="fu">cutreeIntoOrderedGroups</span><span class="op">(</span><span class="va">hc</span>, k <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">hck5</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hck5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1  2  3  4  5 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 14 14 10 10  2 </span>
-<span class="r-in"><span class="co">## compare with cutree, which does not order the groups</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">cutree</a></span><span class="op">(</span><span class="va">hc</span>, k<span class="op">=</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">## compare with cutree, which does not order the groups</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">cutree</a></span><span class="op">(</span><span class="va">hc</span>, k<span class="op">=</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1  2  3  4  5 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 14 14 10  2 10 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">hck25</span> <span class="op">&lt;-</span> <span class="fu">cutreeIntoOrderedGroups</span><span class="op">(</span><span class="va">hc</span>, k <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">hck25</span>, <span class="fl">2</span>, <span class="va">table</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">hck25</span> <span class="op">&lt;-</span> <span class="fu">cutreeIntoOrderedGroups</span><span class="op">(</span><span class="va">hc</span>, k <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">hck25</span>, <span class="fl">2</span>, <span class="va">table</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`2`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1  2 </span>
@@ -122,7 +129,7 @@ the groups being ordered by their size.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

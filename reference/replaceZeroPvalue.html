@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,19 +50,24 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">replaceZeroPvalue</span><span class="op">(</span><span class="va">p</span>, factor <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">replaceZeroPvalue</span><span class="op">(</span><span class="va">p</span>, factor <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>p</dt>
 <dd><p>A numeric vector, containing p-values. Zero values will be replaced by a small, non-zero value.</p></dd>
+
+
 <dt>factor</dt>
 <dd><p>A numeric vector, the minimal p-value will be multiplied by it. Useful for <code>pQnormScore</code>, because there the p-value needs to be divided by two, therefore a factor of two makes sense.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A numeric vector of the same length as the input vector, with zeros replaced by the minimal absolute double value defined by the machine multiplied by the factor.</p>
+    
+
+<p>A numeric vector of the same length as the input vector, with zeros replaced by the minimal absolute double value defined by the machine multiplied by the factor.</p>
     </div>
     <div id="note">
     <h2>Note</h2>
@@ -71,12 +76,12 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">ps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0.1</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">replaceZeroPvalue</span><span class="op">(</span><span class="va">ps</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">ps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0.1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">replaceZeroPvalue</span><span class="op">(</span><span class="va">ps</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 2.225074e-308  1.000000e-01  2.000000e-01  3.000000e-01  4.000000e-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [6]  5.000000e-01  6.000000e-01  7.000000e-01  8.000000e-01  9.000000e-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [11]  1.000000e+00</span>
-<span class="r-in"><span class="fu">replaceZeroPvalue</span><span class="op">(</span><span class="va">ps</span>, factor<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">replaceZeroPvalue</span><span class="op">(</span><span class="va">ps</span>, factor<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 4.450148e-308  1.000000e-01  2.000000e-01  3.000000e-01  4.000000e-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [6]  5.000000e-01  6.000000e-01  7.000000e-01  8.000000e-01  9.000000e-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [11]  1.000000e+00</span>
@@ -94,7 +99,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -19,7 +19,7 @@ useful in data visualization and modelling."><!-- mathjax --><script src="https:
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -54,33 +54,42 @@ useful in data visualization and modelling.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">matrix2longdf</span><span class="op">(</span>
-  <span class="va">mat</span>,
-  <span class="va">row.names</span>,
-  <span class="va">col.names</span>,
-  longdf.colnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"column"</span>, <span class="st">"value"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">matrix2longdf</span><span class="op">(</span></span>
+<span>  <span class="va">mat</span>,</span>
+<span>  <span class="va">row.names</span>,</span>
+<span>  <span class="va">col.names</span>,</span>
+<span>  longdf.colnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"column"</span>, <span class="st">"value"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>mat</dt>
 <dd><p>A matrix</p></dd>
+
+
 <dt>row.names</dt>
 <dd><p>Character, row names to appear in the <code>data.frame</code>. If
 missing, the <code>rownames</code> of the matrix will be used. If set to
 <code>NULL</code>, or if the matrix <code>rownames</code> are <code>NULL</code>, a integer
 index vector starting from 1 will be used.</p></dd>
+
+
 <dt>col.names</dt>
 <dd><p>Charater, column names to appear in the <code>data.frame</code>.
 The rule of handling missing or NULL parameters is the same as
 <code>row.names</code> described above.</p></dd>
+
+
 <dt>longdf.colnames</dt>
 <dd><p>Character, column names of the output long data frame</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <code>data.frame</code> object with three columns: <code>row</code>,
+    
+
+<p>A <code>data.frame</code> object with three columns: <code>row</code>,
 <code>column</code> and <code>value</code>. If the input matrix is of dimesion
 <code>MxN</code>, the returning <code>data.frame</code> is of the dimension <code>MNx3</code>.</p>
     </div>
@@ -101,15 +110,15 @@ same as the matrix dimension. Otherwise the function raises warnings.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">test.mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>, ncol<span class="op">=</span><span class="fl">4</span>, nrow<span class="op">=</span><span class="fl">3</span>, dimnames<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>,</span>
-<span class="r-in"><span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">test.mat</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">test.mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>, ncol<span class="op">=</span><span class="fl">4</span>, nrow<span class="op">=</span><span class="fl">3</span>, dimnames<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>,</span></span>
+<span class="r-in"><span><span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">test.mat</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   A B C  D</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> A 1 4 7 10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> B 2 5 8 11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> C 3 6 9 12</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">matrix2longdf</span><span class="op">(</span><span class="va">test.mat</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">matrix2longdf</span><span class="op">(</span><span class="va">test.mat</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    row column value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1    A      A     1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2    B      A     2</span>
@@ -123,7 +132,7 @@ same as the matrix dimension. Otherwise the function raises warnings.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10   A      D    10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11   B      D    11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 12   C      D    12</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">matrix2longdf</span><span class="op">(</span><span class="va">test.mat</span>, longdf.colnames<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"From"</span>, <span class="st">"To"</span>, <span class="st">"Time"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">matrix2longdf</span><span class="op">(</span><span class="va">test.mat</span>, longdf.colnames<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"From"</span>, <span class="st">"To"</span>, <span class="st">"Time"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    From To Time</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1     A  A    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2     B  A    2</span>
@@ -137,7 +146,7 @@ same as the matrix dimension. Otherwise the function raises warnings.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10    A  D   10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11    B  D   11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 12    C  D   12</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -152,7 +161,7 @@ same as the matrix dimension. Otherwise the function raises warnings.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

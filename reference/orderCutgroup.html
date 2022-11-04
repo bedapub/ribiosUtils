@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,13 +50,15 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">orderCutgroup</span><span class="op">(</span><span class="va">groups</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">orderCutgroup</span><span class="op">(</span><span class="va">groups</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>groups</dt>
 <dd><p>Named vectors of integers as group indices</p></dd>
+
+
 <dt>decreasing</dt>
 <dd><p>Logical, should the first group be the largest?</p>
 <p>The function permutes a vector of names integers so that the names 
@@ -64,6 +66,7 @@ matching the same integer match to the same or another integer, while
 assuring that the permuted group matching the first integer
  (or the last integer if <code>decreasing</code> is set to <code>FALSE</code>) is the 
  largest group by count.</p></dd>
+
 </dl></div>
 
   </div>
@@ -78,7 +81,7 @@ assuring that the permuted group matching the first integer
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

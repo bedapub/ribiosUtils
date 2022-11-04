@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,7 +50,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">chosenFew</span><span class="op">(</span><span class="va">vec</span>, start <span class="op">=</span> <span class="fl">3</span>, end <span class="op">=</span> <span class="fl">1</span>, collapse <span class="op">=</span> <span class="st">","</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">chosenFew</span><span class="op">(</span><span class="va">vec</span>, start <span class="op">=</span> <span class="fl">3</span>, end <span class="op">=</span> <span class="fl">1</span>, collapse <span class="op">=</span> <span class="st">","</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -58,16 +58,25 @@
     <dl><dt>vec</dt>
 <dd><p>A vector of characters or other types that can be cast into
 characters</p></dd>
+
+
 <dt>start</dt>
 <dd><p>Integer, how many elements at the start shall be printed</p></dd>
+
+
 <dt>end</dt>
 <dd><p>Integer, how many elements at the end shall be printed</p></dd>
+
+
 <dt>collapse</dt>
 <dd><p>Character used to separate elements</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A character string ready to be printed</p>
+    
+
+<p>A character string ready to be printed</p>
     </div>
     <div id="note">
     <h2>Note</h2>
@@ -81,19 +90,19 @@ characters</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">lvec1</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span></span>
-<span class="r-in"><span class="fu">chosenFew</span><span class="op">(</span><span class="va">lvec1</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">lvec1</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span></span></span>
+<span class="r-in"><span><span class="fu">chosenFew</span><span class="op">(</span><span class="va">lvec1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1,2,3,...,100"</span>
-<span class="r-in"><span class="fu">chosenFew</span><span class="op">(</span><span class="va">lvec1</span>, start<span class="op">=</span><span class="fl">5</span>, end<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">chosenFew</span><span class="op">(</span><span class="va">lvec1</span>, start<span class="op">=</span><span class="fl">5</span>, end<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1,2,3,4,5,...,98,99,100"</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">svec</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">8</span></span>
-<span class="r-in"><span class="fu">chosenFew</span><span class="op">(</span><span class="va">svec</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">svec</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">8</span></span></span>
+<span class="r-in"><span><span class="fu">chosenFew</span><span class="op">(</span><span class="va">svec</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1,2,3,...,8"</span>
-<span class="r-in"><span class="fu">chosenFew</span><span class="op">(</span><span class="va">svec</span>, start<span class="op">=</span><span class="fl">5</span>, end<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">chosenFew</span><span class="op">(</span><span class="va">svec</span>, start<span class="op">=</span><span class="fl">5</span>, end<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1,2,3,4,5,6,7,8"</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -108,7 +117,7 @@ characters</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

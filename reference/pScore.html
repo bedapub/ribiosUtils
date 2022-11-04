@@ -18,7 +18,7 @@ to continuous scores ranging on \(R\) in a number of ways."><!-- mathjax --><scr
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -52,24 +52,31 @@ to continuous scores ranging on \(R\) in a number of ways.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">pScore</span><span class="op">(</span><span class="va">p</span>, sign <span class="op">=</span> <span class="fl">1</span>, method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"qnorm"</span>, <span class="st">"absLog10"</span><span class="op">)</span>, replaceZero <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">pScore</span><span class="op">(</span><span class="va">p</span>, sign <span class="op">=</span> <span class="fl">1</span>, method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"qnorm"</span>, <span class="st">"absLog10"</span><span class="op">)</span>, replaceZero <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>p</dt>
 <dd><p><em>p</em>-value between (0,1]</p></dd>
+
+
 <dt>sign</dt>
 <dd><p>Sign of the score, either positive (in case of positive
 numbers), negative (in case of negative numbers), or zero.  In case a
 logical vector, <code>TRUE</code> is interpreted as positive and <code>FALSE</code> is
 interpreted as negative.</p></dd>
+
+
 <dt>method</dt>
 <dd><p>Currently available methods include <code>qnorm</code> and <code>absLog10</code>.</p></dd>
+
+
 <dt>replaceZero</dt>
 <dd><p>Logical, whether to replace zero p-values with the 
 minimal double value specified by the machine. Default is <code>TRUE</code>. If 
 set to <code>FALSE</code>, results will contain infinite values.</p></dd>
+
 </dl></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -78,27 +85,27 @@ set to <code>FALSE</code>, results will contain infinite values.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">testPvals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.001</span>, <span class="fl">0.01</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, method<span class="op">=</span><span class="st">"absLog10"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">testPvals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.001</span>, <span class="fl">0.01</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, method<span class="op">=</span><span class="st">"absLog10"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.00000 2.00000 1.30103 1.00000 0.30103 0.00000</span>
-<span class="r-in"><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, method<span class="op">=</span><span class="st">"qnorm"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, method<span class="op">=</span><span class="st">"qnorm"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.2905267 2.5758293 1.9599640 1.6448536 0.6744898 0.0000000</span>
-<span class="r-in"><span class="va">testPvalSign</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, sign<span class="op">=</span><span class="va">testPvalSign</span>, method<span class="op">=</span><span class="st">"absLog10"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">testPvalSign</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, sign<span class="op">=</span><span class="va">testPvalSign</span>, method<span class="op">=</span><span class="st">"absLog10"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -3.00000  2.00000 -1.30103  1.00000 -0.30103  0.00000</span>
-<span class="r-in"><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, sign<span class="op">=</span><span class="va">testPvalSign</span>, method<span class="op">=</span><span class="st">"qnorm"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, sign<span class="op">=</span><span class="va">testPvalSign</span>, method<span class="op">=</span><span class="st">"qnorm"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -3.2905267  2.5758293 -1.9599640  1.6448536 -0.6744898  0.0000000</span>
-<span class="r-in"><span class="va">testLog</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span>,<span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, <span class="va">testLog</span>, method<span class="op">=</span><span class="st">"absLog10"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">testLog</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span>,<span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, <span class="va">testLog</span>, method<span class="op">=</span><span class="st">"absLog10"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]  3.00000 -2.00000  1.30103 -1.00000  0.30103  0.00000</span>
-<span class="r-in"><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, <span class="va">testLog</span>, method<span class="op">=</span><span class="st">"qnorm"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, <span class="va">testLog</span>, method<span class="op">=</span><span class="st">"qnorm"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]  3.2905267 -2.5758293  1.9599640 -1.6448536  0.6744898  0.0000000</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">testPvals</span> <span class="op">&lt;-</span> <span class="fl">10</span><span class="op">^</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">0</span>, <span class="fl">0.05</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, method<span class="op">=</span><span class="st">"qnorm"</span><span class="op">)</span>,</span>
-<span class="r-in">     <span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, method<span class="op">=</span><span class="st">"absLog10"</span><span class="op">)</span>,</span>
-<span class="r-in">     xlab<span class="op">=</span><span class="st">"pQnormScore"</span>, ylab<span class="op">=</span><span class="st">"pAbsLog10Score"</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>, col<span class="op">=</span><span class="st">"red"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">testPvals</span> <span class="op">&lt;-</span> <span class="fl">10</span><span class="op">^</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">0</span>, <span class="fl">0.05</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, method<span class="op">=</span><span class="st">"qnorm"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>     <span class="fu">pScore</span><span class="op">(</span><span class="va">testPvals</span>, method<span class="op">=</span><span class="st">"absLog10"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>     xlab<span class="op">=</span><span class="st">"pQnormScore"</span>, ylab<span class="op">=</span><span class="st">"pAbsLog10Score"</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>, col<span class="op">=</span><span class="st">"red"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="pScore-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
@@ -114,7 +121,7 @@ set to <code>FALSE</code>, results will contain infinite values.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

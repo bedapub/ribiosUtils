@@ -19,7 +19,7 @@ need to run registerLog first."><!-- mathjax --><script src="https://cdnjs.cloud
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -54,25 +54,34 @@ need to run <code>registerLog</code> first.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">writeLog</span><span class="op">(</span><span class="va">fmt</span>, <span class="va">...</span>, con <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/showConnections.html" class="external-link">stdout</a></span><span class="op">(</span><span class="op">)</span>, level <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">writeLog</span><span class="op">(</span><span class="va">fmt</span>, <span class="va">...</span>, con <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/showConnections.html" class="external-link">stdout</a></span><span class="op">(</span><span class="op">)</span>, level <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>fmt</dt>
 <dd><p>Format string to passed on to sprintf</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Parameters passed on to sprintf</p></dd>
+
+
 <dt>con</dt>
 <dd><p>A connection, for instance a file (or its name) or
 <code><a href="https://rdrr.io/r/base/showConnections.html" class="external-link">stdout()</a></code></p></dd>
+
+
 <dt>level</dt>
 <dd><p>Logging level: each higher level will add one extra space
 before the message. See examples</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Side effect is used.</p>
+    
+
+<p>Side effect is used.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -94,24 +103,24 @@ logging.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is the start of a log"</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 1"</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 1.1"</span>, level<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 1.2"</span>, level<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 2"</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 3"</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 3 (special)"</span>, level<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"End of the log"</span><span class="op">)</span>;</span>
-<span class="r-in">  </span>
-<span class="r-in">  <span class="co">## log with format</span></span>
-<span class="r-in">  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is Message %d"</span>, <span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Square of 2 is %2.2f"</span>, <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in">  </span>
-<span class="r-in">  <span class="co">## NA is handled automatically</span></span>
-<span class="r-in">  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is a not available value: %s"</span>, <span class="cn">NA</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is a NULL value: %s"</span>, <span class="cn">NULL</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is the start of a log"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 1"</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 1.1"</span>, level<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 1.2"</span>, level<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 2"</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 3"</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 3 (special)"</span>, level<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"End of the log"</span><span class="op">)</span>;</span></span>
+<span class="r-in"><span>  </span></span>
+<span class="r-in"><span>  <span class="co">## log with format</span></span></span>
+<span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is Message %d"</span>, <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Square of 2 is %2.2f"</span>, <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  </span></span>
+<span class="r-in"><span>  <span class="co">## NA is handled automatically</span></span></span>
+<span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is a not available value: %s"</span>, <span class="cn">NA</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is a NULL value: %s"</span>, <span class="cn">NULL</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -126,7 +135,7 @@ logging.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

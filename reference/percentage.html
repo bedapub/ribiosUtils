@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,33 +50,38 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">percentage</span><span class="op">(</span><span class="va">x</span>, fmt <span class="op">=</span> <span class="st">"1.1"</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">percentage</span><span class="op">(</span><span class="va">x</span>, fmt <span class="op">=</span> <span class="st">"1.1"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>a decimal number, usually between -1 and 1</p></dd>
+
+
 <dt>fmt</dt>
 <dd><p>format string, '1.1' means a digit before and after the decimal
 point will be printed</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Character string</p>
+    
+
+<p>Character string</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="fu">percentage</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.1</span>,<span class="fl">0.25</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">percentage</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.1</span>,<span class="fl">0.25</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "0.0%"   "10.0%"  "25.0%"  "100.0%"</span>
-<span class="r-in"><span class="fu">percentage</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.1</span>,<span class="fl">0.25</span>,<span class="fl">1</span><span class="op">)</span>, fmt<span class="op">=</span><span class="st">"1.4"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">percentage</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.1</span>,<span class="fl">0.25</span>,<span class="fl">1</span><span class="op">)</span>, fmt<span class="op">=</span><span class="st">"1.4"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "0.0000%"   "10.0000%"  "25.0000%"  "100.0000%"</span>
-<span class="r-in"><span class="fu">percentage</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="op">-</span><span class="fl">0.1</span>,<span class="fl">0.25</span>,<span class="op">-</span><span class="fl">1</span><span class="op">)</span>, fmt<span class="op">=</span><span class="st">"+1.1"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">percentage</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="op">-</span><span class="fl">0.1</span>,<span class="fl">0.25</span>,<span class="op">-</span><span class="fl">1</span><span class="op">)</span>, fmt<span class="op">=</span><span class="st">"+1.1"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "+0.0%"   "-10.0%"  "+25.0%"  "-100.0%"</span>
-<span class="r-in"></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -91,7 +96,7 @@ point will be printed</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

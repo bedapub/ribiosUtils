@@ -19,7 +19,7 @@ for users' information."><!-- mathjax --><script src="https://cdnjs.cloudflare.c
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -54,7 +54,7 @@ for users' information.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">verbose</span><span class="op">(</span><span class="va">...</span>, global <span class="op">=</span> <span class="fl">1L</span>, this <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">verbose</span><span class="op">(</span><span class="va">...</span>, global <span class="op">=</span> <span class="fl">1L</span>, this <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -62,14 +62,21 @@ for users' information.</p>
     <dl><dt>...</dt>
 <dd><p>Messages to be printed, will be passed to the <code>message</code>
 function</p></dd>
+
+
 <dt>global</dt>
 <dd><p>Integer, the global verbose level</p></dd>
+
+
 <dt>this</dt>
 <dd><p>Integer, the verbose level of this message</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>The function is used for its side effect by printing messages.</p>
+    
+
+<p>The function is used for its side effect by printing messages.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -91,14 +98,14 @@ global verbose level.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">Gv</span> <span class="op">&lt;-</span> <span class="fl">5L</span></span>
-<span class="r-in"><span class="fu">verbose</span><span class="op">(</span><span class="st">"Slightly verbosing"</span>, global<span class="op">=</span><span class="va">Gv</span>, this<span class="op">=</span><span class="fl">1L</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">Gv</span> <span class="op">&lt;-</span> <span class="fl">5L</span></span></span>
+<span class="r-in"><span><span class="fu">verbose</span><span class="op">(</span><span class="st">"Slightly verbosing"</span>, global<span class="op">=</span><span class="va">Gv</span>, this<span class="op">=</span><span class="fl">1L</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Slightly verbosing</span>
-<span class="r-in"><span class="fu">verbose</span><span class="op">(</span><span class="st">"Moderately verbosing"</span>, global<span class="op">=</span><span class="va">Gv</span>, this<span class="op">=</span><span class="fl">5L</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">verbose</span><span class="op">(</span><span class="st">"Moderately verbosing"</span>, global<span class="op">=</span><span class="va">Gv</span>, this<span class="op">=</span><span class="fl">5L</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Moderately verbosing</span>
-<span class="r-in"><span class="fu">verbose</span><span class="op">(</span><span class="st">"Heavily verbosing"</span>, global<span class="op">=</span><span class="va">Gv</span>, this<span class="op">=</span><span class="fl">9L</span><span class="op">)</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span><span class="fu">verbose</span><span class="op">(</span><span class="st">"Heavily verbosing"</span>, global<span class="op">=</span><span class="va">Gv</span>, this<span class="op">=</span><span class="fl">9L</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -113,7 +120,7 @@ global verbose level.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

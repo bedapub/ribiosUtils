@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,23 +50,32 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">qqmsg</span><span class="op">(</span><span class="va">...</span>, status <span class="op">=</span> <span class="fl">0</span>, save <span class="op">=</span> <span class="cn">FALSE</span>, runLast <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">qqmsg</span><span class="op">(</span><span class="va">...</span>, status <span class="op">=</span> <span class="fl">0</span>, save <span class="op">=</span> <span class="cn">FALSE</span>, runLast <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
 <dd><p>Messages to be passed to <code>message</code></p></dd>
+
+
 <dt>status</dt>
 <dd><p>Quit stats</p></dd>
+
+
 <dt>save</dt>
 <dd><p>Logical, should current working environment be saved?</p></dd>
+
+
 <dt>runLast</dt>
-<dd><p>Logical, should <code><a href="https://rdrr.io/r/base/quit.html" class="external-link">.Last()</a></code> be executed?</p></dd>
+<dd><p>Logical, should <code>.Last()</code> be executed?</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Invisible <code>NULL</code>, only side effect is used.</p>
+    
+
+<p>Invisible <code>NULL</code>, only side effect is used.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -84,15 +93,15 @@ is non-interactive, e.g. in the command-line running Rscript mode</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="co">## the example should not run because it will lead the R session to quit</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">  <span class="fu">qqmsg</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">qqmsg</span><span class="op">(</span><span class="st">"die"</span>, status<span class="op">=</span><span class="fl">0</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">qqmsg</span><span class="op">(</span><span class="st">"Avada kedavra"</span>, status<span class="op">=</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">qqmsg</span><span class="op">(</span><span class="st">"Crucio!"</span>, <span class="st">"\n"</span>, <span class="st">"Avada kedavra"</span>, status<span class="op">=</span><span class="op">-</span><span class="fl">100</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## the example should not run because it will lead the R session to quit</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu">qqmsg</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">qqmsg</span><span class="op">(</span><span class="st">"die"</span>, status<span class="op">=</span><span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">qqmsg</span><span class="op">(</span><span class="st">"Avada kedavra"</span>, status<span class="op">=</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">qqmsg</span><span class="op">(</span><span class="st">"Crucio!"</span>, <span class="st">"\n"</span>, <span class="st">"Avada kedavra"</span>, status<span class="op">=</span><span class="op">-</span><span class="fl">100</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -107,7 +116,7 @@ is non-interactive, e.g. in the command-line running Rscript mode</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

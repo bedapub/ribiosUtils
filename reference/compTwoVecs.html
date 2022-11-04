@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,35 +50,43 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">compTwoVecs</span><span class="op">(</span><span class="va">vec1</span>, <span class="va">vec2</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">compTwoVecs</span><span class="op">(</span><span class="va">vec1</span>, <span class="va">vec2</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>vec1</dt>
 <dd><p>A vector of atomic types, e.g. integers, characters, etc.</p></dd>
+
+
 <dt>vec2</dt>
 <dd><p>A vector of the same type as <code>vec1</code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A vector of six integer elements</p>
+    
+
+<p>A vector of six integer elements</p>
 <dl><dt>vec1.setdiff </dt>
 <dd><p>Number of
 unique items only in <code>vec1</code> but not in <code>vec2</code></p></dd>
-<dt>intersect
+ <dt>intersect
 </dt>
 <dd><p>Number of items in both <code>vec1</code> and <code>vec2</code></p></dd>
-<dt>vec2.setdiff
+ <dt>vec2.setdiff
 </dt>
 <dd><p>Number of unique items only in <code>vec2</code> but not in <code>vec1</code></p></dd>
+
 <dt>vec1.ulen</dt>
 <dd><p>Number of unique items in <code>vec1</code></p></dd>
+
 <dt>vec2.ulen</dt>
 <dd><p>Number of unique items in <code>vec2</code></p></dd>
-<dt>union</dt>
+ <dt>union</dt>
 <dd><p>Number
 of unique items in <code>vec1</code> and <code>vec2</code></p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -87,13 +95,13 @@ of unique items in <code>vec1</code> and <code>vec2</code></p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">year1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HSV"</span>, <span class="st">"FCB"</span>, <span class="st">"BVB"</span>, <span class="st">"S04"</span>, <span class="st">"FCN"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">year2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HSV"</span>, <span class="st">"FCK"</span>, <span class="st">"S04"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">compTwoVecs</span><span class="op">(</span><span class="va">year1</span>, <span class="va">year2</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">year1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HSV"</span>, <span class="st">"FCB"</span>, <span class="st">"BVB"</span>, <span class="st">"S04"</span>, <span class="st">"FCN"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">year2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HSV"</span>, <span class="st">"FCK"</span>, <span class="st">"S04"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">compTwoVecs</span><span class="op">(</span><span class="va">year1</span>, <span class="va">year2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> vec1.setdiff    intersect vec2.setdiff    vec1.ulen    vec2.ulen        union </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            3            2            1            5            3            6 </span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -108,7 +116,7 @@ of unique items in <code>vec1</code> and <code>vec2</code></p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

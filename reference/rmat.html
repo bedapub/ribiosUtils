@@ -18,7 +18,7 @@ a specified time interval from now"><!-- mathjax --><script src="https://cdnjs.c
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -52,26 +52,37 @@ a specified time interval from now</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">rmat</span><span class="op">(</span><span class="va">...</span>, days <span class="op">=</span> <span class="cn">NULL</span>, hours <span class="op">=</span> <span class="cn">NULL</span>, minutes <span class="op">=</span> <span class="cn">NULL</span>, dry <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">rmat</span><span class="op">(</span><span class="va">...</span>, days <span class="op">=</span> <span class="cn">NULL</span>, hours <span class="op">=</span> <span class="cn">NULL</span>, minutes <span class="op">=</span> <span class="cn">NULL</span>, dry <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
 <dd><p>Files to be removed</p></dd>
+
+
 <dt>days</dt>
 <dd><p>Numeric, interval in days</p></dd>
+
+
 <dt>hours</dt>
 <dd><p>Numeric, interval in hours</p></dd>
+
+
 <dt>minutes</dt>
 <dd><p>Numeric, interval in minutes</p></dd>
+
+
 <dt>dry</dt>
 <dd><p>Logical, if set to <code>TRUE</code>, only the command will be returned
 and files are not really removed.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>(Invisibly) the output of the <code>at</code> job.</p>
+    
+
+<p>(Invisibly) the output of the <code>at</code> job.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -96,12 +107,12 @@ command will work in the Windows system “out of box”.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">tmp1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">tmp2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">rmat</span><span class="op">(</span><span class="va">tmp1</span>, <span class="va">tmp2</span>, minutes<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "echo rm -f /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpTjYF06/file78f731fcf84 /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpTjYF06/file78f2d711e28 | at now + 1 minutes"</span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">tmp1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">tmp2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">rmat</span><span class="op">(</span><span class="va">tmp1</span>, <span class="va">tmp2</span>, minutes<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "echo rm -f /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpCCczDe/file12584213e45c /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpCCczDe/file125827f575e8 | at now + 1 minutes"</span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -116,7 +127,7 @@ command will work in the Windows system “out of box”.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

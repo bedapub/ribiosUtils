@@ -18,7 +18,7 @@ function in the Qt framework."><!-- mathjax --><script src="https://cdnjs.cloudf
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -52,23 +52,30 @@ function in the <code>Qt</code> framework.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">bound</span><span class="op">(</span><span class="va">x</span>, <span class="va">low</span>, <span class="va">high</span><span class="op">)</span>
-
-<span class="fu">boundNorm</span><span class="op">(</span><span class="va">x</span>, low <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, high <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">bound</span><span class="op">(</span><span class="va">x</span>, <span class="va">low</span>, <span class="va">high</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">boundNorm</span><span class="op">(</span><span class="va">x</span>, low <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, high <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>A numeric vector or matrix</p></dd>
+
+
 <dt>low</dt>
 <dd><p>New lower boundary</p></dd>
+
+
 <dt>high</dt>
 <dd><p>New higher boundary</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A numeric vector or matrix, the same type as input.</p>
+    
+
+<p>A numeric vector or matrix, the same type as input.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -86,35 +93,35 @@ transformed linearly onto the region defined between <code>low</code> and
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">myVec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">3</span>,<span class="op">-</span><span class="fl">1</span>,<span class="fl">9</span>,<span class="fl">5</span>,<span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">bound</span><span class="op">(</span><span class="va">myVec</span>, <span class="fl">0</span>, <span class="fl">8</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">myVec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">3</span>,<span class="op">-</span><span class="fl">1</span>,<span class="fl">9</span>,<span class="fl">5</span>,<span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">bound</span><span class="op">(</span><span class="va">myVec</span>, <span class="fl">0</span>, <span class="fl">8</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2 4 3 0 8 5 3 4</span>
-<span class="r-in"><span class="fu">boundNorm</span><span class="op">(</span><span class="va">myVec</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">boundNorm</span><span class="op">(</span><span class="va">myVec</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.3 0.5 0.4 0.0 1.0 0.6 0.4 0.5</span>
-<span class="r-in"><span class="co">## boundNorm returns negative values if input values lie out of the</span></span>
-<span class="r-in"><span class="co">## given region between low and high</span></span>
-<span class="r-in"><span class="fu">boundNorm</span><span class="op">(</span><span class="va">myVec</span>, <span class="fl">0</span>, <span class="fl">8</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">## boundNorm returns negative values if input values lie out of the</span></span></span>
+<span class="r-in"><span><span class="co">## given region between low and high</span></span></span>
+<span class="r-in"><span><span class="fu">boundNorm</span><span class="op">(</span><span class="va">myVec</span>, <span class="fl">0</span>, <span class="fl">8</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]  0.250  0.500  0.375 -0.125  1.125  0.625  0.375  0.500</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">myMat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="va">myVec</span>, nrow<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">myMat</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">myMat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="va">myVec</span>, nrow<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">myMat</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3] [,4]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    2    3    9    3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    4   -1    5    4</span>
-<span class="r-in"><span class="fu">bound</span><span class="op">(</span><span class="va">myMat</span>, <span class="fl">0</span>, <span class="fl">8</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">bound</span><span class="op">(</span><span class="va">myMat</span>, <span class="fl">0</span>, <span class="fl">8</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3] [,4]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    2    3    8    3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    4    0    5    4</span>
-<span class="r-in"><span class="fu">boundNorm</span><span class="op">(</span><span class="va">myMat</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">boundNorm</span><span class="op">(</span><span class="va">myMat</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3] [,4]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.3  0.4  1.0  0.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  0.5  0.0  0.6  0.5</span>
-<span class="r-in"><span class="fu">boundNorm</span><span class="op">(</span><span class="va">myMat</span>, <span class="fl">0</span>, <span class="fl">8</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">boundNorm</span><span class="op">(</span><span class="va">myMat</span>, <span class="fl">0</span>, <span class="fl">8</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]   [,2]  [,3]  [,4]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.25  0.375 1.125 0.375</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 0.50 -0.125 0.625 0.500</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -129,7 +136,7 @@ transformed linearly onto the region defined between <code>low</code> and
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,35 +50,51 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">rrankInd</span><span class="op">(</span><span class="va">matrix</span>, <span class="va">ind</span>, inValue <span class="op">=</span> <span class="fl">1L</span>, outValue <span class="op">=</span> <span class="fl">0L</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">rrankInd</span><span class="op">(</span><span class="va">matrix</span>, <span class="va">ind</span>, inValue <span class="op">=</span> <span class="fl">1L</span>, outValue <span class="op">=</span> <span class="fl">0L</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>matrix</dt>
 <dd><p>A matrix</p></dd>
+
+
 <dt>ind</dt>
 <dd><p>An integer vector or a logical vector that gives the index</p></dd>
+
+
 <dt>inValue</dt>
 <dd><p>Value to highlight the reverse ranks indexed by <code>ind</code>, 
 see details below</p></dd>
+
+
 <dt>outValue</dt>
 <dd><p>Values assigned to other values not indexed by <code>ind</code></p></dd>
+
+
 <dt>...</dt>
 <dd><p>Passed to <code><a href="https://rdrr.io/r/base/rank.html" class="external-link">rank</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A matrix of the same dimension and attributes of the input matrix,
+    
+
+<p>A matrix of the same dimension and attributes of the input matrix,
      each column contains a vector of <code>inValue</code> and <code>outValue</code>. 
-     Positions that match the reverse ranks of matrix values indexed by 
-<code>ind</code> are assigned the <code>inValue</code>, otherwise, 
-     the <code>outValue</code>.
-The function can be used to visualize the reverse ranks of
+     Positions that match the reverse ranks of matrix values indexed by</p>
+<p></p>
+<p><code>ind</code> are assigned the <code>inValue</code>, otherwise, 
+     the <code>outValue</code>.</p>
+     
+
+<p>The function can be used to visualize the reverse ranks of
 features of interest (rows of the input matrix) in each sample (columns of 
 the input matrix). This is for instance useful for rank plots of features for
-gene-set enrichment analysis.
-Imagine that all features indexed by <code>ind</code> are the larger than 
+gene-set enrichment analysis.</p>
+
+
+<p>Imagine that all features indexed by <code>ind</code> are the larger than 
 all other features in each sample, then the returned matrix will have 
 value <code>1</code> in the first rows (the number determined by the features 
 indxed by <code>ind</code>), and <code>0</code> in the rest rows.</p>
@@ -90,24 +106,24 @@ indxed by <code>ind</code>), and <code>0</code> in the rest rows.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">testMatrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">6</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">8</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">5</span>,<span class="fl">4</span>,<span class="fl">7</span><span class="op">)</span>, ncol<span class="op">=</span><span class="fl">3</span>, byrow<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">testMatrix</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">testMatrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">6</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">8</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">5</span>,<span class="fl">4</span>,<span class="fl">7</span><span class="op">)</span>, ncol<span class="op">=</span><span class="fl">3</span>, byrow<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">testMatrix</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    3    2    2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    6    4    5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3,]    4    8    4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,]    5    3    7</span>
-<span class="r-in"><span class="va">testInd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## verify that the command below returns 1 in positions occupied by </span></span>
-<span class="r-in"><span class="co">## the reverse ranks of the values indexed by testInd</span></span>
-<span class="r-in"><span class="fu">rrankInd</span><span class="op">(</span><span class="va">testMatrix</span>, <span class="va">testInd</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">testInd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## verify that the command below returns 1 in positions occupied by </span></span></span>
+<span class="r-in"><span><span class="co">## the reverse ranks of the values indexed by testInd</span></span></span>
+<span class="r-in"><span><span class="fu">rrankInd</span><span class="op">(</span><span class="va">testMatrix</span>, <span class="va">testInd</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1    0    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    1    1    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3,]    0    1    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,]    0    0    0</span>
-<span class="r-in"><span class="va">testIndBool</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">rrankInd</span><span class="op">(</span><span class="va">testMatrix</span>, <span class="va">testIndBool</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">testIndBool</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">rrankInd</span><span class="op">(</span><span class="va">testMatrix</span>, <span class="va">testIndBool</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1    0    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    1    1    1</span>
@@ -127,7 +143,7 @@ indxed by <code>ind</code>), and <code>0</code> in the rest rows.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

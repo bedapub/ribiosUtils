@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,7 +50,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">pwdecode</span><span class="op">(</span><span class="va">password</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">pwdecode</span><span class="op">(</span><span class="va">password</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -59,10 +59,13 @@
 <dd><p>Character string to be decoded. If starting with a empty
 character, the string is sent for decoding; otherwise, it is deemed as clear
 text password and returned.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Decoded character string, or empty string if decoding fails</p>
+    
+
+<p>Decoded character string, or empty string if decoding fails</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -79,11 +82,11 @@ was written by Detlef Wolf.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">mycode</span> <span class="op">&lt;-</span> <span class="st">" \\001\\000\\141\\314\\033\\033\\033\\033\\033\\142\\303\\056\\166\\311\\037\\042"</span></span>
-<span class="r-in"><span class="fu">pwdecode</span><span class="op">(</span><span class="va">mycode</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">mycode</span> <span class="op">&lt;-</span> <span class="st">" \\001\\000\\141\\314\\033\\033\\033\\033\\033\\142\\303\\056\\166\\311\\037\\042"</span></span></span>
+<span class="r-in"><span><span class="fu">pwdecode</span><span class="op">(</span><span class="va">mycode</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "HSV"</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -98,7 +101,7 @@ was written by Detlef Wolf.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

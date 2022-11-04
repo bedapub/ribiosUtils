@@ -18,7 +18,7 @@ first rows and columns of 2D data structures, e.g. matrix or data.frame."><!-- m
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -52,21 +52,28 @@ first rows and columns of 2D data structures, e.g. matrix or data.frame.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">headhead</span><span class="op">(</span><span class="va">x</span>, m <span class="op">=</span> <span class="fl">6L</span>, n <span class="op">=</span> <span class="fl">6L</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">headhead</span><span class="op">(</span><span class="va">x</span>, m <span class="op">=</span> <span class="fl">6L</span>, n <span class="op">=</span> <span class="fl">6L</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>A <code>data.frame</code> or <code>matrix</code></p></dd>
+
+
 <dt>m</dt>
 <dd><p>Integer, number of rows to show</p></dd>
+
+
 <dt>n</dt>
 <dd><p>Integer, number of columns to show</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>The first rows/columns of the input object</p>
+    
+
+<p>The first rows/columns of the input object</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -87,9 +94,9 @@ the first rows AND the first columns.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">myMat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10000</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">10L</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">myMat</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">myMat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10000</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">10L</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">myMat</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]       [,3]        [,4]       [,5]       [,6]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.2116982 -0.4731268 -0.7205228  1.10717815 -0.9886355  1.4490535</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.5582103  0.6102724  0.2401618  0.50638677  1.6819205 -0.1589979</span>
@@ -1259,7 +1266,7 @@ the first rows AND the first columns.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  0.95371872 -0.3568965 -0.8496968  0.9012850</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,] -0.98163218 -1.5583489 -0.2848249 -0.1925418</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6,] -0.04176264  0.9468869 -1.2858840 -0.9225215</span>
-<span class="r-in"><span class="fu">headhead</span><span class="op">(</span><span class="va">myMat</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">headhead</span><span class="op">(</span><span class="va">myMat</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]       [,3]        [,4]       [,5]       [,6]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.2116982 -0.4731268 -0.7205228  1.10717815 -0.9886355  1.4490535</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.5582103  0.6102724  0.2401618  0.50638677  1.6819205 -0.1589979</span>
@@ -1267,7 +1274,7 @@ the first rows AND the first columns.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,] -1.3317544  0.7791137  0.8906630  1.44404664 -0.7824672 -0.6767043</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,]  0.6266521  0.4720021 -0.4427249 -0.60749971 -2.4125135  0.5144476</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6,]  0.1199766  0.6297750 -0.4950692 -0.09847563  1.1999424  0.6132141</span>
-<span class="r-in"><span class="fu">tailtail</span><span class="op">(</span><span class="va">myMat</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">tailtail</span><span class="op">(</span><span class="va">myMat</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [995,]     [996,]      [997,]      [998,]     [999,]    [1000,]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,]  -1.58589108 -0.7042546 -0.98163218 -1.55834895 -0.2848249 -0.1925418</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6,]  -1.11158783 -0.7146343 -0.04176264  0.94688695 -1.2858840 -0.9225215</span>
@@ -1275,7 +1282,7 @@ the first rows AND the first columns.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [8,]   0.08680398  2.0609109 -0.66451960  1.95796028  0.3811864 -0.8281864</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [9,]   1.47038403  0.4490478 -1.02691141  0.57708124 -0.3309063 -0.2431387</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  0.73364279  1.6186447 -0.43769697  0.01225318 -1.4381181  1.1050758</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -1290,7 +1297,7 @@ the first rows AND the first columns.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

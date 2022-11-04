@@ -20,7 +20,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -56,32 +56,43 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">longdf2matrix</span><span class="op">(</span>
-  <span class="va">df</span>,
-  row.col <span class="op">=</span> <span class="fl">1L</span>,
-  column.col <span class="op">=</span> <span class="fl">2L</span>,
-  value.col <span class="op">=</span> <span class="fl">3L</span>,
-  missingValue <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">longdf2matrix</span><span class="op">(</span></span>
+<span>  <span class="va">df</span>,</span>
+<span>  row.col <span class="op">=</span> <span class="fl">1L</span>,</span>
+<span>  column.col <span class="op">=</span> <span class="fl">2L</span>,</span>
+<span>  value.col <span class="op">=</span> <span class="fl">3L</span>,</span>
+<span>  missingValue <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>df</dt>
 <dd><p>Long-format data frame</p></dd>
+
+
 <dt>row.col</dt>
 <dd><p>Character or integer, which column of the input data.frame
 contains row names?</p></dd>
+
+
 <dt>column.col</dt>
 <dd><p>Character or integer, which column contains column names?</p></dd>
+
+
 <dt>value.col</dt>
 <dd><p>Character or integer, which column contains matrix values?</p></dd>
+
+
 <dt>missingValue</dt>
 <dd><p>Values assigned in case of missing data</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A 2D matrix equivalent to the long-format data frame</p>
+    
+
+<p>A 2D matrix equivalent to the long-format data frame</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -94,17 +105,17 @@ contains row names?</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">test.df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>H<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HSV"</span>, <span class="st">"BVB"</span>, <span class="st">"HSV"</span>, <span class="st">"BVB"</span><span class="op">)</span>,</span>
-<span class="r-in">A<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"FCB"</span>, <span class="st">"S04"</span>, <span class="st">"S04"</span>, <span class="st">"FCB"</span><span class="op">)</span>,</span>
-<span class="r-in">score<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">longdf2matrix</span><span class="op">(</span><span class="va">test.df</span>, row.col<span class="op">=</span><span class="fl">1L</span>, column.col<span class="op">=</span><span class="fl">2L</span>, value.col<span class="op">=</span><span class="fl">3L</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">test.df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>H<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HSV"</span>, <span class="st">"BVB"</span>, <span class="st">"HSV"</span>, <span class="st">"BVB"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>A<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"FCB"</span>, <span class="st">"S04"</span>, <span class="st">"S04"</span>, <span class="st">"FCB"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>score<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">longdf2matrix</span><span class="op">(</span><span class="va">test.df</span>, row.col<span class="op">=</span><span class="fl">1L</span>, column.col<span class="op">=</span><span class="fl">2L</span>, value.col<span class="op">=</span><span class="fl">3L</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     FCB S04</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> HSV   3   1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> BVB   0   1</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Indometh</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">longdf2matrix</span><span class="op">(</span><span class="va">Indometh</span>, row.col<span class="op">=</span><span class="st">"time"</span>, column.col<span class="op">=</span><span class="st">"Subject"</span>,value.col<span class="op">=</span><span class="st">"conc"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Indometh</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">longdf2matrix</span><span class="op">(</span><span class="va">Indometh</span>, row.col<span class="op">=</span><span class="st">"time"</span>, column.col<span class="op">=</span><span class="st">"Subject"</span>,value.col<span class="op">=</span><span class="st">"conc"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         1    2    3    4    5    6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.25 1.50 2.03 2.72 1.85 2.05 2.31</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.5  0.94 1.63 1.49 1.39 1.04 1.44</span>
@@ -117,7 +128,7 @@ contains row names?</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5    0.08 0.25 0.11 0.10 0.08 0.13</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6    0.07 0.12 0.08 0.07 0.10 0.10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8    0.05 0.08 0.08 0.07 0.06 0.09</span>
-<span class="r-in"><span class="fu">longdf2matrix</span><span class="op">(</span><span class="va">Indometh</span>, row.col<span class="op">=</span><span class="st">"Subject"</span>, column.col<span class="op">=</span><span class="st">"time"</span>, value.col<span class="op">=</span><span class="st">"conc"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">longdf2matrix</span><span class="op">(</span><span class="va">Indometh</span>, row.col<span class="op">=</span><span class="st">"Subject"</span>, column.col<span class="op">=</span><span class="st">"time"</span>, value.col<span class="op">=</span><span class="st">"conc"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   0.25  0.5 0.75    1 1.25    2    3    4    5    6    8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 1.50 0.94 0.78 0.48 0.37 0.19 0.12 0.11 0.08 0.07 0.05</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 2.03 1.63 0.71 0.70 0.64 0.36 0.32 0.20 0.25 0.12 0.08</span>
@@ -125,7 +136,7 @@ contains row names?</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 1.85 1.39 1.02 0.89 0.59 0.40 0.16 0.11 0.10 0.07 0.07</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5 2.05 1.04 0.81 0.39 0.30 0.23 0.13 0.11 0.08 0.10 0.06</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6 2.31 1.44 1.03 0.84 0.64 0.42 0.24 0.17 0.13 0.10 0.09</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -140,7 +151,7 @@ contains row names?</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

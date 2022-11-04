@@ -20,7 +20,7 @@ tokenized items in the selected position(s) are returned. See examples."><!-- ma
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -56,7 +56,7 @@ tokenized items in the selected position(s) are returned. See examples.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">strtoken</span><span class="op">(</span><span class="va">x</span>, <span class="va">split</span>, <span class="va">index</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">strtoken</span><span class="op">(</span><span class="va">x</span>, <span class="va">split</span>, <span class="va">index</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -64,17 +64,26 @@ tokenized items in the selected position(s) are returned. See examples.</p>
     <dl><dt>x</dt>
 <dd><p>A vector of character strings; non-character vectors are cast into
 characters.</p></dd>
+
+
 <dt>split</dt>
 <dd><p>A character to split the strings.</p></dd>
+
+
 <dt>index</dt>
 <dd><p>Numeric vector indicating which fields should be returned; if
 missing or set to <code>NULL</code>, a matrix containing all fields are returned.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Other parameters passed to <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A matrix if <code>index</code> is missing, <code>NULL</code>, or contains more
+    
+
+<p>A matrix if <code>index</code> is missing, <code>NULL</code>, or contains more
 than one integer indices; otherwise a character vector.</p>
     </div>
     <div id="references">
@@ -93,9 +102,9 @@ than one integer indices; otherwise a character vector.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">myStr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HSV\t1887"</span>, <span class="st">"FCB\t1900"</span>, <span class="st">"FCK\t1948"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">myStr</span>, <span class="st">"\t"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">myStr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HSV\t1887"</span>, <span class="st">"FCB\t1900"</span>, <span class="st">"FCK\t1948"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">myStr</span>, <span class="st">"\t"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "HSV"  "1887"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -105,26 +114,26 @@ than one integer indices; otherwise a character vector.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[3]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "FCK"  "1948"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">strtoken</span><span class="op">(</span><span class="va">myStr</span>, <span class="st">"\t"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">strtoken</span><span class="op">(</span><span class="va">myStr</span>, <span class="st">"\t"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]  [,2]  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] "HSV" "1887"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] "FCB" "1900"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3,] "FCK" "1948"</span>
-<span class="r-in"><span class="fu">strtoken</span><span class="op">(</span><span class="va">myStr</span>, <span class="st">"\t"</span>, index<span class="op">=</span><span class="fl">1L</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">strtoken</span><span class="op">(</span><span class="va">myStr</span>, <span class="st">"\t"</span>, index<span class="op">=</span><span class="fl">1L</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "HSV" "FCB" "FCK"</span>
-<span class="r-in"><span class="fu">strtoken</span><span class="op">(</span><span class="va">myStr</span>, <span class="st">"\t"</span>, index<span class="op">=</span><span class="fl">2L</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">strtoken</span><span class="op">(</span><span class="va">myStr</span>, <span class="st">"\t"</span>, index<span class="op">=</span><span class="fl">2L</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1887" "1900" "1948"</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">myFac</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">myStr</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">strtoken</span><span class="op">(</span><span class="va">myFac</span>, <span class="st">"\t"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">myFac</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">myStr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">strtoken</span><span class="op">(</span><span class="va">myFac</span>, <span class="st">"\t"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]  [,2]  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] "HSV" "1887"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] "FCB" "1900"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3,] "FCK" "1948"</span>
-<span class="r-in"><span class="fu">strtoken</span><span class="op">(</span><span class="va">myFac</span>, <span class="st">"\t"</span>, index<span class="op">=</span><span class="fl">1L</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">strtoken</span><span class="op">(</span><span class="va">myFac</span>, <span class="st">"\t"</span>, index<span class="op">=</span><span class="fl">1L</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "HSV" "FCB" "FCK"</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -139,7 +148,7 @@ than one integer indices; otherwise a character vector.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

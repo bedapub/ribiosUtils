@@ -18,7 +18,7 @@ function implemented in the BIOS library."><!-- mathjax --><script src="https://
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -52,21 +52,28 @@ function implemented in the BIOS library.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">trim</span><span class="op">(</span><span class="va">x</span>, left <span class="op">=</span> <span class="st">" \n\r\t"</span>, right <span class="op">=</span> <span class="st">" \n\r\t"</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">trim</span><span class="op">(</span><span class="va">x</span>, left <span class="op">=</span> <span class="st">" \n\r\t"</span>, right <span class="op">=</span> <span class="st">" \n\r\t"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>A character string, or a vector of strings</p></dd>
+
+
 <dt>left</dt>
 <dd><p>Characters that are trimmed from the left side.</p></dd>
+
+
 <dt>right</dt>
 <dd><p>Characters that are trimmed from the right side</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Trimmed string(s)</p>
+    
+
+<p>Trimmed string(s)</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -80,13 +87,13 @@ will be performed.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">myStrings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"This is a fine day\n"</span>,</span>
-<span class="r-in">               <span class="st">" Hallo Professor!"</span>,</span>
-<span class="r-in">               <span class="st">"  NUR DER HSV  "</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">trim</span><span class="op">(</span><span class="va">myStrings</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">myStrings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"This is a fine day\n"</span>,</span></span>
+<span class="r-in"><span>               <span class="st">" Hallo Professor!"</span>,</span></span>
+<span class="r-in"><span>               <span class="st">"  NUR DER HSV  "</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">trim</span><span class="op">(</span><span class="va">myStrings</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "This is a fine day" "Hallo Professor!"   "NUR DER HSV"       </span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -101,7 +108,7 @@ will be performed.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

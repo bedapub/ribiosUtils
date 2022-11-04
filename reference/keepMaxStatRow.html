@@ -20,7 +20,7 @@ specified by the user."><!-- mathjax --><script src="https://cdnjs.cloudflare.co
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -56,43 +56,56 @@ specified by the user.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">keepMaxStatRow</span><span class="op">(</span>
-  <span class="va">matrix</span>,
-  <span class="va">keys</span>,
-  keepNArows <span class="op">=</span> <span class="cn">TRUE</span>,
-  stat <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
-  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"rownames"</span>, <span class="st">"attribute"</span>, <span class="st">"discard"</span><span class="op">)</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">keepMaxStatRow</span><span class="op">(</span></span>
+<span>  <span class="va">matrix</span>,</span>
+<span>  <span class="va">keys</span>,</span>
+<span>  keepNArows <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  stat <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"rownames"</span>, <span class="st">"attribute"</span>, <span class="st">"discard"</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>matrix</dt>
 <dd><p>A numeric matrix</p></dd>
+
+
 <dt>keys</dt>
 <dd><p>A vector of character giving the keys the rows are mapped to. A
 common scenario is that each row represents one probeset, while the vector
 keys give the genes that the probesets are mapped to. Thus keys can be
 redundant, namely multiple probesets can map to the same gene.</p></dd>
+
+
 <dt>keepNArows</dt>
 <dd><p>Logical, whether rows with <code>NA</code> as their keys should
 be kept (<code>TRUE</code>) or should be discarded (<code>FALSE</code>)</p></dd>
+
+
 <dt>stat</dt>
 <dd><p>The function to calculate the univariate statistic. By default
 the <code>NA</code>-robust mean is used.</p></dd>
+
+
 <dt>levels</dt>
 <dd><p>How should the information of the levels of keys, e.g. unique
 keys, be kept. <code>dicard</code> will discard this information, <code>rownames</code>
 will make the unique keys (potentially with <code>NA</code>s) as row names of the
 output matrix, and <code>attribute</code> will append an attribute named
 <code>levels</code> to the output matrix.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Other parameters passed to the <code>stat</code> function</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A numeric matrix with rows mapped to unique keys, selected by the
+    
+
+<p>A numeric matrix with rows mapped to unique keys, selected by the
 maximum statistics. See examples below</p>
     </div>
     <div id="details">
@@ -110,60 +123,60 @@ statistics each key as <code>TRUE</code> and otherwise as <code>FALSE</code>.
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">myFun1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">myFun2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">x</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">mat1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="op">-</span><span class="fl">5</span>,</span>
-<span class="r-in">                 <span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,</span>
-<span class="r-in">                 <span class="fl">7</span>,<span class="fl">9</span>,<span class="fl">5</span>,<span class="fl">3</span>,</span>
-<span class="r-in">                 <span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">3</span><span class="op">)</span>, ncol<span class="op">=</span><span class="fl">4</span>, byrow<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">keys1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">isMaxStatRow</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">myFun1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">myFun2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">x</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mat1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="op">-</span><span class="fl">5</span>,</span></span>
+<span class="r-in"><span>                 <span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,</span></span>
+<span class="r-in"><span>                 <span class="fl">7</span>,<span class="fl">9</span>,<span class="fl">5</span>,<span class="fl">3</span>,</span></span>
+<span class="r-in"><span>                 <span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">3</span><span class="op">)</span>, ncol<span class="op">=</span><span class="fl">4</span>, byrow<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">keys1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">isMaxStatRow</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE FALSE  TRUE  TRUE</span>
-<span class="r-in"><span class="fu">isMaxStatRow</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="va">myFun2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">isMaxStatRow</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="va">myFun2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]  TRUE FALSE FALSE  TRUE</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">keepMaxStatRowInd</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">keepMaxStatRowInd</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3 4</span>
-<span class="r-in"><span class="fu">keepMaxStatRowInd</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="va">myFun2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">keepMaxStatRowInd</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="va">myFun2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 4</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [,1] [,2] [,3] [,4]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> A    7    9    5    3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> B    0    1    4    3</span>
-<span class="r-in"><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="st">"myFun2"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="st">"myFun2"</span><span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in get(stat, envir = parent.frame()):</span> object 'myFun2' not found</span>
-<span class="r-in"><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="st">"myFun2"</span>, levels<span class="op">=</span><span class="st">"discard"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="st">"myFun2"</span>, levels<span class="op">=</span><span class="st">"discard"</span><span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in get(stat, envir = parent.frame()):</span> object 'myFun2' not found</span>
-<span class="r-in"><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="st">"myFun2"</span>, levels<span class="op">=</span><span class="st">"attribute"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat1</span>, <span class="va">keys1</span>, stat<span class="op">=</span><span class="st">"myFun2"</span>, levels<span class="op">=</span><span class="st">"attribute"</span><span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in get(stat, envir = parent.frame()):</span> object 'myFun2' not found</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">mat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,</span>
-<span class="r-in">                 <span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,</span>
-<span class="r-in">                 <span class="fl">7</span>,<span class="fl">9</span>,<span class="fl">5</span>,<span class="fl">3</span>,</span>
-<span class="r-in">                 <span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">3</span>,</span>
-<span class="r-in">                 <span class="fl">4</span>,<span class="fl">0</span>,<span class="op">-</span><span class="fl">1</span>,<span class="fl">3.1</span>,</span>
-<span class="r-in">                 <span class="fl">9</span>,<span class="fl">4</span>,<span class="op">-</span><span class="fl">3</span>,<span class="fl">2</span>,</span>
-<span class="r-in">                 <span class="fl">8</span>,<span class="fl">9</span>,<span class="fl">1</span>,<span class="fl">2</span>,</span>
-<span class="r-in">                 <span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="cn">NA</span>,</span>
-<span class="r-in">                 <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">3</span>,<span class="cn">NA</span><span class="op">)</span>, ncol<span class="op">=</span><span class="fl">4</span>, byrow<span class="op">=</span><span class="cn">TRUE</span>,</span>
-<span class="r-in">               dimnames<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span><span class="op">]</span>, <span class="cn">NULL</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">keys2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"D"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">isMaxStatRow</span><span class="op">(</span><span class="va">mat2</span>, <span class="va">keys2</span>, keepNArows<span class="op">=</span><span class="cn">FALSE</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">mat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,</span></span>
+<span class="r-in"><span>                 <span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,</span></span>
+<span class="r-in"><span>                 <span class="fl">7</span>,<span class="fl">9</span>,<span class="fl">5</span>,<span class="fl">3</span>,</span></span>
+<span class="r-in"><span>                 <span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">3</span>,</span></span>
+<span class="r-in"><span>                 <span class="fl">4</span>,<span class="fl">0</span>,<span class="op">-</span><span class="fl">1</span>,<span class="fl">3.1</span>,</span></span>
+<span class="r-in"><span>                 <span class="fl">9</span>,<span class="fl">4</span>,<span class="op">-</span><span class="fl">3</span>,<span class="fl">2</span>,</span></span>
+<span class="r-in"><span>                 <span class="fl">8</span>,<span class="fl">9</span>,<span class="fl">1</span>,<span class="fl">2</span>,</span></span>
+<span class="r-in"><span>                 <span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="cn">NA</span>,</span></span>
+<span class="r-in"><span>                 <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">3</span>,<span class="cn">NA</span><span class="op">)</span>, ncol<span class="op">=</span><span class="fl">4</span>, byrow<span class="op">=</span><span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>               dimnames<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span><span class="op">]</span>, <span class="cn">NULL</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">keys2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"D"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">isMaxStatRow</span><span class="op">(</span><span class="va">mat2</span>, <span class="va">keys2</span>, keepNArows<span class="op">=</span><span class="cn">FALSE</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE</span>
-<span class="r-in"><span class="fu">keepMaxStatRowInd</span><span class="op">(</span><span class="va">mat2</span>, <span class="va">keys2</span>, keepNArows<span class="op">=</span><span class="cn">FALSE</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">keepMaxStatRowInd</span><span class="op">(</span><span class="va">mat2</span>, <span class="va">keys2</span>, keepNArows<span class="op">=</span><span class="cn">FALSE</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3 4 7 9</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat2</span>, <span class="va">keys2</span>, keepNArows<span class="op">=</span><span class="cn">FALSE</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat2</span>, <span class="va">keys2</span>, keepNArows<span class="op">=</span><span class="cn">FALSE</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [,1] [,2] [,3] [,4]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> A    7    9    5    3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> B    0    1    4    3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> C    8    9    1    2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> D   NA    4    3   NA</span>
-<span class="r-in"><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat2</span>, <span class="va">keys2</span>, keepNArows<span class="op">=</span><span class="cn">TRUE</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat2</span>, <span class="va">keys2</span>, keepNArows<span class="op">=</span><span class="cn">TRUE</span>, stat<span class="op">=</span><span class="va">myFun1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3] [,4]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> A       7    9    5  3.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> B       0    1    4  3.0</span>
@@ -171,7 +184,7 @@ statistics each key as <code>TRUE</code> and otherwise as <code>FALSE</code>.
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;NA&gt;    9    4   -3  2.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> C       8    9    1  2.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> D      NA    4    3   NA</span>
-<span class="r-in"><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat2</span>, <span class="va">keys2</span>, keepNArows<span class="op">=</span><span class="cn">TRUE</span>, stat<span class="op">=</span><span class="va">myFun1</span>, levels<span class="op">=</span><span class="st">"discard"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat2</span>, <span class="va">keys2</span>, keepNArows<span class="op">=</span><span class="cn">TRUE</span>, stat<span class="op">=</span><span class="va">myFun1</span>, levels<span class="op">=</span><span class="st">"discard"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [,1] [,2] [,3] [,4]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> C    7    9    5  3.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> D    0    1    4  3.0</span>
@@ -179,7 +192,7 @@ statistics each key as <code>TRUE</code> and otherwise as <code>FALSE</code>.
 <span class="r-out co"><span class="r-pr">#&gt;</span> F    9    4   -3  2.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> G    8    9    1  2.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> I   NA    4    3   NA</span>
-<span class="r-in"><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat2</span>, <span class="va">keys2</span>, keepNArows<span class="op">=</span><span class="cn">TRUE</span>, stat<span class="op">=</span><span class="va">myFun1</span>, levels<span class="op">=</span><span class="st">"attribute"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">keepMaxStatRow</span><span class="op">(</span><span class="va">mat2</span>, <span class="va">keys2</span>, keepNArows<span class="op">=</span><span class="cn">TRUE</span>, stat<span class="op">=</span><span class="va">myFun1</span>, levels<span class="op">=</span><span class="st">"attribute"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [,1] [,2] [,3] [,4]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> C    7    9    5  3.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> D    0    1    4  3.0</span>
@@ -189,7 +202,7 @@ statistics each key as <code>TRUE</code> and otherwise as <code>FALSE</code>.
 <span class="r-out co"><span class="r-pr">#&gt;</span> I   NA    4    3   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"levels")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "A" "B" NA  NA  "C" "D"</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -204,7 +217,7 @@ statistics each key as <code>TRUE</code> and otherwise as <code>FALSE</code>.
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

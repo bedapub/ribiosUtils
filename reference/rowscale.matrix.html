@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,24 +50,31 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for matrix</span>
-<span class="fu"><a href="rowscale.html">rowscale</a></span><span class="op">(</span><span class="va">x</span>, center <span class="op">=</span> <span class="cn">TRUE</span>, scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for matrix</span></span>
+<span><span class="fu"><a href="rowscale.html">rowscale</a></span><span class="op">(</span><span class="va">x</span>, center <span class="op">=</span> <span class="cn">TRUE</span>, scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>An matrix</p></dd>
+
+
 <dt>center</dt>
 <dd><p>Logical, passed to <code>scale</code>. 
 to <code>TRUE</code></p></dd>
+
+
 <dt>scale</dt>
 <dd><p>Logical, passed to <code>scale</code>. 
 <code>TRUE</code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A matrix with each row scaled.</p>
+    
+
+<p>A matrix with each row scaled.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -80,17 +87,17 @@ to <code>TRUE</code></p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">rs.mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="rowscale.html">rowscale</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rs.mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="rowscale.html">rowscale</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]         [,2]       [,3]       [,4]       [,5]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.9112644 -1.525639735 -0.1926041 -1.0582966  1.3186982</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.1679937  0.007670531  1.0293835  0.3827825 -0.5242241</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  0.1264878  0.156114019 -0.2077972 -0.4486023  0.5624639</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,] -0.3684058 -1.967901224  1.6174429 -0.2218656 -0.6634071</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">rs.mat</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">rs.mat</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             [,1]       [,2]        [,3]        [,4]       [,5]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.83369735 -1.1569752 -0.06803721 -0.77520921  1.1665242</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.52930668 -0.2327354  1.49220681  0.40056027 -1.1307250</span>
@@ -100,18 +107,18 @@ to <code>TRUE</code></p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.10931559  0.14552373  0.03773326 -0.32082737</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"scaled:scale")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.2241612 0.5923172 0.3853703 1.2844417</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowMeans</a></span><span class="op">(</span><span class="va">rs.mat</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowMeans</a></span><span class="op">(</span><span class="va">rs.mat</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -3.053113e-17 -4.440892e-17 -4.440892e-17  1.110223e-17</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">rs.mat</span>, <span class="fl">1L</span>, <span class="va">sd</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">rs.mat</span>, <span class="fl">1L</span>, <span class="va">sd</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 1 1 1</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="rowscale.html">rowscale</a></span><span class="op">(</span><span class="va">mat</span>, center<span class="op">=</span><span class="cn">FALSE</span>, scale<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co">## equal to mat</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="rowscale.html">rowscale</a></span><span class="op">(</span><span class="va">mat</span>, center<span class="op">=</span><span class="cn">FALSE</span>, scale<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co">## equal to mat</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]         [,2]       [,3]       [,4]       [,5]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.9112644 -1.525639735 -0.1926041 -1.0582966  1.3186982</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.1679937  0.007670531  1.0293835  0.3827825 -0.5242241</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  0.1264878  0.156114019 -0.2077972 -0.4486023  0.5624639</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,] -0.3684058 -1.967901224  1.6174429 -0.2218656 -0.6634071</span>
-<span class="r-in"><span class="fu"><a href="rowscale.html">rowscale</a></span><span class="op">(</span><span class="va">mat</span>, center<span class="op">=</span><span class="cn">TRUE</span>, scale<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="rowscale.html">rowscale</a></span><span class="op">(</span><span class="va">mat</span>, center<span class="op">=</span><span class="cn">TRUE</span>, scale<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             [,1]       [,2]        [,3]        [,4]       [,5]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  1.02057997 -1.4163241 -0.08328852 -0.94898106  1.4280138</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.31351745 -0.1378532  0.88385975  0.23725873 -0.6697478</span>
@@ -119,7 +126,7 @@ to <code>TRUE</code></p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,] -0.04757844 -1.6470739  1.93827029  0.09896173 -0.3425797</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"scaled:center")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.10931559  0.14552373  0.03773326 -0.32082737</span>
-<span class="r-in"><span class="fu"><a href="rowscale.html">rowscale</a></span><span class="op">(</span><span class="va">mat</span>, center<span class="op">=</span><span class="cn">FALSE</span>, scale<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="rowscale.html">rowscale</a></span><span class="op">(</span><span class="va">mat</span>, center<span class="op">=</span><span class="cn">FALSE</span>, scale<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]       [,3]       [,4]       [,5]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  0.7407165 -1.2401083 -0.1565572 -0.8602309  1.0718969</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.2734911  0.0124875  1.6758201  0.6231638 -0.8534286</span>
@@ -127,7 +134,7 @@ to <code>TRUE</code></p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,] -0.2762519 -1.4756456  1.2128518 -0.1663676 -0.4974608</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"scaled:scale")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.2302472 0.6142565 0.3876726 1.3335866</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -142,7 +149,7 @@ to <code>TRUE</code></p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

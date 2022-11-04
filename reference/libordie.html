@@ -19,7 +19,7 @@ minVer, the R session dies with a message."><!-- mathjax --><script src="https:/
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -54,7 +54,7 @@ library is not found, or its version under the specification of
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">libordie</span><span class="op">(</span><span class="va">package</span>, <span class="va">minVer</span>, missing.quit.status <span class="op">=</span> <span class="fl">1</span>, ver.quit.status <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">libordie</span><span class="op">(</span><span class="va">package</span>, <span class="va">minVer</span>, missing.quit.status <span class="op">=</span> <span class="fl">1</span>, ver.quit.status <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -62,18 +62,27 @@ library is not found, or its version under the specification of
     <dl><dt>package</dt>
 <dd><p>One package name (can be character or non-quoted symbol (see
 examples)</p></dd>
+
+
 <dt>minVer</dt>
 <dd><p>Optional, character string, the minimum working version</p></dd>
+
+
 <dt>missing.quit.status</dt>
 <dd><p>Integer, the status of quitting when the package
 was not found</p></dd>
+
+
 <dt>ver.quit.status</dt>
 <dd><p>Integer, the status of quitting when the package was
 found, but older than the minimum working version</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>NULL</code> if success, otherwise the session will be killed.</p>
+    
+
+<p><code>NULL</code> if success, otherwise the session will be killed.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -91,13 +100,13 @@ session</p></div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">  <span class="fu">libordie</span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">libordie</span><span class="op">(</span><span class="st">"methods"</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">libordie</span><span class="op">(</span><span class="va">base</span>, minVer<span class="op">=</span><span class="st">"2.15-1"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu">libordie</span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">libordie</span><span class="op">(</span><span class="st">"methods"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">libordie</span><span class="op">(</span><span class="va">base</span>, minVer<span class="op">=</span><span class="st">"2.15-1"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -112,7 +121,7 @@ session</p></div>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

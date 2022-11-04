@@ -19,7 +19,7 @@ parameter."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -54,7 +54,7 @@ parameter.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">haltifnot</span><span class="op">(</span><span class="va">...</span>, msg <span class="op">=</span> <span class="st">"Error undefined. Please contact the developer"</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">haltifnot</span><span class="op">(</span><span class="va">...</span>, msg <span class="op">=</span> <span class="st">"Error undefined. Please contact the developer"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -62,12 +62,19 @@ parameter.</p>
     <dl><dt>...</dt>
 <dd><p>any number of ‘logical’ R expressions, which should
 evaluate to <code>TRUE</code></p></dd>
+
+
 <dt>msg</dt>
 <dd><p>Error message.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>NULL</code> if all statements in <code>...</code> are <code>TRUE</code></p>
+    
+
+<p><code>NULL</code> if all statements in <code>...</code> are <code>TRUE</code></p>
+
+
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -88,19 +95,19 @@ diagnostic and user-interation purposes.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="fu">haltifnot</span><span class="op">(</span><span class="fl">1</span><span class="op">==</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">pi</span>, <span class="fl">3.14159265</span><span class="op">)</span>, <span class="fl">1</span><span class="op">&lt;</span><span class="fl">2</span><span class="op">)</span> <span class="co">## all TRUE</span></span>
-<span class="r-in"><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">1</span><span class="op">)</span>, <span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">haltifnot</span><span class="op">(</span><span class="va">m</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/diag.html" class="external-link">diag</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co">## all TRUE</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>error <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># "disable stop(.)"  &lt;&lt; Use with CARE! &gt;&gt;</span></span>
-<span class="r-in">     </span>
-<span class="r-in"><span class="fu">haltifnot</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">pi</span>, <span class="fl">3.141593</span><span class="op">)</span>,  <span class="fl">2</span> <span class="op">&lt;</span> <span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span> <span class="op">&lt;</span> <span class="fl">12</span><span class="op">)</span>, <span class="st">"a"</span> <span class="op">&lt;</span> <span class="st">"b"</span>,</span>
-<span class="r-in">          msg<span class="op">=</span><span class="st">"not all conditions are TRUE. Please contact the devleoper"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">haltifnot</span><span class="op">(</span><span class="fl">1</span><span class="op">==</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">pi</span>, <span class="fl">3.14159265</span><span class="op">)</span>, <span class="fl">1</span><span class="op">&lt;</span><span class="fl">2</span><span class="op">)</span> <span class="co">## all TRUE</span></span></span>
+<span class="r-in"><span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">1</span><span class="op">)</span>, <span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">haltifnot</span><span class="op">(</span><span class="va">m</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/diag.html" class="external-link">diag</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co">## all TRUE</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>error <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># "disable stop(.)"  &lt;&lt; Use with CARE! &gt;&gt;</span></span></span>
+<span class="r-in"><span>     </span></span>
+<span class="r-in"><span><span class="fu">haltifnot</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">pi</span>, <span class="fl">3.141593</span><span class="op">)</span>,  <span class="fl">2</span> <span class="op">&lt;</span> <span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span> <span class="op">&lt;</span> <span class="fl">12</span><span class="op">)</span>, <span class="st">"a"</span> <span class="op">&lt;</span> <span class="st">"b"</span>,</span></span>
+<span class="r-in"><span>          msg<span class="op">=</span><span class="st">"not all conditions are TRUE. Please contact the devleoper"</span><span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> not all conditions are TRUE. Please contact the devleoper</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span><span class="co"># revert to previous error handler</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span><span class="co"># revert to previous error handler</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -115,7 +122,7 @@ diagnostic and user-interation purposes.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

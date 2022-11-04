@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,23 +50,30 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">fixWidthStr</span><span class="op">(</span><span class="va">str</span>, nchar <span class="op">=</span> <span class="fl">8</span>, align <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"left"</span>, <span class="st">"right"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">fixWidthStr</span><span class="op">(</span><span class="va">str</span>, nchar <span class="op">=</span> <span class="fl">8</span>, align <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"left"</span>, <span class="st">"right"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>str</dt>
 <dd><p>A vector of strings</p></dd>
+
+
 <dt>nchar</dt>
 <dd><p>The fixed with</p></dd>
+
+
 <dt>align</dt>
 <dd><p>Character, how to align
 Strings with more or fewer characters than <code>nchar</code> are either shortened
 or filled (with spaces)</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A vector of strings with fixed widths</p>
+    
+
+<p>A vector of strings with fixed widths</p>
     </div>
     <div id="note">
     <h2>Note</h2>
@@ -81,11 +88,11 @@ where <code>NA</code> is kept as it is.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">inputStrs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"abc"</span>, <span class="st">"abcd"</span>, <span class="st">"abcde"</span>, <span class="st">"abcdefg"</span>, <span class="st">"NA"</span>, <span class="cn">NA</span><span class="op">)</span> </span>
-<span class="r-in"><span class="va">outputStrs</span> <span class="op">&lt;-</span> <span class="fu">fixWidthStr</span><span class="op">(</span><span class="va">inputStrs</span>, nchar<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="va">outputStrs</span><span class="op">)</span><span class="op">==</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">inputStrs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"abc"</span>, <span class="st">"abcd"</span>, <span class="st">"abcde"</span>, <span class="st">"abcdefg"</span>, <span class="st">"NA"</span>, <span class="cn">NA</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="va">outputStrs</span> <span class="op">&lt;-</span> <span class="fu">fixWidthStr</span><span class="op">(</span><span class="va">inputStrs</span>, nchar<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="va">outputStrs</span><span class="op">)</span><span class="op">==</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -100,7 +107,7 @@ where <code>NA</code> is kept as it is.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -18,7 +18,7 @@ purposes. See examples for its usage."><!-- mathjax --><script src="https://cdnj
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -52,23 +52,32 @@ purposes. See examples for its usage.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">headtail</span><span class="op">(</span><span class="va">vec</span>, head <span class="op">=</span> <span class="fl">2</span>, tail <span class="op">=</span> <span class="fl">1</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">headtail</span><span class="op">(</span><span class="va">vec</span>, head <span class="op">=</span> <span class="fl">2</span>, tail <span class="op">=</span> <span class="fl">1</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>vec</dt>
 <dd><p>A vector of native types (e.g. character strings)</p></dd>
+
+
 <dt>head</dt>
 <dd><p>Integer, number of head elements to be printed</p></dd>
+
+
 <dt>tail</dt>
 <dd><p>Integer, number of tail elements to be printed</p></dd>
+
+
 <dt>collapse</dt>
 <dd><p>Character string, used to collapse elements</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A character string representing the vector</p>
+    
+
+<p>A character string representing the vector</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -86,21 +95,21 @@ elements that are not shown in the vector.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">testVec1</span> <span class="op">&lt;-</span> <span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span></span>
-<span class="r-in"><span class="fu">headtail</span><span class="op">(</span><span class="va">testVec1</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">testVec1</span> <span class="op">&lt;-</span> <span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="fu">headtail</span><span class="op">(</span><span class="va">testVec1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "A, B, ..., J"</span>
-<span class="r-in"><span class="fu">headtail</span><span class="op">(</span><span class="va">testVec1</span>, head<span class="op">=</span><span class="fl">3</span>, tail<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">headtail</span><span class="op">(</span><span class="va">testVec1</span>, head<span class="op">=</span><span class="fl">3</span>, tail<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "A, B, C, ..., H, I, J"</span>
-<span class="r-in"><span class="fu">headtail</span><span class="op">(</span><span class="va">testVec1</span>, head<span class="op">=</span><span class="fl">3</span>, tail<span class="op">=</span><span class="fl">3</span>, collapse<span class="op">=</span><span class="st">"|"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">headtail</span><span class="op">(</span><span class="va">testVec1</span>, head<span class="op">=</span><span class="fl">3</span>, tail<span class="op">=</span><span class="fl">3</span>, collapse<span class="op">=</span><span class="st">"|"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "A|B|C|...|H|I|J"</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">testVec2</span> <span class="op">&lt;-</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span>
-<span class="r-in"><span class="fu">headtail</span><span class="op">(</span><span class="va">testVec2</span>, head<span class="op">=</span><span class="fl">1</span>, tail<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">testVec2</span> <span class="op">&lt;-</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="fu">headtail</span><span class="op">(</span><span class="va">testVec2</span>, head<span class="op">=</span><span class="fl">1</span>, tail<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a, ..., c"</span>
-<span class="r-in"><span class="fu">headtail</span><span class="op">(</span><span class="va">testVec2</span>, head<span class="op">=</span><span class="fl">2</span>, tail<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">headtail</span><span class="op">(</span><span class="va">testVec2</span>, head<span class="op">=</span><span class="fl">2</span>, tail<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a, b, c"</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -115,7 +124,7 @@ elements that are not shown in the vector.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

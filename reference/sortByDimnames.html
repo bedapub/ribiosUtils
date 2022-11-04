@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.3</span>
       </span>
     </div>
 
@@ -50,21 +50,28 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">sortByDimnames</span><span class="op">(</span><span class="va">x</span>, row.decreasing <span class="op">=</span> <span class="cn">FALSE</span>, col.decreasing <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">sortByDimnames</span><span class="op">(</span><span class="va">x</span>, row.decreasing <span class="op">=</span> <span class="cn">FALSE</span>, col.decreasing <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>A matrix or data.frame</p></dd>
+
+
 <dt>row.decreasing</dt>
 <dd><p>Logical, whether rows should be sorted decreasingly</p></dd>
+
+
 <dt>col.decreasing</dt>
 <dd><p>Logical, whether columns should be sorted decreasingly</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Resorted matrix or data frame</p>
+    
+
+<p>Resorted matrix or data frame</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -73,21 +80,21 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">testMat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">16</span>, nrow<span class="op">=</span><span class="fl">4</span>, dimnames<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="st">"D"</span>, <span class="st">"A"</span>, <span class="st">"C"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>, <span class="st">"f"</span>, <span class="st">"a"</span>, <span class="st">"g"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">sortByDimnames</span><span class="op">(</span><span class="va">testMat</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">testMat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">16</span>, nrow<span class="op">=</span><span class="fl">4</span>, dimnames<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="st">"D"</span>, <span class="st">"A"</span>, <span class="st">"C"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>, <span class="st">"f"</span>, <span class="st">"a"</span>, <span class="st">"g"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">sortByDimnames</span><span class="op">(</span><span class="va">testMat</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    a f  g t</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> A 11 7 15 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> B  9 5 13 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> C 12 8 16 4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> D 10 6 14 2</span>
-<span class="r-in"><span class="fu">sortByDimnames</span><span class="op">(</span><span class="va">testMat</span>, row.decreasing<span class="op">=</span><span class="cn">TRUE</span>, col.decreasing<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">sortByDimnames</span><span class="op">(</span><span class="va">testMat</span>, row.decreasing<span class="op">=</span><span class="cn">TRUE</span>, col.decreasing<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    a f  g t</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> D 10 6 14 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> C 12 8 16 4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> B  9 5 13 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> A 11 7 15 3</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -102,7 +109,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
