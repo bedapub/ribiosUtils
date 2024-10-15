@@ -210,7 +210,7 @@ void cgiHeader (char *mimeType) {
        are usually off by a few minutes, we go back a while in time to force
        a reload */
     struct tm *gmt = gmtime (&t);
-    strftime (date,39,"%a, %d %b %Y %T GMT",gmt);
+    strftime (date,39,"%a, %d %b %Y %H:%M:%S GMT",gmt);
     snprintf (exp,sizeof exp,"\r\nExpires: %.40s",date);
   }
   else

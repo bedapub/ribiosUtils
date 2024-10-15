@@ -375,7 +375,7 @@ void logPrintTime (FILE *f) {
   */
   char ts[22];
   time_t t = time (NULL);
-  strftime (ts,sizeof (ts),"%Y-%m-%d_%T ",localtime (&t));
+  strftime (ts,sizeof (ts),"%Y-%m-%d_%H:%M:%S ",localtime (&t));
   if(f) {
     fputs (ts,f);
   } else {
