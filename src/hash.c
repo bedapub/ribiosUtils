@@ -180,7 +180,7 @@ void hash_tablePrintStats (HashTable this1,FILE *outFile) {
   }
 }
 
-void hash_tableApplyFunc (HashTable this1,void *applyFunc (),int nargs,...) {
+void hash_tableApplyFunc (HashTable this1,void *applyFunc,int nargs,...) {
   /**
      Iterates through all the entries and applies the function
      specified by the function pointer applyFunc() to the value stored
@@ -203,8 +203,7 @@ void hash_tableApplyFunc (HashTable this1,void *applyFunc (),int nargs,...) {
       continue;
     va_list args;
     va_start (args,nargs);
-    avl_treeApplyFuncFixedArgs (tableTmp->tablePt,(void (*)())applyFunc,
-                                nargs,args);
+    avl_treeApplyFuncFixedArgs (tableTmp->tablePt,applyFunc,nargs,args);
     va_end (args);
   }
 }

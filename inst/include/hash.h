@@ -61,8 +61,7 @@ extern int hash_tableInsert (HashTable this1,void *valueInsert,
 extern int hash_tableFind (HashTable this1,void *valueToFind,void **valueFound);
 extern int hash_tableDelete (HashTable this1,void *valueToDelete);
 extern void hash_tablePrintStats (HashTable this1,FILE *outFile);
-extern void hash_tableApplyFunc (HashTable this1,void *applyFunc(),
-                                 int nargs,...);
+extern void hash_tableApplyFunc (HashTable this1,void *applyFunc,int nargs,...);
 extern int hash_tableNumElem (HashTable this1);
 
 extern HashIterator hash_itCreate (HashTable table);

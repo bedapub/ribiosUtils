@@ -65,10 +65,9 @@ extern void *avl_treeNextValue (AvlTree this1,void *currVal,int *foundFlag);
 extern void *avl_treePrevValue (AvlTree this1,void *currVal,int *foundFlag);
 extern long avl_treeNumNodes (AvlTree this1);
 extern int avl_treeHeight (AvlTree this1);
-extern void avl_treeApplyFuncFixedArgs (AvlTree this1,void (*applyFunc)(),
-                                        int nargs,va_list args);
-extern void avl_treeApplyFunc (AvlTree this1,void (*applyFunc)(),
-                               int nargs,...);
+extern void avl_treeApplyFuncFixedArgs (AvlTree this1,void *applyFunc,int nargs,
+                                        va_list args);
+extern void avl_treeApplyFunc (AvlTree this1,void *applyFunc,int nargs,...);
 extern void avl_treePrint (AvlTree this1,void (*printFunc)(void *,FILE *),
                            FILE * outFile);
 
