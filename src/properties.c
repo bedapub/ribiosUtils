@@ -89,6 +89,7 @@ void pty_load (Properties this1,char* filename) {
   NVpair oneNV;
   int inserted;
   char *msg;
+  (void) msg;
 
   LineStream ls = ls_createFromFile (filename);
   while ((line = ls_nextLine (ls)) != NULL) {

@@ -234,9 +234,9 @@ void print_msg(const char *x, const char* prefix, va_list args) {
   /** print msg in R. Note that the message should not be longer than 4096 characters, otherwise a buffer overflow will be detected **/
   fflush(NULL);
   char msg[4096];
-  REprintf(prefix);
+  REprintf("%s", prefix);
   vsnprintf(msg, sizeof msg, x, args);
-  REprintf(msg);
+  REprintf("%s", msg);
   va_end(args);
   REprintf("\n");
 }
@@ -375,11 +375,11 @@ void logPrintTime (FILE *f) {
   */
   char ts[22];
   time_t t = time (NULL);
-  strftime (ts,sizeof (ts),"%Y-%m-%d_%T ",localtime (&t));
+  strftime (ts,sizeof (ts),"%Y-%m-%d_%H:%M:%S ",localtime (&t));
   if(f) {
     fputs (ts,f);
   } else {
-    REprintf(ts);
+    REprintf("%s", ts);
   }
 }
 

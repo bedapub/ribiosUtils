@@ -384,7 +384,7 @@ void ls_cat (LineStream this1,char *filename) {
       fclose (f);
     } else {
       while ((line = ls_nextLine (this1)) != NULL) {
-        Rprintf (line);
+        Rprintf ("%s",line);
         Rprintf ("\n");
       }
     }

@@ -699,8 +699,8 @@ int avl_treeHeight (AvlTree this1) {
   return avl_nodeHeight (this1->rootTree);
 }
 
-static void avl_nodeCallFunction (AvlNode node,void *applyFunc(),
-                                  int nargs,va_list args){
+static void avl_nodeCallFunction (AvlNode node,void *applyFunc,int nargs,
+                                  va_list args){
   /*
     Only for internal use. avl_nodeApplyFunc() should be called to
     access this function.
@@ -710,19 +710,19 @@ static void avl_nodeCallFunction (AvlNode node,void *applyFunc(),
   */
   switch (nargs) {
   case 0:
-    applyFunc (node->value);
+    ((void (*)(void*)) applyFunc) (node->value);
     break;
   case 1:
     {
       void *arg1 = va_arg (args,void *);
-      applyFunc (node->value,arg1);
+      ((void (*)(void*,void*)) applyFunc) (node->value,arg1);
       break;
     }
   case 2:
     {
       void *arg1 = va_arg (args,void *);
       void *arg2 = va_arg (args,void *);
-      applyFunc (node->value,arg1,arg2);
+      ((void (*)(void*,void*,void*)) applyFunc) (node->value,arg1,arg2);
       break;
     }
   case 3:
@@ -730,7 +730,7 @@ static void avl_nodeCallFunction (AvlNode node,void *applyFunc(),
       void *arg1 = va_arg (args,void *);
       void *arg2 = va_arg (args,void *);
       void *arg3 = va_arg (args,void *);
-      applyFunc (node->value,arg1,arg2,arg3);
+      ((void (*)(void*,void*,void*,void*))applyFunc) (node->value,arg1,arg2,arg3);
       break;
     }
   case 4:
@@ -739,7 +739,7 @@ static void avl_nodeCallFunction (AvlNode node,void *applyFunc(),
       void *arg2 = va_arg (args,void *);
       void *arg3 = va_arg (args,void *);
       void *arg4 = va_arg (args,void *);
-      applyFunc (node->value,arg1,arg2,arg3,arg4);
+      ((void (*)(void*,void*,void*,void*,void*)) applyFunc) (node->value,arg1,arg2,arg3,arg4);
       break;
     }
   case 5:
@@ -749,7 +749,7 @@ static void avl_nodeCallFunction (AvlNode node,void *applyFunc(),
       void *arg3 = va_arg (args,void *);
       void *arg4 = va_arg (args,void *);
       void *arg5 = va_arg (args,void *);
-      applyFunc (node->value,arg1,arg2,arg3,arg4,arg5);
+      ((void (*)(void*,void*,void*,void*,void*,void*)) applyFunc) (node->value,arg1,arg2,arg3,arg4,arg5);
       break;
     }
   case 6:
@@ -760,28 +760,28 @@ static void avl_nodeCallFunction (AvlNode node,void *applyFunc(),
       void *arg4 = va_arg (args,void *);
       void *arg5 = va_arg (args,void *);
       void *arg6 = va_arg (args,void *);
-      applyFunc (node->value,arg1,arg2,arg3,arg4,arg5,arg6);
+      ((void (*)(void*,void*,void*,void*,void*,void*,void*)) applyFunc) (node->value,arg1,arg2,arg3,arg4,arg5,arg6);
       break;
     }
   default:
-    applyFunc (node->value,nargs,args);
+    ((void (*)(void*,int,va_list)) applyFunc) (node->value,nargs,args);
   }
 }
 
-static void avl_nodeApplyFunc (AvlNode rootNode,void (*applyFunc)(),
-                               int nargs,va_list args) {
+static void avl_nodeApplyFunc (AvlNode rootNode,void *applyFunc,int nargs,
+                               va_list args) {
   if (rootNode == NULL)
     return;
   avl_nodeApplyFunc (rootNode->leftNode,applyFunc,nargs,args);
   va_list tmpArgs;
-  *tmpArgs = *args;
-  avl_nodeCallFunction (rootNode,(void*(*)())applyFunc,nargs,args);
-  *args = *tmpArgs;
+  va_copy(tmpArgs,args);
+  avl_nodeCallFunction (rootNode,applyFunc,nargs,tmpArgs);
+  va_end(tmpArgs);
   avl_nodeApplyFunc (rootNode->rightNode,applyFunc,nargs,args);
 }
 
-void avl_treeApplyFuncFixedArgs (AvlTree this1,void (*applyFunc) (),
-                                 int nargs,va_list args) {
+void avl_treeApplyFuncFixedArgs (AvlTree this1,void *applyFunc,int nargs,
+                                 va_list args) {
   /**
      Iterates through all the nodes and applies the function
      specified by the function pointer applyFunc() to the value stored
@@ -793,11 +793,10 @@ void avl_treeApplyFuncFixedArgs (AvlTree this1,void (*applyFunc) (),
      @param[in] nargs - number of arguments as integer
      @param[in] args - variable list of arguments
   */
-  avl_nodeApplyFunc (this1->rootTree->leftNode,(void (*)())applyFunc,
-                     nargs,args);
+  avl_nodeApplyFunc (this1->rootTree->leftNode,applyFunc,nargs,args);
 }
 
-void avl_treeApplyFunc (AvlTree this1,void (*applyFunc)(),int nargs,...) {
+void avl_treeApplyFunc (AvlTree this1,void *applyFunc,int nargs,...) {
   /**
      Iterates through all the nodes and applies the function
      specified by the function pointer applyFunc() to the value stored
@@ -814,8 +813,7 @@ void avl_treeApplyFunc (AvlTree this1,void (*applyFunc)(),int nargs,...) {
   va_list args;
 
   va_start (args,nargs);
-  avl_nodeApplyFunc (this1->rootTree->leftNode,(void (*)())applyFunc,
-                     nargs,args);
+  avl_nodeApplyFunc (this1->rootTree->leftNode,applyFunc,nargs,args);
   va_end (args);
   return;
 }
