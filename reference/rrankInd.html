@@ -3,7 +3,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -28,20 +28,20 @@
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/bedapub/ribiosUtils/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Return a matrix that highlights reverse rank orders of features of interest by column</h1>
-    <small class="dont-index">Source: <a href="https://github.com/bedapub/ribiosUtils/blob/HEAD/R/rrank.R" class="external-link"><code>R/rrank.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/bedapub/ribiosUtils/blob/master/R/rrank.R" class="external-link"><code>R/rrank.R</code></a></small>
     <div class="hidden name"><code>rrankInd.Rd</code></div>
     </div>
 
@@ -55,48 +55,43 @@
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>matrix</dt>
+
+
+<dl><dt id="arg-matrix">matrix<a class="anchor" aria-label="anchor" href="#arg-matrix"></a></dt>
 <dd><p>A matrix</p></dd>
 
 
-<dt>ind</dt>
+<dt id="arg-ind">ind<a class="anchor" aria-label="anchor" href="#arg-ind"></a></dt>
 <dd><p>An integer vector or a logical vector that gives the index</p></dd>
 
 
-<dt>inValue</dt>
-<dd><p>Value to highlight the reverse ranks indexed by <code>ind</code>, 
+<dt id="arg-invalue">inValue<a class="anchor" aria-label="anchor" href="#arg-invalue"></a></dt>
+<dd><p>Value to highlight the reverse ranks indexed by <code>ind</code>,
 see details below</p></dd>
 
 
-<dt>outValue</dt>
+<dt id="arg-outvalue">outValue<a class="anchor" aria-label="anchor" href="#arg-outvalue"></a></dt>
 <dd><p>Values assigned to other values not indexed by <code>ind</code></p></dd>
 
 
-<dt>...</dt>
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Passed to <code><a href="https://rdrr.io/r/base/rank.html" class="external-link">rank</a></code></p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>A matrix of the same dimension and attributes of the input matrix,
-     each column contains a vector of <code>inValue</code> and <code>outValue</code>. 
-     Positions that match the reverse ranks of matrix values indexed by</p>
-<p></p>
-<p><code>ind</code> are assigned the <code>inValue</code>, otherwise, 
+    <p>A matrix of the same dimension and attributes of the input matrix,
+     each column contains a vector of <code>inValue</code> and <code>outValue</code>.
+     Positions that match the reverse ranks of matrix values indexed by
+     <code>ind</code> are assigned the <code>inValue</code>, otherwise,
      the <code>outValue</code>.</p>
-     
-
 <p>The function can be used to visualize the reverse ranks of
-features of interest (rows of the input matrix) in each sample (columns of 
+features of interest (rows of the input matrix) in each sample (columns of
 the input matrix). This is for instance useful for rank plots of features for
 gene-set enrichment analysis.</p>
-
-
-<p>Imagine that all features indexed by <code>ind</code> are the larger than 
-all other features in each sample, then the returned matrix will have 
-value <code>1</code> in the first rows (the number determined by the features 
+<p>Imagine that all features indexed by <code>ind</code> are the larger than
+all other features in each sample, then the returned matrix will have
+value <code>1</code> in the first rows (the number determined by the features
 indxed by <code>ind</code>), and <code>0</code> in the rest rows.</p>
     </div>
     <div id="see-also">
@@ -143,15 +138,15 @@ indxed by <code>ind</code>), and <code>0</code> in the rest rows.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 

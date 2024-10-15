@@ -8,7 +8,7 @@ order of the vector."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -33,20 +33,20 @@ order of the vector."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/bedapub/ribiosUtils/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Match a column in data.frame to a master vector</h1>
-    <small class="dont-index">Source: <a href="https://github.com/bedapub/ribiosUtils/blob/HEAD/R/matchColumn.R" class="external-link"><code>R/matchColumn.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/bedapub/ribiosUtils/blob/master/R/matchColumn.R" class="external-link"><code>R/matchColumn.R</code></a></small>
     <div class="hidden name"><code>matchColumn.Rd</code></div>
     </div>
 
@@ -65,22 +65,24 @@ order of the vector.</p>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>vector</dt>
+
+
+<dl><dt id="arg-vector">vector<a class="anchor" aria-label="anchor" href="#arg-vector"></a></dt>
 <dd><p>A vector, probably of character strings.</p></dd>
 
 
-<dt>data.frame</dt>
+<dt id="arg-data-frame">data.frame<a class="anchor" aria-label="anchor" href="#arg-data-frame"></a></dt>
 <dd><p>A <code>data.frame</code> object</p></dd>
 
 
-<dt>column</dt>
+<dt id="arg-column">column<a class="anchor" aria-label="anchor" href="#arg-column"></a></dt>
 <dd><p>The column name (character) or index (integer between 1 and
 the column number), indicating the column to be matched. Exceptionally
 <code>0</code> is as well accepted, which will match the row names of the
 <code>data.frame</code> to the given vector.</p></dd>
 
 
-<dt>multi</dt>
+<dt id="arg-multi">multi<a class="anchor" aria-label="anchor" href="#arg-multi"></a></dt>
 <dd><p>Logical, deciding what to do if a value in the vector is
 matched to several values in the data.frame column. If set to <code>TRUE</code>,
 all rows containing the matched value in the specified column are returned;
@@ -90,17 +92,13 @@ returned. See details and examples below.</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>For <code>matchColumnIndex</code>, if <code>multi</code> is set to <code>FALSE</code>,
+    <p>For <code>matchColumnIndex</code>, if <code>multi</code> is set to <code>FALSE</code>,
 an integer vector of the same length as the master vector, indicating the
 order of the <code>data.frame</code> rows by which the column can be re-organized
 into the master vector. When <code>multi</code> is <code>TRUE</code>, the returning
 object is a list of the same length as the master vector, each item
 containing the index (indices) of data.frame rows which match to the master
 vector.</p>
-
-
 <p>For <code>matchColumn</code>, a data.frame is always returned. In case
 <code>multi=FALSE</code>, the returning data frame has the same number of rows as
 the length of the input master vector, and the column which was specified to
@@ -275,15 +273,15 @@ should break the code.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 

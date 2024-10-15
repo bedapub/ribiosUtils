@@ -6,7 +6,7 @@ specified by the user."><!-- mathjax --><script src="https://cdnjs.cloudflare.co
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -31,20 +31,20 @@ specified by the user."><!-- mathjax --><script src="https://cdnjs.cloudflare.co
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/bedapub/ribiosUtils/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>KEEP ROWS WITH THE MAXIMUM STATISTIC</h1>
-    <small class="dont-index">Source: <a href="https://github.com/bedapub/ribiosUtils/blob/HEAD/R/keepMaxStatRow.R" class="external-link"><code>R/keepMaxStatRow.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/bedapub/ribiosUtils/blob/master/R/keepMaxStatRow.R" class="external-link"><code>R/keepMaxStatRow.R</code></a></small>
     <div class="hidden name"><code>keepMaxStatRow.Rd</code></div>
     </div>
 
@@ -68,28 +68,30 @@ specified by the user.</p>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>matrix</dt>
+
+
+<dl><dt id="arg-matrix">matrix<a class="anchor" aria-label="anchor" href="#arg-matrix"></a></dt>
 <dd><p>A numeric matrix</p></dd>
 
 
-<dt>keys</dt>
+<dt id="arg-keys">keys<a class="anchor" aria-label="anchor" href="#arg-keys"></a></dt>
 <dd><p>A vector of character giving the keys the rows are mapped to. A
 common scenario is that each row represents one probeset, while the vector
 keys give the genes that the probesets are mapped to. Thus keys can be
 redundant, namely multiple probesets can map to the same gene.</p></dd>
 
 
-<dt>keepNArows</dt>
+<dt id="arg-keepnarows">keepNArows<a class="anchor" aria-label="anchor" href="#arg-keepnarows"></a></dt>
 <dd><p>Logical, whether rows with <code>NA</code> as their keys should
 be kept (<code>TRUE</code>) or should be discarded (<code>FALSE</code>)</p></dd>
 
 
-<dt>stat</dt>
+<dt id="arg-stat">stat<a class="anchor" aria-label="anchor" href="#arg-stat"></a></dt>
 <dd><p>The function to calculate the univariate statistic. By default
 the <code>NA</code>-robust mean is used.</p></dd>
 
 
-<dt>levels</dt>
+<dt id="arg-levels">levels<a class="anchor" aria-label="anchor" href="#arg-levels"></a></dt>
 <dd><p>How should the information of the levels of keys, e.g. unique
 keys, be kept. <code>dicard</code> will discard this information, <code>rownames</code>
 will make the unique keys (potentially with <code>NA</code>s) as row names of the
@@ -97,15 +99,13 @@ output matrix, and <code>attribute</code> will append an attribute named
 <code>levels</code> to the output matrix.</p></dd>
 
 
-<dt>...</dt>
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Other parameters passed to the <code>stat</code> function</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>A numeric matrix with rows mapped to unique keys, selected by the
+    <p>A numeric matrix with rows mapped to unique keys, selected by the
 maximum statistics. See examples below</p>
     </div>
     <div id="details">
@@ -217,15 +217,15 @@ statistics each key as <code>TRUE</code> and otherwise as <code>FALSE</code>.
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 

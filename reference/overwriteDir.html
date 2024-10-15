@@ -3,7 +3,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -28,20 +28,20 @@
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/bedapub/ribiosUtils/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Overwrite a directory</h1>
-    <small class="dont-index">Source: <a href="https://github.com/bedapub/ribiosUtils/blob/HEAD/R/file_dir.R" class="external-link"><code>R/file_dir.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/bedapub/ribiosUtils/blob/master/R/file_dir.R" class="external-link"><code>R/file_dir.R</code></a></small>
     <div class="hidden name"><code>overwriteDir.Rd</code></div>
     </div>
 
@@ -55,11 +55,13 @@
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>dir</dt>
+
+
+<dl><dt id="arg-dir">dir<a class="anchor" aria-label="anchor" href="#arg-dir"></a></dt>
 <dd><p>Chacater, path to a directory.</p></dd>
 
 
-<dt>action</dt>
+<dt id="arg-action">action<a class="anchor" aria-label="anchor" href="#arg-action"></a></dt>
 <dd><p>Ask the user to input the option (<code>ask</code>), or one of the
 following options: <code>overwrite</code>, <code>append</code>, and <code>no</code>. See below
 for other options.</p></dd>
@@ -67,28 +69,18 @@ for other options.</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>If <code>action</code> is set to <code>overwrite</code>, the directory will be
+    <p>If <code>action</code> is set to <code>overwrite</code>, the directory will be
 deleted recursively if it exists, a new directory with the same name will be
 created, and the function returns <code>TRUE</code>. If <code>append</code> is set, the
 function creates the directory if necessary and returns <code>TRUE</code>. If
 <code>no</code> is set, the function does nothing and returns.</p>
-
-
 <p>If <code>action</code> is set to <code>ask</code>, user will be prompted for actions.</p>
-
-
 <p>If <code>overwrite</code> is set, the directory will be removed and written anew.</p>
-
-
 <p>If <code>append</code> is set, in contrast to <code>overwrite</code>, the directory and
  the files in it are not removed if they exists. In this case, files with the
   same name will be overwritten. Otherwise, new directories or files
   will be simply created. On the other hand, if the directory does not exist,
   it will be created.</p>
-
-
 <p>If <code>no</code> is set, no action will be taken. The funciton returns
 <code>FALSE</code>.</p>
     </div>
@@ -107,7 +99,7 @@ function creates the directory if necessary and returns <code>TRUE</code>. If
 <span class="r-in"><span><span class="va">newTempFile</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">tmpdir</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="st">"Third file"</span>, <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>tmpdir<span class="op">=</span><span class="va">tmpdir</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span>  <span class="va">tmpdir</span> <span class="op">&lt;-</span> <span class="fu">createTempDir</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu">overwriteDir</span><span class="op">(</span><span class="va">tmpdir</span>, action<span class="op">=</span><span class="st">"ask"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -129,7 +121,7 @@ function creates the directory if necessary and returns <code>TRUE</code>. If
 <span class="r-in"><span>  <span class="co">## no: no action, and returns FALSE</span></span></span>
 <span class="r-in"><span>  <span class="va">noRes</span> <span class="op">&lt;-</span> <span class="fu">overwriteDir</span><span class="op">(</span><span class="va">tmpdir</span>, action<span class="op">=</span><span class="st">"no"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="op">!</span><span class="va">noRes</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -145,15 +137,15 @@ function creates the directory if necessary and returns <code>TRUE</code>. If
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 

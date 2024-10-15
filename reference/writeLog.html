@@ -5,7 +5,7 @@ need to run registerLog first."><!-- mathjax --><script src="https://cdnjs.cloud
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -30,20 +30,20 @@ need to run registerLog first."><!-- mathjax --><script src="https://cdnjs.cloud
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/bedapub/ribiosUtils/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Write text as log to a connection</h1>
-    <small class="dont-index">Source: <a href="https://github.com/bedapub/ribiosUtils/blob/HEAD/R/writeLog.R" class="external-link"><code>R/writeLog.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/bedapub/ribiosUtils/blob/master/R/writeLog.R" class="external-link"><code>R/writeLog.R</code></a></small>
     <div class="hidden name"><code>writeLog.Rd</code></div>
     </div>
 
@@ -59,29 +59,29 @@ need to run <code>registerLog</code> first.</p>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>fmt</dt>
+
+
+<dl><dt id="arg-fmt">fmt<a class="anchor" aria-label="anchor" href="#arg-fmt"></a></dt>
 <dd><p>Format string to passed on to sprintf</p></dd>
 
 
-<dt>...</dt>
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Parameters passed on to sprintf</p></dd>
 
 
-<dt>con</dt>
+<dt id="arg-con">con<a class="anchor" aria-label="anchor" href="#arg-con"></a></dt>
 <dd><p>A connection, for instance a file (or its name) or
 <code><a href="https://rdrr.io/r/base/showConnections.html" class="external-link">stdout()</a></code></p></dd>
 
 
-<dt>level</dt>
+<dt id="arg-level">level<a class="anchor" aria-label="anchor" href="#arg-level"></a></dt>
 <dd><p>Logging level: each higher level will add one extra space
 before the message. See examples</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>Side effect is used.</p>
+    <p>Side effect is used.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -103,7 +103,7 @@ logging.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is the start of a log"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 1"</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 1.1"</span>, level<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
@@ -120,7 +120,7 @@ logging.</p>
 <span class="r-in"><span>  <span class="co">## NA is handled automatically</span></span></span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is a not available value: %s"</span>, <span class="cn">NA</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is a NULL value: %s"</span>, <span class="cn">NULL</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -135,15 +135,15 @@ logging.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 
