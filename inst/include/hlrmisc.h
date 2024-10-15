@@ -116,6 +116,8 @@ extern char *hlr_strdups (char *s1);
 */
 #define hlr_strdup0(s) ((s) ? hlr_strdup(s) : NULL)
 
+/// The maximum amount of memory meeded to to store an int
+#define HLR_ITOA_SIZE 21
 /**
    Convert an integer into a string.<br>
    Usage:<br>
@@ -126,9 +128,7 @@ extern char *hlr_strdups (char *s1);
    the result can be up to 20 bytes<br>
    (see ULONG_MAX in limits.h)<br>
 */
-#define hlr_itoa(s,i) sprintf(s,"%d",i)
-/// The maximum amount of memory meeded to to store an int
-#define HLR_ITOA_SIZE 21
+#define hlr_itoa(s,i) snprintf(s,HLR_ITOA_SIZE,"%d",i)
 
 /// Define MIN only if not defined by C library
 #ifndef MIN
