@@ -193,9 +193,9 @@ static void printName (char *name) {
   char line[NAME_LENGTH+1];
 
   if (name == NULL)
-    sprintf (line,"%*s",NAME_LENGTH,"");
+    snprintf (line,sizeof line,"%*s",NAME_LENGTH,"");
   else
-    sprintf (line,"%-*.*s",NAME_LENGTH,NAME_LENGTH-1,name);
+    snprintf (line,sizeof line,"%-*.*s",NAME_LENGTH,NAME_LENGTH-1,name);
   Rprintf ("%s",line);
 }
 

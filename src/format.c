@@ -516,7 +516,7 @@ int stringPrintf (Stringa str,const char *format,...) {
   va_end (args);
   array (str,maxlength + 1,char) = '\0'; // allocate space
   va_start (args,format);
-  resultLen = vsprintf (string (str),format,args);
+  resultLen = vsnprintf (string (str),maxlength + 1,format,args);
   va_end (args);
   if (resultLen > maxlength || resultLen < 0)
     die ("stringPrintf(): result length prediction failed. Memory corrupted. Abort for safety. Possible cause: %%f specified and printed representation of numeric value requires more then deflength = 18 bytes. Possible fix: use %%g as format string.");
@@ -539,7 +539,7 @@ int stringAppendf (Stringa str,const char *format,...) {
   va_end (args);
   array (str,len + maxlength + 1,char) = '\0'; // allocate space
   va_start (args,format);
-  resultLen = vsprintf (string (str)+len,format,args);
+  resultLen = vsnprintf (string (str)+len,maxlength + 1,format,args);
   va_end (args);
   if (resultLen > maxlength || resultLen < 0)
     die ("stringAppendf(): oops");
@@ -572,7 +572,7 @@ char *stringPrintBuf (const char *format,...) {
   va_end (args);
   array (str,maxlength + 1,char) = '\0'; // allocate space
   va_start (args,format);
-  resultLen = vsprintf (string (str),format,args);
+  resultLen = vsnprintf (string (str),maxlength + 1,format,args);
   va_end (args);
   if (resultLen > maxlength || resultLen < 0)
     die ("stringPrintBuf(): oops");

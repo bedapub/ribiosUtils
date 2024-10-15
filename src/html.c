@@ -211,7 +211,7 @@ void cgiHeader (char *mimeType) {
        a reload */
     struct tm *gmt = gmtime (&t);
     strftime (date,39,"%a, %d %b %Y %T GMT",gmt);
-    sprintf (exp,"\r\nExpires: %.40s",date);
+    snprintf (exp,sizeof exp,"\r\nExpires: %.40s",date);
   }
   else
     exp[0] = '\0';
@@ -632,7 +632,7 @@ void cgiEncodeWord (char *s,Stringa a) {
   stringClear (a);
   while ((c = *++cp) != '\0') {
     if (!isalnum(c) && c != '_' && c != '-' && c != '.' && c != ':') {
-      sprintf (hex,"%02X",c);
+      snprintf (hex,sizeof hex,"%02X",c);
       stringCatChar (a,'%');
       stringCatChar (a,hex[0]);
       stringCatChar (a,hex[1]);
@@ -818,7 +818,7 @@ void cgiURLCreate (char *host,int port,char *program) {
   stringCat (cgiurl,host);
   if (port != 0) {
     stringCat (cgiurl,":");
-    sprintf (portStr,"%d",port);
+    snprintf (portStr,sizeof portStr,"%d",port);
     stringCat (cgiurl,portStr);
   }
   if (program[0] != '/')

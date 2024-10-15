@@ -235,7 +235,7 @@ void print_msg(const char *x, const char* prefix, va_list args) {
   fflush(NULL);
   char msg[4096];
   REprintf(prefix);
-  vsprintf(msg, x, args);
+  vsnprintf(msg, sizeof msg, x, args);
   REprintf(msg);
   va_end(args);
   REprintf("\n");
@@ -509,7 +509,7 @@ void warnAdd (char *source,char *msg) {
     free (gSources[WARNMAX-1]);
     free (gMsgs[WARNMAX-1]);
     gSources[WARNMAX-1] = strdup ("warnAdd");
-    sprintf (s,"Warning buffer overflow. Last %d warning(s) discarded.",
+    snprintf (s, sizeof s, "Warning buffer overflow. Last %d warning(s) discarded.",
              gWarnCnt - WARNMAX);
     gMsgs[WARNMAX-1] = strdup(s);
   }
