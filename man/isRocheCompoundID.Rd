@@ -11,11 +11,12 @@ isRocheCompoundID(str)
 }
 \value{
 A logical vector of the same length as \code{str}, indicating whether each element is a Roche compound ID or not.
-
-Short versions (RO[1-9]{2,7}) are supported.
 }
 \description{
 Tell whether a character string is a Roche compound ID
+}
+\note{
+Short versions (RO[1-9]\{2,7\}) are supported.
 }
 \examples{
 isRocheCompoundID(c("RO1234567", "RO-1234567", 

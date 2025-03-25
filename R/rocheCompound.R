@@ -2,7 +2,7 @@
 #' @param str Character string(s)
 #' @return A logical vector of the same length as \code{str}, indicating whether each element is a Roche compound ID or not.
 #' 
-#' Short versions (RO[1-9]{2,7}) are supported.
+#' @note Short versions (RO[1-9]\{2,7\}) are supported.
 #' 
 #' @examples
 #' isRocheCompoundID(c("RO1234567", "RO-1234567", 
