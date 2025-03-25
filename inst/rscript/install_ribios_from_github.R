@@ -12,7 +12,7 @@ if(require("devtools") && require("BiocManager")) {
   install_github("bedapub/ribiosAnnotation", upgrade="never")
 
   BiocManager::install(c("edgeR", "limma", "Biobase", "latticeExtra", "globaltest", "data.table",
-			 "ComplexHeatmap", "vsn", "made4", 
+			 "ComplexHeatmap", "vsn", "made4", "biomaRt",
 			 "igraph", "sva", "gage"), update=FALSE)
   install_github("bedapub/ribiosExpression", upgrade="never")
   install_github("bedapub/ribiosGSEA", upgrade="never")
