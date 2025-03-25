@@ -1,8 +1,8 @@
 Package: ribiosUtils
 Type: Package
 Title: Utilities from and Interface to the Bioinfo-C (BIOS) Library
-Version: 1.7.5
-Date: 2024-10-05
+Version: 1.7.6
+Date: 2025-03-25
 Authors@R:
   c(person(given = "Jitao David",
            family = "Zhang",
