@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.6</span>
       </span>
     </div>
 
@@ -85,11 +85,11 @@ common rownames shared by the two matrices.</p>
 <span class="r-in"><span><span class="va">myMat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">7</span>, byrow<span class="op">=</span><span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  dimnames<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"R%d"</span>, <span class="fl">7</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"C%d"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">corByRownames</span><span class="op">(</span><span class="va">myMat1</span>, <span class="va">myMat2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            C1           C2         C3         C4          C5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> C1 -0.3121047 -0.666503364  0.4158111  0.1133333 -0.39083053</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> C2 -0.4122894  0.088724404  0.5347137  0.1220808  0.47403180</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> C3 -0.6937419 -0.200372221 -0.0902017  0.8089499  0.10073400</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> C4  0.5978218 -0.009547803  0.4339425 -0.7000653  0.05422141</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            C1         C2          C3         C4          C5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> C1 -0.0902017  0.8089499  0.10073400 -0.1530758 -0.10920425</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> C2  0.4339425 -0.7000653  0.05422141  0.1034744 -0.15564676</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> C3 -0.7476710  0.0423632 -0.78364795 -0.7201135  0.23363722</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> C4 -0.3707695 -0.3332199 -0.35659969 -0.4044449  0.04971213</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"commonRownames")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "R1" "R2" "R3" "R4" "R5" "R6"</span>
 </code></pre></div>
@@ -106,7 +106,7 @@ common rownames shared by the two matrices.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer></div>
