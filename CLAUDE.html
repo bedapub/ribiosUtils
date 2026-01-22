@@ -60,10 +60,10 @@
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">make</span> clean         <span class="co"># Clean build artifacts (*.o, *.so, *.dll in src/)</span></span></code></pre></div>
 <p>Alternative R commands:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">load_all</span><span class="op">(</span><span class="op">)</span>     <span class="co"># Load package for development</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">test</span><span class="op">(</span><span class="op">)</span>         <span class="co"># Run testthat tests</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">check</span><span class="op">(</span><span class="op">)</span>        <span class="co"># Full R CMD check</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">document</span><span class="op">(</span><span class="op">)</span>     <span class="co"># Generate documentation</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/load_all.html" class="external-link">load_all</a></span><span class="op">(</span><span class="op">)</span>     <span class="co"># Load package for development</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html" class="external-link">test</a></span><span class="op">(</span><span class="op">)</span>         <span class="co"># Run testthat tests</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/check.html" class="external-link">check</a></span><span class="op">(</span><span class="op">)</span>        <span class="co"># Full R CMD check</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">document</a></span><span class="op">(</span><span class="op">)</span>     <span class="co"># Generate documentation</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="architecture">Architecture<a class="anchor" aria-label="anchor" href="#architecture"></a></h2>
@@ -80,7 +80,7 @@
 <h3 id="testing-tests">Testing (<code>tests/</code>)<a class="anchor" aria-label="anchor" href="#testing-tests"></a></h3>
 <ul><li>Modern tests: <code>tests/testthat/test_*.R</code> using testthat framework</li>
 <li>Legacy tests: <code>tests/test_*.R</code> files</li>
-<li>Run with <code>make test</code> or <code>devtools::test()</code>
+<li>Run with <code>make test</code> or <code><a href="https://devtools.r-lib.org/reference/test.html" class="external-link">devtools::test()</a></code>
 </li>
 </ul></div>
 </div>
