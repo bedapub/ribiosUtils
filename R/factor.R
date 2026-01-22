@@ -73,8 +73,8 @@ checkFactorLevels <- function(factor, levels,
 relevelsByNamedVec <- function(x, refs, 
                                missingLevels=c("pass", "warning", "error"), 
                                unrecognisedLevels=c("warning", "pass", "error")) {
+
   stopifnot(is.named(refs))
-  stopifnot(is.factor(x))
   xlevels <- levels(x)
   refNames <- names(refs)
   
@@ -92,10 +92,6 @@ relevelsByNamedVec <- function(x, refs,
   x <- factor(x, levels=newLevels)
   return(x)
 }
-
-
-
-
 
 #' Relevel a factor by a unnamed vector.
 #' 
@@ -126,7 +122,6 @@ relevelsByNotNamedVec <- function(x, refs,
                                   unrecognisedLevels=c("warning", "pass", "error")) 
 {
   stopifnot(!is.named(refs))
-  stopifnot(is.factor(x))
   xlevels <- levels(x)
   
   checkFactorLevels(x, refs,
@@ -145,7 +140,7 @@ relevelsByNotNamedVec <- function(x, refs,
 #' This function wraps \code{\link{relevelsByNamedVec}} for named vector and
 #' \code{\link{relevelsByNotNamedVec}} for not named vectors
 #' 
-#' @param x A factor
+#' @param x A factor or a character string vector that will be cast into factor
 #' @param refs A named vector or unnamed vector.
 #' @param missingLevels Actions taken in case existing levels are missing:
 #' 'pass', 'warning', or 'error'.
@@ -169,6 +164,9 @@ relevels <- function(x, refs,
                      missingLevels=c("pass", "warning", "error"), 
                      unrecognisedLevels=c("warning", "pass", "error")) {
   
+  if(is.character(x))
+    x <- factor(x)
+  stopifnot(is.factor(x))
   missingLevels <- match.arg(missingLevels)
   unrecognisedLevels <- match.arg(unrecognisedLevels)
   

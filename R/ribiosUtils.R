@@ -1,7 +1,9 @@
+#' @keywords internal 
+"_PACKAGE"
+
 #' ribiosUtils
 #'
 #' ribiosUtils is a swiss-knife package providing misc utilities
-#' @docType package
 #' @author Jitao David Zhang <jitao_david.zhang@roche.com>, with inputs from
 #'    Clemens Broger, Martin Ebeling, Laura Badi and Roland Schmucki
 #' @useDynLib ribiosUtils, .registration=TRUE, .fixes="C_"

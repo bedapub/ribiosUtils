@@ -1,3 +1,12 @@
+Version 1.7.6 (2026-01-22)
+  + Strengthen CI/CD pipeline with updated GitHub Actions workflows
+  + Add code coverage reporting with codecov integration
+  + Add lintr workflow for automated code style checking
+  + Fix compilation issues with FORTIFY_SOURCE and Rprintf calls
+  + Fix C warnings and improve compatibility
+  + Add pkgdown documentation site support
+  + Prepare package for CRAN submission
+
 Version 1.0-48 (2015-06-02)
   + strings in trim.c was freed after they are created by strdup
 
@@ -154,8 +163,6 @@ Version 1.0.4 (2011-12-16)
 
 Version 1.0.3 (2011-12-15)
   + Add the methods package into depend list
-
-Version 1.0.2 (skipped since no stable release was made)
 
 Version 1.0.1 (2011-11-28)
   + Add data.frame and matrix manipulation methods

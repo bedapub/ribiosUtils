@@ -4,7 +4,7 @@
 \alias{pScore}
 \title{Transform p-values to continuous scores}
 \usage{
-pScore(p, sign = 1, method = c("qnorm", "absLog10"))
+pScore(p, sign = 1, method = c("qnorm", "absLog10"), replaceZero = TRUE)
 }
 \arguments{
 \item{p}{\emph{p}-value between (0,1]}
@@ -15,6 +15,10 @@ logical vector, \code{TRUE} is interpreted as positive and \code{FALSE} is
 interpreted as negative.}
 
 \item{method}{Currently available methods include \code{qnorm} and \code{absLog10}.}
+
+\item{replaceZero}{Logical, whether to replace zero p-values with the 
+minimal double value specified by the machine. Default is \code{TRUE}. If 
+set to \code{FALSE}, results will contain infinite values.}
 }
 \description{
 The function wraps other functions to map \emph{p} values ranging on \eqn{(0,1]}

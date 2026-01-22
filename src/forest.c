@@ -174,10 +174,10 @@ static void forest_descend (ForestNode k,int level) {
   dots[level] = '\0';
   if (gPrintHTML) {
     Rprintf (">");
-    Rprintf (dots);
+    Rprintf ("%s", dots);
     if (level > 0)
       Rprintf (" ");
-    Rprintf (k->name);
+    Rprintf ("%s", k->name);
     Rprintf ("\n");
   }
   else {

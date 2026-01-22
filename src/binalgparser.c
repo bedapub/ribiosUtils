@@ -296,7 +296,7 @@ void bap_run (LineStream ls) {
       int n1;
       int i,k;
 
-      n1 = sscanf (line,"%10000s %d%n",n,&b1,&p1);
+      n1 = sscanf (line,"%9999s %d%n",n,&b1,&p1);
       if (n1 != 2)
         continue;
       if (!testname1)
@@ -310,7 +310,7 @@ void bap_run (LineStream ls) {
       line = ls_nextLine (ls);
       hlr_strmcpy (m,line);
       line = ls_nextLine (ls);
-      n1 = sscanf (line,"%10000s %d%n",n,&b2,&p2);
+      n1 = sscanf (line,"%9999s %d%n",n,&b2,&p2);
       if (n1 != 2)
         continue;
       if (!testname2)

@@ -12,7 +12,7 @@ relevels(
 )
 }
 \arguments{
-\item{x}{A factor}
+\item{x}{A factor or a character string vector that will be cast into factor}
 
 \item{refs}{A named vector or unnamed vector.}
 

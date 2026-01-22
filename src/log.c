@@ -234,9 +234,9 @@ void print_msg(const char *x, const char* prefix, va_list args) {
   /** print msg in R. Note that the message should not be longer than 4096 characters, otherwise a buffer overflow will be detected **/
   fflush(NULL);
   char msg[4096];
-  REprintf(prefix);
-  vsprintf(msg, x, args);
-  REprintf(msg);
+  REprintf("%s", prefix);
+  vsnprintf(msg, sizeof msg, x, args);
+  REprintf("%s", msg);
   va_end(args);
   REprintf("\n");
 }
@@ -375,11 +375,11 @@ void logPrintTime (FILE *f) {
   */
   char ts[22];
   time_t t = time (NULL);
-  strftime (ts,sizeof (ts),"%Y-%m-%d_%T ",localtime (&t));
+  strftime (ts,sizeof (ts),"%Y-%m-%d_%H:%M:%S ",localtime (&t));
   if(f) {
     fputs (ts,f);
   } else {
-    REprintf(ts);
+    REprintf("%s", ts);
   }
 }
 
@@ -509,7 +509,7 @@ void warnAdd (char *source,char *msg) {
     free (gSources[WARNMAX-1]);
     free (gMsgs[WARNMAX-1]);
     gSources[WARNMAX-1] = strdup ("warnAdd");
-    sprintf (s,"Warning buffer overflow. Last %d warning(s) discarded.",
+    snprintf (s, sizeof s, "Warning buffer overflow. Last %d warning(s) discarded.",
              gWarnCnt - WARNMAX);
     gMsgs[WARNMAX-1] = strdup(s);
   }
