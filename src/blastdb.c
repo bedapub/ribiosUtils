@@ -181,7 +181,6 @@ void bdb_open (char *dbname,int dbtype) {
   long numRes;
   unsigned int maxLenSeq;
   int i;
-  ssize_t read_bytes;
 
   gDbType = dbtype;
   fn = stringCreate (20);
@@ -196,10 +195,10 @@ void bdb_open (char *dbname,int dbtype) {
   uint4_read (fh,&protein);
   uint4_read (fh,&len);
   title = (char *)calloc (len+1,sizeof (char));
-  read_bytes = read (fh,title,len);
+  if (read (fh,title,len) < 0) { /* ignore read error */ }
   uint4_read (fh,&len);
   date = (char *)calloc (len+1,sizeof (char));
-  read_bytes = read (fh,date,len);
+  if (read (fh,date,len) < 0) { /* ignore read error */ }
   uint4_read (fh,&numSeq);
   long8_read (fh,&numRes);
   uint4_read (fh,&maxLenSeq);
