@@ -12,3 +12,6 @@
 ^pkgdown$
 ^\.github$
 ^\.gitlab-ci\.yml$
+^\.claude$
+^CLAUDE\.md$
+^cran-comments\.md$

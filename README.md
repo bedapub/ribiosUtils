@@ -2,6 +2,8 @@
 ===
 
 ![R-CMD-check badge](https://github.com/bedapub/ribiosUtils/workflows/R-CMD-check/badge.svg)
+[![codecov](https://codecov.io/gh/bedapub/ribiosUtils/branch/master/graph/badge.svg)](https://codecov.io/gh/bedapub/ribiosUtils)
+[![lint](https://github.com/bedapub/ribiosUtils/workflows/lint/badge.svg)](https://github.com/bedapub/ribiosUtils/actions/workflows/lint.yaml)
 
 ## Introduction
 
