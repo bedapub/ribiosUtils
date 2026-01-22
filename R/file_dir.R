@@ -66,7 +66,7 @@ assertDir <- function(...) {
 #' createDir(tempdir)
 #' 
 #' @export createDir
-createDir <- function(dir,showWarnings=FALSE, recursive=FALSE, mode="0777") {
+createDir <- function(dir,showWarnings=FALSE, recursive=TRUE, mode="0777") {
   if(!checkDir(dir))
     dir.create(path=dir, showWarnings=showWarnings, recursive=recursive, mode=mode)
   if(!checkDir(dir))
