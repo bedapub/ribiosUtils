@@ -17,7 +17,7 @@ roxygenise:
 test:
 	@echo '====== test ======'
 	@(${R} -q -e "library(devtools);test('.')")
-	@echo 
+	@echo
 
 doVignettes:
 	@echo "====== vignettes ======"
