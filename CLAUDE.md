@@ -13,7 +13,7 @@ make roxygenise    # Generate roxygen documentation
 make test          # Run tests with devtools
 make build         # Build package distribution (runs roxygenise first)
 make install       # Install package locally (runs roxygenise first)
-make check         # Run R CMD check (runs roxygenise first)
+make check         # Run R CMD check (runs clean and roxygenise first)
 make clean         # Clean build artifacts (*.o, *.so, *.dll in src/)
 ```
 

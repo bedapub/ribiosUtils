@@ -36,7 +36,7 @@ install: roxygenise
 	@echo '====== Installing finished ======'
 	@echo ' '
 
-check: roxygenise
+check: clean roxygenise
 	@echo '====== Checking Package ======'
 	@(${R} -q -e "library(devtools);check('.', check_dir=\"..\")")
 	@echo '====== Checking finished ======'

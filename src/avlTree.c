@@ -699,6 +699,10 @@ int avl_treeHeight (AvlTree this1) {
   return avl_nodeHeight (this1->rootTree);
 }
 
+/* Disable pedantic warning for void* to function pointer conversion.
+   This is a POSIX extension that is widely supported. */
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
 static void avl_nodeCallFunction (AvlNode node,void *applyFunc,int nargs,
                                   va_list args){
   /*
@@ -767,6 +771,7 @@ static void avl_nodeCallFunction (AvlNode node,void *applyFunc,int nargs,
     ((void (*)(void*,int,va_list)) applyFunc) (node->value,nargs,args);
   }
 }
+#pragma GCC diagnostic pop
 
 static void avl_nodeApplyFunc (AvlNode rootNode,void *applyFunc,int nargs,
                                va_list args) {
