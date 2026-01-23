@@ -34,6 +34,12 @@ which is optimized for speed. Internal benchmarking shows improvement of
 hundred fold, namely using \code{mmatching} costs about 1/100 of the time
 used by R-implementation.
 }
+\note{
+The order of indices within each list element is guaranteed to be
+consistent on Linux, but has not been thoroughly tested on Windows and
+macOS. Users who depend on a specific order should sort the indices
+explicitly.
+}
 \examples{
 
 vec1 <- c("HSV", "BVB", "FCB", "HSV", "BRE", "HSV", NA, "BVB")

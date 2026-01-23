@@ -79,6 +79,13 @@ matching instead of any of the columns.
 Both functions are NA-friendly, since NAs in neither vector nor column
 should break the code.
 }
+\note{
+When \code{multi=TRUE}, the order of indices within each list element
+(for \code{matchColumnIndex}) or the order of multiple-matched rows (for
+\code{matchColumn}) is guaranteed to be consistent on Linux, but has not
+been thoroughly tested on Windows and macOS. Users who depend on a specific
+order should sort the results explicitly.
+}
 \examples{
 
 df <- data.frame(Team=c("HSV", "BVB", "HSC", "FCB", "HSV"),
