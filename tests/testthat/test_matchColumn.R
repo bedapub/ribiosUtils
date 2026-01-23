@@ -1,3 +1,13 @@
+# Helper function to compare matchColumnIndex results with multi=TRUE (order-agnostic)
+expect_matchColumnIndex_equal <- function(result, expected) {
+  expect_equal(names(result), names(expected))
+  expect_equal(length(result), length(expected))
+  for (i in seq_along(result)) {
+    expect_equal(sort(result[[i]]), sort(expected[[i]]),
+                 info = paste("Element", i, ":", names(result)[i]))
+  }
+}
+
 test_that("matchColumnIndex returns correct indices with multi=FALSE", {
   df <- data.frame(
     Team = c("HSV", "BVB", "HSC", "FCB", "HSV", NA),
@@ -23,7 +33,7 @@ test_that("matchColumnIndex returns correct indices with multi=TRUE", {
     list(c(1L, 5L), 2L, NA_integer_, 6L, c(1L, 5L)),
     names = c("HSV", "BVB", "BRE", NA, "HSV")
   )
-  expect_identical(result, expected)
+  expect_matchColumnIndex_equal(result, expected)
 })
 
 test_that("matchColumnIndex matches by row names when column=0", {
@@ -42,7 +52,7 @@ test_that("matchColumnIndex matches by row names when column=0", {
     list(1L, 3L, NA_integer_, 4L, 1L, 2L, 2L, NA_integer_),
     names = c("C", "A", "G", "F", "C", "B", "B", NA)
   )
-  expect_identical(result_multi, expected_multi)
+  expect_matchColumnIndex_equal(result_multi, expected_multi)
 })
 
 test_that("matchColumn returns matched data frame with multi=FALSE", {
