@@ -15,3 +15,5 @@
 ^\.claude$
 ^CLAUDE\.md$
 ^cran-comments\.md$
+^bin$
+^CRAN-SUBMISSION$

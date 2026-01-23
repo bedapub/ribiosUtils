@@ -50,7 +50,6 @@ C headers available at `inst/include/` for use by other R packages.
 
 ### Testing (`tests/`)
 - Modern tests: `tests/testthat/test_*.R` using testthat framework
-- Legacy tests: `tests/test_*.R` files
 - Run with `make test` or `devtools::test()`
 
 ## Key Exports (156 total)
