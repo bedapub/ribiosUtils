@@ -92,11 +92,8 @@ matchColumnIndex <- function(vector,
 #' match contains the master vector in its order. If \code{multi=TRUE},
 #' returned data frame can contain equal or more numbers of rows than the
 #' master vector, and multiple-matched items are repeated.
-#' @note When \code{multi=TRUE}, the order of indices within each list element
-#' (for \code{matchColumnIndex}) or the order of multiple-matched rows (for
-#' \code{matchColumn}) is guaranteed to be consistent on Linux, but has not
-#' been thoroughly tested on Windows and macOS. Users who depend on a specific
-#' order should sort the results explicitly.
+#' @note When \code{multi=TRUE}, the indices within each list element
+#' (for \code{matchColumnIndex}) are returned in ascending order.
 #' @author Jitao David Zhang <jitao_david.zhang@@roche.com>
 #' @seealso See \code{\link{match}} for basic matching operations.
 #' @examples

@@ -19,11 +19,8 @@
 #' @param table vector or \code{NULL}: the values to be matched against.
 #' @param nomatch the value to be returned in case when no match is found.
 #' @return A list of the same length as the input \code{x} vector. Each list
-#' item contains the matching indices (similar to \code{match}).
-#' @note The order of indices within each list element is guaranteed to be
-#' consistent on Linux, but has not been thoroughly tested on Windows and
-#' macOS. Users who depend on a specific order should sort the indices
-#' explicitly.
+#' item contains the matching indices in ascending order (similar to
+#' \code{match}).
 #' @author Jitao David Zhang <jitao_david.zhang@@roche.com>, C-code was adapted
 #' from the program written by Roland Schmucki.
 #' @seealso \code{match}

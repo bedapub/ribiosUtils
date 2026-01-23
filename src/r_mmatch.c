@@ -4,6 +4,11 @@ int sortInvalByValue (Inval* i1, Inval* i2) {
   return strcmp(i1->value, i2->value);
 }
 
+/* Compare integers for qsort - used to sort match indices */
+static int cmpInt(const void *a, const void *b) {
+  return (*(int*)a - *(int*)b);
+}
+
 // targets: table to search
 // oderInvalByValue: function
 void getMatch (const char *query, Array *targets, Array *matchind) {
@@ -74,6 +79,8 @@ SEXP mmatch (SEXP source, SEXP target, SEXP nomatch) {
       for(j=0;j<arrayMax(mind);j++) {
 	INTEGER(tmp)[j]=array(mind,j,int);
       }
+      /* Sort indices for consistent ordering across platforms */
+      qsort(INTEGER(tmp), arrayMax(mind), sizeof(int), cmpInt);
       SET_VECTOR_ELT(res, i,tmp);
       UNPROTECT(1);
     } else {

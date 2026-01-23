@@ -15,7 +15,8 @@ mmatch(x, table, nomatch = NA_integer_)
 }
 \value{
 A list of the same length as the input \code{x} vector. Each list
-item contains the matching indices (similar to \code{match}).
+item contains the matching indices in ascending order (similar to
+\code{match}).
 }
 \description{
 Multiple matching between two vectors. Different from R-native \code{match}
@@ -33,12 +34,6 @@ when the \code{x} or \code{table} vector gets longer.
 which is optimized for speed. Internal benchmarking shows improvement of
 hundred fold, namely using \code{mmatching} costs about 1/100 of the time
 used by R-implementation.
-}
-\note{
-The order of indices within each list element is guaranteed to be
-consistent on Linux, but has not been thoroughly tested on Windows and
-macOS. Users who depend on a specific order should sort the indices
-explicitly.
 }
 \examples{
 
