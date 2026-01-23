@@ -1,14 +1,4 @@
-# Helper function to compare mmatch results (order-agnostic within each element)
-expect_mmatch_equal <- function(result, expected) {
-  expect_equal(names(result), names(expected))
-  expect_equal(length(result), length(expected))
-  for (i in seq_along(result)) {
-    expect_equal(sort(result[[i]]), sort(expected[[i]]),
-                 info = paste("Element", i, ":", names(result)[i]))
-  }
-}
-
-test_that("mmatch returns all matching indices", {
+test_that("mmatch returns all matching indices in ascending order", {
   result <- mmatch(
     c("A", "B", "C", "T", "B", "S", "Z", NA, "C"),
     c("A", "B", "C", "D", "A", "D", "B", "C", "C", "A")
@@ -29,7 +19,7 @@ test_that("mmatch returns all matching indices", {
     names = c("A", "B", "C", "T", "B", "S", "Z", NA, "C")
   )
 
-  expect_mmatch_equal(result, expected)
+  expect_identical(result, expected)
 })
 
 test_that("mmatch uses nomatch value for unmatched elements", {
@@ -54,7 +44,7 @@ test_that("mmatch uses nomatch value for unmatched elements", {
     names = c("A", "B", "C", "T", "B", "S", "Z", NA, "C")
   )
 
-  expect_mmatch_equal(result, expected)
+  expect_identical(result, expected)
 })
 
 test_that("mmatch preserves names from source vector", {
@@ -63,5 +53,5 @@ test_that("mmatch preserves names from source vector", {
 
   expected <- list(txt = 4L, csv = 1L, pdf = 2:3)
 
-  expect_mmatch_equal(result, expected)
+  expect_identical(result, expected)
 })
