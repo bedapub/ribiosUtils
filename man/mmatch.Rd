@@ -15,7 +15,8 @@ mmatch(x, table, nomatch = NA_integer_)
 }
 \value{
 A list of the same length as the input \code{x} vector. Each list
-item contains the matching indices (similar to \code{match}).
+item contains the matching indices in ascending order (similar to
+\code{match}).
 }
 \description{
 Multiple matching between two vectors. Different from R-native \code{match}

@@ -79,6 +79,10 @@ matching instead of any of the columns.
 Both functions are NA-friendly, since NAs in neither vector nor column
 should break the code.
 }
+\note{
+When \code{multi=TRUE}, the indices within each list element
+(for \code{matchColumnIndex}) are returned in ascending order.
+}
 \examples{
 
 df <- data.frame(Team=c("HSV", "BVB", "HSC", "FCB", "HSV"),

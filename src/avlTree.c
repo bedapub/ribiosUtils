@@ -22,6 +22,20 @@
 #include "hlrmisc.h"
 #include "avlTree.h"
 
+/* Union for C99-compliant conversion between void* and function pointers.
+   This avoids pedantic warnings about void* to function pointer casts. */
+typedef union {
+  void *ptr;
+  void (*func0)(void*);
+  void (*func1)(void*,void*);
+  void (*func2)(void*,void*,void*);
+  void (*func3)(void*,void*,void*,void*);
+  void (*func4)(void*,void*,void*,void*,void*);
+  void (*func5)(void*,void*,void*,void*,void*,void*);
+  void (*func6)(void*,void*,void*,void*,void*,void*,void*);
+  void (*funcva)(void*,int,va_list);
+} AvlFuncPtr;
+
 static void avl_nodeCreate (AvlNode node) {
   node->leftNode = NULL;
   node->rightNode = NULL;
@@ -699,10 +713,6 @@ int avl_treeHeight (AvlTree this1) {
   return avl_nodeHeight (this1->rootTree);
 }
 
-/* Disable pedantic warning for void* to function pointer conversion.
-   This is a POSIX extension that is widely supported. */
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wpedantic"
 static void avl_nodeCallFunction (AvlNode node,void *applyFunc,int nargs,
                                   va_list args){
   /*
@@ -712,21 +722,23 @@ static void avl_nodeCallFunction (AvlNode node,void *applyFunc,int nargs,
     should be able to parse  variable argument list in the same way
     as shown below.
   */
+  AvlFuncPtr fp;
+  fp.ptr = applyFunc;
   switch (nargs) {
   case 0:
-    ((void (*)(void*)) applyFunc) (node->value);
+    fp.func0(node->value);
     break;
   case 1:
     {
       void *arg1 = va_arg (args,void *);
-      ((void (*)(void*,void*)) applyFunc) (node->value,arg1);
+      fp.func1(node->value,arg1);
       break;
     }
   case 2:
     {
       void *arg1 = va_arg (args,void *);
       void *arg2 = va_arg (args,void *);
-      ((void (*)(void*,void*,void*)) applyFunc) (node->value,arg1,arg2);
+      fp.func2(node->value,arg1,arg2);
       break;
     }
   case 3:
@@ -734,7 +746,7 @@ static void avl_nodeCallFunction (AvlNode node,void *applyFunc,int nargs,
       void *arg1 = va_arg (args,void *);
       void *arg2 = va_arg (args,void *);
       void *arg3 = va_arg (args,void *);
-      ((void (*)(void*,void*,void*,void*))applyFunc) (node->value,arg1,arg2,arg3);
+      fp.func3(node->value,arg1,arg2,arg3);
       break;
     }
   case 4:
@@ -743,7 +755,7 @@ static void avl_nodeCallFunction (AvlNode node,void *applyFunc,int nargs,
       void *arg2 = va_arg (args,void *);
       void *arg3 = va_arg (args,void *);
       void *arg4 = va_arg (args,void *);
-      ((void (*)(void*,void*,void*,void*,void*)) applyFunc) (node->value,arg1,arg2,arg3,arg4);
+      fp.func4(node->value,arg1,arg2,arg3,arg4);
       break;
     }
   case 5:
@@ -753,7 +765,7 @@ static void avl_nodeCallFunction (AvlNode node,void *applyFunc,int nargs,
       void *arg3 = va_arg (args,void *);
       void *arg4 = va_arg (args,void *);
       void *arg5 = va_arg (args,void *);
-      ((void (*)(void*,void*,void*,void*,void*,void*)) applyFunc) (node->value,arg1,arg2,arg3,arg4,arg5);
+      fp.func5(node->value,arg1,arg2,arg3,arg4,arg5);
       break;
     }
   case 6:
@@ -764,14 +776,13 @@ static void avl_nodeCallFunction (AvlNode node,void *applyFunc,int nargs,
       void *arg4 = va_arg (args,void *);
       void *arg5 = va_arg (args,void *);
       void *arg6 = va_arg (args,void *);
-      ((void (*)(void*,void*,void*,void*,void*,void*,void*)) applyFunc) (node->value,arg1,arg2,arg3,arg4,arg5,arg6);
+      fp.func6(node->value,arg1,arg2,arg3,arg4,arg5,arg6);
       break;
     }
   default:
-    ((void (*)(void*,int,va_list)) applyFunc) (node->value,nargs,args);
+    fp.funcva(node->value,nargs,args);
   }
 }
-#pragma GCC diagnostic pop
 
 static void avl_nodeApplyFunc (AvlNode rootNode,void *applyFunc,int nargs,
                                va_list args) {
