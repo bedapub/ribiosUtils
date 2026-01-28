@@ -1,0 +1,391 @@
+# Package index
+
+## All functions
+
+- [`allIdentical()`](https://bedapub.github.io/ribiosUtils/reference/allIdentical.md)
+  : Testing whether several objects are all identical with each other
+
+- [`applyTopOrIncAndNotExclFilter()`](https://bedapub.github.io/ribiosUtils/reference/applyTopOrIncAndNotExclFilter.md)
+  : Apply isTopOrIncAndNotExcl filter to a matrix
+
+- [`asNumMatrix()`](https://bedapub.github.io/ribiosUtils/reference/asNumMatrix.md)
+  : Convert string-valued data frame or matrix into a numeric matrix
+
+- [`assertColumnName()`](https://bedapub.github.io/ribiosUtils/reference/assertColumnName.md)
+  : Assert whether the required column names exist
+
+- [`assertContrast()`](https://bedapub.github.io/ribiosUtils/reference/assertContrast.md)
+  : Check dimensionality of contrast matrix
+
+- [`assertDesign()`](https://bedapub.github.io/ribiosUtils/reference/assertDesign.md)
+  : Check dimensionality of design matrix
+
+- [`assertDesignContrast()`](https://bedapub.github.io/ribiosUtils/reference/assertDesignContrast.md)
+  : Check dimensionality of both design and contrast matrix
+
+- [`bedaInfo()`](https://bedapub.github.io/ribiosUtils/reference/bedaInfo.md)
+  : Print BEDA project information
+
+- [`biomicsPstorePath2URL()`](https://bedapub.github.io/ribiosUtils/reference/biomicsPstorePath2URL.md)
+  : Translate BiOmics-Pathology pstore path to URL
+
+- [`bound()`](https://bedapub.github.io/ribiosUtils/reference/bound.md)
+  [`boundNorm()`](https://bedapub.github.io/ribiosUtils/reference/bound.md)
+  : Set boundaries for numeric values, or perform a 0-1 normalization.
+
+- [`cbindByRownames()`](https://bedapub.github.io/ribiosUtils/reference/cbindByRownames.md)
+  [`rbindByColnames()`](https://bedapub.github.io/ribiosUtils/reference/cbindByRownames.md)
+  : Column bind by rownames
+
+- [`checkFile()`](https://bedapub.github.io/ribiosUtils/reference/checkFile.md)
+  [`assertFile()`](https://bedapub.github.io/ribiosUtils/reference/checkFile.md)
+  : Check whether file(s) exist
+
+- [`chosenFew()`](https://bedapub.github.io/ribiosUtils/reference/chosenFew.md)
+  : Print the chosen few items of a long vector
+
+- [`closeLoggerConnections()`](https://bedapub.github.io/ribiosUtils/reference/closeLoggerConnections.md)
+  :
+
+  Close connections to all loggers This function closes all open
+  connections set up by loggers It is automatically run at the end of
+  the R session (setup by `registerLog`)
+
+- [`columnOverlapCoefficient()`](https://bedapub.github.io/ribiosUtils/reference/columnOverlapCoefficient.md)
+  : Pairwise jaccard/overlap coefficient can be calculated efficiently
+  using matrix Pairwise overlap coefficient of binary matrix by column
+
+- [`compTwoVecs()`](https://bedapub.github.io/ribiosUtils/reference/compTwoVecs.md)
+  : Compare two vectors by set operations
+
+- [`corByRownames()`](https://bedapub.github.io/ribiosUtils/reference/corByRownames.md)
+  : Calculate correlation coefficients using common rows of the two
+  matrices
+
+- [`countTokens()`](https://bedapub.github.io/ribiosUtils/reference/countTokens.md)
+  : Count tokens by splitting strings
+
+- [`createDir()`](https://bedapub.github.io/ribiosUtils/reference/createDir.md)
+  : Create a directory if it does not exist, and then make sure the
+  creation was successful.
+
+- [`cumJaccardIndex()`](https://bedapub.github.io/ribiosUtils/reference/cumJaccardIndex.md)
+  [`cumJaccardDistance()`](https://bedapub.github.io/ribiosUtils/reference/cumJaccardIndex.md)
+  : Cumulative Jaccard Index
+
+- [`cumOverlapCoefficient()`](https://bedapub.github.io/ribiosUtils/reference/cumOverlapCoefficient.md)
+  [`cumOverlapDistance()`](https://bedapub.github.io/ribiosUtils/reference/cumOverlapCoefficient.md)
+  : Cumulative overlap coefficient
+
+- [`cumsumprop()`](https://bedapub.github.io/ribiosUtils/reference/cumsumprop.md)
+  : Proportion of cumulative sum over sum
+
+- [`cutInterval()`](https://bedapub.github.io/ribiosUtils/reference/cutInterval.md)
+  : Cut a vector of numbers into interval factors.
+
+- [`cutreeIntoOrderedGroups()`](https://bedapub.github.io/ribiosUtils/reference/cutreeIntoOrderedGroups.md)
+  : Cut a tree into groups of ordered sizes
+
+- [`dfFactor()`](https://bedapub.github.io/ribiosUtils/reference/dfFactor.md)
+  : Get a factor vector for a data.frame
+
+- [`dfFactor2Str()`](https://bedapub.github.io/ribiosUtils/reference/dfFactor2Str.md)
+  : Convert factor columns in a data.frame into character strings
+
+- [`equateWellLabelWidth()`](https://bedapub.github.io/ribiosUtils/reference/equateWellLabelWidth.md)
+  : Format labels for wells in microwell plates to equal widths
+
+- [`extname()`](https://bedapub.github.io/ribiosUtils/reference/extname.md)
+  : Get the base and extension(s) of file name(s)
+
+- [`firstUp()`](https://bedapub.github.io/ribiosUtils/reference/firstUp.md)
+  : Make the first alphabet of strings uppercase
+
+- [`fixWidthStr()`](https://bedapub.github.io/ribiosUtils/reference/fixWidthStr.md)
+  : Shorten strings to strings with a fix width of characters
+
+- [`haltifnot()`](https://bedapub.github.io/ribiosUtils/reference/haltifnot.md)
+  : Ensure the Truth of R Expressions and Print Defined Error Message if
+  NOT
+
+- [`headhead()`](https://bedapub.github.io/ribiosUtils/reference/headhead.md)
+  : head/tail function for matrix or data.frame
+
+- [`headtail()`](https://bedapub.github.io/ribiosUtils/reference/headtail.md)
+  : Print head and tail elements of a vector
+
+- [`identicalMatrix()`](https://bedapub.github.io/ribiosUtils/reference/identicalMatrix.md)
+  : Test whether two matrices are identical by values and by dim names
+
+- [`identicalMatrixValue()`](https://bedapub.github.io/ribiosUtils/reference/identicalMatrixValue.md)
+  : Test whether two matrices have the same numerica values given
+  certain accuracy
+
+- [`imatch()`](https://bedapub.github.io/ribiosUtils/reference/imatch.md)
+  : Case-insensitive match and pmatch
+
+- [`invertList()`](https://bedapub.github.io/ribiosUtils/reference/invertList.md)
+  : Invert the names and elements of a list
+
+- [`isDir()`](https://bedapub.github.io/ribiosUtils/reference/isDir.md)
+  [`checkDir()`](https://bedapub.github.io/ribiosUtils/reference/isDir.md)
+  [`assertDir()`](https://bedapub.github.io/ribiosUtils/reference/isDir.md)
+  : Checks existing directory
+
+- [`isError()`](https://bedapub.github.io/ribiosUtils/reference/isError.md)
+  : Tell whether an object is an error
+
+- [`isOdd()`](https://bedapub.github.io/ribiosUtils/reference/isOdd.md)
+  [`isEven()`](https://bedapub.github.io/ribiosUtils/reference/isOdd.md)
+  : Whether an integer is odd (or even)
+
+- [`isRocheCompoundID()`](https://bedapub.github.io/ribiosUtils/reference/isRocheCompoundID.md)
+  : Tell whether a character string is a Roche compound ID
+
+- [`isTopOrIncAndNotExcl()`](https://bedapub.github.io/ribiosUtils/reference/isTopOrIncAndNotExcl.md)
+  : Logical vector of being top or included and not excluded
+
+- [`jaccardIndex()`](https://bedapub.github.io/ribiosUtils/reference/jaccardIndex.md)
+  [`jaccardDistance()`](https://bedapub.github.io/ribiosUtils/reference/jaccardIndex.md)
+  : Calculate the Jaccard Index between two vectors
+
+- [`keepMaxStatRow()`](https://bedapub.github.io/ribiosUtils/reference/keepMaxStatRow.md)
+  : KEEP ROWS WITH THE MAXIMUM STATISTIC
+
+- [`lastChar()`](https://bedapub.github.io/ribiosUtils/reference/lastChar.md)
+  : Return last characters from strings
+
+- [`libordie()`](https://bedapub.github.io/ribiosUtils/reference/libordie.md)
+  : Load a library mutedly and quit (die) in case of failing
+
+- [`list2df()`](https://bedapub.github.io/ribiosUtils/reference/list2df.md)
+  : Transform a list of character strings into a data.frame
+
+- [`listOverlapCoefficient()`](https://bedapub.github.io/ribiosUtils/reference/listOverlapCoefficient.md)
+  : Pairwise overlap coefficient of lists
+
+- [`longdf2matrix()`](https://bedapub.github.io/ribiosUtils/reference/longdf2matrix.md)
+  : Convert a long-format data frame into matrix
+
+- [`matchColumn()`](https://bedapub.github.io/ribiosUtils/reference/matchColumn.md)
+  : Match a column in data.frame to a master vector
+
+- [`matchColumnName()`](https://bedapub.github.io/ribiosUtils/reference/matchColumnName.md)
+  : Match a given vector to column names of a data.frame or matrix
+
+- [`matrix2longdf()`](https://bedapub.github.io/ribiosUtils/reference/matrix2longdf.md)
+  : Transform a matrix into a long-format data.frame
+
+- [`mergeInfreqLevelsByCumsumprop()`](https://bedapub.github.io/ribiosUtils/reference/mergeInfreqLevelsByCumsumprop.md)
+  : Merge infrequent levels by setting the threshold of the proportion
+  of cumulative sum over sum a.k.a. cumsumprop
+
+- [`midentical()`](https://bedapub.github.io/ribiosUtils/reference/midentical.md)
+  : Multiple identical
+
+- [`mmatch()`](https://bedapub.github.io/ribiosUtils/reference/mmatch.md)
+  : Multiple matching
+
+- [`munion()`](https://bedapub.github.io/ribiosUtils/reference/munion.md)
+  : Operations for multiple sets
+
+- [`na.false()`](https://bedapub.github.io/ribiosUtils/reference/na.false.md)
+  : Replace NA with FALSE
+
+- [`naivePairwiseDist()`](https://bedapub.github.io/ribiosUtils/reference/naivePairwiseDist.md)
+  : Calculate pairwise distances between each pair of items in a list
+
+- [`ofactor()`](https://bedapub.github.io/ribiosUtils/reference/ofactor.md)
+  : Ordered factor
+
+- [`orderCutgroup()`](https://bedapub.github.io/ribiosUtils/reference/orderCutgroup.md)
+  : Reorder the groups by their group size
+
+- [`overlapCoefficient()`](https://bedapub.github.io/ribiosUtils/reference/overlapCoefficient.md)
+  [`overlapDistance()`](https://bedapub.github.io/ribiosUtils/reference/overlapCoefficient.md)
+  : Overlap coefficient, also known as Szymkiewicz-Simpson coefficient
+
+- [`overwriteDir()`](https://bedapub.github.io/ribiosUtils/reference/overwriteDir.md)
+  : Overwrite a directory
+
+- [`pAbsLog10Score()`](https://bedapub.github.io/ribiosUtils/reference/pAbsLog10Score.md)
+  : Transform p-values to continuous scores with the absolute-log10
+  transformation
+
+- [`pQnormScore()`](https://bedapub.github.io/ribiosUtils/reference/pQnormScore.md)
+  : Transform p-values to continuous scores with the quantile function
+  of the normal distribution
+
+- [`pScore()`](https://bedapub.github.io/ribiosUtils/reference/pScore.md)
+  : Transform p-values to continuous scores
+
+- [`pairwiseJaccardIndex()`](https://bedapub.github.io/ribiosUtils/reference/pairwiseJaccardIndex.md)
+  [`pairwiseJaccardDistance()`](https://bedapub.github.io/ribiosUtils/reference/pairwiseJaccardIndex.md)
+  : Calculate pairwise Jaccard Indices between each pair of items in a
+  list
+
+- [`pairwiseOverlapDistance()`](https://bedapub.github.io/ribiosUtils/reference/pairwiseOverlapDistance.md)
+  [`pairwiseOverlapCoefficient()`](https://bedapub.github.io/ribiosUtils/reference/pairwiseOverlapDistance.md)
+  : Calculate pairwise overlap coefficients between each pair of items
+  in a list
+
+- [`percentage()`](https://bedapub.github.io/ribiosUtils/reference/percentage.md)
+  : Print a decimal number in procent format
+
+- [`print(`*`<BEDAinfo>`*`)`](https://bedapub.github.io/ribiosUtils/reference/print.BEDAinfo.md)
+  : Print BEDAinfo object
+
+- [`putColsFirst()`](https://bedapub.github.io/ribiosUtils/reference/putColsFirst.md)
+  : Rearrange columns to put some columns to far left
+
+- [`pwdecode()`](https://bedapub.github.io/ribiosUtils/reference/pwdecode.md)
+  : Decode password with function implemented with pwencode
+
+- [`pwencode()`](https://bedapub.github.io/ribiosUtils/reference/pwencode.md)
+  : Encode a password
+
+- [`qqmsg()`](https://bedapub.github.io/ribiosUtils/reference/qqmsg.md)
+  : Quitely Quit with Messages
+
+- [`qsystem()`](https://bedapub.github.io/ribiosUtils/reference/qsystem.md)
+  : Quietly runs a system command
+
+- [`refactorNum()`](https://bedapub.github.io/ribiosUtils/reference/refactorNum.md)
+  : Sort numeric factor levels by values
+
+- [`registerLog()`](https://bedapub.github.io/ribiosUtils/reference/registerLog.md)
+  :
+
+  The functions `registerLog` and `doLog` provide a simple mechanism to
+  handle loggings (printing text messages to files or other types of
+  connections) in R.
+
+- [`relevels()`](https://bedapub.github.io/ribiosUtils/reference/relevels.md)
+  : Relevel a factor by a named or unnamed vector.
+
+- [`relevelsByNamedVec()`](https://bedapub.github.io/ribiosUtils/reference/relevelsByNamedVec.md)
+  : Relevel a factor by a named vector.
+
+- [`relevelsByNotNamedVec()`](https://bedapub.github.io/ribiosUtils/reference/relevelsByNotNamedVec.md)
+  : Relevel a factor by a unnamed vector.
+
+- [`reload()`](https://bedapub.github.io/ribiosUtils/reference/reload.md)
+  : Reload a package
+
+- [`removeColumns()`](https://bedapub.github.io/ribiosUtils/reference/removeColumns.md)
+  : Remove columns
+
+- [`removeColumnsByFunc()`](https://bedapub.github.io/ribiosUtils/reference/removeColumnsByFunc.md)
+  [`removeRowsByFunc()`](https://bedapub.github.io/ribiosUtils/reference/removeColumnsByFunc.md)
+  : Remove rows or column by function
+
+- [`removeColumnsWithNA()`](https://bedapub.github.io/ribiosUtils/reference/removeColumnsWithNA.md)
+  : Remove columns in a matrix that contains one or more NAs
+
+- [`removeInvarCol()`](https://bedapub.github.io/ribiosUtils/reference/removeInvarCol.md)
+  : Remove invariable columns from a data frame or matrix
+
+- [`removeRowsWithNA()`](https://bedapub.github.io/ribiosUtils/reference/removeRowsWithNA.md)
+  : Remove rows in a matrix that contains one or more NAs
+
+- [`replaceColumnName()`](https://bedapub.github.io/ribiosUtils/reference/replaceColumnName.md)
+  : Replace column names in data.frame
+
+- [`replaceZeroPvalue()`](https://bedapub.github.io/ribiosUtils/reference/replaceZeroPvalue.md)
+  : Replace p-values of zero
+
+- [`ribiosTempdir()`](https://bedapub.github.io/ribiosUtils/reference/ribiosTempdir.md)
+  : A temporary directory which (1) every machine in the cluster has
+  access to and (2) has sufficient space
+
+- [`ribiosTempfile()`](https://bedapub.github.io/ribiosUtils/reference/ribiosTempfile.md)
+  : A temporary file which (1) every machine in the cluster has access
+  to and (2) there is sufficient space
+
+- [`ribiosUtils`](https://bedapub.github.io/ribiosUtils/reference/ribiosUtils.md)
+  : ribiosUtils
+
+- [`rmat()`](https://bedapub.github.io/ribiosUtils/reference/rmat.md) :
+  Remove temporary files at a specified time interval from now
+
+- [`rocheCore()`](https://bedapub.github.io/ribiosUtils/reference/rocheCore.md)
+  : Extract core identifiers from Roche compound IDs
+
+- [`rowscale()`](https://bedapub.github.io/ribiosUtils/reference/rowscale.md)
+  : S3 method for row-scaling
+
+- [`rowscale(`*`<matrix>`*`)`](https://bedapub.github.io/ribiosUtils/reference/rowscale.matrix.md)
+  : Scale a matrix by row
+
+- [`rowscale(`*`<table>`*`)`](https://bedapub.github.io/ribiosUtils/reference/rowscale.table.md)
+  : Scale a table by row
+
+- [`rrank()`](https://bedapub.github.io/ribiosUtils/reference/rrank.md)
+  : Reverse rank order
+
+- [`rrank(`*`<matrix>`*`)`](https://bedapub.github.io/ribiosUtils/reference/rrank.matrix.md)
+  : Get reverse rank orders in each column
+
+- [`rrankInd()`](https://bedapub.github.io/ribiosUtils/reference/rrankInd.md)
+  : Return a matrix that highlights reverse rank orders of features of
+  interest by column
+
+- [`rsetdiff()`](https://bedapub.github.io/ribiosUtils/reference/rsetdiff.md)
+  : Reverse setdiff
+
+- [`scriptInit()`](https://bedapub.github.io/ribiosUtils/reference/scriptInit.md)
+  : Prepare R for an interactive script
+
+- [`setDebug()`](https://bedapub.github.io/ribiosUtils/reference/setDebug.md)
+  : Functions for command-line Rscript debugging
+
+- [`shortenRocheCompoundID()`](https://bedapub.github.io/ribiosUtils/reference/shortenRocheCompoundID.md)
+  : Shorten Roche compounds identifiers
+
+- [`shortenStr()`](https://bedapub.github.io/ribiosUtils/reference/shortenStr.md)
+  : Shorten strings to a given number of characters
+
+- [`silencio()`](https://bedapub.github.io/ribiosUtils/reference/silencio.md)
+  : Keep silent by suppressing warnings and messages
+
+- [`sortAndFilterByCumsumprop()`](https://bedapub.github.io/ribiosUtils/reference/sortAndFilterByCumsumprop.md)
+  : Sort a numeric vector and filter by a threshold of cumsumprop
+
+- [`sortByCol()`](https://bedapub.github.io/ribiosUtils/reference/sortByCol.md)
+  : Sort data.frame rows by values in specified columns
+
+- [`sortByDimnames()`](https://bedapub.github.io/ribiosUtils/reference/sortByDimnames.md)
+  : Sort matrix by dim names
+
+- [`strtoken()`](https://bedapub.github.io/ribiosUtils/reference/strtoken.md)
+  : Tokenize strings by character
+
+- [`stubborngc()`](https://bedapub.github.io/ribiosUtils/reference/stubborngc.md)
+  : Repeat garbage-collecting until all resource is freed
+
+- [`subsetByColumnName()`](https://bedapub.github.io/ribiosUtils/reference/subsetByColumnName.md)
+  : Subset a data.frame by column name, allowing differences in cases
+
+- [`summarizeRows()`](https://bedapub.github.io/ribiosUtils/reference/summarizeRows.md)
+  : Summarizing rows/columns by a factor
+
+- [`trim()`](https://bedapub.github.io/ribiosUtils/reference/trim.md) :
+  Trim leading and tailing spaces from string
+
+- [`uniqueLength()`](https://bedapub.github.io/ribiosUtils/reference/uniqueLength.md)
+  : Length of unique elements in a vector
+
+- [`uniqueNonNA()`](https://bedapub.github.io/ribiosUtils/reference/uniqueNonNA.md)
+  : Make a vector free of NA and unique
+
+- [`verbose()`](https://bedapub.github.io/ribiosUtils/reference/verbose.md)
+  : Print messages conditional on the verbose level
+
+- [`wellIndex2position()`](https://bedapub.github.io/ribiosUtils/reference/wellIndex2position.md)
+  : Translate well index numbers to well positions
+
+- [`whoami()`](https://bedapub.github.io/ribiosUtils/reference/whoami.md)
+  : System user name
+
+- [`writeLog()`](https://bedapub.github.io/ribiosUtils/reference/writeLog.md)
+  : Write text as log to a connection
