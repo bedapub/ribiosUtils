@@ -34,7 +34,8 @@ are registered by \code{registerLog}. Therefore, to register logger(s) with
 logging.
 }
 \examples{
-\donttest{
+## the following code section is not run to prevent issues with pkgdown
+\dontrun{
   writeLog("This is the start of a log")
   writeLog("Message 1", level=1)
   writeLog("Message 1.1", level=2)

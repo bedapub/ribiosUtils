@@ -1,3 +1,21 @@
+Version 1.7.8 (2026-01-28)
+  + Address CRAN feedback for package submission
+  + Quote software names ('Bioinfo-C' and 'BIOS') in DESCRIPTION
+  + Add missing @return tags to cutreeIntoOrderedGroups, invertList,
+    pAbsLog10Score, pQnormScore, and pScore
+  + Replace \dontrun{} with \donttest{} in examples where appropriate
+  + Remove if(interactive()) wrappers from non-interactive examples
+  + Add on.exit() for options restoration in scriptInit()
+  + Change dump.frames() in scriptInit() to write to tempdir()
+  + Replace installed.packages() with requireNamespace() in libordie()
+  + Fix overwriteDir examples to avoid deleting session tempdir()
+  + run pkgdown also in the devel branch
+
+Version 1.7.7 (2026-01-22)
+  + Fix mmatch to return indices in consistent order across platforms
+  + Add platform note to mmatch and matchColumnIndex documentation
+  + Fix CRAN pragma issue and Windows test failures
+
 Version 1.7.6 (2026-01-22)
   + Strengthen CI/CD pipeline with updated GitHub Actions workflows
   + Fix compilation issues with FORTIFY_SOURCE and Rprintf calls

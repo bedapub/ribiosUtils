@@ -2,7 +2,7 @@
 % Please edit documentation in R/writeLog.R
 \name{closeLoggerConnections}
 \alias{closeLoggerConnections}
-\title{Close connections to all loggers 
+\title{Close connections to all loggers
 This function closes all open connections set up by loggers
 It is automatically run at the end of the R session (setup by \code{\link{registerLog}})}
 \usage{
@@ -12,7 +12,7 @@ closeLoggerConnections()
 Invisible \code{NULL}. Only side effect is used.
 }
 \description{
-Close connections to all loggers 
+Close connections to all loggers
 This function closes all open connections set up by loggers
 It is automatically run at the end of the R session (setup by \code{\link{registerLog}})
 }

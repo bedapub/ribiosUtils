@@ -63,7 +63,8 @@ interactive sessions, sometimes \code{flushLog} is needed to force R write
 all log files to all connections that are registered.
 }
 \examples{
-\donttest{
+## the following code section is not run to prevent issues with pkgdown
+\dontrun{
   logfile1 <- tempfile()
   logfile2 <- tempfile()
   logcon3 <- stdout()
