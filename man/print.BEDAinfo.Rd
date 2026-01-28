@@ -18,5 +18,5 @@ Invisible \code{NULL}, only side effect is used
 Print BEDAinfo object
 }
 \examples{
-if(interactive()) {print(bedaInfo())}
+print(bedaInfo())
 }

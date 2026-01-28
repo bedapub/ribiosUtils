@@ -18,6 +18,9 @@ interpreted as negative.}
 minimal double value specified by the machine. Default is \code{TRUE}. If 
 set to \code{FALSE}, results will contain infinite values.}
 }
+\value{
+A numeric vector of transformed p-values using signed -log10 transformation.
+}
 \description{
 The function maps p values between 0 and 1 to continuous scores ranging on \code{R} by the following equation: \eqn{abs(log10(p))*sign}
 }

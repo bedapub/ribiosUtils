@@ -34,7 +34,7 @@ are registered by \code{registerLog}. Therefore, to register logger(s) with
 logging.
 }
 \examples{
-\dontrun{
+\donttest{
   writeLog("This is the start of a log")
   writeLog("Message 1", level=1)
   writeLog("Message 1.1", level=2)
@@ -43,11 +43,11 @@ logging.
   writeLog("Message 3", level=1)
   writeLog("Message 3 (special)", level=4)
   writeLog("End of the log");
-  
+
   ## log with format
   writeLog("This is Message \%d", 1)
   writeLog("Square of 2 is \%2.2f", sqrt(2))
-  
+
   ## NA is handled automatically
   writeLog("This is a not available value: \%s", NA, level=1)
   writeLog("This is a NULL value: \%s", NULL, level=1)

@@ -20,6 +20,9 @@ interpreted as negative.}
 minimal double value specified by the machine. Default is \code{TRUE}. If 
 set to \code{FALSE}, results will contain infinite values.}
 }
+\value{
+A numeric vector of transformed p-values using the specified method.
+}
 \description{
 The function wraps other functions to map \emph{p} values ranging on \eqn{(0,1]}
 to continuous scores ranging on \eqn{R} in a number of ways.

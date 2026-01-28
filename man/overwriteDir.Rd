@@ -49,7 +49,7 @@ createTempDir <- function() {
 newTempFile <- function(tmpdir) {
   writeLines("Third file", tempfile(tmpdir=tmpdir))
 }
-\dontrun{
+\donttest{
   tmpdir <- createTempDir()
   overwriteDir(tmpdir, action="ask")
 

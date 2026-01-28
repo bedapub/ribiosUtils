@@ -59,7 +59,7 @@ unsetDebug <- function() Sys.unsetenv("RIBIOS_SCRIPT_DEBUG")
 #' @examples
 #' 
 #' ## do not run unless the script mode is needed
-#' \dontrun{
+#' \donttest{
 #'   scriptInit()
 #' }
 #' 
@@ -68,8 +68,10 @@ scriptInit <- function() {
   if(interactive()) {
     setDebug()
   } else {
+    oldOpts <- options()
+    on.exit(options(oldOpts))
     options(error=quote({
-      dump.frames("ribios.dump", to.file=TRUE);
+      dump.frames(file.path(tempdir(), "ribios.dump"), to.file=TRUE);
       quit(save="no", status=1L)
     }))
   }

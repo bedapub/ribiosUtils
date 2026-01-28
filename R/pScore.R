@@ -39,7 +39,8 @@ replaceZeroPvalue <- function(p, factor=1) {
 #' pAbsLog10Score(testPvals, sign=testPvalSign)
 #' testLog <- rep(c(TRUE, FALSE),3)
 #' pAbsLog10Score(testPvals, testLog)
-#' 
+#'
+#' @return A numeric vector of transformed p-values using signed -log10 transformation.
 #' @seealso \code{\link{pQnormScore}}, \code{\link{pScore}}, \code{\link{replaceZeroPvalue}}
 #' @export pAbsLog10Score
 pAbsLog10Score <- function(p, sign=1, replaceZero=TRUE) {
@@ -72,7 +73,8 @@ pAbsLog10Score <- function(p, sign=1, replaceZero=TRUE) {
 #' pQnormScore(testPvals, sign=testPvalSign)
 #' testLog <- rep(c(TRUE, FALSE),3)
 #' pQnormScore(testPvals, testLog)
-#' 
+#'
+#' @return A numeric vector of transformed p-values using signed quantile normal transformation.
 #' @seealso \code{\link{pAbsLog10Score}}, \code{\link{pScore}}, \code{\link{double}}
 #' @export pQnormScore
 pQnormScore <- function(p, sign=1, replaceZero=TRUE) {
@@ -115,6 +117,7 @@ pQnormScore <- function(p, sign=1, replaceZero=TRUE) {
 #' plot(pScore(testPvals, method="qnorm"),
 #'      pScore(testPvals, method="absLog10"),
 #'      xlab="pQnormScore", ylab="pAbsLog10Score"); abline(0,1, col="red", lty=2)
+#' @return A numeric vector of transformed p-values using the specified method.
 #' @seealso \code{\link{pAbsLog10Score}}, \code{\link{pQnormScore}}
 #' @export pScore
 pScore <- function(p, sign=1, 

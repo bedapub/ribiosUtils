@@ -16,8 +16,11 @@ cutreeIntoOrderedGroups(tree, k = NULL, h = NULL, decreasing = TRUE)
 
 \item{decreasing}{logical, should be the first group the largest?
 
-Cut a tree, e.g. as resulting from \code{\link{hclust}}, into groups, with 
+Cut a tree, e.g. as resulting from \code{\link{hclust}}, into groups, with
 the groups being ordered by their size.}
+}
+\value{
+A named integer vector of cluster assignments, ordered by cluster size (largest first by default). If multiple values of \code{k} or \code{h} are provided, a matrix with one column per value.
 }
 \description{
 Cut a tree into groups of ordered sizes
