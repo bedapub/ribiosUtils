@@ -14,5 +14,5 @@ The function is used at the end of the Rmarkdown report to print relevant inform
 Print BEDA project information
 }
 \examples{
-if(interactive()) {bedaInfo()}
+bedaInfo()
 }

@@ -17,8 +17,8 @@ biomicsPstorePath2URL <- function(path) {
 #' @return A list, including pstore path, URL, git address, and user id
 #' The function is used at the end of the Rmarkdown report to print relevant information to help other colleagues finding relevant resources
 #' 
-#' @examples 
-#' if(interactive()) {bedaInfo()}
+#' @examples
+#' bedaInfo()
 #' @export
 bedaInfo <- function() {
   pstorePath <- getwd()
@@ -41,8 +41,8 @@ bedaInfo <- function() {
 #' 
 #' @return Invisible \code{NULL}, only side effect is used
 #'
-#' @examples 
-#' if(interactive()) {print(bedaInfo())}
+#' @examples
+#' print(bedaInfo())
 #' @export
 print.BEDAinfo <- function(x, ...) {
   cat("A Pharmaceutical Sciences (PS) Bioinformatics and Exploratory Data Analysis (BEDA) project\n\n")

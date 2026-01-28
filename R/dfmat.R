@@ -563,7 +563,7 @@ rbindByColnames <- function(..., type=c("intersect", "union")) {
 #' isTopOrIncAndNotExcl(myVal2, 2, incFunc=function(x) x=="A")
 #' isTopOrIncAndNotExcl(myVal2, 4)
 #' isTopOrIncAndNotExcl(myVal2, 4, excFunc=function(x) x=="a")
-#' \dontrun{
+#' \donttest{
 #' ## the function returns all TRUEs if top is larger than the length of the vector
 #' isTopOrIncAndNotExcl(myVal, top=9)
 #' }

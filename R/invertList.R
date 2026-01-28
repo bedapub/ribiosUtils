@@ -5,6 +5,7 @@
 #' myList <- list("A"=c("a", "alpha"), "B"=c("b", "Beta"), "C"="c")
 #' invertList(myList)
 #' invertList(myList, simplify=TRUE)
+#' @return A list with values from the input becoming names and vice versa. When \code{simplify=TRUE} and there are no duplicated names, a named character vector is returned instead.
 #' @export
 invertList <- function(inputList, simplify=FALSE) {
   if(!is.list(inputList)) inputList <- as.list(inputList)

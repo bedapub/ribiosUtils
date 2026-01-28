@@ -11,6 +11,9 @@ invertList(inputList, simplify = FALSE)
 
 \item{simplify}{Logical, if yes and if no duplicated names, return a vector}
 }
+\value{
+A list with values from the input becoming names and vice versa. When \code{simplify=TRUE} and there are no duplicated names, a named character vector is returned instead.
+}
 \description{
 Invert the names and elements of a list
 }

@@ -1,6 +1,6 @@
 Package: ribiosUtils
 Type: Package
-Title: Utilities from and Interface to the Bioinfo-C (BIOS) Library
+Title: Utilities from and Interface to the 'Bioinfo-C' ('BIOS') Library
 Version: 1.7.7
 Date: 2026-01-22
 Authors@R:
@@ -17,7 +17,7 @@ Authors@R:
     person(given="Jean", family="Thierry-Mieg", role="cph"),
     person(given="Konrad", family="Rudolph", role="cph"),
     person(given="Richard", family="Durbin", role="cph"))
-Description: Provides interface to the Bioinfo-C (internal name: BIOS) library and utilities. 'ribiosUtils' is a Swiss-knife for computational biology in drug discovery, providing functions and utilities with minimal external dependency and maximal efficiency.
+Description: Provides interface to the 'Bioinfo-C' (internal name: 'BIOS') library and utilities. 'ribiosUtils' is a Swiss-knife for computational biology in drug discovery, providing functions and utilities with minimal external dependency and maximal efficiency.
 Depends:
     R (>= 3.4.0)
 Imports:

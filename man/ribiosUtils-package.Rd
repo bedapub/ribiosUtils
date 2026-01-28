@@ -3,9 +3,9 @@
 \docType{package}
 \name{ribiosUtils-package}
 \alias{ribiosUtils-package}
-\title{ribiosUtils: Utilities from and Interface to the Bioinfo-C (BIOS) Library}
+\title{ribiosUtils: Utilities from and Interface to the 'Bioinfo-C' ('BIOS') Library}
 \description{
-Provides interface to the Bioinfo-C (internal name: BIOS) library and utilities. 'ribiosUtils' is a Swiss-knife for computational biology in drug discovery, providing functions and utilities with minimal external dependency and maximal efficiency.
+Provides interface to the 'Bioinfo-C' (internal name: 'BIOS') library and utilities. 'ribiosUtils' is a Swiss-knife for computational biology in drug discovery, providing functions and utilities with minimal external dependency and maximal efficiency.
 }
 \seealso{
 Useful links:

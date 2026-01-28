@@ -30,12 +30,9 @@ library is not found, or its version under the specification of
 Only one package should be tested once.
 }
 \examples{
-
-if(interactive()) {
-  libordie(stats)
-  libordie("methods")
-  libordie(base, minVer="2.15-1")
-}
+libordie(stats)
+libordie("methods")
+libordie(base, minVer="2.15-1")
 
 }
 \seealso{

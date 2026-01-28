@@ -18,21 +18,18 @@
 #' @seealso The function calls \code{\link{qqmsg}} internally to kill the
 #' session
 #' @examples
+#' libordie(stats)
+#' libordie("methods")
+#' libordie(base, minVer="2.15-1")
 #' 
-#' if(interactive()) {
-#'   libordie(stats)
-#'   libordie("methods")
-#'   libordie(base, minVer="2.15-1")
-#' }
-#' 
-#' @importFrom utils installed.packages packageDescription
+#' @importFrom utils packageDescription
 #' @export libordie
 libordie <- function(package,
                      minVer,
                      missing.quit.status=1,
                      ver.quit.status=1) {
   package <- as.character(substitute(package))
-  if(!package %in% installed.packages()[,1])
+  if(!requireNamespace(package, quietly = TRUE))
     qqmsg("Error: This script requires ", package, " but not found",
           status=missing.quit.status)
   pkgVer <- package_version(packageDescription(package, fields="Version"))

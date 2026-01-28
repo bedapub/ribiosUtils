@@ -17,6 +17,9 @@ negative (in case of negative numbers), or zero. In case of a logical vector,
 minimal double value specified by the machine. Default is \code{TRUE}. If 
 set to \code{FALSE}, results will contain infinite values.}
 }
+\value{
+A numeric vector of transformed p-values using signed quantile normal transformation.
+}
 \description{
 Quantile function, also known as the inverse of cumulative distribution function of the normal 
 distribution, is used to map p-values to continuous scores raging on \eqn{R}. The signs of the 
