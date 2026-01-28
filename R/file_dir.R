@@ -142,40 +142,41 @@ assertFile <- function(...) {
 #' \code{FALSE}.
 #'
 #' @examples
-#' createTempDir <- function() {
-#'   tmpdir <- tempdir()
-#'   tmpfile1 <- tempfile(tmpdir=tmpdir)
-#'   tmpfile2 <- tempfile(tmpdir=tmpdir)
-#'
-#'   writeLines("First file", tmpfile1)
-#'   writeLines("Second file", tmpfile2)
-#'   return(tmpdir)
+#' ## Helper to create a test directory with files
+#' createTestDir <- function() {
+#'   testdir <- file.path(tempdir(), "overwriteDir_test")
+#'   dir.create(testdir, showWarnings = FALSE)
+#'   writeLines("First file", file.path(testdir, "file1.txt"))
+#'   writeLines("Second file", file.path(testdir, "file2.txt"))
+#'   return(testdir)
 #' }
-#' newTempFile <- function(tmpdir) {
-#'   writeLines("Third file", tempfile(tmpdir=tmpdir))
+#' addFileToDir <- function(testdir) {
+#'   writeLines("New file", tempfile(tmpdir=testdir))
 #' }
-#' \donttest{
-#'   tmpdir <- createTempDir()
-#'   overwriteDir(tmpdir, action="ask")
 #'
-#'   ## overwrite: delete the directory and create it a new
-#'   tmpdir <- createTempDir()
-#'   fileCount <- length(dir(tmpdir))
-#'   dir(tmpdir) ## two files should be there
-#'   overwriteDir(tmpdir, action="overwrite")
-#'   newTempFile(tmpdir)
-#'   dir(tmpdir) ## now there should be only one file
-#'   stopifnot(length(dir(tmpdir))==1)
+#' ## overwrite: delete the directory and create it anew
+#' testdir <- createTestDir()
+#' length(dir(testdir)) ## two files should be there
+#' overwriteDir(testdir, action="overwrite")
+#' addFileToDir(testdir)
+#' length(dir(testdir)) ## now there should be only one file
 #'
-#'   ## append: append files, and overwrite if a file of the same name is there
-#'   overwriteDir(tmpdir, action="append")
-#'   newTempFile(tmpdir)
-#'   dir(tmpdir) ## a new file is written
-#'   stopifnot(length(dir(tmpdir))==2)
+#' ## append: keep existing files, add new ones
+#' overwriteDir(testdir, action="append")
+#' addFileToDir(testdir)
+#' length(dir(testdir)) ## now two files
 #'
-#'   ## no: no action, and returns FALSE
-#'   noRes <- overwriteDir(tmpdir, action="no")
-#'   stopifnot(!noRes)
+#' ## no: no action, returns FALSE
+#' noRes <- overwriteDir(testdir, action="no")
+#' noRes
+#'
+#' ## cleanup
+#' unlink(testdir, recursive = TRUE)
+#'
+#' \dontrun{
+#'   ## ask: prompts user for action (interactive only)
+#'   testdir <- createTestDir()
+#'   overwriteDir(testdir, action="ask")
 #' }
 #'
 #' @export
