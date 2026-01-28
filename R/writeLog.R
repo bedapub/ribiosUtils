@@ -41,7 +41,7 @@ flushLog <- function() {
       flush(loggers[[i]])
 }
 
-#' Close connections to all loggers 
+#' Close connections to all loggers
 #' This function closes all open connections set up by loggers
 #' It is automatically run at the end of the R session (setup by \code{\link{registerLog}})
 #'
@@ -51,12 +51,14 @@ flushLog <- function() {
 #' @export
 closeLoggerConnections <- function() {
   loggers <- getLoggers();
-  if(is.null(loggers)) return(NULL);
+  if(is.null(loggers)) return(invisible(NULL));
 
   for(i in seq(along=loggers)) {
     con <- loggers[[i]]
-    if(is(con, "connection") & !is(con, "terminal"))
-      close(con)
+    tryCatch({
+      if(is(con, "connection") && !is(con, "terminal") && isOpen(con))
+        close(con)
+    }, error = function(e) NULL)
   }
   return(invisible(NULL))
 }
@@ -113,7 +115,8 @@ closeLoggerConnections <- function() {
 #' @seealso \code{doLog} writes messages iteratively to each connection
 #' registered by \code{registerLog}.
 #' @examples
-#' \donttest{
+#' ## the following code section is not run to prevent issues with pkgdown
+#' \dontrun{
 #'   logfile1 <- tempfile()
 #'   logfile2 <- tempfile()
 #'   logcon3 <- stdout()
@@ -214,7 +217,8 @@ registerLog <- function(..., append=FALSE) {
 #' @seealso \code{registerLog} to register more than one loggers so that
 #' \code{doLog} can write to them sequentially.
 #' @examples
-#' \donttest{
+#' ## the following code section is not run to prevent issues with pkgdown
+#' \dontrun{
 #'   writeLog("This is the start of a log")
 #'   writeLog("Message 1", level=1)
 #'   writeLog("Message 1.1", level=2)
