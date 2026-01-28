@@ -19,7 +19,7 @@ need to run registerLog first."><!-- mathjax --><script src="https://cdnjs.cloud
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ribiosUtils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.8</span>
       </span>
     </div>
 
@@ -43,7 +43,7 @@ need to run registerLog first."><!-- mathjax --><script src="https://cdnjs.cloud
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Write text as log to a connection</h1>
-    <small class="dont-index">Source: <a href="https://github.com/bedapub/ribiosUtils/blob/master/R/writeLog.R" class="external-link"><code>R/writeLog.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/bedapub/ribiosUtils/blob/devel/R/writeLog.R" class="external-link"><code>R/writeLog.R</code></a></small>
     <div class="hidden name"><code>writeLog.Rd</code></div>
     </div>
 
@@ -103,24 +103,36 @@ logging.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is the start of a log"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26-01-28 09:27:01] This is the start of a log</span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 1"</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26-01-28 09:27:01]  Message 1</span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 1.1"</span>, level<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26-01-28 09:27:01]   Message 1.1</span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 1.2"</span>, level<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26-01-28 09:27:01]   Message 1.2</span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 2"</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26-01-28 09:27:01]  Message 2</span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 3"</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26-01-28 09:27:01]  Message 3</span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Message 3 (special)"</span>, level<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26-01-28 09:27:01]     Message 3 (special)</span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"End of the log"</span><span class="op">)</span>;</span></span>
-<span class="r-in"><span>  </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26-01-28 09:27:01] End of the log</span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="co">## log with format</span></span></span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is Message %d"</span>, <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26-01-28 09:27:01] This is Message 1</span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"Square of 2 is %2.2f"</span>, <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26-01-28 09:27:01] Square of 2 is 1.41</span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="co">## NA is handled automatically</span></span></span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is a not available value: %s"</span>, <span class="cn">NA</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26-01-28 09:27:01]  This is a not available value: NA</span>
 <span class="r-in"><span>  <span class="fu">writeLog</span><span class="op">(</span><span class="st">"This is a NULL value: %s"</span>, <span class="cn">NULL</span>, level<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26-01-28 09:27:01]  This is a NULL value: NULL</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
