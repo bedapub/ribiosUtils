@@ -74,3 +74,7 @@ GitHub Actions workflow (`.github/workflows/standard-ci-workflow.yml`) runs R CM
 - Windows (R release)
 - macOS (R release & devel)
 - Ubuntu (R release)
+
+## Additional checks for CRAN submission
+
+When submitted to CRAN, R packages are checked with the guidelines defined in [CRAN Cookbook](https://contributor.r-project.org/cran-cookbook/). Please check the code with the guidelines and make corresponding changes.
