@@ -20,7 +20,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/bedapub/ribiosUtils/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/bedapub/ribiosUtils/blob/devel/DESCRIPTION)
 
 Zhang J, Broger C (2026). *ribiosUtils: Utilities from and Interface to
 the 'Bioinfo-C' ('BIOS') Library*. R package version 1.7.8,
