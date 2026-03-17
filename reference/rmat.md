@@ -64,5 +64,5 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 tmp1 <- tempfile()
 tmp2 <- tempfile()
 rmat(tmp1, tmp2, minutes=1)
-#> [1] "echo rm -f /var/folders/t5/f77_gwnj6p95qxy9py3fckx00000gn/T//Rtmp9ttXwa/file353b146239b5 /var/folders/t5/f77_gwnj6p95qxy9py3fckx00000gn/T//Rtmp9ttXwa/file353b3cbaa487 | at now + 1 minutes"
+#> [1] "echo rm -f /var/folders/t5/f77_gwnj6p95qxy9py3fckx00000gn/T//Rtmp3v3NN8/file167a3ab2896b /var/folders/t5/f77_gwnj6p95qxy9py3fckx00000gn/T//Rtmp3v3NN8/file167a1f5bede8 | at now + 1 minutes"
 ```
