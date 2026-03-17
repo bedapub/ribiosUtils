@@ -69,6 +69,9 @@
   : Create a directory if it does not exist, and then make sure the
   creation was successful.
 
+- [`createRmdTemplate()`](https://bedapub.github.io/ribiosUtils/reference/createRmdTemplate.md)
+  : Copy the skeleton RMarkdown file to a specified location
+
 - [`cumJaccardIndex()`](https://bedapub.github.io/ribiosUtils/reference/cumJaccardIndex.md)
   [`cumJaccardDistance()`](https://bedapub.github.io/ribiosUtils/reference/cumJaccardIndex.md)
   : Cumulative Jaccard Index
