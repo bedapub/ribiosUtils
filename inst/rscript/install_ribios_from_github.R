@@ -17,8 +17,6 @@ if(require("devtools") && require("BiocManager")) {
   install_github("bedapub/ribiosExpression", upgrade="never")
   install_github("bedapub/ribiosGSEA", upgrade="never")
   install_github("bedapub/ribiosNGS", upgrade="never")
-  install_github("bedapub/ribiosROGER", upgrade="never")
-  install_github("bedapub/ribiosBioMart", upgrade="never")
 } else {
   stop("Please install 'devtools' and 'BiocManager' first!")
 }
