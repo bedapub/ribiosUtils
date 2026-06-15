@@ -44,7 +44,7 @@ createRmdTemplate("my_analysis.Rmd")
 
 ## copy to a temporary directory
 dest <- createRmdTemplate(file.path(tempdir(), "test_report.Rmd"))
-#> Skeleton file copied to '/var/folders/t5/f77_gwnj6p95qxy9py3fckx00000gn/T//Rtmp3v3NN8/test_report.Rmd'
+#> Skeleton file copied to '/var/folders/8d/778wjbv96mq1760tv6gk374m0000gn/T//RtmpmU2oni/test_report.Rmd'
 file.exists(dest)
 #> [1] TRUE
 unlink(dest)

@@ -41,6 +41,7 @@ where `NA` is kept as it is.
 ## Examples
 
 ``` r
+
 inputStrs <- c("abc", "abcd", "abcde", "abcdefg", "NA", NA) 
 outputStrs <- fixWidthStr(inputStrs, nchar=4)
 stopifnot(all(nchar(outputStrs)==4))

@@ -15,6 +15,7 @@ System user name
 ## Examples
 
 ``` r
+
 whoami()
 #> [1] "runner"
 ```

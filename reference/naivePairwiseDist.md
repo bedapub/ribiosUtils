@@ -31,6 +31,7 @@ methods.
 ## Examples
 
 ``` r
+
 myList <- list(first=LETTERS[3:5], second=LETTERS[1:3], third=LETTERS[1:5], fourth=LETTERS[6:10])
 naivePairwiseDist(myList, fun=jaccardIndex)
 #>        first second third fourth

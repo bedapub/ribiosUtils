@@ -69,6 +69,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 testNum <- rnorm(100)
 (testFac <- cutInterval(testNum, step=1, labelOption="cut.default"))
 #>   [1] (1,2]   (0,1]   (1,2]   (-1,0]  (-1,0]  (0,1]   (-1,0]  (0,1]   (-2,-1]

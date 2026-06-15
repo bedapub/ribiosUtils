@@ -47,6 +47,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 myMat <- matrix(rnorm(10000), nrow=10L)
 head(myMat)
 #>            [,1]       [,2]       [,3]        [,4]       [,5]       [,6]

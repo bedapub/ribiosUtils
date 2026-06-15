@@ -53,6 +53,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 year1 <- c("HSV", "FCB", "BVB", "S04", "FCN")
 year2 <- c("HSV", "FCK", "S04")
 compTwoVecs(year1, year2)

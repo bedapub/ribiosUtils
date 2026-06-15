@@ -53,6 +53,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 sample.df <- data.frame(teams=c("HSV", "BVB", "FCB", "FCN"),pts=c(18,17,17,9), number=c(7,7,6,6))
 sortByCol(sample.df, 1L)
 #>   teams pts number

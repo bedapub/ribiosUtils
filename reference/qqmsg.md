@@ -47,6 +47,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 ## the example should not run because it will lead the R session to quit
 if (FALSE) { # \dontrun{
   qqmsg()

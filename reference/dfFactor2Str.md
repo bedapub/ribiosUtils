@@ -21,6 +21,7 @@ A data.frame with factor columns coereced into character strings
 ## Examples
 
 ``` r
+
 exampleDf <- data.frame(Teams=c("HSV", "FCB", "FCB", "HSV"), 
              Player=c("Mueller", "Mueller", "Robben", "Holtby"), 
              scores=c(3.5, 1.5, 1.5, 1.0), stringsAsFactors=TRUE)

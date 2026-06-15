@@ -33,6 +33,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 test.vec1 <- c("HSV", "FCB", "BVB", "HSV", "BVB")
 uniqueLength(test.vec1)
 #> [1] 3

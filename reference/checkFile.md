@@ -39,6 +39,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 myDesc <- system.file("DESCRIPTION", package="ribiosUtils")
 myNEWS <- system.file("NEWS", package="ribiosUtils")
 checkFile(myDesc, myNEWS)

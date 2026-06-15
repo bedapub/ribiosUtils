@@ -30,6 +30,7 @@ element.
 ## Examples
 
 ``` r
+
 set.seed(1887)
 testMatrix1 <- matrix(rbinom(120, 1, 0.2), nrow=15)
 columnOverlapCoefficient(testMatrix1)

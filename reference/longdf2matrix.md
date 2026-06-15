@@ -55,6 +55,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 test.df <- data.frame(H=c("HSV", "BVB", "HSV", "BVB"),
 A=c("FCB", "S04", "S04", "FCB"),
 score=c(3, 1, 1, 0))

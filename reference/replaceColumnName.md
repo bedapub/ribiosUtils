@@ -33,6 +33,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 clubs <- data.frame(Points=c(21,23,28,24), Name=c("BVB", "FCB", "HSV",
 "FCK"), games=c(12,11,11,12))
 replaceColumnName(clubs, c("Points", "games"), c("Punkte", "Spiele"))

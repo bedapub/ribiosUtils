@@ -56,6 +56,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 set1 <- "HSV"
 set2 <- set3 <- set4 <- c("HSV", "FCB")
 

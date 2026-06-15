@@ -34,6 +34,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 ## the example should not run because it will reload the package
 if (FALSE) { # \dontrun{
   reload(ribiosUtils)

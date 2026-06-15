@@ -50,6 +50,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 Gv <- 5L
 verbose("Slightly verbosing", global=Gv, this=1L)
 #> Slightly verbosing

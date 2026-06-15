@@ -31,5 +31,6 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 dateIntern <- system("date")
 ```

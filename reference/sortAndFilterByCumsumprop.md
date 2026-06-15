@@ -31,6 +31,7 @@ largest items that dominate the sum of the vector
 ## Examples
 
 ``` r
+
 x <- c("A"=1,"B"=2,"C"=3,"D"=4,"E"=400,"F"=500)
 sortAndFilterByCumsumprop(x, thr=0.99) ## F and E should be returned
 #>    F    E    D rest 

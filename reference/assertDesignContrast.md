@@ -35,6 +35,7 @@ dimensionalities
 ## Examples
 
 ``` r
+
 nsample <- 4
 design <- matrix(1:20, ncol=5)
 contrast <- matrix(c(-1,1,0,0,0, 0,1,0,-1,0), nrow=5)

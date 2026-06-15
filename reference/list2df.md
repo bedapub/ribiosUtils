@@ -30,6 +30,7 @@ A `data.frame`
 ## Examples
 
 ``` r
+
 myList <- list(HSV=c("Mueller", "Papadopoulos", "Wood"), FCB=c("Lewandowski", "Robben", "Hummels"),
                BVB=c("Reus", "Goetze", "Kagawa"))
 list2df(myList, col.names=c("Club", "Player"))

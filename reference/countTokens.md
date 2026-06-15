@@ -40,6 +40,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 myStrings <- c("HSV\t1887\tFavorite", "FCB\t1900", "FCK\t1948")
 countTokens(myStrings)
 #> [1] 3 2 2

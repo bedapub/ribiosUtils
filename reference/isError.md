@@ -25,6 +25,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 if(exists("nonExistObj")) rm(nonExistsObj)
 myObj <- try(nonExistObj/5, silent=TRUE)
 isError(myObj)

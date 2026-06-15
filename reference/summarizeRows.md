@@ -49,6 +49,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 my.matrix <- matrix(1:25, nrow=5)
 print(my.matrix)
 #>      [,1] [,2] [,3] [,4] [,5]

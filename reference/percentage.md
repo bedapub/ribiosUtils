@@ -26,6 +26,7 @@ Character string
 ## Examples
 
 ``` r
+
 percentage(c(0,0.1,0.25,1))
 #> [1] "0.0%"   "10.0%"  "25.0%"  "100.0%"
 percentage(c(0,0.1,0.25,1), fmt="1.4")

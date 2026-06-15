@@ -46,6 +46,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 myVec <- c(2,4,3,-1,9,5,3,4)
 bound(myVec, 0, 8)
 #> [1] 2 4 3 0 8 5 3 4

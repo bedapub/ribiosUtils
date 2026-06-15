@@ -56,6 +56,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 user.input <- c("hsv", "BvB")
 user.input2 <- c("HS", "BV")
 internal.options <- c("HSV", "FCB", "BVB", "FCN")

@@ -36,6 +36,7 @@ was written by Detlef Wolf.
 ## Examples
 
 ``` r
+
 mycode <- " \\001\\000\\141\\314\\033\\033\\033\\033\\033\\142\\303\\056\\166\\311\\037\\042"
 pwdecode(mycode)
 #> [1] "HSV"

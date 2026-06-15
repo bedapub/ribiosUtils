@@ -37,6 +37,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 tempdir <- tempdir()
 createDir(tempdir)
 ```

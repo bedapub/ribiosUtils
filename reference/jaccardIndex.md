@@ -29,6 +29,7 @@ The Jaccard Index, a number between 0 and 1
 ## Examples
 
 ``` r
+
 myX <- 1:6
 myY <- 4:9
 jaccardIndex(myX, myY)

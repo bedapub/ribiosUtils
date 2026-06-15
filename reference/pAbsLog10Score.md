@@ -42,6 +42,7 @@ transformation.
 ## Examples
 
 ``` r
+
 testPvals <- c(0.001, 0.01, 0.05, 0.1, 0.5, 1)
 pAbsLog10Score(testPvals)
 #> [1] 3.00000 2.00000 1.30103 1.00000 0.30103 0.00000

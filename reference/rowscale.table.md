@@ -38,6 +38,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 letterDf <- data.frame(from=c("A", "A", "B", "C"), to=c("A", "B", "C", "A"))
 tbl <- table(letterDf$from, letterDf$to)
 tblRowscale <- rowscale(tbl)

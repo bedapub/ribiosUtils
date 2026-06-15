@@ -45,6 +45,7 @@ In case only one class is deemed as infrequent, its label is unchanged.
 ## Examples
 
 ``` r
+
 set.seed(1887)
 myVals <- sample(c(rep("A", 4), rep("B", 3), rep("C", 2), "D"))
 ## in the example below, since A, B, C make up of 90% of the total,

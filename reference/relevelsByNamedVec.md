@@ -47,6 +47,7 @@ order of the `ref` vector matters: it is the levels of the new factor.
 ## Examples
 
 ``` r
+
 oldFactor <- factor(c("A", "B", "A", "C", "B"), levels=LETTERS[1:3])
 factorDict <- c("A"="a", "B"="b", "C"="c")
 newFactor <- relevelsByNamedVec(oldFactor, factorDict)

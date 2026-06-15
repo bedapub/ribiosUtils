@@ -41,6 +41,7 @@ A vector of factor
 ## Examples
 
 ``` r
+
 oldFactor <- factor(c("A", "B", "A", "C", "B"), levels=LETTERS[1:3])
 refLevels <- c("B", "C", "A")
 newFactor <- relevelsByNotNamedVec(oldFactor, refLevels)

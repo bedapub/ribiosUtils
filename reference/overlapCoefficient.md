@@ -38,6 +38,7 @@ The overlap coefficient
 ## Examples
 
 ``` r
+
 myX <- 1:6
 myY <- 4:9
 overlapCoefficient(myX, myY)

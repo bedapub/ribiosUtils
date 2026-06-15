@@ -25,6 +25,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 testDf <- data.frame(a=c("2.34", "4.55"), b=c("7.33", "9.10"))
 asNumMatrix(testDf)
 #>      a    b

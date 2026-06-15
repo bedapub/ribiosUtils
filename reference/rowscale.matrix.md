@@ -39,6 +39,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 mat <- matrix(rnorm(20), nrow=4)
 rs.mat <- rowscale(mat)
 

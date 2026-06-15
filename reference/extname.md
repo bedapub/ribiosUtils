@@ -47,6 +47,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 extname("mybook.pdf")
 #> [1] "pdf"
 extname("sequence.in.fasta")

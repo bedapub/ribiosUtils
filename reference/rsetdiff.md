@@ -29,6 +29,7 @@ Jitao David Zhang
 ## Examples
 
 ``` r
+
 testVec1 <- LETTERS[3:6]
 testVec2 <- LETTERS[5:7]
 rsetdiff(testVec1, testVec2)

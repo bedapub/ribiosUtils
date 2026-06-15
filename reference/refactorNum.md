@@ -32,6 +32,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 (nums <- factor(c("2","4","24","1","2","125","1","2","125")))
 #> [1] 2   4   24  1   2   125 1   2   125
 #> Levels: 1 125 2 24 4

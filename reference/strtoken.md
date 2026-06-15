@@ -53,6 +53,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 myStr <- c("HSV\t1887", "FCB\t1900", "FCK\t1948")
 strsplit(myStr, "\t")
 #> [[1]]

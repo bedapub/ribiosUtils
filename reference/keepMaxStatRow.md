@@ -74,6 +74,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 myFun1 <- function(x) mean(x, na.rm=TRUE)
 myFun2 <- function(x) sd(x, na.rm=TRUE)
 mat1 <- matrix(c(1,3,4,-5,

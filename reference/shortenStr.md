@@ -32,6 +32,7 @@ Strings with more characters than `nchar` will be shortened.
 ## Examples
 
 ``` r
+
 inputStrs <- c("abc", "abcd", "abcde", NA)
 shortenStr(inputStrs, nchar=4)
 #> [1] "abc"     "abcd"    "abcd..." NA       

@@ -25,6 +25,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 ## do not run unless the script mode is needed
 # \donttest{
   scriptInit()

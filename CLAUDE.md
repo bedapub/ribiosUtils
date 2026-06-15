@@ -23,6 +23,7 @@ make clean         # Clean build artifacts (*.o, *.so, *.dll in src/)
 Alternative R commands:
 
 ``` r
+
 devtools::load_all()     # Load package for development
 devtools::test()         # Run testthat tests
 devtools::check()        # Full R CMD check

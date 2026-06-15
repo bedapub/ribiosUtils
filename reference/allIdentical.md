@@ -31,6 +31,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 test1 <- test2 <- test3 <- LETTERS[1:3]
 allIdentical(test1, test2, test3)
 #> [1] TRUE

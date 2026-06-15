@@ -31,6 +31,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 wsqrt <- function(x) {warning("Beep");message("Calculating square");return(x^2)}
 silencio(wsqrt(3))
 #> [1] 9

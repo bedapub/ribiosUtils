@@ -48,6 +48,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 testVec1 <- LETTERS[1:10]
 headtail(testVec1)
 #> [1] "A, B, ..., J"

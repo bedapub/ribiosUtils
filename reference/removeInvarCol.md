@@ -37,6 +37,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
  testDf <- data.frame(a=1:4, b=7, c=LETTERS[1:4])
 isVarCol(testDf)
 #>     a     b     c 

@@ -33,6 +33,7 @@ If all required column names are present, their indices are returned
 ## Examples
 
 ``` r
+
 myTestDf <- data.frame(HBV=1:3, VFB=0:2, BVB=4:6, FCB=2:4)
 myFavTeams <- c("HBV", "BVB")
 assertColumnName(myTestDf, myFavTeams)

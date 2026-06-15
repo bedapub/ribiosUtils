@@ -26,6 +26,7 @@ ncol(matrix)
 ## Examples
 
 ``` r
+
 nsample <- 4
 design <- matrix(1:20, ncol=5)
 assertDesign(nsample, design)

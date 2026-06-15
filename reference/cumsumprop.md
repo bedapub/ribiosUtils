@@ -21,6 +21,7 @@ the proportion cumulative sum over sum
 ## Examples
 
 ``` r
+
 x <- 1:4
 cumsumprop(x) ## 0.1, 0.3, 0.6, 1
 #> [1] 0.1 0.3 0.6 1.0

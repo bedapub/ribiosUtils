@@ -61,6 +61,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 test.mat <- matrix(1:12, ncol=4, nrow=3, dimnames=list(LETTERS[1:3],
 LETTERS[1:4]))
 print(test.mat)

@@ -31,9 +31,9 @@ print(bedaInfo())
 #> A Pharmaceutical Sciences (PS) Bioinformatics and Exploratory Data Analysis (BEDA) project
 #> 
 #> [pstore path]
-#>    /private/var/folders/t5/f77_gwnj6p95qxy9py3fckx00000gn/T/Rtmp3v3NN8/file167a674c4bea/reference 
+#>    /private/var/folders/8d/778wjbv96mq1760tv6gk374m0000gn/T/RtmpmU2oni/file11e57061e323/reference 
 #> [URL]
-#>    /private/var/folders/t5/f77_gwnj6p95qxy9py3fckx00000gn/T/Rtmp3v3NN8/file167a674c4bea/reference 
+#>    /private/var/folders/8d/778wjbv96mq1760tv6gk374m0000gn/T/RtmpmU2oni/file11e57061e323/reference 
 #> [git]
 #>    https://github.com/bedapub/ribiosUtils 
 #> [User]R

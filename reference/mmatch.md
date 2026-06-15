@@ -54,6 +54,7 @@ from the program written by Roland Schmucki.
 ## Examples
 
 ``` r
+
 vec1 <- c("HSV", "BVB", "FCB", "HSV", "BRE", "HSV", NA, "BVB")
 vec2 <- c("FCB", "FCN", "FCB", "HSV", "BVB", "HSV", "FCK", NA, "BRE", "BRE")
 

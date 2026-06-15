@@ -47,6 +47,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 dir1 <- tempdir()
 dir2 <- tempdir()
 

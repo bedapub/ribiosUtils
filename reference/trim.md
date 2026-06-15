@@ -39,6 +39,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 myStrings <- c("This is a fine day\n",
                " Hallo Professor!",
                "  NUR DER HSV  ")

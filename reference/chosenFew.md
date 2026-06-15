@@ -42,6 +42,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 lvec1 <- 1:100
 chosenFew(lvec1)
 #> [1] "1,2,3,...,100"

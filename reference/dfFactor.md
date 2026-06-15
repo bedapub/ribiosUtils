@@ -45,6 +45,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 df <- data.frame(gender=c("M", "M", "F", "F", "M"),
 age=c(12,12,14,12,14), score=c("A", "B-", "C", "B-", "A"))
 dfFactor(df, "gender")

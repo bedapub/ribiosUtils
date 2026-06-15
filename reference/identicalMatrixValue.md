@@ -31,6 +31,7 @@ Logical
 ## Examples
 
 ``` r
+
 set.seed(1887); x <- matrix(rnorm(1000), nrow=10)
 set.seed(1887); y <- matrix(rnorm(1000), nrow=10)
 set.seed(1882); z <- matrix(rnorm(1000), nrow=10)

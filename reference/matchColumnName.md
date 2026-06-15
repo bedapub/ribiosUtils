@@ -30,6 +30,7 @@ A vector of integers as indices
 ## Examples
 
 ``` r
+
 myTestDf <- data.frame(HBV=1:3, VFB=0:2, BVB=4:6, FCB=2:4)
 myFavTeams <- c("HBV", "BVB")
 matchColumnName(myTestDf, myFavTeams)

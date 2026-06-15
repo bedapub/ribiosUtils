@@ -104,6 +104,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 df <- data.frame(Team=c("HSV", "BVB", "HSC", "FCB", "HSV"),
                  Pkt=c(25,23,12,18,21),
                  row.names=c("C", "B", "A", "F", "E"))

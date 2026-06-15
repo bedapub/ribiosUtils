@@ -50,6 +50,7 @@ and
 ## Examples
 
 ``` r
+
 oldFactor <- factor(c("A", "B", "A", "C", "B"), levels=LETTERS[1:3])
 refLevels <- c("B", "C", "A")
 refDict <- c("A"="a", "B"="b", "C"="c")

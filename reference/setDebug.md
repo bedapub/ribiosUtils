@@ -38,6 +38,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 unsetDebug()
 print(isDebugging())
 #> [1] FALSE

@@ -21,6 +21,7 @@ A unique vector without NA
 ## Examples
 
 ``` r
+
 testVec <- c(3,4,5,NA,3,5)
 uniqueNonNA(testVec)
 #> [1] 3 4 5

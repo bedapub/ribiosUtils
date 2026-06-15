@@ -43,6 +43,7 @@ monotic.
 ## Examples
 
 ``` r
+
 myList <- list(first=LETTERS[1:5], second=LETTERS[6:10], third=LETTERS[8:12], fourth=LETTERS[1:12])
 cumJaccardIndex(myList)
 #> [1] 0.00 0.00 0.25 1.00

@@ -33,6 +33,7 @@ Jitao David Zhang \<jitao_david.zhang@roche.com\>
 ## Examples
 
 ``` r
+
 testStrings <- c("A", "C", "B", "B", "C")
 (testFac <- factor(testStrings))
 #> [1] A C B B C
